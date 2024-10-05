@@ -379,6 +379,7 @@
     <Compile Include="Cards\Companion\UnboundFlame.cs" />
     <Compile Include="Cards\Companion\FrozenFlame.cs" />
     <Compile Include="Cards\Items\AbstractItem.cs" />
+    <Compile Include="Cards\Items\Missile.cs" />
     <Compile Include="Helpers\CardUpgradeHelper.cs" />
     <Compile Include="Helpers\KeywordHelper.cs" />
     <Compile Include="Helpers\Pools.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusEffects\AbstractApplyXStatus.cs" />
     <Compile Include="StatusEffects\AbstractStatus.cs" />
+    <Compile Include="StatusEffects\TriggerAgainstTargetWhenMissileAttacks.cs" />
     <Compile Include="StatusEffects\WhenDestroyedSummonUnboundFlame.cs" />
     <Compile Include="StatusEffects\OnCardPlayedApplyOverloadToAlliesInRow.cs" />
     <Compile Include="StatusEffects\OnCardPlayedGainOverload.cs" />

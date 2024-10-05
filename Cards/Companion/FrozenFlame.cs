@@ -12,6 +12,7 @@ namespace AbsentAvalanche.Cards.Companion
             card.startWithEffects = [
                 Absent.SStack(OnCardPlayedGainOverload.Name, 1),
                 Absent.SStack("Block", 4),
+                Absent.SStack(WhenDestroyedSummonUnboundFlame.Name),
             ];
         })
     {

@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.Helpers;
 using AbsentAvalanche.Keywords;
+using AbsentAvalanche.StatusEffects;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using System;
@@ -47,6 +48,11 @@ namespace AbsentAvalanche
                 /**
                  * Status Effects
                  */
+                new OnCardPlayedGainOverload().Builder(),
+                new WhenDestroyedSummonUnboundFlame().Builder(),
+                new InstantSummonUnboundFlame().Builder(),
+                new SummonUnboundFlame().Builder(),
+                new OnCardPlayedApplyOverloadToAlliesInRow().Builder(),
 
                 /**
                  * Keywords
@@ -59,11 +65,13 @@ namespace AbsentAvalanche
                 /**
                  * Cards (Companions)
                  */
+                new FrozenFlame().Builder(),
+                new UnboundFlame().Builder(),
 
                 /**
                  * Cards (Clunker)
                  */
-                
+
                 /**
                  * Cards (Items)
                  */
@@ -126,9 +134,9 @@ namespace AbsentAvalanche
             return data;
         }
 
-        public static CardData.StatusEffectStacks SStack(string name, int amount = 0) => new(Instance.Get<StatusEffectData>(name), amount);
+        public static CardData.StatusEffectStacks SStack(string name, int amount = 1) => new(Instance.Get<StatusEffectData>(name), amount);
 
-        public static CardData.TraitStacks TStack(string name, int amount = 0) => new(Instance.Get<TraitData>(name), amount);
+        public static CardData.TraitStacks TStack(string name, int amount = 1) => new(Instance.Get<TraitData>(name), amount);
 
         public static StatusEffectDataBuilder StatusCopy(string oldName, string newName)
         {

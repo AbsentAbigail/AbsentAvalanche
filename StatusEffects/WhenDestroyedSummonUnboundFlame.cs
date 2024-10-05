@@ -4,7 +4,7 @@ using Deadpan.Enums.Engine.Components.Modding;
 
 namespace AbsentAvalanche.StatusEffects
 {
-    internal class WhenDestroyedSummonUnboundFlame() : AbstractStatus<StatusEffectInstantSummon>(Name)
+    internal class WhenDestroyedSummonUnboundFlame() : AbstractStatus<StatusEffectData>(Name)
     {
         public const string Name = "When Destroyed Summon Unbound Flame";
 

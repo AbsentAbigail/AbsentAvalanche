@@ -11,7 +11,7 @@ namespace AbsentAvalanche.Cards.Companion
         {
             card.attackEffects = [Absent.SStack("Overload", 3)];
             card.startWithEffects = [
-                Absent.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 1),
+                Absent.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 3),
             ];
             card.traits = [Absent.TStack("Barrage")];
         })
