@@ -1,5 +1,5 @@
-﻿using AbsentAvalanche.Helpers;
-using AbsentAvalanche.StatusEffects;
+﻿using AbsentAvalanche.StatusEffects;
+using AbsentUtilities;
 
 namespace AbsentAvalanche.Cards.Companion
 {
@@ -10,9 +10,9 @@ namespace AbsentAvalanche.Cards.Companion
         card =>
         {
             card.startWithEffects = [
-                Absent.SStack(OnCardPlayedGainOverload.Name, 1),
-                Absent.SStack("Block", 4),
-                Absent.SStack(WhenDestroyedSummonUnboundFlame.Name),
+                AbsentUtils.SStack(OnCardPlayedGainOverload.Name, 1),
+                AbsentUtils.SStack("Block", 4),
+                AbsentUtils.SStack(WhenDestroyedSummonUnboundFlame.Name),
             ];
         })
     {

@@ -1,20 +1,19 @@
-﻿using Deadpan.Enums.Engine.Components.Modding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AbsentAvalanche.Cards.Items;
+using AbsentAvalanche.StatusEffects.Implementations;
+using AbsentUtilities;
 
-namespace AbsentAvalanche.StatusEffects
-{
-    internal class TriggerAgainstTargetWhenMissileAttacks() : AbstractStatus<StatusEffectApplyXWhenAlliesAttack>(
-        Name, "Trigger against the target when a {0} is played",
-        true,
-        subscribe: status =>
-        {
-            
-        })
+namespace AbsentAvalanche.StatusEffects;
+
+internal class TriggerAgainstTargetWhenMissileAttacks() : AbstractStatus<StatusEffectTriggerWhenCardIsPlayed>(
+    Name, "Trigger against the target when a {0} is played",
+    true,
+    subscribe: status =>
     {
-        public const string Name = "Trigger Against Target When Missile Attacks";
-    }
+        status.isReaction = true;
+        status.descColorHex = "F99C61";
+        status.whenCardsPlayed = [AbsentUtils.GetCard(Missile.Name)];
+        status.textInsert = CardHelper.CardTag(Missile.Name);
+    })
+{
+    public const string Name = "Trigger Against Target When Missile Attacks";
 }

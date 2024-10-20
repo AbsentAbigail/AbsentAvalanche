@@ -1,19 +1,20 @@
 ﻿using AbsentAvalanche.Cards.Companion;
+using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
 
-namespace AbsentAvalanche.StatusEffects
+namespace AbsentAvalanche.StatusEffects;
+
+internal class SummonUnboundFlame() : AbstractStatus<StatusEffectSummon>(Name)
 {
-    internal class SummonUnboundFlame() : AbstractStatus<StatusEffectSummon>(Name)
+    public const string Name = "Summon Unbound Flame";
+
+    public override StatusEffectDataBuilder Builder()
     {
-        public const string Name = "Summon Unbound Flame";
-        public override StatusEffectDataBuilder Builder()
-        {
-            return Absent.StatusCopy("Summon Dregg", Name)
-                .SubscribeToAfterAllBuildEvent(data =>
-                {
-                    var status = (StatusEffectSummon)data;
-                    status.summonCard = Absent.TryGet<CardData>(UnboundFlame.Name);
-                });
-        }
+        return AbsentUtils.StatusCopy("Summon Dregg", Name)
+            .SubscribeToAfterAllBuildEvent(data =>
+            {
+                var status = (StatusEffectSummon)data;
+                status.summonCard = AbsentUtils.GetCard(UnboundFlame.Name);
+            });
     }
 }

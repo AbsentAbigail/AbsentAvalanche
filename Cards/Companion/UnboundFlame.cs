@@ -1,21 +1,21 @@
-﻿using AbsentAvalanche.Helpers;
-using AbsentAvalanche.StatusEffects;
+﻿using AbsentAvalanche.StatusEffects;
+using AbsentUtilities;
 
-namespace AbsentAvalanche.Cards.Companion
-{
-    internal class UnboundFlame() : AbstractUnit(
-        Name, "Unbound Flame",
-        5, 0, 3,
-        Pools.None,
-        card =>
-        {
-            card.attackEffects = [Absent.SStack("Overload", 3)];
-            card.startWithEffects = [
-                Absent.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 3),
-            ];
-            card.traits = [Absent.TStack("Barrage")];
-        })
+namespace AbsentAvalanche.Cards.Companion;
+
+internal class UnboundFlame() : AbstractUnit(
+    Name, "Unbound Flame",
+    5, 0, 3,
+    Pools.None,
+    card =>
     {
-        public const string Name = "UnboundFlame";
-    }
+        card.attackEffects = [AbsentUtils.SStack("Overload", 3)];
+        card.startWithEffects =
+        [
+            AbsentUtils.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 3)
+        ];
+        card.traits = [AbsentUtils.TStack("Barrage")];
+    })
+{
+    public const string Name = "UnboundFlame";
 }

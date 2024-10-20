@@ -1,22 +1,20 @@
-﻿using AbsentAvalanche.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AbsentAvalanche.StatusEffects;
+using AbsentUtilities;
 
-namespace AbsentAvalanche.Cards.Items
-{
-    internal class Missile() : AbstractItem(
-        Name, "Missile",
-        1, true,
-        Pools.None,
-        subscribe: card =>
-        {
-            card.traits = [Absent.TStack("Consume")];
-        })
+namespace AbsentAvalanche.Cards.Items;
+
+internal class Missile() : AbstractItem(
+    Name, "Missile",
+    1, true,
+    Pools.None,
+    subscribe: card =>
     {
-        public const string Name = "Missile";
-    }
+        card.traits = [AbsentUtils.TStack("Consume")];
+        card.startWithEffects =
+        [
+            AbsentUtils.SStack(TriggerAgainstTargetWhenMissileAttacks.Name)
+        ];
+    })
+{
+    public const string Name = "Missile";
 }
