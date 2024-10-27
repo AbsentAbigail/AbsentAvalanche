@@ -9,7 +9,7 @@ public class WhenDestroyedDealDamageToRandomAlly() : AbstractApplyXStatus<Status
     subscribe: status =>
     {
         status.targetMustBeAlive = false;
-        
+
         status.doesDamage = true;
         status.dealDamage = true;
         status.countsAsHit = true;

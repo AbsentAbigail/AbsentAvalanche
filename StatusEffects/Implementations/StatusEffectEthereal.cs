@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
 
@@ -14,10 +13,10 @@ public class StatusEffectEthereal : StatusEffectData
     {
         if (!target.enabled)
             return false;
-        
+
         if (entity != target.owner.entity)
             return false;
-        
+
         return target.InHand();
     }
 
@@ -27,7 +26,7 @@ public class StatusEffectEthereal : StatusEffectData
         const int amount = 1;
         yield return CountDown(target, amount);
     }
-    
+
     public override IEnumerator RemoveStacks(int amount, bool removeTemporary)
     {
         count -= amount;
@@ -38,6 +37,7 @@ public class StatusEffectEthereal : StatusEffectData
             yield return Remove();
             yield return target.Kill();
         }
+
         target.PromptUpdate();
     }
 }

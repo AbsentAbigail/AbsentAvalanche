@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using WildfrostHopeMod.VFX;
+using Random = Dead.Random;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
 
@@ -15,10 +16,10 @@ public class StatusEffectCat : StatusEffectApplyX
     {
         if (hit.attacker != target)
             return false;
-        
+
         if (hit.nullified)
             return false;
-        
+
         return hit.target is not null;
     }
 
@@ -26,7 +27,8 @@ public class StatusEffectCat : StatusEffectApplyX
     {
         for (var cat = 0; cat < count; cat++)
         {
-            VFXHelper.VFX.TryPlayEffect("Scratch", hit.target.transform.position, target.transform.lossyScale, GIFLoader.PlayType.damageEffect);
+            VFXHelper.VFX.TryPlayEffect("Scratch", hit.target.transform.position, target.transform.lossyScale,
+                GIFLoader.PlayType.damageEffect);
             yield return Run([hit.target], 1);
             yield return new WaitForSeconds(0.1f);
         }

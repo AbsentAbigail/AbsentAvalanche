@@ -22,7 +22,8 @@ public class Cat() : AbstractStatus<StatusEffectCat>(
     {
         return base.Builder()
             .WithTextInsert("{a}")
-            .WithIcon_VFX("cat", "cat", Keywords.Ethereal.NameWithGuid,
+            .WithOffensive(true)
+            .WithIcon_VFX("cat", "catkeyword", Keywords.Cat.NameWithGuid,
                 VFXMod_StatusEffectHelpers.LayoutGroup.damage);
     }
 }

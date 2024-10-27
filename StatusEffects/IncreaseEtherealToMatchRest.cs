@@ -8,10 +8,7 @@ public class IncreaseEtherealToMatchRest() : AbstractApplyXStatus<StatusEffectRe
     canBoost: true,
     effectToApply: Ethereal.Name,
     applyToFlags: StatusEffectApplyX.ApplyToFlags.Self,
-    subscribe: status =>
-    {
-        status.applyEqualAmount = true;
-    }
+    subscribe: status => { status.applyEqualAmount = true; }
 )
 {
     public const string Name = "Increase Ethereal To Match Rest";

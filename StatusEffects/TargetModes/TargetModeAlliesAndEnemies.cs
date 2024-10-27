@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AbsentAvalanche.StatusEffects.TargetMode;
+namespace AbsentAvalanche.StatusEffects.TargetModes;
 
 internal class TargetModeAlliesAndEnemies : TargetModeAll
 {

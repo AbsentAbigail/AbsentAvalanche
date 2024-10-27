@@ -6,7 +6,6 @@ namespace AbsentAvalanche.StatusEffects;
 
 internal class TriggerAgainstTargetWhenMissileAttacks() : AbstractStatus<StatusEffectTriggerWhenCardIsPlayed>(
     Name, "Trigger against the target when a {0} is played",
-    true,
     subscribe: status =>
     {
         status.isReaction = true;

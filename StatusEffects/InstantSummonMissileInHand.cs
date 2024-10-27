@@ -11,6 +11,7 @@ internal class InstantSummonMissileInHand() : AbstractStatus<StatusEffectData>(N
     {
         return AbsentUtils.StatusCopy("Instant Summon Junk In Hand", Name)
             .SubscribeToAfterAllBuildEvent(data =>
-                ((StatusEffectInstantSummon)data).targetSummon = AbsentUtils.GetStatusOf<StatusEffectSummon>(SummonMissile.Name));
+                ((StatusEffectInstantSummon)data).targetSummon =
+                AbsentUtils.GetStatusOf<StatusEffectSummon>(SummonMissile.Name));
     }
 }

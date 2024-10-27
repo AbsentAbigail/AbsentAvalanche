@@ -1,4 +1,4 @@
-﻿using AbsentAvalanche.StatusEffects.TargetMode;
+﻿using AbsentAvalanche.StatusEffects.TargetModes;
 using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects;

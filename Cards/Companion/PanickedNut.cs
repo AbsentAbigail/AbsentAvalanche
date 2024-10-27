@@ -4,7 +4,7 @@ using Deadpan.Enums.Engine.Components.Modding;
 
 namespace AbsentAvalanche.Cards.Companion;
 
-internal class PanickedNut() : AbstractUnit(
+internal class PanickedNut() : AbstractCompanion(
     Name, "Panicked Nut",
     3, 1, 3,
     Pools.Snowdweller,
@@ -13,8 +13,8 @@ internal class PanickedNut() : AbstractUnit(
         card.startWithEffects =
         [
             AbsentUtils.SStack(WhenDeployedGainShellForEachEnemy.Name, 3),
-            AbsentUtils.SStack(WhenDeployedGainSnowForEachEnemy.Name, 1),
-            AbsentUtils.SStack("Teeth", 1)
+            AbsentUtils.SStack(WhenDeployedGainSnowForEachEnemy.Name),
+            AbsentUtils.SStack("Teeth")
         ];
     })
 {

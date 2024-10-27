@@ -1,6 +1,6 @@
 ﻿namespace AbsentAvalanche.StatusEffects.Implementations;
 
-internal class StatusEffectApplyXWhenDeployedBoostable : StatusEffectApplyXWhenDeployed
+public class StatusEffectApplyXWhenDeployedBoostable : StatusEffectApplyXWhenDeployed
 {
     public override int GetAmount(Entity entity, bool equalAmount = false, int equalTo = 0)
     {

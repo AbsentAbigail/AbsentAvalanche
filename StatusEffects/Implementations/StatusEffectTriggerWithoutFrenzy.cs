@@ -4,8 +4,8 @@ namespace AbsentAvalanche.StatusEffects.Implementations;
 
 public class StatusEffectTriggerWithoutFrenzy : StatusEffectInstant
 {
-    public bool againstRandomEnemy = false;
-    public bool reduceUses = false;
+    public bool againstRandomEnemy;
+    public bool reduceUses;
     public int priority = -1;
 
     public override IEnumerator Process()
@@ -19,7 +19,7 @@ public class StatusEffectTriggerWithoutFrenzy : StatusEffectInstant
                 var targetContainer = randomTarget.containers.RandomItem();
                 ActionQueue.Stack(new ActionTriggerAgainst(randomTarget, applier, randomTarget, targetContainer)
                 {
-                    countsAsTrigger = false,
+                    countsAsTrigger = false
                 }, true);
             }
         }

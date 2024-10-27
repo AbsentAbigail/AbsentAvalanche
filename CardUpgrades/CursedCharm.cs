@@ -4,7 +4,7 @@ using AbsentUtilities;
 namespace AbsentAvalanche.CardUpgrades;
 
 internal class CursedCharm() : AbstractCardUpgrade(
-    Name, "Cursed Charm",
+    Name, "Sacrificial Dagger Charm",
     $"<+3><keyword=attack>\nGain <2>{Ethereal.Tag}",
     subscribe: charm =>
     {

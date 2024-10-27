@@ -7,7 +7,7 @@ internal class NovaShard() : AbstractItem(
     2, true,
     subscribe: card =>
     {
-        card.attackEffects = [AbsentUtils.SStack("Block")];
+        card.attackEffects = [AbsentUtils.SStack("Block", 2)];
         card.startWithEffects = [AbsentUtils.SStack("Trigger Against Random Ally When Drawn")];
     })
 {

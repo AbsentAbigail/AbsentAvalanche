@@ -4,7 +4,7 @@ using Deadpan.Enums.Engine.Components.Modding;
 
 namespace AbsentAvalanche.Cards.Companion;
 
-internal class Lusine() : AbstractUnit(
+internal class Lusine() : AbstractCompanion(
     Name, "Lusine",
     8, 2, 4,
     subscribe: card =>

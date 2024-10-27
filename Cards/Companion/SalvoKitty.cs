@@ -4,7 +4,7 @@ using Deadpan.Enums.Engine.Components.Modding;
 
 namespace AbsentAvalanche.Cards.Companion;
 
-internal class SalvoKitty() : AbstractUnit(
+internal class SalvoKitty() : AbstractCompanion(
     Name, "Salvo Kitty",
     4, null, 3,
     Pools.None,
@@ -13,7 +13,8 @@ internal class SalvoKitty() : AbstractUnit(
         card.AddToPets();
         card.startWithEffects =
         [
-            AbsentUtils.SStack(OnCardPlayedAddMissileToHand.Name, 2)
+            AbsentUtils.SStack(WhileActiveMissilesHaveCat.Name),
+            AbsentUtils.SStack(OnCardPlayedAddMissileToHand.Name, 2),
         ];
     })
 {

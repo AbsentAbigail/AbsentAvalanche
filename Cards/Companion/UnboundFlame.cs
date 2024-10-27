@@ -3,7 +3,7 @@ using AbsentUtilities;
 
 namespace AbsentAvalanche.Cards.Companion;
 
-internal class UnboundFlame() : AbstractUnit(
+internal class UnboundFlame() : AbstractCompanion(
     Name, "Unbound Flame",
     5, 0, 3,
     Pools.None,

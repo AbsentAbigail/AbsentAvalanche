@@ -7,6 +7,7 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
     public bool allies = false;
     public bool enemies = false;
     public bool inRow = false;
+    public CardType cardType = null;
 
     public override int Get(Entity entity)
     {
@@ -17,15 +18,15 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
         {
             foreach (var row in rows)
             {
-                if (allies) result += entity.GetAlliesInRow(row).Count;
-                if (enemies) result += entity.GetEnemiesInRow(row).Count;
+                if (allies) result += entity.GetAlliesInRow(row).Count(e => cardType is null || e.data.cardType == cardType);
+                if (enemies) result += entity.GetEnemiesInRow(row).Count(e => cardType is null || e.data.cardType == cardType);
             }
 
             return result;
         }
 
-        if (allies) result += entity.GetAllies().Count;
-        if (enemies) result += entity.GetEnemies().Count;
+        if (allies) result += entity.GetAllies().Count(e => cardType is null || e.data.cardType == cardType);
+        if (enemies) result += entity.GetEnemies().Count(e => cardType is null || e.data.cardType == cardType);
         return result;
     }
 }
