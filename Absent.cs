@@ -354,6 +354,8 @@ public class Absent(string directory) : WildfrostMod(directory)
             "Sunny: Sprites for Eudora",
             "The Wildfrost Discords modding section: Being helpful, giving suggestions, and feedback",
             "",
+            "Source code: https://github.com/AbsentAbigail/AbsentAvalanche",
+            "",
             "Extra note:",
             "This mod includes the companions from the Blahaj and Friends mod. The original Blahaj and Friends mod will not be updated anymore"
         );

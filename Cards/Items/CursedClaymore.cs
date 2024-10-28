@@ -9,10 +9,11 @@ internal class CursedClaymore() : AbstractItem(
     subscribe: card =>
     {
         card.traits = [];
-        card.StartWithEffects(
-            new Stack(Ethereal.Name, 1),
-            new Stack(WhenDestroyedDealDamageToRandomAlly.Name, 3)
-        );
+        card.startWithEffects =
+        [
+            AbsentUtils.SStack(Ethereal.Name),
+            AbsentUtils.SStack(WhenDestroyedDealDamageToRandomAlly.Name, 3)
+        ];
     })
 {
     public const string Name = "CursedClaymore";

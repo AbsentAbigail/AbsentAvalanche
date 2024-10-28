@@ -9,8 +9,10 @@ internal class Lusine() : AbstractCompanion(
     8, 2, 4,
     subscribe: card =>
     {
-        card.AttackEffects(
-            new Stack("Demonize", 1));
+        card.attackEffects =
+        [
+            AbsentUtils.SStack("Demonize")
+        ];
         card.startWithEffects =
         [
             AbsentUtils.SStack("MultiHit")

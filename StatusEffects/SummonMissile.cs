@@ -12,7 +12,7 @@ internal class SummonMissile() : AbstractStatus<StatusEffectData>(Name)
     public override StatusEffectDataBuilder Builder()
     {
         return AbsentUtils.StatusCopy("Summon Junk", Name)
-            .WithTextInsert(CardHelper.CardTag(CardName))
+            .WithTextInsert(AbstractCard.CardTag(CardName))
             .SubscribeToAfterAllBuildEvent(
                 data => ((StatusEffectSummon)data).summonCard = AbsentUtils.GetCard(CardName));
     }

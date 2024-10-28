@@ -11,7 +11,7 @@ internal class WhenDestroyedSummonUnboundFlame() : AbstractStatus<StatusEffectDa
     public override StatusEffectDataBuilder Builder()
     {
         return AbsentUtils.StatusCopy("When Destroyed Summon Dregg", Name)
-            .WithTextInsert(CardHelper.CardTag(UnboundFlame.Name))
+            .WithTextInsert(AbstractCard.CardTag(UnboundFlame.Name))
             .SubscribeToAfterAllBuildEvent(data =>
             {
                 var status = (StatusEffectApplyXWhenDestroyed)data;

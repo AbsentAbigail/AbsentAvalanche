@@ -12,7 +12,7 @@ internal class OnCardPlayedAddMissileToHand() : AbstractStatus<StatusEffectData>
     {
         return AbsentUtils.StatusCopy("On Card Played Add Junk To Hand", Name)
             .WithText("Add <{a}> {0} to hand")
-            .WithTextInsert(CardHelper.CardTag(Missile.Name))
+            .WithTextInsert(AbstractCard.CardTag(Missile.Name))
             .SubscribeToAfterAllBuildEvent(data =>
                 ((StatusEffectApplyX)data).effectToApply = AbsentUtils.GetStatus(InstantSummonMissileInHand.Name));
     }

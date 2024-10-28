@@ -11,7 +11,7 @@ public class WhileActiveMissilesHaveCat() : AbstractApplyXStatus<StatusEffectWhi
     subscribe: status =>
     {
         var card = AbsentUtils.GetCard(Missile.Name);
-        status.textInsert = CardHelper.CardTag(Missile.Name);
+        status.textInsert = AbstractCard.CardTag(Missile.Name);
         status.applyConstraints =
         [
             TargetConstraintHelper.General<TargetConstraintIsSpecificCard>("Is Missile", tc => tc.allowedCards = [card])

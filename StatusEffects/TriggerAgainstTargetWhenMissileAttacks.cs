@@ -11,7 +11,7 @@ internal class TriggerAgainstTargetWhenMissileAttacks() : AbstractStatus<StatusE
         status.isReaction = true;
         status.descColorHex = "F99C61";
         status.whenCardsPlayed = [AbsentUtils.GetCard(Missile.Name)];
-        status.textInsert = CardHelper.CardTag(Missile.Name);
+        status.textInsert = AbstractCard.CardTag(Missile.Name);
     })
 {
     public const string Name = "Trigger Against Target When Missile Attacks";
