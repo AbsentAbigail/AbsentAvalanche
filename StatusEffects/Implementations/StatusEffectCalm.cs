@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using AbsentUtilities;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
 
@@ -8,12 +13,43 @@ internal class StatusEffectCalm : StatusEffectApplyX
     public StatusEffectData counterIncreaseEffect;
     public StatusEffectData countDownEffect;
 
-    private int _currentReduction;
+    private int _cr;
+    private int CurrentReduction
+    {
+        set
+        {
+            if (_cr == value)
+                return;
+            target.data.customData ??= new Dictionary<string, object>();
+            target.data.customData["calmReduction"] = value;
+            _cr = value;
+        }
+        get => _cr;
+    }
 
     public override void Init()
     {
+        var previousCalm = target.FindStatus(type);
+        if (previousCalm is not null && previousCalm.name != name)
+        {
+            target.statusEffects.Remove(this);
+            ActionQueue.Stack(new ActionApplyStatus(target, applier, previousCalm, count));
+            return;
+        }
+        
         OnStack += Stack;
         OnHit += HitEvent;
+        
+        if (target.data.customData is null || !target.data.customData.ContainsKey("calmReduction"))
+            return;
+        CurrentReduction = target.data.customData.Get<int>("calmReduction");
+    }
+    
+    private void OnDestroy()
+    {
+        if (target.data.customData is null || !target.data.customData.ContainsKey("calmReduction"))
+            return;
+        target.data.customData.Remove("calmReduction");
     }
 
     public override bool RunHitEvent(Hit hit)
@@ -30,8 +66,8 @@ internal class StatusEffectCalm : StatusEffectApplyX
         var leftover = count - halved;
         var increase = count / 3 - leftover / 3;
 
-        increase = Math.Min(increase, Math.Max(_currentReduction - leftover / 3, 0));
-        _currentReduction -= increase;
+        increase = Math.Min(increase, Math.Max(CurrentReduction - leftover / 3, 0));
+        CurrentReduction -= increase;
 
         yield return StatusEffectSystem.Apply(target, target, counterIncreaseEffect, increase);
         target.display.promptUpdateDescription = true;
@@ -48,7 +84,7 @@ internal class StatusEffectCalm : StatusEffectApplyX
 
         if (actualDecrease > 0)
         {
-            _currentReduction += actualDecrease;
+            CurrentReduction += actualDecrease;
             yield return Run(GetTargets(), actualDecrease);
         }
         else if (decreaseCounterBy > 0)

@@ -6,7 +6,7 @@ namespace AbsentAvalanche.StatusEffects;
 
 public class WhenDeployedGainHealthPerAlliedCompanion()
     : AbstractApplyXStatus<StatusEffectApplyXWhenDeployedBoostable>(
-        Name, "When deployed, gain <{a}><keyword=health> for each allied <Companion>",
+        Name, "When deployed, gain <{a}><keyword=health> for each <Companion> on the board",
         canBoost: true,
         effectToApply: "Increase Max Health",
         applyToFlags: StatusEffectApplyX.ApplyToFlags.Self,

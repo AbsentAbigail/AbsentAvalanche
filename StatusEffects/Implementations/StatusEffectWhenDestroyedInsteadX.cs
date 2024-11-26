@@ -56,7 +56,7 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
         ActionQueue.Stack(new ActionSequence(RemoveAndUpdateDescription()));
     }
 
-    public IEnumerator RemoveAndUpdateDescription()
+    private IEnumerator RemoveAndUpdateDescription()
     {
         yield return Remove();
 

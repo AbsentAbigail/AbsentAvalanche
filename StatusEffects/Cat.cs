@@ -14,6 +14,12 @@ public class Cat() : AbstractStatus<StatusEffectCat>(
         status.dealDamage = true;
         status.countsAsHit = true;
         status.applyEqualAmount = true;
+
+        status.targetConstraints =
+        [
+            TargetConstraintHelper.DoesTrigger(),
+            TargetConstraintHelper.General<TargetConstraintDoesDamage>("Does Damage")
+        ];
     })
 {
     public const string Name = "Cat";
@@ -22,7 +28,6 @@ public class Cat() : AbstractStatus<StatusEffectCat>(
     {
         return base.Builder()
             .WithTextInsert("{a}")
-            .WithOffensive(true)
             .WithIcon_VFX("cat", "catkeyword", Keywords.Cat.NameWithGuid,
                 VFXMod_StatusEffectHelpers.LayoutGroup.damage);
     }

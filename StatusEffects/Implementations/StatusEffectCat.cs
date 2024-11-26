@@ -28,12 +28,12 @@ public class StatusEffectCat : StatusEffectApplyX
     {
         for (var cat = 0; cat < count; cat++)
         {
-            var duration = 0.1f / Mathf.Max(1, cat / 10);
+            var duration = 0.1f / Mathf.Max(1, cat / 5);
             var sequence = new ActionSequence(Sequence(hit.target, duration))
             {
                 note = name + " - " + cat
             };
-            ActionQueue.Add(sequence);
+            ActionQueue.Insert(cat, sequence, fixedPosition: true);
         }
         yield break;
     }

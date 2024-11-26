@@ -13,7 +13,7 @@ internal class Abduct() : AbstractApplyXStatus<StatusEffectAbduct>(Name)
     {
         return base.Builder()
             .WithTextInsert("{a}")
-            .WithIcon_VFX("abduct", "abduct", Keywords.Abduct.NameWithGuid,
+            .WithIcon_VFX(AbsentUtils.PrefixGuid("abduct"), "abduct", Keywords.Abduct.NameWithGuid,
                 VFXMod_StatusEffectHelpers.LayoutGroup.counter);
     }
 }

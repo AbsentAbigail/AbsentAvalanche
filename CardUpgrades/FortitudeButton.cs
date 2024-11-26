@@ -5,7 +5,8 @@ namespace AbsentAvalanche.CardUpgrades;
 
 internal class FortitudeButton() : AbstractCardUpgrade(
     Name, "Fortitude Button",
-    "When deployed, gain <2><keyword=health> for each allied <Companion>",
+    "When deployed, gain <2><keyword=health> for each <Companion> on the board",
+    
     subscribe: charm =>
     {
         charm.effects = [AbsentUtils.SStack(WhenDeployedGainHealthPerAlliedCompanion.Name, 2)];

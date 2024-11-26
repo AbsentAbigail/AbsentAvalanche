@@ -21,12 +21,7 @@ internal class Aftonsparv() : AbstractCompanion(
     })
 {
     public const string Name = "Aftonsparv";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithBloodProfile("Blood Profile Pink Wisp")
-            .WithFlavour("Alien Friend")
-            .WithIdleAnimationProfile("FloatAnimationProfile");
-    }
+    public override string FlavourText => "Alien Friend";
+    protected override string IdleAnimation => "FloatAnimationProfile";
+    protected override string BloodProfile => "Blood Profile Pink Wisp";
 }

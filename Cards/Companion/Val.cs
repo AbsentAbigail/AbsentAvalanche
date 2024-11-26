@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
-using Deadpan.Enums.Engine.Components.Modding;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,13 +21,8 @@ internal class Val() : AbstractCompanion(
     })
 {
     public const string Name = "Val";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithBloodProfile("Blood Profile Blue (x2)")
-            .WithFlavour("Has a zipper for a mouth!");
-    }
+    public override string FlavourText => "Has a zipper for a mouth!";
+    protected override string BloodProfile => "Blood Profile Blue (x2)";
 
     // Code by Phan
     private static T CreateScriptableCardImage<T>(string name) where T : ScriptableCardImage

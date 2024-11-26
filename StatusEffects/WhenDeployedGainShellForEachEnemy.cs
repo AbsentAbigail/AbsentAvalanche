@@ -1,11 +1,12 @@
-﻿using AbsentAvalanche.StatusEffects.Implementations;
+﻿using AbsentAvalanche.Keywords;
+using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentAvalanche.StatusEffects.Scriptables;
 using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects;
 
 internal class WhenDeployedGainShellForEachEnemy() : AbstractApplyXStatus<StatusEffectApplyXWhenDeployedBoostable>(
-    Name,
+    Name, Panic.Tag + " <{a}><keyword=shell>",
     canBoost: true,
     effectToApply: "Shell",
     subscribe: status => status.scriptableAmount =

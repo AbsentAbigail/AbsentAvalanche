@@ -1,0 +1,29 @@
+REQUIRES AbsentUtils NOW. IF YOU HAD THIS INSTALLED PREVIOUSLY, ALSO INSTALL https://steamcommunity.com/sharedfiles/filedetails/?id=3355962208
+
+Avalanche of new and random cards and charms
+Lots of sillies to play with :3
+
+Content:
+1 Tribe
+8 Plushies (Plushies are both leaders for the plushie tribe and companions)
+11 Companions (excluding plushies)
+3 Pets
+15 Items
+10 Charms
+And new mechanics!
+
+Make sure to headpat the plushies when they do well!
+If you see your leader as a companion please ignore them, the plushies get nervous seeing themselves :<
+
+Additional Credits:
+My plushies: For volunteering to fight against the Frost
+Megamarine: Sprites for May, Ethereal, Calm, and Cat
+Gaziter: Character designs for Lusine, and Eudora (and her buttons)
+Sunnaryi: Sprites for Eudora
+Code_Null: Concept for Catbom
+The Wildfrost Discords modding section: Being helpful, giving suggestions, and feedback
+
+Source code: https://github.com/AbsentAbigail/AbsentAvalanche
+
+Extra note:
+This mod includes the companions from the Blahaj and Friends mod. The original Blahaj and Friends mod will not be updated anymore

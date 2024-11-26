@@ -1,4 +1,5 @@
-﻿using AbsentAvalanche.StatusEffects.Implementations;
+﻿using AbsentAvalanche.Keywords;
+using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentAvalanche.StatusEffects.Scriptables;
 using AbsentUtilities;
 using static StatusEffectApplyX;
@@ -6,7 +7,7 @@ using static StatusEffectApplyX;
 namespace AbsentAvalanche.StatusEffects;
 
 internal class WhenDeployedGainSnowForEachEnemy() : AbstractApplyXStatus<StatusEffectApplyXWhenDeployedBoostable>(
-    Name,
+    Name, Panic.Tag + " <{a}><keyword=snow>",
     canStack: true, canBoost: true,
     applyToFlags: ApplyToFlags.Self,
     subscribe: status => status.scriptableAmount =

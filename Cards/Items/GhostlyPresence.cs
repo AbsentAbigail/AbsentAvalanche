@@ -6,6 +6,7 @@ namespace AbsentAvalanche.Cards.Items;
 
 internal class GhostlyPresence() : AbstractItem(
     Name, "Ghostly Presence",
+    pools: Pools.Shademancer,
     subscribe: card =>
     {
         card.traits = [AbsentUtils.TStack(Rest.Name, 3)];

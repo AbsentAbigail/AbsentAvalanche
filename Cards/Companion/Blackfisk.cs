@@ -24,12 +24,7 @@ internal class Blackfisk() : AbstractCompanion(
     })
 {
     public const string Name = "Blackfisk";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithBloodProfile("Blood Profile Blue (x2)")
-            .WithFlavour("8 arms to give 8 times better hugs!")
-            .WithIdleAnimationProfile("PulseAnimationProfile");
-    }
+    public override string FlavourText => "8 arms to give 8 times better hugs!";
+    protected override string IdleAnimation => "PulseAnimationProfile";
+    protected override string BloodProfile => "Blood Profile Blue (x2)";
 }

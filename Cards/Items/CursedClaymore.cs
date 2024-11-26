@@ -8,11 +8,10 @@ internal class CursedClaymore() : AbstractItem(
     10, true,
     subscribe: card =>
     {
-        card.traits = [];
         card.startWithEffects =
         [
             AbsentUtils.SStack(Ethereal.Name),
-            AbsentUtils.SStack(WhenDestroyedDealDamageToRandomAlly.Name, 3)
+            AbsentUtils.SStack(WhenDestroyedDealDamageToRandomAlly.Name)
         ];
     })
 {

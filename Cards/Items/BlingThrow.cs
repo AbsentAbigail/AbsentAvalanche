@@ -6,6 +6,7 @@ namespace AbsentAvalanche.Cards.Items;
 internal class BlingThrow() : AbstractItem(
     Name, "Bling Throw",
     5, true,
+    playOnHand: false,
     subscribe: card =>
     {
         card.traits = [AbsentUtils.TStack(GoldRush.Name)];

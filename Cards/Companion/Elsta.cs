@@ -21,10 +21,6 @@ internal class Elsta() : AbstractCompanion(
     })
 {
     public const string Name = "Elsta";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithIdleAnimationProfile("Heartbeat2AnimationProfile");
-    }
+    public override string FlavourText => "Ooo shiny!";
+    protected override string IdleAnimation => "Heartbeat2AnimationProfile";
 }

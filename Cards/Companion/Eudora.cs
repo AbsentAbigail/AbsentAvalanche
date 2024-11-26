@@ -18,10 +18,5 @@ internal class Eudora() : AbstractCompanion(
     })
 {
     public const string Name = "Eudora";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithIdleAnimationProfile("Heartbeat2AnimationProfile");
-    }
+    protected override string IdleAnimation => "Heartbeat2AnimationProfile";
 }

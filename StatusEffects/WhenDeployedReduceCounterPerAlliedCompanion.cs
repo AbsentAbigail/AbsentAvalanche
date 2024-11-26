@@ -6,7 +6,7 @@ namespace AbsentAvalanche.StatusEffects;
 
 public class WhenDeployedReduceCounterPerAlliedCompanion()
     : AbstractApplyXStatus<StatusEffectApplyXWhenDeployedBoostable>(
-        Name, "When deployed, reduce own <keyword=counter> by <{a}> for each allied <Companion>",
+        Name, "When deployed, reduce own <keyword=counter> by <{a}> for each <Companion> on the board>",
         canBoost: true,
         effectToApply: "Reduce Max Counter",
         applyToFlags: StatusEffectApplyX.ApplyToFlags.Self,

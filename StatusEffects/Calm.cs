@@ -15,6 +15,8 @@ internal class Calm() : AbstractApplyXStatus<StatusEffectCalm>(
 
         status.applyEqualAmount = true;
         status.eventPriority = -10;
+
+        status.targetConstraints = [TargetConstraintHelper.MaxCounterMoreThan(0)];
     })
 {
     public const string Name = "Calm";

@@ -14,4 +14,5 @@ public class Sarcophagus() : AbstractItem(Name, "Sarcophagus",
     })
 {
     public const string Name = "Sarcophagus";
+    protected override string IdleAnimation => "PulseAnimationProfile";
 }

@@ -18,4 +18,7 @@ internal class UnboundFlame() : AbstractCompanion(
     })
 {
     public const string Name = "UnboundFlame";
+    public override string FlavourText => "Ethereal flames fill the space around";
+    protected override string BloodProfile => "Blood Profile Black";
+    protected override string IdleAnimation => "FloatAnimationProfile";
 }

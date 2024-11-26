@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
-using Deadpan.Enums.Engine.Components.Modding;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -19,11 +18,6 @@ internal class Blahaj() : AbstractCompanion(
     })
 {
     public const string Name = "Blahaj";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithBloodProfile("Blood Profile Pink Wisp")
-            .WithFlavour("Accepts and loves you <3");
-    }
+    public override string FlavourText => "Accepts and loves you <3";
+    protected override string BloodProfile => "Blood Profile Pink Wisp";
 }

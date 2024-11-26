@@ -19,10 +19,7 @@ internal class PanickedNut() : AbstractCompanion(
     })
 {
     public const string Name = "PanickedNut";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithText("When deployed, gain <{s0}><keyword=shell> and <{s1}><keyword=snow> for each enemy");
-    }
+    public override string FlavourText => "Won't leave its shell";
+    protected override string IdleAnimation => "ShakeAnimationProfile";
+    protected override string BloodProfile => "Blood Profile Husk";
 }

@@ -24,10 +24,5 @@ internal class Lusine() : AbstractCompanion(
     })
 {
     public const string Name = "Lusine";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithIdleAnimationProfile("PulseAnimationProfile");
-    }
+    protected override string IdleAnimation => "PulseAnimationProfile";
 }

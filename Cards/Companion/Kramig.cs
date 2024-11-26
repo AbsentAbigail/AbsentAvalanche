@@ -18,10 +18,5 @@ internal class Kramig() : AbstractCompanion(
     })
 {
     public const string Name = "Kramig";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithFlavour("Protects its friends");
-    }
+    public override string FlavourText => "Protects its friends";
 }

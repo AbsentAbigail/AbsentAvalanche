@@ -14,10 +14,5 @@ internal class IceShard() : AbstractItem(
     })
 {
     public const string Name = "IceShard";
-
-    public override CardDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithIdleAnimationProfile("Heartbeat2AnimationProfile");
-    }
+    protected override string IdleAnimation => "Heartbeat2AnimationProfile";
 }
