@@ -452,6 +452,7 @@
         <Compile Include="Cards\Items\Missile.cs" />
         <Compile Include="Cards\Items\IceShard.cs" />
         <Compile Include="Cards\Items\NebulaAuxilium.cs" />
+        <Compile Include="Cards\Items\NebulaInstrumenta.cs" />
         <Compile Include="Cards\Items\NovaShard.cs" />
         <Compile Include="Cards\Items\Pillow.cs" />
         <Compile Include="Cards\Items\RescueUFO.cs" />
@@ -513,6 +514,7 @@
         <Compile Include="Keywords\Trample.cs" />
         <Compile Include="Keywords\Valor.cs" />
         <Compile Include="Keywords\Warm.cs" />
+        <Compile Include="NebulaTribe.cs" />
         <Compile Include="Patches\CardPatches.cs" />
         <Compile Include="Patches\CardSaveDataPatches.cs" />
         <Compile Include="Patches\CombineCardSequencePatches.cs" />
@@ -565,6 +567,7 @@
         <Compile Include="StatusEffects\Implementations\StatusEffectTriggerWhenCardIsPlayed.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectInstantTutor.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectWhenDestroyedInsteadX.cs" />
+        <Compile Include="StatusEffects\Implementations\StatusEffectInstantCombineCard.cs" />
         <Compile Include="StatusEffects\IncreaseEtherealToMatchRest.cs" />
         <Compile Include="StatusEffects\InstantAddCharmToInventory.cs" />
         <Compile Include="StatusEffects\InstantCleanseText.cs" />
@@ -587,6 +590,7 @@
         <Compile Include="StatusEffects\InstantTutorDeck.cs" />
         <Compile Include="StatusEffects\InstantTutorDiscard.cs" />
         <Compile Include="StatusEffects\InstantTutorThreeRandomCompanions.cs" />
+        <Compile Include="StatusEffects\InstantTutorThreeRandomTreasures.cs" />
         <Compile Include="StatusEffects\OnCardPlayedAddCatomicBombToHand.cs" />
         <Compile Include="StatusEffects\OnCardPlayedAddMissileToHand.cs" />
         <Compile Include="StatusEffects\OnCardPlayedBoostSelf.cs" />
@@ -596,6 +600,7 @@
         <Compile Include="StatusEffects\OnCardPlayedTutorDeckCopyConsumeZoomlin.cs" />
         <Compile Include="StatusEffects\OnCardPlayedTutorRandomCardZoomlin.cs" />
         <Compile Include="StatusEffects\OnCardPlayedTutorRandomCompanion.cs" />
+        <Compile Include="StatusEffects\OnCardPlayedTutorRandomTreasure.cs" />
         <Compile Include="StatusEffects\OnHitEat.cs" />
         <Compile Include="StatusEffects\OnHitGainEqualBling.cs" />
         <Compile Include="StatusEffects\OnKillApplyCalmToSelf.cs" />

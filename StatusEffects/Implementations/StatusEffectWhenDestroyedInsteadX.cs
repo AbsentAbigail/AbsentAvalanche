@@ -40,9 +40,12 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
 
     public void TryActivate()
     {
-        if (!target.statusEffects.All(statusEffect => statusEffect == this || !statusEffect.preventDeath))
-            return;
-
+        if (target.statusEffects.Any(s =>
+                s.preventDeath && 
+                s is not StatusEffectWhenDestroyedInsteadX &&
+                s is not StatusEffectNextPhase)
+            ) return;
+        
         _activated = true;
 
         if (resetHealth)

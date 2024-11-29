@@ -22,7 +22,8 @@ internal class SarcophagusCharm() : AbstractCardUpgrade(
                 "Is Not Leader",
                 modification: tc => tc.allowedTypes = [AbsentUtils.TryGet<CardType>("Leader")],
                 not: true
-            )
+            ),
+            TargetConstraintHelper.General<TargetConstraintIsInDeck>("Is In Deck")
         ];
         charm.takeSlot = false;
     })

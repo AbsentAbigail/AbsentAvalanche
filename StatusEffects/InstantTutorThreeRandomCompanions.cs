@@ -10,13 +10,7 @@ public class InstantTutorThreeRandomCompanions() : AbstractStatus<StatusEffectIn
     status.source = StatusEffectInstantTutor.CardSource.Custom;
     status.summonCopy = AbsentUtils.GetStatusOf<StatusEffectInstantSummon>(InstantSummonDummyToHand.Name);
     status.amount = 3;
-    
-    status.customCardList = AddressableLoader.GetGroup<CardData>("CardData")
-        .Where(c =>
-            c.cardType.name == "Friendly" &&
-            !c.IsPet() &&
-            c.mainSprite?.name != "Nothing")
-        .Select(c => c.name).ToArray();
+    status.Predicate = cardData => cardData.cardType.name == "Friendly" && !cardData.IsPet();
 })
 {
     public const string Name = "InstantTutorThreeRandomCompanions";

@@ -9,14 +9,11 @@ public class InstantTutorTenRandomCardsZoomlin() : AbstractStatus<StatusEffectIn
     status.source = StatusEffectInstantTutor.CardSource.Custom;
     status.summonCopy = AbsentUtils.GetStatusOf<StatusEffectInstantSummon>(InstantSummonDummyToHand.Name);
     status.amount = 10;
-    
-    status.customCardList = AddressableLoader.GetGroup<CardData>("CardData")
-        .Where(c =>
-            c.cardType.name == "Item" &&
-            c.playType != Card.PlayType.None &&
-            c.mainSprite?.name != "Nothing" &&
-            (c.traits == null || !c.traits.Exists(b => b.data.name is "Recycle")))
-        .Select(c => c.name).ToArray();
+
+    status.Predicate = cardData => 
+        cardData.cardType.name == "Item" &&
+        cardData.playType != Card.PlayType.None &&
+        (cardData.traits is null || !cardData.traits.Exists(b => b.data.name is "Recycle"));
     
     status.addEffectStacks = [AbsentUtils.SStack(TemporarySafeZoomlin.Name)];
 })

@@ -123,6 +123,8 @@ public static class AssetsStatusEffects
             new DummySummon().Builder(),
             new InstantTutorThreeRandomCompanions().Builder(),
             new OnCardPlayedTutorRandomCompanion().Builder(),
+            new InstantTutorThreeRandomTreasures().Builder(),
+            new OnCardPlayedTutorRandomTreasure().Builder(),
 
             new TemporarySafeConsume().Builder(),
             new TemporarySafeZoomlin().Builder(),

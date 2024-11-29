@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using AbsentUtilities;
-using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
 
@@ -14,6 +10,7 @@ internal class StatusEffectCalm : StatusEffectApplyX
     public StatusEffectData countDownEffect;
 
     private int _cr;
+
     private int CurrentReduction
     {
         set
@@ -27,6 +24,13 @@ internal class StatusEffectCalm : StatusEffectApplyX
         get => _cr;
     }
 
+    private void OnDestroy()
+    {
+        if (target?.data.customData is null || !target.data.customData.ContainsKey("calmReduction"))
+            return;
+        target.data.customData.Remove("calmReduction");
+    }
+
     public override void Init()
     {
         var previousCalm = target.FindStatus(type);
@@ -36,20 +40,13 @@ internal class StatusEffectCalm : StatusEffectApplyX
             ActionQueue.Stack(new ActionApplyStatus(target, applier, previousCalm, count));
             return;
         }
-        
+
         OnStack += Stack;
         OnHit += HitEvent;
-        
+
         if (target.data.customData is null || !target.data.customData.ContainsKey("calmReduction"))
             return;
         CurrentReduction = target.data.customData.Get<int>("calmReduction");
-    }
-    
-    private void OnDestroy()
-    {
-        if (target.data.customData is null || !target.data.customData.ContainsKey("calmReduction"))
-            return;
-        target.data.customData.Remove("calmReduction");
     }
 
     public override bool RunHitEvent(Hit hit)

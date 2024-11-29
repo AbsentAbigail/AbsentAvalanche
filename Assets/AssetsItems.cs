@@ -39,6 +39,8 @@ public static class AssetsItems
             
             new HappyDreams().Builder(),
             new Imagination().Builder(),
+            
+            new NebulaInstrumenta().Builder()
         ]);
     }
 }

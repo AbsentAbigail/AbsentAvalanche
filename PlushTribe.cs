@@ -59,7 +59,7 @@ public static class PlushTribe
             });
     }
 
-    public static RewardPool UnitPool()
+    private static RewardPool UnitPool()
     {
         return TribeHelper.CreateRewardPool(UnitPoolName, RewardPool.Type.Units.ToString(),
             [.. DataList<CardData>(
@@ -84,7 +84,7 @@ public static class PlushTribe
                 )]);
     }
 
-    public static RewardPool ItemPool()
+    private static RewardPool ItemPool()
     {
         return TribeHelper.CreateRewardPool(ItemPoolName, RewardPool.Type.Items.ToString(),
             [.. DataList<CardData>(
@@ -117,8 +117,8 @@ public static class PlushTribe
                     GhostlyPresence.Name
                 )]);
     }
-    
-    public static RewardPool CharmPool()
+
+    private static RewardPool CharmPool()
     {
         return TribeHelper.CreateRewardPool(CharmPoolName, RewardPool.Type.Charms.ToString(),
             [.. DataList<CardUpgradeData>(

@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AbsentUtilities;
-using Dead;
+using DeadExtensions;
+using HarmonyLib;
 using UnityEngine;
-using UnityEngine.Serialization;
 using WildfrostHopeMod.Utils;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
@@ -30,6 +31,7 @@ public class StatusEffectInstantTutor : StatusEffectInstant
 
     private Entity _selected;
     private CardPocketSequence _sequence;
+    public Predicate<CardData> Predicate;
 
     public override IEnumerator Process()
     {
@@ -39,8 +41,8 @@ public class StatusEffectInstantTutor : StatusEffectInstant
         cc.canPress = true;
         var container = GetCardContainer();
 
-        foreach (var entity in container)
-            if (source == CardSource.Custom)
+        if (source == CardSource.Custom)
+            foreach (var entity in container)
                 yield return entity.GetCard().UpdateData();
 
         _sequence.AddCards(container);
@@ -112,15 +114,7 @@ public class StatusEffectInstantTutor : StatusEffectInstant
 
                 _cardContainer = CreateCardGrid(_objectGroup.transform, rect);
 
-                amount = amount == 0 ? customCardList.Length : amount;
-                foreach (var cardName in InPettyRandomOrder(customCardList).Take(amount))
-                {
-                    var cardData = AbsentUtils.GetCard(cardName).Clone();
-                    var card = CardManager.Get(cardData, Battle.instance.playerCardController, References.Player,
-                        true,
-                        true);
-                    _cardContainer.Add(card.entity);
-                }
+                FillCardContainer();
 
                 _cardContainer.AssignController(Battle.instance.playerCardController);
 
@@ -130,10 +124,50 @@ public class StatusEffectInstantTutor : StatusEffectInstant
         }
     }
 
+    private void FillCardContainer()
+    {
+        if (customCardList.Length <= 0)
+        {
+            PredicateContainer();
+            return;
+        }
+
+        amount = amount == 0 ? customCardList.Length : amount;
+        foreach (var cardName in InPettyRandomOrder(customCardList).Take(amount))
+        {
+            var cardData = AbsentUtils.GetCard(cardName).Clone();
+            var card = CardManager.Get(cardData, Battle.instance.playerCardController, References.Player,
+                true,
+                true);
+            _cardContainer.Add(card.entity);
+        }
+    }
+
+    private void PredicateContainer()
+    {
+        var predicate = AbsentUtils.GetStatusOf<StatusEffectInstantTutor>(name).Predicate;
+        if (predicate is null)
+            throw new ArgumentException("No predicate found");
+
+        var cards = AddressableLoader.GetGroup<CardData>("CardData")
+            .Where(c => predicate.Invoke(c) && c.mainSprite?.name != "Nothing")
+            .OrderBy(_ => PettyRandom.Range(0f, 1f)).ToList();
+        if (amount != 0)
+            cards = cards.Take(amount).ToList();
+
+        cards.Do(cardData =>
+        {
+            var card = CardManager.Get(cardData.Clone(), Battle.instance.playerCardController, References.Player,
+                true,
+                true);
+            _cardContainer.Add(card.entity);
+        });
+    }
+
     // Random Order from Pokefrost StatusEffectChangeData
     private static IOrderedEnumerable<T> InPettyRandomOrder<T>(IEnumerable<T> source)
     {
-        return source.OrderBy(_ => PettyRandom.Range(0f, 1f));
+        return source.OrderBy(_ => Dead.PettyRandom.Range(0f, 1f));
     }
 
     // Card Grid Code by Phan

@@ -78,6 +78,7 @@ public class Absent : WildfrostMod
 
         var gameMode = AbsentUtils.TryGet<GameMode>("GameModeNormal"); //GameModeNormal is the standard game mode. 
         gameMode.classes = gameMode.classes.Append(AbsentUtils.TryGet<ClassData>(PlushTribe.Name)).ToArray();
+        // gameMode.classes = gameMode.classes.Append(AbsentUtils.TryGet<ClassData>(NebulaTribe.Name)).ToArray();
 
         // Overrides
         AbsentUtils.GetKeyword("immunetosnow").show = true;
@@ -210,12 +211,14 @@ public class Absent : WildfrostMod
             [AbsentUtils.GetKeyword(Abduct.Name)]
         ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = false;
 
-        _assets = [];
-
         /*
          * Tribes
          */
-        _assets.Add(PlushTribe.Builder());
+        _assets =
+        [
+            PlushTribe.Builder()
+            // NebulaTribe.Builder()
+        ];
 
         /*
          * Cards (Leaders)
@@ -226,7 +229,7 @@ public class Absent : WildfrostMod
             new Leader<Jerry>(1, 2, -1, 2, -1).Builder(),
             new Leader<Alice>(-1, 1, -1, 3, -3).Builder(),
             new Leader<Seal>(-2, 4, -2, 4, -1).Builder(),
-            new Leader<Bamboozle>(-2, +1, counterModMin: -2, counterModMax: 1).Builder(),
+            new Leader<Bamboozle>(-2, 1, counterModMin: -2, counterModMax: 1).Builder(),
             new Leader<May>(-2, 2, counterModMin: -1, counterModMax: 1).Builder(),
             new Leader<Sam>(-2, 3, -1, 1, -1, 1).Builder(),
             new Leader<Sherba>().Builder()
@@ -256,6 +259,13 @@ public class Absent : WildfrostMod
             Plush has found its way into the cold wilderness. Determined to restore the cozy warmth of the sun, they will valiantly oppose the Frost!
 
             Make sure to pet the plush when they do well, and don't let them get hurt! Plushies need proper love and care!
+            """);
+        uiText.SetString(NebulaTribe.TitleKey, "The Nebula");
+        uiText.SetString(NebulaTribe.DescKey,
+            """
+            Weird space fog is covering the area... What could this be?
+
+            No fight stays the same, none of your cards are certain
             """);
     }
 
