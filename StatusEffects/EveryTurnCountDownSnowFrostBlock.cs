@@ -4,7 +4,7 @@ namespace AbsentAvalanche.StatusEffects;
 
 public class EveryTurnCountDownSnowFrostBlock() : AbstractApplyXStatus<StatusEffectApplyXEveryTurn>(
     Name,
-    effectToApply: CountDownSnowFrostBlock.Name,
+    effectToApply: InstantCountDownSnowFrostBlock.Name,
     applyToFlags: StatusEffectApplyX.ApplyToFlags.AlliesInRow
     )
 {

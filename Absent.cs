@@ -64,6 +64,14 @@ public class Absent : WildfrostMod
             Prefix = "AbsentAvalanche"
         });
 
+        VFXHelper.VFX = new GIFLoader(this, ImagePath("Anim"));
+        VFXHelper.VFX.RegisterAllAsApplyEffect();
+
+        VFXHelper.SFX = new SFXLoader(ImagePath("Sounds"));
+        VFXHelper.SFX.RegisterAllSoundsToGlobal();
+
+        LoadStatusIcons();
+
         if (!_loaded) CreateModAssets();
         base.Load();
 
@@ -98,6 +106,74 @@ public class Absent : WildfrostMod
         //needed for custom icons
         var floatingText = Object.FindObjectOfType<FloatingText>(true);
         floatingText.textAsset.spriteAsset.fallbackSpriteAssets.Add(_assetSprites);
+    }
+
+    private void LoadStatusIcons()
+    {
+        //Needed to get sprites in text boxes
+        _assetSprites = HopeUtils.CreateSpriteAsset("AbsentAvalancheAssets", ImagePath("Icons"));
+
+        Ethereal.Data();
+
+        StatusIconHelper.CreateIcon(
+            "ethereal",
+            ImagePath("Icons/ethereal.png").ToSprite(),
+            "ethereal",
+            1,
+            "vim",
+            new Color(0.2f, 0.2f, 0.3f),
+            [AbsentUtils.GetKeyword(Ethereal.Name)]
+        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
+
+        Cat.Data();
+
+        var catIcon = StatusIconHelper.CreateIcon(
+            "cat",
+            ImagePath("Icons/cat.png").ToSprite(),
+            "cat",
+            1,
+            "ink",
+            new Color(0.2f, 0.2f, 0.3f),
+            [AbsentUtils.GetKeyword(Cat.Name)]
+        );
+        catIcon.GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
+        catIcon.transform.Find("Text").Translate(-0.01f, -0.16f, 0);
+
+        Calm.Data();
+
+        StatusIconHelper.CreateIcon(
+            "calm",
+            ImagePath("Icons/calm.png").ToSprite(),
+            "calm",
+            1,
+            "frost",
+            new Color(1, 1, 1),
+            [AbsentUtils.GetKeyword(Calm.Name)]
+        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
+
+        FakeCalm.Data();
+
+        StatusIconHelper.CreateIcon(
+            "fakecalm",
+            ImagePath("Icons/calm.png").ToSprite(),
+            "fakecalm",
+            1,
+            "frost",
+            new Color(1, 1, 1),
+            [AbsentUtils.GetKeyword(Calm.Name)]
+        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
+
+        Abduct.Data();
+
+        StatusIconHelper.CreateIcon(
+            "abduct",
+            ImagePath("Icons/abduct.png").ToSprite(),
+            "abduct",
+            1,
+            "frost",
+            new Color(0.2f, 0.2f, 0.3f),
+            [AbsentUtils.GetKeyword(Abduct.Name)]
+        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = false;
     }
 
     public override void Unload()
@@ -140,77 +216,6 @@ public class Absent : WildfrostMod
 
     private void CreateModAssets()
     {
-        //Needed to get sprites in text boxes
-        _assetSprites = HopeUtils.CreateSpriteAsset("AbsentAvalancheAssets", ImagePath(""));
-
-        VFXHelper.VFX = new GIFLoader(this, ImagePath("Anim"));
-        VFXHelper.VFX.RegisterAllAsApplyEffect();
-
-        VFXHelper.SFX = new SFXLoader(ImagePath("Sounds"));
-        VFXHelper.SFX.RegisterAllSoundsToGlobal();
-
-        Ethereal.Data();
-
-        StatusIconHelper.CreateIcon(
-            "ethereal",
-            ImagePath("ethereal.png").ToSprite(),
-            "ethereal",
-            1,
-            "vim",
-            new Color(0.2f, 0.2f, 0.3f),
-            [AbsentUtils.GetKeyword(Ethereal.Name)]
-        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
-
-        Cat.Data();
-
-        var catIcon = StatusIconHelper.CreateIcon(
-            "cat",
-            ImagePath("cat.png").ToSprite(),
-            "cat",
-            1,
-            "ink",
-            new Color(0.2f, 0.2f, 0.3f),
-            [AbsentUtils.GetKeyword(Cat.Name)]
-        );
-        catIcon.GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
-        catIcon.transform.Find("Text").Translate(-0.01f, -0.16f, 0);
-
-        Calm.Data();
-
-        StatusIconHelper.CreateIcon(
-            "calm",
-            ImagePath("calm.png").ToSprite(),
-            "calm",
-            1,
-            "frost",
-            new Color(1, 1, 1),
-            [AbsentUtils.GetKeyword(Calm.Name)]
-        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
-
-        FakeCalm.Data();
-
-        StatusIconHelper.CreateIcon(
-            "fakecalm",
-            ImagePath("calm.png").ToSprite(),
-            "fakecalm",
-            1,
-            "frost",
-            new Color(1, 1, 1),
-            [AbsentUtils.GetKeyword(Calm.Name)]
-        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = true;
-
-        Abduct.Data();
-
-        StatusIconHelper.CreateIcon(
-            "abduct",
-            ImagePath("abduct.png").ToSprite(),
-            "abduct",
-            1,
-            "frost",
-            new Color(0.2f, 0.2f, 0.3f),
-            [AbsentUtils.GetKeyword(Abduct.Name)]
-        ).GetComponentInChildren<TextMeshProUGUI>(true).enabled = false;
-
         /*
          * Tribes
          */
@@ -225,14 +230,17 @@ public class Absent : WildfrostMod
          */
         Leaders =
         [
-            new Leader<LilGuy>(-1, 3, -1, 2, -2, 1).Builder(),
+            new Leader<LilGuy>(-1, 3, -1, 2, -1).Builder(),
             new Leader<Jerry>(1, 2, -1, 2, -1).Builder(),
-            new Leader<Alice>(-1, 1, -1, 3, -3).Builder(),
-            new Leader<Seal>(-2, 4, -2, 4, -1).Builder(),
+            new Leader<Alice>(-2, 1, -1, 2, -2).Builder(),
+            new Leader<Seal>(-2, 2, -2, 2).Builder(),
             new Leader<Bamboozle>(-2, 1, counterModMin: -2, counterModMax: 1).Builder(),
-            new Leader<May>(-2, 2, counterModMin: -1, counterModMax: 1).Builder(),
+            new Leader<May>(-1, 1, counterModMin: -1, counterModMax: 1).Builder(),
             new Leader<Sam>(-2, 3, -1, 1, -1, 1).Builder(),
-            new Leader<Sherba>().Builder()
+            new Leader<Sherba>(-2, 3, counterModMin: -2, counterModMax: 1).Builder(),
+            new Leader<Chirp>(-1, 1, -1, 1, -1, 1).Builder(),
+            new Leader<Cuddles>(-1, 1, counterModMin: -1, counterModMax: 1).Builder(),
+            new Leader<Bubbles>(-1, 2).Builder(),
         ];
         _assets.AddRange(Leaders);
 
@@ -260,6 +268,7 @@ public class Absent : WildfrostMod
 
             Make sure to pet the plush when they do well, and don't let them get hurt! Plushies need proper love and care!
             """);
+        
         uiText.SetString(NebulaTribe.TitleKey, "The Nebula");
         uiText.SetString(NebulaTribe.DescKey,
             """
@@ -267,13 +276,20 @@ public class Absent : WildfrostMod
 
             No fight stays the same, none of your cards are certain
             """);
+        
+        uiText.SetString(StatusEffects.InstantTutorDeck.Name, "Choose and draw a card from your draw pile");
+        uiText.SetString(StatusEffects.InstantTutorDiscard.Name, "Choose and draw a card from your discard pile");
+        uiText.SetString(StatusEffects.InstantTutorThreeRandomCompanions.Name, "Add a companion to your hand");
+        uiText.SetString(StatusEffects.InstantTutorThreeRandomTreasures.Name, "Add an item or a clunker to your hand");
+        uiText.SetString(StatusEffects.InstantTutorDeckCopyZoomlinConsume.Name, "Add a copy of a card in your deck to hand with zoomlin and consume");
+        uiText.SetString(StatusEffects.InstantTutorTenRandomCardsZoomlin.Name, "Add a random card to your hand with zoomlin and consume");
     }
 
     public override List<T> AddAssets<T, TY>()
     {
         if (_assets.OfType<T>().Any())
             LogHelper.Warn(
-                $"[{Title}] adding {typeof(TY).Name}s: {_assets.OfType<T>().Select(a => a._data.name).Join()}");
+                $"Adding {typeof(TY).Name}s: {_assets.OfType<T>().Select(a => a._data.name).Join()}");
         return _assets.OfType<T>().ToList();
     }
 

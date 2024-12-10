@@ -17,7 +17,16 @@ internal class CatCharm() : AbstractCardUpgrade(
         charm.targetConstraints =
         [
             TargetConstraintHelper.AttackMoreThan(1),
-            TargetConstraintHelper.General<TargetConstraintNeedsTarget>("Needs Target")
+            TargetConstraintHelper.DoesTrigger(),
+            TargetConstraintHelper.General<TargetConstraintPlayOnSlot>(
+                "Does Not Play On Slot",
+                tc => tc.slot = true,
+                not: true
+            ),
+            TargetConstraintHelper.General<TargetConstraintPlayOnSlot>(
+                "Plays On Board",
+                tc => tc.board = true
+            )
         ];
     })
 {

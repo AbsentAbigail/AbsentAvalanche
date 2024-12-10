@@ -1,6 +1,6 @@
 ﻿using AbsentAvalanche.Traits;
 using AbsentUtilities;
-using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -18,9 +18,13 @@ internal class Elsta() : AbstractCompanion(
         [
             AbsentUtils.TStack(GoldRush.Name)
         ];
+        card.greetMessages =
+        [
+            "*stares at your Bling pouch*"
+        ];
     })
 {
-    public const string Name = "Elsta";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Ooo shiny!";
     protected override string IdleAnimation => "Heartbeat2AnimationProfile";
 }

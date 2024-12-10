@@ -13,7 +13,7 @@ internal class GhostlyPresence() : AbstractItem(
         card.startWithEffects =
         [
             AbsentUtils.SStack(Ethereal.Name, 3),
-            AbsentUtils.SStack(WhileInHandApplyOverburnToRandomEnemy.Name)
+            AbsentUtils.SStack(WhileInHandApplyOverburnToRandomEnemy.Name, 2)
         ];
     })
 {

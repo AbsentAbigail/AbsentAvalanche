@@ -15,7 +15,12 @@ public class CombineCardSequencePatches
         {
             if (inventory.deck.All(c => card.id != c.id))
                 return;
-            card.upgrades.Do(upgrade => References.PlayerData.inventory.upgrades.Add(upgrade));
+            card.upgrades.Do(upgrade =>
+            {
+                if (upgrade.type == CardUpgradeData.Type.Crown && card.cardType.miniboss)
+                    return;
+                References.PlayerData.inventory.upgrades.Add(upgrade);
+            });
             card.upgrades.Clear();
             References.PlayerData.inventory.deck.Remove(card);
         });

@@ -5,7 +5,7 @@ namespace AbsentAvalanche.CardUpgrades;
 
 internal class WillButton() : AbstractCardUpgrade(
     Name, "Will Button",
-    "When killed for the first time each fight, gain <1><keyword=scrap> instead\nGain <keyword=immunetosnow>",
+    "When destroyed for the first time each fight, gain <1><keyword=scrap> instead\nGain <keyword=immunetosnow>",
     subscribe: charm =>
     {
         charm.effects =

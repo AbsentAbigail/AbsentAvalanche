@@ -17,7 +17,10 @@ public class DoubleStatusEffectsAppliedToCatcus() : AbstractApplyXStatus<StatusE
         status.multiplyAmount = 2F;
         status.applyConstraints = [TargetConstraintHelper.General<TargetConstraintIsSpecificCard>(
                 "Is Catcus",
-                tc => tc.allowedCards = [AbsentUtils.GetCard(Catcus.Name)]
+                tc => tc.allowedCards = [
+                    AbsentUtils.GetCard(Catcus.Name),
+                    AbsentUtils.GetCard(Catcitten.Name)
+                ]
             )];
     })
 {

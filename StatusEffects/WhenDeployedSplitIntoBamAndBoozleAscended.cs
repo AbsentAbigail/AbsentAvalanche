@@ -1,11 +1,12 @@
 ﻿using AbsentAvalanche.Cards.Clunkers;
 using AbsentAvalanche.Cards.Companion;
+using AbsentAvalanche.Keywords;
 using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class WhenDeployedSplitIntoBamAndBoozleAscended() : AbstractApplyXStatus<StatusEffectApplyXWhenDeployed>(
-    Name, $"When deployed, split into evil {AbstractCard.CardTag(Bam.Name)} and evil {AbstractCard.CardTag(Boozle.Name)}",
+    Name, $"{PowerDuo.Tag} {AbstractCard.CardTag(Bam.Name)} and evil {AbstractCard.CardTag(Boozle.Name)}",
     effectToApply: InstantTransformIntoBamAndBoozleAscended.Name
 )
 {

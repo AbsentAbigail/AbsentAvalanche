@@ -15,7 +15,8 @@ internal class BraveryButton() : AbstractCardUpgrade(
             TargetConstraintHelper.MaxCounterMoreThan(0),
             TargetConstraintHelper.General<TargetConstraintIsCardType>(
                 "Is Not Leader",
-                tc => tc.allowedTypes = [AbsentUtils.TryGet<CardType>("Leader")]
+                tc => tc.allowedTypes = [AbsentUtils.TryGet<CardType>("Leader")],
+                true
             )
         ];
     })

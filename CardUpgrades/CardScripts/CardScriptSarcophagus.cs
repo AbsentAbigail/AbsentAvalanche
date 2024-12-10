@@ -35,7 +35,7 @@ public class CardScriptSarcophagus : CardScript
 
         sarcophagus.startWithEffects =
         [
-            AbsentUtils.SStack(Ethereal.Name, 4),
+            AbsentUtils.SStack(Ethereal.Name, 3),
             new CardData.StatusEffectStacks(applyX, 2)
         ];
 
@@ -73,17 +73,12 @@ public class CardScriptSarcophagus : CardScript
 
         yield return card.UpdateData();
 
+        var deckDisplaySequence = FindObjectOfType<DeckDisplaySequence>();
+        if (deckDisplaySequence is null)
+            yield break;
+        
         var entity = card.entity;
-
-        var cardGrids = FindObjectsOfType<CardContainerGrid>();
-        foreach(var cardGrid in cardGrids)
-        {
-            if (cardGrid.name == "ItemGrid")
-            {
-                cardGrid.Add(entity);
-            }
-        }
-
-        FindObjectOfType<DeckDisplaySequence>()?.UpdatePositions();
+        deckDisplaySequence.activeCardsGroup.GetGrid(card).Add(entity);
+        deckDisplaySequence.UpdatePositions();
     }
 }

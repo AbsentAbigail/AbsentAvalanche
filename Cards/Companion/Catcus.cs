@@ -3,13 +3,14 @@ using AbsentAvalanche.Patches;
 using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 using Cat = AbsentAvalanche.StatusEffects.Cat;
 
 namespace AbsentAvalanche.Cards.Companion;
 
 internal class Catcus() : AbstractCompanion(
     Name, "Catcus",
-    6, 0, 3,
+    7, 0, 4,
     Pools.None,
     card =>
     {
@@ -31,7 +32,7 @@ internal class Catcus() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "Catcus";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Sun loving, spiky feline with an adventurous Spirit! :3";
     protected override string BloodProfile => "Blood Profile Pink Wisp";
     

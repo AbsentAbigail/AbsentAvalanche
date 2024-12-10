@@ -1,6 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
-using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -9,7 +9,8 @@ internal class Aftonsparv() : AbstractCompanion(
     10, null, 3,
     subscribe: card =>
     {
-        card.startWithEffects = [
+        card.startWithEffects =
+        [
             AbsentUtils.SStack("On Card Played Apply Frost To RandomEnemy"),
             AbsentUtils.SStack(OnTurnSummonUFOInHand.Name)
         ];
@@ -20,7 +21,7 @@ internal class Aftonsparv() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "Aftonsparv";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Alien Friend";
     protected override string IdleAnimation => "FloatAnimationProfile";
     protected override string BloodProfile => "Blood Profile Pink Wisp";

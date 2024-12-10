@@ -6,7 +6,6 @@ using AbsentUtilities;
 using DeadExtensions;
 using HarmonyLib;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
 
@@ -37,7 +36,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             throw new ArgumentException("Next phase not given!");
 
         var cards = GetCards();
-        
+
         cards.Do(c =>
         {
             if (c.hasHealth)
@@ -52,30 +51,31 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 ..startWithEffects
             ];
         });
-        
+
         var originalCardType = target.data.cardType;
         if (CheckCardType(originalCardType))
             cards.Do(c => c.cardType = originalCardType);
-        
+
         if (bossTransform != null && bossTransform.data != null)
         {
             var randomCard = cards.RandomItem();
-            randomCard.startWithEffects = [
+            randomCard.startWithEffects =
+            [
                 ..randomCard.startWithEffects,
                 bossTransform
             ];
         }
-        
+
         AddCharms(cards);
         var targetCopy = target.data.InstantiateKeepName();
         var baseCard = AbsentUtils.GetCard(target.name);
-        foreach (var upgrade in targetCopy.upgrades.ToArray())
+        foreach (var upgrade in targetCopy.upgrades.ToArray().Reverse())
             upgrade.UnAssign(targetCopy);
-        
+
         var healthDiff = targetCopy.hp - baseCard.hp;
         var damageDiff = targetCopy.damage - baseCard.damage;
         var counterDiff = targetCopy.counter - baseCard.counter;
-        
+
         foreach (var card in cards)
         {
             if (card.hasHealth)
@@ -85,13 +85,13 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             if (card.counter > 0)
                 card.counter = Math.Max(1, card.counter + counterDiff);
         }
-        
+
         var action = new ActionChangeForm(target, cards, animation)
         {
             priority = 10
         };
         ActionQueue.Stack(action, true);
-        
+
         yield return Remove();
     }
 
@@ -128,12 +128,12 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
     private bool CheckCardType(CardType cardType)
     {
         return keepCardType
-           || cardType.name == "Leader"
-           || cardType.name == "Miniboss"
-           || cardType.name == "Boss"
-           || cardType.name == "BossSmall";
+               || cardType.name == "Leader"
+               || cardType.name == "Miniboss"
+               || cardType.name == "Boss"
+               || cardType.name == "BossSmall";
     }
-    
+
     private IEnumerator Text(NoTargetType noTargetType)
     {
         if (!NoTargetTextSystem.Exists())
@@ -150,7 +150,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             if (!entity.IsAliveAndExists()) yield break;
 
             Events.InvokeEntityChangePhase(entity);
-            var routine = new Routine(CreateNewCards());
+            _ = new Routine(CreateNewCards());
 
             PauseMenu.Block();
             DeckpackBlocker.Block();

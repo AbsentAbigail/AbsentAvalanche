@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -19,6 +20,6 @@ internal class FusilladeCat() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "FusilladeCat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "A cat with an explosive personality";
 }

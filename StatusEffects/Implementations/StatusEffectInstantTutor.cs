@@ -6,6 +6,7 @@ using AbsentUtilities;
 using DeadExtensions;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.Localization;
 using WildfrostHopeMod.Utils;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
@@ -24,6 +25,7 @@ public class StatusEffectInstantTutor : StatusEffectInstant
     public int amount;
     public StatusEffectInstantSummon summonCopy;
     public CardData.StatusEffectStacks[] addEffectStacks;
+    public LocalizedString title;
 
     private CardContainer _cardContainer;
     private GameObject _gameObject;
@@ -45,6 +47,9 @@ public class StatusEffectInstantTutor : StatusEffectInstant
             foreach (var entity in container)
                 yield return entity.GetCard().UpdateData();
 
+        CinemaBarSystem.In();
+        CinemaBarSystem.SetSortingLayer("UI2");
+        CinemaBarSystem.Top.SetPrompt(title.GetLocalizedString(), "Select");
         _sequence.AddCards(container);
         yield return _sequence.Run();
 
@@ -74,6 +79,9 @@ public class StatusEffectInstantTutor : StatusEffectInstant
 
         cc.canPress = false;
         cc.pressEvent.RemoveListener(ChooseCard);
+        
+        CinemaBarSystem.Clear();
+        CinemaBarSystem.Out();
 
         yield return Remove();
     }

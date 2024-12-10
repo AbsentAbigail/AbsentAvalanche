@@ -30,14 +30,17 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
             return customList.RandomItem();
 
         var predicate = AbsentUtils.GetStatusOf<StatusEffectInstantAddRandomCharm>(name).Predicate;
-        
+
         var component = References.Player.GetComponent<CharacterRewards>();
         var result = component.Pull<CardUpgradeData>(target, "Charms", 1, false,
-            match: c => c is CardUpgradeData charm
-                        && (predicate is null || predicate.Invoke(charm))
-                        && (!addToTarget || charm.CanAssign(target))
-            );
-        return result.Length > 0 ? result[0] : AbsentUtils.GetCardUpgrade("CardUpgradeAcorn"); // Quitting and reentering breaks CharacterRewards, so add a default charm
+            c => c is CardUpgradeData charm
+                 && (predicate is null || predicate.Invoke(charm))
+                 && (!addToTarget || charm.CanAssign(target))
+        );
+        return result.Length > 0
+            ? result[0]
+            : AbsentUtils.GetCardUpgrade(
+                "CardUpgradeAcorn"); // Quitting and reentering breaks CharacterRewards, so add a default charm
     }
 
     private void AddUpgrade(CardUpgradeData charm)

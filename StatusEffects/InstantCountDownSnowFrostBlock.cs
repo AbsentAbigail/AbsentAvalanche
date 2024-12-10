@@ -3,7 +3,7 @@ using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects;
 
-public class CountDownSnowFrostBlock() : AbstractStatus<StatusEffectInstantCountDownStatus>(
+public class InstantCountDownSnowFrostBlock() : AbstractStatus<StatusEffectInstantCountDownStatus>(
     Name,
     subscribe: status =>
     {

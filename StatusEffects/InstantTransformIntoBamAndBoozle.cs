@@ -1,4 +1,6 @@
-﻿using AbsentUtilities;
+﻿using AbsentAvalanche.Cards.Clunkers;
+using AbsentAvalanche.Cards.Companion;
+using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -7,7 +9,7 @@ public class InstantTransformIntoBamAndBoozle() : AbstractStatus<Implementations
     subscribe: status =>
     {
         status.animation = AbsentUtils.GetStatusOf<StatusEffectNextPhase>("FinalBossPhase2").animation;
-        status.phaseOptions = [AbsentUtils.GetCard("Bam"), AbsentUtils.GetCard("Boozle")];
+        status.phaseOptions = [AbsentUtils.GetCard(Bam.Name), AbsentUtils.GetCard(Boozle.Name)];
         status.splitCount = 2;
     })
 {

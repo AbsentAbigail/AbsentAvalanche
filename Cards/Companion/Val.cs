@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ internal class Val() : AbstractCompanion(
         card.scriptableImagePrefab = CreateScriptableCardImage<ValCardImage>("val");
     })
 {
-    public const string Name = "Val";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Has a zipper for a mouth!";
     protected override string BloodProfile => "Blood Profile Blue (x2)";
 

@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -15,6 +16,6 @@ public class Bamboozle() : AbstractCompanion(Name, "Bam and Boozle", 3, 1, 8,
         card.charmSlots *= 2;
     })
 {
-    public const string Name = "Bamboozle";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "United forever";
 }

@@ -1,6 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
-using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -15,8 +15,12 @@ internal class Eudora() : AbstractCompanion(
             AbsentUtils.SStack("Scrap", 2),
             AbsentUtils.SStack(TriggerWhenAllyBehindTriggers.Name)
         ];
+        card.greetMessages =
+        [
+            "I'm all wound up!"
+        ];
     })
 {
-    public const string Name = "Eudora";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     protected override string IdleAnimation => "Heartbeat2AnimationProfile";
 }

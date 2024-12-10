@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using Deadpan.Enums.Engine.Components.Modding;
+using UnityEngine;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -16,6 +18,7 @@ public class InstantTutorTenRandomCardsZoomlin() : AbstractStatus<StatusEffectIn
         (cardData.traits is null || !cardData.traits.Exists(b => b.data.name is "Recycle"));
     
     status.addEffectStacks = [AbsentUtils.SStack(TemporarySafeZoomlin.Name)];
+    status.title = LocalizationHelper.GetCollection("UI Text", SystemLanguage.English).GetString(Name);
 })
 {
     public const string Name = "InstantTutorTenRandomCardsZoomlin";

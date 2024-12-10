@@ -18,6 +18,8 @@ public static class AssetsFlavours
             new Seal().Builder(),
             new Sherba().Builder(),
             new Catcus().Builder(),
+            new Catcitten().Builder(),
+            new Catci().Builder(),
             new Boozle().Builder(),
             new Elsta().Builder(),
             new PanickedNut().Builder(),
@@ -33,7 +35,10 @@ public static class AssetsFlavours
             new ShadyBox().Builder(),
             new FrozenFlame().Builder(),
             new UnboundFlame().Builder(),
-            new NebulaAuxilium().Builder()
+            new NebulaAuxilium().Builder(),
+            new Bubbles().Builder(),
+            new Cuddles().Builder(),
+            new BubblesAndCuddles().Builder(),
         ]);
     }
 }

@@ -23,7 +23,9 @@ public class FinalBossGenerationSettingsPatches
             CreateSwapper("SalvoKitty 2", GainCatWhenMissileIsPlayed.Name,
                 OnCardPlayedGainCat.Name),
             CreateSwapper("BamAndBoozle", WhenDeployedSplitIntoBamAndBoozle.Name,
-                WhenDeployedSplitIntoBamAndBoozleAscended.Name)
+                WhenDeployedSplitIntoBamAndBoozleAscended.Name),
+            CreateSwapper("Catci", WhenDeployedSplitIntoCatcusAndCatcitten.Name,
+                WhenDeployedSplitIntoCatcusAndCatcittenAscended.Name)
         ];
     }
 

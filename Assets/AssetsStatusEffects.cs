@@ -110,7 +110,7 @@ public static class AssetsStatusEffects
             new WhenAllyAheadGainsStatusApplyItToAllies().Builder(),
 
             new WhenAllyHitIncreaseEffects().Builder(),
-            new CountDownSnowFrostBlock().Builder(),
+            new InstantCountDownSnowFrostBlock().Builder(),
             new EveryTurnCountDownSnowFrostBlock().Builder(),
 
             new InstantTutorDeck().Builder(),
@@ -136,7 +136,29 @@ public static class AssetsStatusEffects
             new WhenHitSummonPillow().Builder(),
 
             new InstantCleanseText().Builder(),
-            new InstantHeadpat().Builder()
+            new InstantHeadpat().Builder(),
+            
+            new InstantDrawAndApplyFrenzyAndAimless().Builder(),
+            new OnCardPlayedDrawAndApplyFrenzyAndAimless().Builder(),
+            
+            new WhenAllyGainsNegativeStatusApplyToSelfInstead().Builder(),
+            new OnCardPlayedCleanseSelf().Builder(),
+            new WhenAnAllyGainsAPositiveStatusShareHalfToSelf().Builder(),
+            
+            new WhenDeployedSplitIntoCatcusAndCatcitten().Builder(),
+            new InstantTransformIntoCatcusAndCatcitten().Builder(),
+            new WhenDeployedSplitIntoCatcusAndCatcittenAscended().Builder(),
+            new InstantTransformIntoCatcusAndCatcittenAscended().Builder(),
+            new WhenEnemyIsKilledApplyTeethToAttacker().Builder(),
+            new WhenEnemyIsKilledCountDownAttacker().Builder(),
+            new CountDownASAP().Builder(),
+            
+            new OnCardPlayedGainSnow().Builder(),
+            new OnCardPlayedTriggerAllyAhead().Builder(),
+            new InstantTransformIntoBubblesAndCuddles().Builder(),
+            new WhenDeployedSplitIntoBubblesAndCuddles().Builder(),
+            new InstantTransformIntoBubblesAndCuddlesAscended().Builder(),
+            new WhenDeployedSplitIntoBubblesAndCuddlesAscended().Builder(),
         ]);
     }
 }

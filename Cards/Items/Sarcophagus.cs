@@ -8,7 +8,7 @@ public class Sarcophagus() : AbstractItem(Name, "Sarcophagus",
     {
         card.startWithEffects =
         [
-            AbsentUtils.SStack(Ethereal.Name, 4),
+            AbsentUtils.SStack(Ethereal.Name, 3),
             AbsentUtils.SStack(WhenDestroyedSummonSarcophagus.Name, 2)
         ];
     })

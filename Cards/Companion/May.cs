@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -15,9 +16,13 @@ public class May() : AbstractCompanion(
             AbsentUtils.SStack("On Turn Apply Teeth To Self"),
             AbsentUtils.SStack(OnKillIncreaseHealthPermanent.Name)
         ];
+        card.greetMessages =
+        [
+            "Gawr! I'm a big scawy dinosauw!"
+        ];
     })
 {
-    public const string Name = "May";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Very cuddly when she's not busy ruining a toy city";
     protected override string IdleAnimation => "GiantAnimationProfile";
     protected override string BloodProfile => "Blood Profile Pink Wisp";

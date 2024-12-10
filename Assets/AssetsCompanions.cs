@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AbsentAvalanche.Cards.Companion;
+using AbsentAvalanche.Cards.Leaders;
 
 namespace AbsentAvalanche.Assets;
 
@@ -17,8 +18,16 @@ public static class AssetsCompanions
             new May().Builder(),
             new Sam().Builder(),
             new Sherba().Builder(),
+            new Chirp().Builder(),
+            new Cuddles().Builder(),
+            new Bubbles().Builder(),
+            
+            new Leader<BubblesAndCuddles>().Builder(),
 
             new Catcus().Builder(),
+            new Catcitten().Builder(),
+            new Catci().Builder(),
+            
             new SalvoKitty().Builder(),
             new FusilladeCat().Builder(),
 

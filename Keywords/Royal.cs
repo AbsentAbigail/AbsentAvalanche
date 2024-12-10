@@ -8,10 +8,4 @@ public class Royal()
 {
     public const string Name = "royal";
     public static string Tag = GetTag(Name);
-
-    public override KeywordDataBuilder Builder()
-    {
-        return base.Builder()
-            .WithCanStack(true);
-    }
 }

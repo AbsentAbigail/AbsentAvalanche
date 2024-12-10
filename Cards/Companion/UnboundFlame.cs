@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -15,9 +16,10 @@ internal class UnboundFlame() : AbstractCompanion(
             AbsentUtils.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 3)
         ];
         card.traits = [AbsentUtils.TStack("Barrage")];
+        card.cardType = AbsentUtils.GetCardType("Summoned");
     })
 {
-    public const string Name = "UnboundFlame";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Ethereal flames fill the space around";
     protected override string BloodProfile => "Blood Profile Black";
     protected override string IdleAnimation => "FloatAnimationProfile";

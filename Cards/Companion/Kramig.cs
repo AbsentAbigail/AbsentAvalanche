@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -17,6 +18,6 @@ internal class Kramig() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "Kramig";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Protects its friends";
 }

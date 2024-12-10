@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Traits;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -21,8 +22,12 @@ internal class Lusine() : AbstractCompanion(
         [
             AbsentUtils.TStack(Trample.Name)
         ];
+        card.greetMessages =
+        [
+            "Don't stand in my way, or I'll have to step on you"
+        ];
     })
 {
-    public const string Name = "Lusine";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     protected override string IdleAnimation => "PulseAnimationProfile";
 }

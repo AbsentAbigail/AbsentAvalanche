@@ -67,8 +67,11 @@ public class StatusInstantEatCard : StatusEffectInstantApplyEffect
     private IEnumerator GainEffects()
     {
         applier.attackEffects = CardData.StatusEffectStacks.Stack(applier.attackEffects, target.attackEffects).ToList();
-        var list = target.statusEffects.Where(e => e != this && !illegalEffects.Select(e2 => e2.name).Contains(e.name))
-            .ToList();
+        var list = target.statusEffects.Where(e =>
+                e != this &&
+                !illegalEffects.Select(e2 => e2.name).Contains(e.name)
+                && e is not StatusEffectNextPhase
+            ).ToList();
         foreach (var trait in target.traits)
         {
             foreach (var passiveEffect in trait.passiveEffects)

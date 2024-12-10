@@ -8,7 +8,7 @@ public class Snowball() : AbstractItem(Name, "Snowball",
     {
         card.attackEffects =
         [
-            AbsentUtils.SStack("Snow")
+            AbsentUtils.SStack("Snow", 2)
         ];
         card.startWithEffects = [AbsentUtils.SStack(OnCardPlayedBoostSelf.Name)];
         card.traits = [AbsentUtils.TStack("Zoomlin")];

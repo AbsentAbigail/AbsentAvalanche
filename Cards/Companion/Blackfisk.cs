@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -23,7 +24,7 @@ internal class Blackfisk() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "Blackfisk";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "8 arms to give 8 times better hugs!";
     protected override string IdleAnimation => "PulseAnimationProfile";
     protected override string BloodProfile => "Blood Profile Blue (x2)";

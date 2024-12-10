@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -19,6 +20,6 @@ internal class SalvoKitty() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "SalvoKitty";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "\"Who gave this cat this button?\"";
 }

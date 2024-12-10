@@ -16,7 +16,9 @@ public static class AssetsKeywords
             new Scavenge().Builder(),
             new Royal().Builder(),
             new Warm().Builder(),
-            new Panic().Builder()
+            new Panic().Builder(),
+            new Friend().Builder(),
+            new PowerDuo().Builder(),
         ]);
     }
 }

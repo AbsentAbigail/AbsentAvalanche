@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -17,7 +18,7 @@ internal class Blahaj() : AbstractCompanion(
         ];
     })
 {
-    public const string Name = "Blahaj";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Accepts and loves you <3";
     protected override string BloodProfile => "Blood Profile Pink Wisp";
 }

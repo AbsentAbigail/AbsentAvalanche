@@ -20,7 +20,12 @@ public static class CombineCombos
         Combo(
             AbsentUtils.PrefixGuid(SalvoKitty.Name), AbsentUtils.PrefixGuid(Catbom.Name),
             AbsentUtils.PrefixGuid(FusilladeCat.Name)
-        )
+        ),
+        Combo(
+            AbsentUtils.PrefixGuid(Catcus.Name), AbsentUtils.PrefixGuid(Catcitten.Name),
+            AbsentUtils.PrefixGuid(Catci.Name)
+        ),
+        .. LeaderCombo(Bubbles.Name, Cuddles.Name, BubblesAndCuddles.Name),
     ];
 
     public static void SceneLoaded(Scene scene)
@@ -46,8 +51,7 @@ public static class CombineCombos
         [
             Combo(companion1, companion2, resultingCompanion),
             Combo(leader1, companion2, resultingLeader),
-            Combo(companion1, leader2, resultingLeader),
-            Combo(leader1, leader2, resultingLeader)
+            Combo(companion1, leader2, resultingLeader)
         ];
     }
 

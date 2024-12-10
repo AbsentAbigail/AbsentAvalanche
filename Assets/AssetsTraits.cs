@@ -13,7 +13,8 @@ public static class AssetsTraits
             new Trample().Builder(),
             new Valor().Builder(),
             new Scavenge().Builder(),
-            new Warm().Builder()
+            new Warm().Builder(),
+            new Friend().Builder(),
         ]);
     }
 }
