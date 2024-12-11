@@ -36,6 +36,9 @@ public class StatusEffectCat : StatusEffectApplyX
 
     private IEnumerator Sequence(Entity applyTo, int cat, int max)
     {
+        if (!(target.enabled && target.alive))
+            yield break;
+        
         if (max > 0 && (!applyTo.enabled || !applyTo.alive))
             max = Math.Max(cat - max, -3);
 
