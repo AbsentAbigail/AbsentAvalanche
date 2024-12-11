@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using AbsentUtilities;
 using HarmonyLib;
 
 namespace AbsentAvalanche.Patches;
@@ -25,5 +26,17 @@ public class CombineCardSequencePatches
             References.PlayerData.inventory.deck.Remove(card);
         });
         return true;
+    }
+
+    private static IEnumerator Postfix(IEnumerator __result, CombineCardSequence __instance, CardData[] cards, CardData finalCard)
+    {
+        yield return __result;
+        
+        if (!finalCard.cardType.miniboss)
+            yield break;
+        
+        var deck = References.PlayerData.inventory.deck;
+        if (deck.Remove(finalCard))
+            deck.Insert(0, finalCard);            
     }
 }
