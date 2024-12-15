@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AbsentAvalanche.Cards.Clunkers;
 using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
 using UnityEngine;
-using PanickedNut = AbsentAvalanche.Keywords.flavour.PanickedNut;
 
 namespace AbsentAvalanche;
 
@@ -22,7 +20,7 @@ public static class PlushTribe
     public static ClassDataBuilder Builder()
     {
         return AbsentUtils.TribeCopy("Basic", Name)
-            .WithFlag("Images/plushbanner.png")
+            .WithFlag(AbsentUtils.GetModInfo().Sprites.GetSprite("plushbanner"))
             .SubscribeToAfterAllBuildEvent(tribe =>
             {
                 var playerCharacter = tribe.characterPrefab.gameObject.InstantiateKeepName();
@@ -62,79 +60,83 @@ public static class PlushTribe
     private static RewardPool UnitPool()
     {
         return TribeHelper.CreateRewardPool(UnitPoolName, RewardPool.Type.Units.ToString(),
-            [.. DataList<CardData>(
-                    "BloodBoy", // Berry Sis
-                    "Turmeep", // Alloy
-                    "Witch",
-                    "TailsFive", // Chikichi
-                    "Egg",
-                    "Firefist",
-                    "Kernel",
-                    "LilBerry",
-                    "GuardianGnome", // Nom and Stompy
-                    "Pootie",
-                    "Pyra",
-                    "Shelly",
-                    "Kokonut", // Taiga
-                    "Tusk",
-                    "Zula",
-                    
-                    FrozenFlame.Name,
-                    Cards.Companion.PanickedNut.Name
-                )]);
+        [
+            .. DataList<CardData>(
+                "BloodBoy", // Berry Sis
+                "Turmeep", // Alloy
+                "Witch",
+                "TailsFive", // Chikichi
+                "Egg",
+                "Firefist",
+                "Kernel",
+                "LilBerry",
+                "GuardianGnome", // Nom and Stompy
+                "Pootie",
+                "Pyra",
+                "Shelly",
+                "Kokonut", // Taiga
+                "Tusk",
+                "Zula",
+                FrozenFlame.Name,
+                PanickedNut.Name
+            )
+        ]);
     }
 
     private static RewardPool ItemPool()
     {
         return TribeHelper.CreateRewardPool(ItemPoolName, RewardPool.Type.Items.ToString(),
-            [.. DataList<CardData>(
-                    "PomDispenser", // Gacha Pomper
-                    "Heartforge",
-                    "MobileCampfire",
-                    "PepperFlag",
-                    "SpiceSparklers",
-                    "Madness", // Sunglass Chime
-                    "ZoomlinNest",
-                    "BeepopMask",
-                    "Bumblebee", // Blaze Bom
-                    "Shwooper",
-                    "EnergyDart", // Clockwork Bom
-                    "DragonflamePepper",
-                    "FallowMask",
-                    "Recycler", // Forging Stove
-                    "Junberry", // Gigis Cookie Box
-                    "JunjunMask",
-                    "LuminShard", // Lumin Lantern
-                    "NutshellCake",
-                    "Peppereaper",
-                    "Peppering",
-                    "Putty",
-                    "ShellShield",
-                    "Shellbo",
-                    "SpiceStones",
-
-                    Catbom.Name,
-                    GhostlyPresence.Name
-                )]);
+        [
+            .. DataList<CardData>(
+                "PomDispenser", // Gacha Pomper
+                "Heartforge",
+                "MobileCampfire",
+                "PepperFlag",
+                "SpiceSparklers",
+                "Madness", // Sunglass Chime
+                "ZoomlinNest",
+                "BeepopMask",
+                "Bumblebee", // Blaze Bom
+                "Shwooper",
+                "EnergyDart", // Clockwork Bom
+                "DragonflamePepper",
+                "FallowMask",
+                "Recycler", // Forging Stove
+                "Junberry", // Gigis Cookie Box
+                "JunjunMask",
+                "LuminShard", // Lumin Lantern
+                "NutshellCake",
+                "Peppereaper",
+                "Peppering",
+                "Putty",
+                "ShellShield",
+                "Shellbo",
+                "SpiceStones",
+                Catbom.Name,
+                GhostlyPresence.Name
+            )
+        ]);
     }
 
     private static RewardPool CharmPool()
     {
         return TribeHelper.CreateRewardPool(CharmPoolName, RewardPool.Type.Charms.ToString(),
-            [.. DataList<CardUpgradeData>(
-                    "CardUpgradeAcorn",
-                    "CardUpgradeSpiky",
-                    "CardUpgradeBom",
-                    "CardUpgradeConsumeOverload",
-                    "CardUpgradeOverload",
-                    "CardUpgradeTrash",
-                    "CardUpgradeHeartburn",
-                    "CardUpgradeShellBecomesSpice",
-                    "CardUpgradeScrap",
-                    "CardUpgradeShellOnKill",
-                    "CardUpgradeSpice",
-                    "CardUpgradeTeethWhenHit"
-                )]);
+        [
+            .. DataList<CardUpgradeData>(
+                "CardUpgradeAcorn",
+                "CardUpgradeSpiky",
+                "CardUpgradeBom",
+                "CardUpgradeConsumeOverload",
+                "CardUpgradeOverload",
+                "CardUpgradeTrash",
+                "CardUpgradeHeartburn",
+                "CardUpgradeShellBecomesSpice",
+                "CardUpgradeScrap",
+                "CardUpgradeShellOnKill",
+                "CardUpgradeSpice",
+                "CardUpgradeTeethWhenHit"
+            )
+        ]);
     }
 
     private static T[] DataList<T>(params string[] names) where T : DataFile

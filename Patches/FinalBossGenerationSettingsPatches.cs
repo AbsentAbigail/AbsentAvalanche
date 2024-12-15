@@ -25,7 +25,11 @@ public class FinalBossGenerationSettingsPatches
             CreateSwapper("BamAndBoozle", WhenDeployedSplitIntoBamAndBoozle.Name,
                 WhenDeployedSplitIntoBamAndBoozleAscended.Name),
             CreateSwapper("Catci", WhenDeployedSplitIntoCatcusAndCatcitten.Name,
-                WhenDeployedSplitIntoCatcusAndCatcittenAscended.Name)
+                WhenDeployedSplitIntoCatcusAndCatcittenAscended.Name),
+            CreateSwapper("BubblesAndCuddles", WhenDeployedSplitIntoBubblesAndCuddles.Name,
+                WhenDeployedSplitIntoBubblesAndCuddlesAscended.Name),
+            CreateSwapper("SherbaAndCuddles", WhenDeployedSplitIntoSherbaAndCuddles.Name,
+                WhenDeployedSplitIntoSherbaAndCuddlesAscended.Name),
         ];
     }
 

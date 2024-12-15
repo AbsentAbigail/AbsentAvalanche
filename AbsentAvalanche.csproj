@@ -441,6 +441,7 @@
         <Compile Include="Cards\Companion\Sam.cs" />
         <Compile Include="Cards\Companion\Seal.cs" />
         <Compile Include="Cards\Companion\Sherba.cs" />
+        <Compile Include="Cards\Companion\SherbaAndCuddles.cs" />
         <Compile Include="Cards\Companion\UnboundFlame.cs" />
         <Compile Include="Cards\Companion\FrozenFlame.cs" />
         <Compile Include="Cards\Companion\Val.cs" />
@@ -517,6 +518,7 @@
         <Compile Include="Keywords\flavour\Seal.cs" />
         <Compile Include="Keywords\flavour\ShadyBox.cs" />
         <Compile Include="Keywords\flavour\Sherba.cs" />
+        <Compile Include="Keywords\flavour\SherbaAndCuddles.cs" />
         <Compile Include="Keywords\flavour\UnboundFlame.cs" />
         <Compile Include="Keywords\Friend.cs" />
         <Compile Include="Keywords\GoldRush.cs" />
@@ -556,6 +558,8 @@
         <Compile Include="StatusEffects\InstantTransformIntoBubblesAndCuddlesAscended.cs" />
         <Compile Include="StatusEffects\InstantTransformIntoCatcusAndCatcitten.cs" />
         <Compile Include="StatusEffects\InstantTransformIntoCatcusAndCatcittenAscended.cs" />
+        <Compile Include="StatusEffects\InstantTransformIntoSherbaAndCuddles.cs" />
+        <Compile Include="StatusEffects\InstantTransformIntoSherbaAndCuddlesAscended.cs" />
         <Compile Include="StatusEffects\OnCardPlayedCleanseSelf.cs" />
         <Compile Include="StatusEffects\OnCardPlayedDrawAndApplyFrenzyAndAimless.cs" />
         <Compile Include="StatusEffects\FakeCalm.cs" />
@@ -663,6 +667,7 @@
         <Compile Include="StatusEffects\WhenAllyHitIncreaseEffects.cs" />
         <Compile Include="StatusEffects\WhenAnAllyGainsAPositiveStatusShareHalfToSelf.cs" />
         <Compile Include="StatusEffects\WhenAnythingSnowedGainBlock.cs" />
+        <Compile Include="StatusEffects\WhenDeployedApplySnowToEnemies.cs" />
         <Compile Include="StatusEffects\WhenDeployedGainHealthPerAlliedCompanion.cs" />
         <Compile Include="StatusEffects\WhenDeployedGainSnowForEachEnemy.cs" />
         <Compile Include="StatusEffects\WhenDeployedGainShellForEachEnemy.cs" />
@@ -673,6 +678,8 @@
         <Compile Include="StatusEffects\WhenDeployedSplitIntoBubblesAndCuddlesAscended.cs" />
         <Compile Include="StatusEffects\WhenDeployedSplitIntoCatcusAndCatcitten.cs" />
         <Compile Include="StatusEffects\WhenDeployedSplitIntoCatcusAndCatcittenAscended.cs" />
+        <Compile Include="StatusEffects\WhenDeployedSplitIntoSherbaAndCuddles.cs" />
+        <Compile Include="StatusEffects\WhenDeployedSplitIntoSherbaAndCuddlesAscended.cs" />
         <Compile Include="StatusEffects\WhenDestroyedDealDamageToRandomAlly.cs" />
         <Compile Include="StatusEffects\WhenDestroyedSummonSarcophagus.cs" />
         <Compile Include="StatusEffects\WhenDestroyedSummonUnboundFlame.cs" />

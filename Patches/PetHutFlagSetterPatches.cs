@@ -1,8 +1,10 @@
 ﻿using System.Linq;
+using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
+using WildfrostHopeMod.Utils;
 
 namespace AbsentAvalanche.Patches;
 
@@ -11,9 +13,9 @@ internal static class PetHutFlagSetterPatches
 {
     private static readonly string[] Flags =
     [
-        "Flag_Catcus.png",
-        "Flag_SalvoKitty.png",
-        "Flag_NebulaAuxilium.png"
+        "Flag_Catcus",
+        "Flag_SalvoKitty",
+        "Flag_NebulaAuxilium"
     ];
 
     [UsedImplicitly]
@@ -21,7 +23,7 @@ internal static class PetHutFlagSetterPatches
     {
         foreach (var flag in Flags)
         {
-            var texture = Absent.Instance.ImagePath(flag).ToTex();
+            var texture = AbsentUtils.GetModInfo().Sprites.GetSprite(flag).ToTexture();
             var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 1f),
                 160);
             __instance.flagSprites = __instance.flagSprites.Append(sprite).ToArray();

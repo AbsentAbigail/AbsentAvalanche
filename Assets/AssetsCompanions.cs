@@ -22,7 +22,10 @@ public static class AssetsCompanions
             new Cuddles().Builder(),
             new Bubbles().Builder(),
             
+            new BubblesAndCuddles().Builder(),
             new Leader<BubblesAndCuddles>().Builder(),
+            new SherbaAndCuddles().Builder(),
+            new Leader<SherbaAndCuddles>().Builder(),
 
             new Catcus().Builder(),
             new Catcitten().Builder(),

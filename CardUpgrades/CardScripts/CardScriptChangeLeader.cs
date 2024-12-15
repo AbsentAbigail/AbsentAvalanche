@@ -18,19 +18,19 @@ public class CardScriptChangeLeader : CardScript
         LogHelper.Warn($"[CardScriptChangeLeader] Demoting [{target.name}]");
         LogHelper.Warn($"[CardScriptChangeLeader] Promoting [{promotion.name}]");
 
-        target.cardType = AbsentUtils.GetCardType("Friendly");
-        target.SetCustomData("OverrideCardType", "Friendly");
-        promotion.cardType = AbsentUtils.GetCardType("Leader");
-        promotion.SetCustomData("OverrideCardType", "Leader");
-
         var targetClone = target.Clone(false);
         targetClone.upgrades.RemoveAllWhere(upgrade => upgrade.type == CardUpgradeData.Type.Crown);
+        targetClone.cardType = AbsentUtils.GetCardType("Friendly");
+        targetClone.SetCustomData("OverrideCardType", "Friendly");
         inventory.deck.Add(targetClone);
-
+        
         CardScriptDestroyCard.RemoveFromDeck(target);
         CardScriptDestroyCard.DestroyEntities(target);
 
         var promotionClone = promotion.Clone(false);
+        promotionClone.cardType = AbsentUtils.GetCardType("Leader");
+        promotionClone.SetCustomData("OverrideCardType", "Leader");
+        promotionClone.upgrades.RemoveAllWhere(upgrade => upgrade.type == CardUpgradeData.Type.Crown);
         LeaderHelper.GiveUpgrade().Run(promotionClone);
         inventory.deck.Insert(0, promotionClone);
 

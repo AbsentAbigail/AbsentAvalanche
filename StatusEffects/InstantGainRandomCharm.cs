@@ -1,4 +1,5 @@
-﻿using AbsentAvalanche.StatusEffects.Implementations;
+﻿using System.Linq;
+using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
 
 namespace AbsentAvalanche.StatusEffects;
@@ -8,7 +9,7 @@ public class InstantGainRandomCharm() : AbstractStatus<StatusEffectInstantAddRan
     canBoost: true,
     subscribe: status =>
     {
-        status.Predicate = charm => charm.scripts is null || charm.scripts.Length == 0;
+        status.Predicate = charm => charm.scripts is null || charm.scripts.Count(s => s.GetType().Name != "CardScriptAddStatsWhenCharmed") == 0;
         status.addToTarget = true;
     })
 {

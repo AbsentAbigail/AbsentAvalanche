@@ -39,6 +39,7 @@ public static class AssetsFlavours
             new Bubbles().Builder(),
             new Cuddles().Builder(),
             new BubblesAndCuddles().Builder(),
+            new SherbaAndCuddles().Builder(),
         ]);
     }
 }

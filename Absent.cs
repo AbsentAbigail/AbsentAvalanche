@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using AbsentAvalanche.Assets;
 using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.Cards.Leaders;
@@ -10,6 +12,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.U2D;
 using WildfrostHopeMod;
 using WildfrostHopeMod.SFX;
 using WildfrostHopeMod.Utils;
@@ -24,6 +29,7 @@ public class Absent : WildfrostMod
 
     public static List<CardDataBuilder> Leaders;
     private List<object> _assets;
+    private static SpriteAtlas _spriteAtlas;
 
     //this is here to allow our icon to appear in the text box of cards
     private TMP_SpriteAsset _assetSprites;
@@ -56,6 +62,9 @@ public class Absent : WildfrostMod
 
     public override TMP_SpriteAsset SpriteAsset => _assetSprites;
 
+    public static string CatalogFolder => Path.Combine(Instance.ModDirectory, "Windows");
+    public static string CatalogPath => Path.Combine(CatalogFolder, "catalog.json");
+    
     public override void Load()
     {
         AbsentUtils.AddModInfo(new AbsentUtils.ModInfo
@@ -63,6 +72,16 @@ public class Absent : WildfrostMod
             Mod = this,
             Prefix = "AbsentAvalanche"
         });
+
+        if (!Addressables.ResourceLocators.Any(r => r is ResourceLocationMap map && map.LocatorId == CatalogPath))
+            Addressables.LoadContentCatalogAsync(CatalogPath).WaitForCompletion();
+
+        _spriteAtlas = (SpriteAtlas)Addressables.LoadAssetAsync<Object>($"Assets/{GUID}/Sprite Atlas.spriteatlas")
+            .WaitForCompletion();
+        AbsentUtils.GetModInfo().SetSprites(_spriteAtlas);
+
+        var modInfo = AbsentUtils.GetModInfo();
+        Debug.Log("Bundle sprite count: " + modInfo.Sprites?.spriteCount);
 
         VFXHelper.VFX = new GIFLoader(this, ImagePath("Anim"));
         VFXHelper.VFX.RegisterAllAsApplyEffect();

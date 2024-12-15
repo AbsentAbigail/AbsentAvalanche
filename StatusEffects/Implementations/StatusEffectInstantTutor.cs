@@ -49,7 +49,8 @@ public class StatusEffectInstantTutor : StatusEffectInstant
 
         CinemaBarSystem.In();
         CinemaBarSystem.SetSortingLayer("UI2");
-        CinemaBarSystem.Top.SetPrompt(title.GetLocalizedString(), "Select");
+        if (!title.IsEmpty)
+            CinemaBarSystem.Top.SetPrompt(title.GetLocalizedString(), "Select");
         _sequence.AddCards(container);
         yield return _sequence.Run();
 

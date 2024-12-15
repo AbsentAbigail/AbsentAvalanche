@@ -159,6 +159,12 @@ public static class AssetsStatusEffects
             new WhenDeployedSplitIntoBubblesAndCuddles().Builder(),
             new InstantTransformIntoBubblesAndCuddlesAscended().Builder(),
             new WhenDeployedSplitIntoBubblesAndCuddlesAscended().Builder(),
+            
+            new InstantTransformIntoSherbaAndCuddles().Builder(),
+            new WhenDeployedSplitIntoSherbaAndCuddles().Builder(),
+            new InstantTransformIntoSherbaAndCuddlesAscended().Builder(),
+            new WhenDeployedSplitIntoSherbaAndCuddlesAscended().Builder(),
+            new WhenDeployedApplySnowToEnemies().Builder(),
         ]);
     }
 }
