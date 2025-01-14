@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -13,5 +14,5 @@ public class InstantDrawAndApplyFrenzyAndAimless() : AbstractStatus<StatusEffect
         ];
     })
 {
-    public const string Name = "InstantDrawAndApplyFrenzyAndAimless";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

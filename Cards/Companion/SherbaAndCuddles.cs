@@ -10,7 +10,7 @@ public class SherbaAndCuddles() : AbstractCompanion(Name, "Snuggle Buddies", 26,
     {
         card.startWithEffects =
         [
-            AbsentUtils.SStack(WhenDeployedSplitIntoSherbaAndCuddles.Name),
+            AbsentUtils.SStack(DreamTeam.NameWhenDeployed(Sherba.Name, Cuddles.Name)),
             AbsentUtils.SStack(WhenDeployedApplySnowToEnemies.Name),
         ];
         card.charmSlots *= 2;

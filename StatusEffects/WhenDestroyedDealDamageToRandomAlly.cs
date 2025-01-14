@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -15,5 +16,5 @@ public class WhenDestroyedDealDamageToRandomAlly() : AbstractApplyXStatus<Status
         status.countsAsHit = true;
     })
 {
-    public const string Name = "When Destroyed Deal Damage To RandomAlly";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

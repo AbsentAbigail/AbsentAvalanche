@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Patches;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords.flavour;
 
 public class Lusine() : AbstractKeyword(Name, "", " |(Character by Gaziter)")
 {
-    public const string Name = "lusine" + "_flavour";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
 
     public override KeywordDataBuilder Builder()
     {

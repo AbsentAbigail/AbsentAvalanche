@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using AbsentUtilities;
+using HarmonyLib;
 using UnityEngine;
 
 namespace AbsentAvalanche.Keywords;
 
 public class FakeCalm
 {
-    public const string Name = "fakecalm";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 
     public static readonly string NameWithGuid =
         $"{AbsentUtils.GetModInfo(Assembly.GetExecutingAssembly()).Mod.GUID}.{Name}";

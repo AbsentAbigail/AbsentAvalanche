@@ -18,6 +18,8 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
         {
             var charm = GetCharm().Clone();
             AddUpgrade(charm);
+            
+            CardDiscoverSystem.instance.DiscoverCharm(charm.name);
         }
 
         Campaign.PromptSave();
@@ -40,7 +42,7 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
         return result.Length > 0
             ? result[0]
             : AbsentUtils.GetCardUpgrade(
-                "CardUpgradeAcorn"); // Quitting and reentering breaks CharacterRewards, so add a default charm
+                "CardUpgradeAcorn"); // Give Acorn Charm if no matching charm was found
     }
 
     private void AddUpgrade(CardUpgradeData charm)

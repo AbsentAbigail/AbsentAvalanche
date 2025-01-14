@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -13,5 +14,5 @@ public class WhenDestroyedSummonSarcophagus() : AbstractApplyXStatus<StatusEffec
         status.textInsert = "<of the sealed card>";
     })
 {
-    public const string Name = "When Destroyed Summon Sarcophagus";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

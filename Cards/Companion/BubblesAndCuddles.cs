@@ -10,7 +10,7 @@ public class BubblesAndCuddles() : AbstractCompanion(Name, "Bubbles And Cuddles"
     {
         card.startWithEffects =
         [
-            AbsentUtils.SStack(WhenDeployedSplitIntoBubblesAndCuddles.Name)
+            AbsentUtils.SStack(DreamTeam.NameWhenDeployed(Bubbles.Name, Cuddles.Name))
         ];
         card.charmSlots *= 2;
     })

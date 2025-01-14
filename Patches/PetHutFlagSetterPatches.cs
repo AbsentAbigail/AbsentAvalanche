@@ -25,7 +25,7 @@ internal static class PetHutFlagSetterPatches
         {
             var texture = AbsentUtils.GetModInfo().Sprites.GetSprite(flag).ToTexture();
             var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 1f),
-                160);
+                160, 0U, SpriteMeshType.FullRect);
             __instance.flagSprites = __instance.flagSprites.Append(sprite).ToArray();
         }
     }

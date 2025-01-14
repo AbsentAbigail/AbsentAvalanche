@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -16,5 +17,5 @@ public class WhileActiveItemsHaveCat() : AbstractApplyXStatus<StatusEffectWhileA
         ];
     })
 {
-    public const string Name = "While Active Items Have Cat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

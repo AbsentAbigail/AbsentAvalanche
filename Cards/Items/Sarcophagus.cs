@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -13,6 +14,6 @@ public class Sarcophagus() : AbstractItem(Name, "Sarcophagus",
         ];
     })
 {
-    public const string Name = "Sarcophagus";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     protected override string IdleAnimation => "PulseAnimationProfile";
 }

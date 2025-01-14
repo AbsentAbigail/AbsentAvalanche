@@ -1,13 +1,14 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 internal class SummonMissile() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "Summon Missile";
-    private const string CardName = Missile.Name;
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
+    private static readonly string CardName = Missile.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

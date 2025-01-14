@@ -57,17 +57,11 @@
         <Reference Include="DeadSafe">
             <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Wildfrost\Modded\Wildfrost_Data\Managed\DeadSafe.dll</HintPath>
         </Reference>
-        <Reference Include="Facepunch.Steamworks.Win64, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-          <HintPath>packages\Facepunch.Steamworks.2.3.3\lib\net46\Facepunch.Steamworks.Win64.dll</HintPath>
-        </Reference>
         <Reference Include="FMODUnity">
           <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Wildfrost\Modded\Wildfrost_Data\Managed\FMODUnity.dll</HintPath>
         </Reference>
         <Reference Include="Gif2Textures">
             <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\1811990\3157544232\gif2textures.dll</HintPath>
-        </Reference>
-        <Reference Include="PvZMod">
-            <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\1811990\3336362536\PvZMod.dll</HintPath>
         </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
@@ -77,9 +71,6 @@
         <Reference Include="System.Data"/>
         <Reference Include="System.Net.Http"/>
         <Reference Include="System.Xml"/>
-        <Reference Include="TagTeamCards">
-          <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\1811990\3355689993\TagTeamCards.dll</HintPath>
-        </Reference>
         <Reference Include="Unity.2D.Animation.Runtime">
             <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Wildfrost\Modded\Wildfrost_Data\Managed\Unity.2D.Animation.Runtime.dll</HintPath>
         </Reference>
@@ -417,6 +408,9 @@
         <Compile Include="Cards\Clunkers\PillowFortress.cs" />
         <Compile Include="Cards\Companion\Aftonsparv.cs" />
         <Compile Include="Cards\Companion\Alice.cs" />
+        <Compile Include="Cards\Companion\AliceAndNami.cs" />
+        <Compile Include="Cards\Companion\April.cs" />
+        <Compile Include="Cards\Companion\AprilAndMay.cs" />
         <Compile Include="Cards\Companion\Bam.cs" />
         <Compile Include="Cards\Companion\Bamboozle.cs" />
         <Compile Include="Cards\Companion\Blackfisk.cs" />
@@ -436,6 +430,7 @@
         <Compile Include="Cards\Companion\LilGuy.cs" />
         <Compile Include="Cards\Companion\Lusine.cs" />
         <Compile Include="Cards\Companion\May.cs" />
+        <Compile Include="Cards\Companion\Nami.cs" />
         <Compile Include="Cards\Companion\PanickedNut.cs" />
         <Compile Include="Cards\Companion\SalvoKitty.cs" />
         <Compile Include="Cards\Companion\Sam.cs" />
@@ -453,6 +448,7 @@
         <Compile Include="Cards\Items\CatToy.cs" />
         <Compile Include="Cards\Items\CursedClaymore.cs" />
         <Compile Include="Cards\Items\GhostlyPresence.cs" />
+        <Compile Include="Cards\Items\GoolWrenade.cs" />
         <Compile Include="Cards\Items\HappyDreams.cs" />
         <Compile Include="Cards\Items\Headpat.cs" />
         <Compile Include="Cards\Items\Imagination.cs" />
@@ -466,22 +462,23 @@
         <Compile Include="Cards\Items\Sarcophagus.cs" />
         <Compile Include="Cards\Items\ShadyBox.cs" />
         <Compile Include="Cards\Items\Snowball.cs" />
+        <Compile Include="Cards\Items\WoolGrenade.cs" />
         <Compile Include="Cards\Leaders\Leader.cs" />
-        <Compile Include="CardUpgrades\BraveryButton.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeBravery.cs" />
         <Compile Include="CardUpgrades\CardScripts\CardScriptChangeLeader.cs" />
         <Compile Include="CardUpgrades\CardScripts\CardScriptMultiplyAttack.cs" />
         <Compile Include="CardUpgrades\CardScripts\CardScriptSarcophagus.cs" />
         <Compile Include="CardUpgrades\CardUpgradeChangeLeader.cs" />
-        <Compile Include="CardUpgrades\CatCharm.cs" />
-        <Compile Include="CardUpgrades\CursedCharm.cs" />
-        <Compile Include="CardUpgrades\FortitudeButton.cs" />
-        <Compile Include="CardUpgrades\MitosisCharm.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeCat.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeCursed.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeFortitude.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeMitosis.cs" />
         <Compile Include="Absent.cs" />
-        <Compile Include="CardUpgrades\SarcophagusCharm.cs" />
-        <Compile Include="CardUpgrades\SharkCharm.cs" />
-        <Compile Include="CardUpgrades\ValorButton.cs" />
-        <Compile Include="CardUpgrades\ViolenceCharm.cs" />
-        <Compile Include="CardUpgrades\WillButton.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeSarcophagus.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeShark.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeValor.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeViolence.cs" />
+        <Compile Include="CardUpgrades\CardUpgradeWill.cs" />
         <Compile Include="CombineCombos.cs" />
         <Compile Include="Keywords\Abduct.cs" />
         <Compile Include="Keywords\Calm.cs" />
@@ -489,6 +486,9 @@
         <Compile Include="Keywords\Ethereal.cs" />
         <Compile Include="Keywords\FakeCalm.cs" />
         <Compile Include="Keywords\flavour\Alice.cs" />
+        <Compile Include="Keywords\flavour\AliceAndNami.cs" />
+        <Compile Include="Keywords\flavour\April.cs" />
+        <Compile Include="Keywords\flavour\AprilAndMay.cs" />
         <Compile Include="Keywords\flavour\Bam.cs" />
         <Compile Include="Keywords\flavour\Bamboozle.cs" />
         <Compile Include="Keywords\flavour\Blanket.cs" />
@@ -503,6 +503,7 @@
         <Compile Include="Keywords\flavour\Eudora.cs" />
         <Compile Include="Keywords\flavour\FrozenFlame.cs" />
         <Compile Include="Keywords\flavour\FusilladeCat.cs" />
+        <Compile Include="Keywords\flavour\GoolWrenade.cs" />
         <Compile Include="Keywords\flavour\HappyDreams.cs" />
         <Compile Include="Keywords\flavour\Headpat.cs" />
         <Compile Include="Keywords\flavour\Imagination.cs" />
@@ -510,6 +511,7 @@
         <Compile Include="Keywords\flavour\LilGuy.cs" />
         <Compile Include="Keywords\flavour\Lusine.cs" />
         <Compile Include="Keywords\flavour\May.cs" />
+        <Compile Include="Keywords\flavour\Nami.cs" />
         <Compile Include="Keywords\flavour\NebulaAuxilium.cs" />
         <Compile Include="Keywords\flavour\PanickedNut.cs" />
         <Compile Include="Keywords\flavour\PillowFortress.cs" />
@@ -520,10 +522,12 @@
         <Compile Include="Keywords\flavour\Sherba.cs" />
         <Compile Include="Keywords\flavour\SherbaAndCuddles.cs" />
         <Compile Include="Keywords\flavour\UnboundFlame.cs" />
+        <Compile Include="Keywords\flavour\WoolGrenade.cs" />
         <Compile Include="Keywords\Friend.cs" />
         <Compile Include="Keywords\GoldRush.cs" />
         <Compile Include="Keywords\Panic.cs" />
-        <Compile Include="Keywords\PowerDuo.cs" />
+        <Compile Include="Keywords\DreamTeam.cs" />
+        <Compile Include="Keywords\RainbowFluff.cs" />
         <Compile Include="Keywords\Rest.cs" />
         <Compile Include="Keywords\Royal.cs" />
         <Compile Include="Keywords\Sarcophagus.cs" />
@@ -546,20 +550,28 @@
         <Compile Include="StatusEffects\Calm.cs" />
         <Compile Include="StatusEffects\Cat.cs" />
         <Compile Include="StatusEffects\CountDownASAP.cs" />
+        <Compile Include="StatusEffects\CountDownEtherealWhenDrawn.cs" />
+        <Compile Include="StatusEffects\DreamTeam.cs" />
+        <Compile Include="StatusEffects\Implementations\charmsInBattle.cs" />
+        <Compile Include="StatusEffects\Implementations\StatusEffectCamcorder.cs" />
+        <Compile Include="StatusEffects\Implementations\StatusEffectInstantApplyRandom.cs" />
+        <Compile Include="StatusEffects\Implementations\StatusEffectApplyXToAllyInColumn.cs" />
+        <Compile Include="StatusEffects\Implementations\StatusEffectInstantDelegate.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectMultiConsume.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectCountDownASAP.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectWhenXAppliedToRedirect.cs" />
+        <Compile Include="StatusEffects\InstantCountDownEthereal.cs" />
         <Compile Include="StatusEffects\InstantCountDownSnowFrostBlock.cs" />
         <Compile Include="StatusEffects\DoubleStatusEffectsAppliedToCatcus.cs" />
         <Compile Include="StatusEffects\DummySummon.cs" />
         <Compile Include="StatusEffects\Ethereal.cs" />
         <Compile Include="StatusEffects\EveryTurnCountDownSnowFrostBlock.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoBubblesAndCuddles.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoBubblesAndCuddlesAscended.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoCatcusAndCatcitten.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoCatcusAndCatcittenAscended.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoSherbaAndCuddles.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoSherbaAndCuddlesAscended.cs" />
+        <Compile Include="StatusEffects\InstantRandomBuff.cs" />
+        <Compile Include="StatusEffects\InstantSummonGoolWrenadeInHand.cs" />
+        <Compile Include="StatusEffects\InstantSummonWoolGrenadeInHand.cs" />
+        <Compile Include="StatusEffects\OnCardPlayedAddGoolWrenadeToHand.cs" />
+        <Compile Include="StatusEffects\OnCardPlayedAddWoolGrenadeToHand.cs" />
+        <Compile Include="StatusEffects\OnCardPlayedApplyRandomBuffToRandomAlly.cs" />
         <Compile Include="StatusEffects\OnCardPlayedCleanseSelf.cs" />
         <Compile Include="StatusEffects\OnCardPlayedDrawAndApplyFrenzyAndAimless.cs" />
         <Compile Include="StatusEffects\FakeCalm.cs" />
@@ -616,7 +628,6 @@
         <Compile Include="StatusEffects\InstantSummonPillowInHand.cs" />
         <Compile Include="StatusEffects\InstantSummonSarcophagus.cs" />
         <Compile Include="StatusEffects\InstantSummonUFOInHand.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoBamAndBoozleAscended.cs" />
         <Compile Include="StatusEffects\InstantTutorDeckCopyZoomlinConsume.cs" />
         <Compile Include="StatusEffects\InstantTutorTenRandomCardsZoomlin.cs" />
         <Compile Include="StatusEffects\InstantTutorDeck.cs" />
@@ -629,7 +640,6 @@
         <Compile Include="StatusEffects\OnCardPlayedDoubleAllCat.cs" />
         <Compile Include="StatusEffects\OnCardPlayedGainCat.cs" />
         <Compile Include="StatusEffects\OnCardPlayedGainSnow.cs" />
-        <Compile Include="StatusEffects\OnCardPlayedKillSelf.cs" />
         <Compile Include="StatusEffects\OnCardPlayedTriggerAllyAhead.cs" />
         <Compile Include="StatusEffects\OnCardPlayedTutorDeckCopyConsumeZoomlin.cs" />
         <Compile Include="StatusEffects\OnCardPlayedTutorRandomCardZoomlin.cs" />
@@ -644,16 +654,16 @@
         <Compile Include="StatusEffects\OnKillTriggerNoTrigger.cs" />
         <Compile Include="StatusEffects\OnTurnApplyCalmToAllyInFrontOf.cs" />
         <Compile Include="StatusEffects\OnTurnSummonUFOInHand.cs" />
-        <Compile Include="StatusEffects\SafeTemporaryConsume.cs" />
         <Compile Include="StatusEffects\Scriptables\ScriptableTargetsOnBoard.cs" />
-        <Compile Include="StatusEffects\InstantTransformIntoBamAndBoozle.cs" />
-        <Compile Include="StatusEffects\Stress.cs" />
+        <Compile Include="StatusEffects\DealAdditionalDamageForEachDamagedAlly.cs" />
         <Compile Include="StatusEffects\SummonBlahaj.cs" />
         <Compile Include="StatusEffects\SummonCatomicBomb.cs" />
+        <Compile Include="StatusEffects\SummonGoolWrenade.cs" />
         <Compile Include="StatusEffects\SummonPillow.cs" />
         <Compile Include="StatusEffects\SummonSarcophagus.cs" />
         <Compile Include="StatusEffects\SummonMissile.cs" />
         <Compile Include="StatusEffects\SummonUFO.cs" />
+        <Compile Include="StatusEffects\SummonWoolGrenade.cs" />
         <Compile Include="StatusEffects\TargetModes\TargetModeAlliesAndEnemies.cs" />
         <Compile Include="StatusEffects\TargetModes\TargetModeHighestAttack.cs" />
         <Compile Include="StatusEffects\TemporarySafeConsume.cs" />
@@ -666,20 +676,14 @@
         <Compile Include="StatusEffects\WhenAllyHitGainFrenzy.cs" />
         <Compile Include="StatusEffects\WhenAllyHitIncreaseEffects.cs" />
         <Compile Include="StatusEffects\WhenAnAllyGainsAPositiveStatusShareHalfToSelf.cs" />
-        <Compile Include="StatusEffects\WhenAnythingSnowedGainBlock.cs" />
+        <Compile Include="StatusEffects\WhenDeployedApplyRandomBuffToAllAllies.cs" />
         <Compile Include="StatusEffects\WhenDeployedApplySnowToEnemies.cs" />
         <Compile Include="StatusEffects\WhenDeployedGainHealthPerAlliedCompanion.cs" />
         <Compile Include="StatusEffects\WhenDeployedGainSnowForEachEnemy.cs" />
         <Compile Include="StatusEffects\WhenDeployedGainShellForEachEnemy.cs" />
         <Compile Include="StatusEffects\WhenDeployedReduceCounterPerAlliedCompanion.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoBamAndBoozle.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoBamAndBoozleAscended.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoBubblesAndCuddles.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoBubblesAndCuddlesAscended.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoCatcusAndCatcitten.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoCatcusAndCatcittenAscended.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoSherbaAndCuddles.cs" />
-        <Compile Include="StatusEffects\WhenDeployedSplitIntoSherbaAndCuddlesAscended.cs" />
+        <Compile Include="StatusEffects\WhenDestroyedApplyWeaknessToAllies.cs" />
+        <Compile Include="StatusEffects\WhenDestroyedApplyWeaknessToEnemies.cs" />
         <Compile Include="StatusEffects\WhenDestroyedDealDamageToRandomAlly.cs" />
         <Compile Include="StatusEffects\WhenDestroyedSummonSarcophagus.cs" />
         <Compile Include="StatusEffects\WhenDestroyedSummonUnboundFlame.cs" />
@@ -694,6 +698,7 @@
         <Compile Include="StatusEffects\WhenHitSummonBlahaj.cs" />
         <Compile Include="StatusEffects\WhenHitSummonPillowInHand.cs" />
         <Compile Include="StatusEffects\WhenKilledInsteadGainScrap.cs" />
+        <Compile Include="StatusEffects\WhileActiveCountDownEtherealWhenDrawn.cs" />
         <Compile Include="StatusEffects\WhileActiveGainFrenzyEqualToBlock.cs" />
         <Compile Include="StatusEffects\WhileActiveItemsHaveCat.cs" />
         <Compile Include="StatusEffects\WhileActiveMissilesHaveCat.cs" />

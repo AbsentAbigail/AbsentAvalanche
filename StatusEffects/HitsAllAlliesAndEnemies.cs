@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.TargetModes;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -10,5 +11,5 @@ internal class HitsAllAlliesAndEnemies() : AbstractStatus<StatusEffectChangeTarg
         status.targetMode = ScriptableHelper.CreateScriptable<TargetModeAlliesAndEnemies>("Hit All Allies And Enemies");
     })
 {
-    public const string Name = "Hit All Allies And Enemies";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -2,12 +2,13 @@
 using AbsentAvalanche.Patches;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords.flavour;
 
 public class May() : AbstractKeyword(Name, "", Pronouns + "|" + Flavour + "\n(Sprites by Megamarine)")
 {
-    public const string Name = "may" + "_flavour";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
     private const string Pronouns = "She/Her";
     private static readonly string Flavour = new Cards.Companion.May().FlavourText;
 

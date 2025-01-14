@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -10,5 +11,5 @@ internal class WhenKilledInsteadGainScrap() : AbstractApplyXStatus<StatusEffectW
     applyToFlags: StatusEffectApplyX.ApplyToFlags.Self,
     subscribe: status => { status.resetHealth = true; })
 {
-    public const string Name = "When Destroyed Instead Gain Scrap";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -14,5 +15,5 @@ public class WhenHitSummonPillow() : AbstractApplyXStatus<StatusEffectApplyXWhen
         status.targetMustBeAlive = false;
     })
 {
-    public const string Name = "WhenHitSummonPillow";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

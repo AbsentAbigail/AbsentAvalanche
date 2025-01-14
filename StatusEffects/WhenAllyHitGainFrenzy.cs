@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ public class WhenAllyHitGainFrenzy() : AbstractApplyXStatus<StatusEffectApplyXWh
     subscribe: status => status.textInsert = "<x{a}><keyword=frenzy>"
     )
 {
-    public const string Name = "When Ally Hit Gain Frenzy";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

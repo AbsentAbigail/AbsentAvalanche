@@ -1,9 +1,10 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class InstantAddCharmToInventory() : AbstractStatus<StatusEffectInstantAddRandomCharm>(Name)
 {
-    public const string Name = "Instant Add Charm To Inventory";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

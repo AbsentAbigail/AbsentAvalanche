@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ public class OnKillIncreaseHealthPermanent() : AbstractApplyXStatus<StatusEffect
     subscribe: status => status.textInsert = "<{a}><keyword=health>"
     )
 {
-    public const string Name = "On Kill Increase Health Permanent";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

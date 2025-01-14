@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords;
 
@@ -8,5 +9,5 @@ internal class Friend() : AbstractKeyword(Name, "Friend",
     When an ally gains a positive status, gain half of it
     """)
 {
-    public const string Name = "friend";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

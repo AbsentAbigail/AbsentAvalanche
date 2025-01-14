@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Patches;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords.flavour;
 
 public class Eudora() : AbstractKeyword(Name, "", " |(Character by Gaziter\nSprites by Sunnaryi)")
 {
-    public const string Name = "eudora" + "_flavour";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
 
     public override KeywordDataBuilder Builder()
     {

@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ internal class OnHitEat() : AbstractApplyXStatus<StatusOnHitEat>(
     applyToFlags: StatusEffectApplyX.ApplyToFlags.Target
 )
 {
-    public const string Name = "On Hit Eat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

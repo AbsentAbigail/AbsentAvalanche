@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 internal class InstantSummonPillowInHand() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "InstantSummonPillowInHand";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

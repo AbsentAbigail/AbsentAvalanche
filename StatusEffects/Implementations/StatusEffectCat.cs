@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using WildfrostHopeMod.Utils;
 using WildfrostHopeMod.VFX;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
@@ -57,6 +58,7 @@ public class StatusEffectCat : StatusEffectApplyX
         {
             note = name + " - " + cat
         };
+        
         ActionQueue.Stack(sequence, true);
     }
 

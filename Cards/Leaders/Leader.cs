@@ -34,6 +34,7 @@ public class Leader<T>(
                     LeaderHelper.AddRandomCounter(counterModMin, counterModMax)
                 ];
             })
+            
             .SubscribeToAfterAllBuildEvent(companion.Subscribe.Invoke)
             .SubscribeToAfterAllBuildEvent(_subscribe.Invoke);
     }

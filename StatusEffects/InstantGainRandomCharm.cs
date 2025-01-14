@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -13,5 +14,5 @@ public class InstantGainRandomCharm() : AbstractStatus<StatusEffectInstantAddRan
         status.addToTarget = true;
     })
 {
-    public const string Name = "Instant Gain Random Charm";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

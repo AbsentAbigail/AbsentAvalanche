@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -8,5 +9,5 @@ internal class OnKillApplyCalmToSelf() : AbstractApplyXStatus<StatusEffectApplyX
     effectToApply: Calm.Name
 )
 {
-    public const string Name = "On Kill Apply Calm To Self";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class InstantCleanseText() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "InstantCleanseText";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

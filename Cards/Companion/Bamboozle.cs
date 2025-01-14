@@ -1,4 +1,5 @@
-﻿using AbsentAvalanche.StatusEffects;
+﻿using AbsentAvalanche.Cards.Clunkers;
+using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using HarmonyLib;
 
@@ -11,7 +12,7 @@ public class Bamboozle() : AbstractCompanion(Name, "Bam and Boozle", 3, 1, 8,
         card.startWithEffects =
         [
             AbsentUtils.SStack("Scrap", 3),
-            AbsentUtils.SStack(WhenDeployedSplitIntoBamAndBoozle.Name)
+            AbsentUtils.SStack(DreamTeam.NameWhenDeployed(Bam.Name, Boozle.Name))
         ];
         card.charmSlots *= 2;
     })

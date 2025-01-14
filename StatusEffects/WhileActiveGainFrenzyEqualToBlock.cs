@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -13,5 +14,5 @@ public class WhileActiveGainFrenzyEqualToBlock() : AbstractApplyXStatus<StatusEf
         );
     })
 {
-    public const string Name = "While Active Gain Frenzy Equal To Block";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

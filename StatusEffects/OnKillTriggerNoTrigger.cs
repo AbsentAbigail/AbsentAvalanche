@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -8,5 +9,5 @@ public class OnKillTriggerNoTrigger() : AbstractApplyXStatus<StatusEffectApplyXO
     applyToFlags: StatusEffectApplyX.ApplyToFlags.Self
 )
 {
-    public const string Name = "On Kill Trigger No Trigger";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

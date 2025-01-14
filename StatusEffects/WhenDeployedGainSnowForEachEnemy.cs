@@ -2,6 +2,7 @@
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentAvalanche.StatusEffects.Scriptables;
 using AbsentUtilities;
+using HarmonyLib;
 using static StatusEffectApplyX;
 
 namespace AbsentAvalanche.StatusEffects;
@@ -14,5 +15,5 @@ internal class WhenDeployedGainSnowForEachEnemy() : AbstractApplyXStatus<StatusE
         ScriptableHelper.CreateScriptable<ScriptableTargetsOnBoard>("For each enemy", script => script.enemies = true)
 )
 {
-    public const string Name = "When Deployed Gain Snow For Each Enemy";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

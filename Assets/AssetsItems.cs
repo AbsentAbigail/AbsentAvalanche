@@ -40,7 +40,10 @@ public static class AssetsItems
             new HappyDreams().Builder(),
             new Imagination().Builder(),
             
-            new NebulaInstrumenta().Builder()
+            new NebulaInstrumenta().Builder(),
+            
+            new WoolGrenade().Builder(),
+            new GoolWrenade().Builder(),
         ]);
     }
 }

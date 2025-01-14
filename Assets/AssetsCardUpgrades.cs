@@ -8,16 +8,16 @@ public static class AssetsCardUpgrades
     public static void AddToAssets(List<object> assets)
     {
         assets.AddRange([
-            new SharkCharm().Builder(),
-            new MitosisCharm().Builder(),
-            new ViolenceCharm().Builder(),
-            new CursedCharm().Builder(),
-            new CatCharm().Builder(),
-            new BraveryButton().Builder(),
-            new WillButton().Builder(),
-            new FortitudeButton().Builder(),
-            new ValorButton().Builder(),
-            new SarcophagusCharm().Builder(),
+            new CardUpgradeShark().Builder(),
+            new CardUpgradeMitosis().Builder(),
+            new CardUpgradeViolence().Builder(),
+            new CardUpgradeCursed().Builder(),
+            new CardUpgradeCat().Builder(),
+            new CardUpgradeBravery().Builder(),
+            new CardUpgradeWill().Builder(),
+            new CardUpgradeFortitude().Builder(),
+            new CardUpgradeValor().Builder(),
+            new CardUpgradeSarcophagus().Builder(),
             new CardUpgradeChangeLeader().Builder(),
         ]);
     }

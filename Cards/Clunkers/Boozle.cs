@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Clunkers;
 
@@ -14,6 +15,6 @@ public class Boozle() : AbstractClunker(
         ];
     })
 {
-    public const string Name = "Boozle";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "A home for a friend";
 }

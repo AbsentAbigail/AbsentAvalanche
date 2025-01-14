@@ -16,12 +16,14 @@ public class StatusEffectInstantChangeStatsPermanent : StatusEffectInstant
     
     public override IEnumerator Process()
     {
-        _deckCopy = References.PlayerData.inventory.deck.FirstOrDefault(c => target.data.id == c.id);
+        target.data.TryGetCustomData("absent.original", out id, target.data.id);
+        
+        _deckCopy = References.PlayerData.inventory.deck.FirstOrDefault(c => id == c.id);
         if (_deckCopy is null)
         {
             LogHelper.Error("No deck copy found");
             yield return Remove();
-            yield break;   
+            yield break;
         }
         _change = GetAmount() * (increase ? 1 : -1);
         

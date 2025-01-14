@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -14,5 +15,5 @@ internal class TriggerAgainstTargetWhenMissileAttacks() : AbstractStatus<StatusE
         status.textInsert = AbstractCard.CardTag(Missile.Name);
     })
 {
-    public const string Name = "Trigger Against Target When Missile Attacks";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

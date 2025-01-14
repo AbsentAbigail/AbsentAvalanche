@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using AbsentUtilities;
+using HarmonyLib;
 using UnityEngine;
 
 namespace AbsentAvalanche.Keywords;
 
 public class Abduct
 {
-    public const string Name = "abduct";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 
     public static readonly string NameWithGuid =
         $"{AbsentUtils.GetModInfo(Assembly.GetExecutingAssembly()).Mod.GUID}.{Name}";

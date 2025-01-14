@@ -4,6 +4,7 @@ using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using Cat = AbsentAvalanche.StatusEffects.Cat;
+using DreamTeam = AbsentAvalanche.StatusEffects.DreamTeam;
 
 namespace AbsentAvalanche.Cards.Companion;
 
@@ -17,7 +18,7 @@ internal class Catci() : AbstractCompanion(
         [
             AbsentUtils.SStack(Cat.Name, 2),
             AbsentUtils.SStack("MultiHit"),
-            AbsentUtils.SStack(WhenDeployedSplitIntoCatcusAndCatcitten.Name)
+            AbsentUtils.SStack(DreamTeam.NameWhenDeployed(Catcus.Name, Catcitten.Name))
         ];
         card.createScripts =
         [

@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using AbsentUtilities;
+using HarmonyLib;
 using UnityEngine;
 
 namespace AbsentAvalanche.Keywords;
 
 public static class Ethereal
 {
-    public const string Name = "ethereal";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
     public static readonly string NameWithGuid = $"{AbsentUtils.GetModInfo(Assembly.GetExecutingAssembly()).Mod.GUID}.{Name}";
     public static readonly string Tag = AbstractKeyword.GetTag(Name);
     private static readonly Color Color = new(0.35f, 0.35f, 0.45f);

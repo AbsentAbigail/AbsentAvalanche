@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 using WildfrostHopeMod.VFX;
 
 namespace AbsentAvalanche.StatusEffects;
@@ -19,7 +20,7 @@ internal class Calm() : AbstractApplyXStatus<StatusEffectCalm>(
         status.targetConstraints = [TargetConstraintHelper.MaxCounterMoreThan(0)];
     })
 {
-    public const string Name = "Calm";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

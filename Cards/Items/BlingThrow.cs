@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.Traits;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -17,5 +18,5 @@ internal class BlingThrow() : AbstractItem(
         ];
     })
 {
-    public const string Name = "BlingThrow";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

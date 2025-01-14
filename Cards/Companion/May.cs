@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
-using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Companion;

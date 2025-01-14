@@ -2,6 +2,7 @@
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentAvalanche.StatusEffects.Scriptables;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -13,5 +14,5 @@ internal class WhenDeployedGainShellForEachEnemy() : AbstractApplyXStatus<Status
         ScriptableHelper.CreateScriptable<ScriptableTargetsOnBoard>("For each enemy", script => script.enemies = true)
 )
 {
-    public const string Name = "When Deployed Gain Shell For Each Enemy";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

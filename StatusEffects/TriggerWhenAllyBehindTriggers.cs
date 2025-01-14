@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -11,5 +12,5 @@ public class TriggerWhenAllyBehindTriggers() : AbstractStatus<StatusEffectApplyX
         status.descColorHex = "F99C61";
     })
 {
-    public const string Name = "Trigger When Ally Behind Triggers";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

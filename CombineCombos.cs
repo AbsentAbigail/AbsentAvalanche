@@ -26,6 +26,9 @@ public static class CombineCombos
             AbsentUtils.PrefixGuid(Catci.Name)
         ),
         .. LeaderCombo(Bubbles.Name, Cuddles.Name, BubblesAndCuddles.Name),
+        .. LeaderCombo(Sherba.Name, Cuddles.Name, SherbaAndCuddles.Name),
+        .. LeaderCombo(April.Name, May.Name, AprilAndMay.Name),
+        .. LeaderCombo(Alice.Name, Nami.Name, AliceAndNami.Name),
     ];
 
     public static void SceneLoaded(Scene scene)
@@ -45,13 +48,12 @@ public static class CombineCombos
         var companion2 = AbsentUtils.PrefixGuid(card2);
         var leader2 = AbsentUtils.PrefixGuid(card2 + Leader<Sam>.Suffix);
         var resultingCompanion = AbsentUtils.PrefixGuid(resultingCardName);
-        var resultingLeader = resultingCompanion + Leader<Sam>.Suffix;
 
         return
         [
             Combo(companion1, companion2, resultingCompanion),
-            Combo(leader1, companion2, resultingLeader),
-            Combo(companion1, leader2, resultingLeader)
+            Combo(leader1, companion2, resultingCompanion),
+            Combo(companion1, leader2, resultingCompanion)
         ];
     }
 

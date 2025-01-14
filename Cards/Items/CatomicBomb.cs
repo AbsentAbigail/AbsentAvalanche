@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -20,5 +21,5 @@ public class CatomicBomb() : AbstractItem(
         ];
     })
 {
-    public const string Name = "CatomicBomb";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

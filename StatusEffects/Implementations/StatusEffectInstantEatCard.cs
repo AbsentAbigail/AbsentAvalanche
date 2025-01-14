@@ -72,7 +72,7 @@ public class StatusInstantEatCard : StatusEffectInstantApplyEffect
                 !illegalEffects.Select(e2 => e2.name).Contains(e.name)
                 && e is not StatusEffectNextPhase
             ).ToList();
-        foreach (var trait in target.traits)
+        foreach (var trait in target.traits.ToArray())
         {
             foreach (var passiveEffect in trait.passiveEffects)
                 list.Remove(passiveEffect);

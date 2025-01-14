@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -10,5 +11,5 @@ public class InstantSummonSarcophagus(): AbstractStatus<StatusEffectInstantSummo
         status.targetSummon = AbsentUtils.GetStatusOf<StatusEffectSummon>(SummonSarcophagus.Name);
     })
 {
-    public const string Name = "Instant Summon Sarcophagus";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

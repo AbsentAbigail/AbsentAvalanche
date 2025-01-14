@@ -10,7 +10,7 @@ internal class Kramig() : AbstractCompanion(
     8, 3, 4,
     subscribe: card =>
     {
-        card.startWithEffects = [AbsentUtils.SStack(Stress.Name, 2)];
+        card.startWithEffects = [AbsentUtils.SStack(DealAdditionalDamageForEachDamagedAlly.Name, 2)];
         card.greetMessages =
         [
             "In the wild, an adult panda eats about 83 pounds of bamboo – every day! But this black and white softie doesn’t need any food, just a lot of love.",

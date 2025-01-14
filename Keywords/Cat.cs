@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using AbsentUtilities;
+using HarmonyLib;
 using UnityEngine;
 
 namespace AbsentAvalanche.Keywords;
 
 public static class Cat
 {
-    public const string Name = "cat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
     public static readonly string NameWithGuid = $"{AbsentUtils.GetModInfo(Assembly.GetExecutingAssembly()).Mod.GUID}.{Name}";
     public static readonly string Tag = AbstractKeyword.GetTag(Name);
     private static readonly Color Color = AbstractKeyword.Color(220, 60, 60);

@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 using static StatusEffectApplyX;
 
 namespace AbsentAvalanche.StatusEffects;
@@ -9,5 +10,5 @@ internal class OnCardPlayedApplyOverloadToAlliesInRow() : AbstractApplyXStatus<S
     "Overload",
     ApplyToFlags.AlliesInRow)
 {
-    public const string Name = "On Card Played Apply Overload To AlliesInRow";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -40,6 +40,12 @@ public static class AssetsFlavours
             new Cuddles().Builder(),
             new BubblesAndCuddles().Builder(),
             new SherbaAndCuddles().Builder(),
+            new AliceAndNami().Builder(),
+            new April().Builder(),
+            new AprilAndMay().Builder(),
+            new Nami().Builder(),
+            new WoolGrenade().Builder(),
+            new GoolWrenade().Builder(),
         ]);
     }
 }

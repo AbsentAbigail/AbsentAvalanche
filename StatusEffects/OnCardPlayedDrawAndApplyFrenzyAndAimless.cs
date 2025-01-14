@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -8,5 +9,5 @@ public class OnCardPlayedDrawAndApplyFrenzyAndAimless() : AbstractApplyXStatus<S
     effectToApply: InstantDrawAndApplyFrenzyAndAimless.Name
     )
 {
-    public const string Name = "OnCardPlayedDrawAndApplyFrenzyAndAimless";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

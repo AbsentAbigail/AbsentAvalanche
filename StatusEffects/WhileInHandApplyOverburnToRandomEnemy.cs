@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -10,5 +11,5 @@ public class WhileInHandApplyOverburnToRandomEnemy() : AbstractApplyXStatus<Stat
     applyToFlags: StatusEffectApplyX.ApplyToFlags.RandomEnemy
 )
 {
-    public const string Name = "While In Hand Apply Overload To RandomEnemy";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -14,6 +15,6 @@ public class Blanket() : AbstractItem(Name, "Blanket",
         ];
     })
 {
-    public const string Name = "Blanket";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Become a cozy burrito";
 }

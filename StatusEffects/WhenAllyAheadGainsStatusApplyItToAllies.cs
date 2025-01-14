@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -14,5 +15,5 @@ public class WhenAllyAheadGainsStatusApplyItToAllies() : AbstractApplyXStatus<St
         status.applyEqualAmount = true;
     })
 {
-    public const string Name = "When Ally Ahead Gains Status Apply It To Allies";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

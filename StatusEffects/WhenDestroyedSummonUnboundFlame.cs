@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Cards.Companion;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 internal class WhenDestroyedSummonUnboundFlame() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "When Destroyed Summon Unbound Flame";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

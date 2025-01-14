@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -6,5 +7,5 @@ public class OnCardPlayedTutorRandomCompanion() : AbstractApplyXStatus<StatusEff
     Name, "Choose 1 of 3 random companions to add to your hand",
     effectToApply: InstantTutorThreeRandomCompanions.Name)
 {
-    public const string Name = "OnCardPlayedTutorRandomCompanion";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

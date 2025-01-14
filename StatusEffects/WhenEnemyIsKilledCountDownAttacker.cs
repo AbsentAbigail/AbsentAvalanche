@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class WhenEnemyIsKilledCountDownAttacker() : AbstractApplyXStatus<StatusEffectApplyXWhenUnitIsKilled>(Name)
 {
-    public const string Name = "WhenEnemyIsKilledCountDownAttacker";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     
     public override StatusEffectDataBuilder Builder()
     {

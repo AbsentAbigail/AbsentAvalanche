@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
-internal class InstantSummonUFOInHand() : AbstractStatus<StatusEffectInstantSummon>(Name)
+internal class InstantSummonUfoInHand() : AbstractStatus<StatusEffectInstantSummon>(Name)
 {
-    public const string Name = "Instant Summon UFO In Hand";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {
@@ -13,7 +14,7 @@ internal class InstantSummonUFOInHand() : AbstractStatus<StatusEffectInstantSumm
             .SubscribeToAfterAllBuildEvent(data =>
             {
                 var status = (StatusEffectInstantSummon)data;
-                status.targetSummon = AbsentUtils.GetStatus(SummonUFO.Name) as StatusEffectSummon;
+                status.targetSummon = AbsentUtils.GetStatus(SummonUfo.Name) as StatusEffectSummon;
             });
     }
 }

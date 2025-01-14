@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 using WildfrostHopeMod.VFX;
 
 namespace AbsentAvalanche.StatusEffects;
@@ -10,7 +11,7 @@ internal class FakeCalm() : AbstractApplyXStatus<StatusEffectApplyXWhenDeployedO
     effectToApply: Calm.Name
     )
 {
-    public const string Name = "FakeCalm";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.Cards.Companion;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -12,5 +13,5 @@ public class WhenHitSummonBlahaj() : AbstractApplyXStatus<StatusEffectApplyXWhen
         status.targetMustBeAlive = false;
     })
 {
-    public const string Name = "When Hit Summon Blahaj";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

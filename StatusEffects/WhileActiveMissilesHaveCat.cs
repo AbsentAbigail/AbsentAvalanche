@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -18,5 +19,5 @@ public class WhileActiveMissilesHaveCat() : AbstractApplyXStatus<StatusEffectWhi
         ];
     })
 {
-    public const string Name = "While Active Missiles Have Cat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

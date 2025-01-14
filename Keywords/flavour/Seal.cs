@@ -2,12 +2,13 @@
 using AbsentAvalanche.Patches;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords.flavour;
 
 public class Seal() : AbstractKeyword(Name, "", Pronouns + "|" + Flavour)
 {
-    public const string Name = "seal" + "_flavour";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
     private const string Pronouns = "He/Him";
     private static readonly string Flavour = new Cards.Companion.Seal().FlavourText;
 

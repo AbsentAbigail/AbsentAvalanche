@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -16,5 +17,5 @@ public class Catbom() : AbstractItem(
         ];
     })
 {
-    public const string Name = "Catbom";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

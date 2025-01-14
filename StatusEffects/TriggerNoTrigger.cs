@@ -1,9 +1,10 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class TriggerNoTrigger() : AbstractStatus<StatusEffectTriggerWithoutFrenzy>(Name)
 {
-    public const string Name = "Trigger No Trigger";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

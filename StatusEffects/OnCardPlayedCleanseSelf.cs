@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -6,5 +7,5 @@ public class OnCardPlayedCleanseSelf() : AbstractApplyXStatus<StatusEffectApplyX
     Name, "<keyword=cleanse> self",
     effectToApply: "Cleanse")
 {
-    public const string Name = "OnCardPlayedCleanseSelf";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

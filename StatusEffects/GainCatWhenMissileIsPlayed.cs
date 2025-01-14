@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -15,5 +16,5 @@ public class GainCatWhenMissileIsPlayed() : AbstractApplyXStatus<StatusEffectApp
         status.doPing = false;
     })
 {
-    public const string Name = "Gain Cat When Missile Is Played";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

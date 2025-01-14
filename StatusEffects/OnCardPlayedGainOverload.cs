@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -8,5 +9,5 @@ internal class OnCardPlayedGainOverload() : AbstractApplyXStatus<StatusEffectApp
     effectToApply: "Overload"
 )
 {
-    public const string Name = "On Turn Gain Overload";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

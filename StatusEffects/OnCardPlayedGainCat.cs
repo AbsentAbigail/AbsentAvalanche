@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ internal class OnCardPlayedGainCat() : AbstractApplyXStatus<StatusEffectApplyXOn
     applyToFlags: StatusEffectApplyX.ApplyToFlags.Self,
     subscribe: status => { status.textInsert = Keywords.Cat.Tag; })
 {
-    public const string Name = "On Card Played Gain Cat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

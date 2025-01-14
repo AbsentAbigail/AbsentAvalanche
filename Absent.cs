@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using AbsentAvalanche.Assets;
 using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.Cards.Leaders;
-using AbsentAvalanche.Keywords;
+using AbsentAvalanche.StatusEffects;
+using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -19,6 +19,11 @@ using WildfrostHopeMod;
 using WildfrostHopeMod.SFX;
 using WildfrostHopeMod.Utils;
 using WildfrostHopeMod.VFX;
+using Abduct = AbsentAvalanche.Keywords.Abduct;
+using Calm = AbsentAvalanche.Keywords.Calm;
+using Cat = AbsentAvalanche.Keywords.Cat;
+using Ethereal = AbsentAvalanche.Keywords.Ethereal;
+using FakeCalm = AbsentAvalanche.Keywords.FakeCalm;
 using Valor = AbsentAvalanche.Traits.Valor;
 
 namespace AbsentAvalanche;
@@ -28,8 +33,8 @@ public class Absent : WildfrostMod
     public static Absent Instance;
 
     public static List<CardDataBuilder> Leaders;
-    private List<object> _assets;
     private static SpriteAtlas _spriteAtlas;
+    private List<object> _assets;
 
     //this is here to allow our icon to appear in the text box of cards
     private TMP_SpriteAsset _assetSprites;
@@ -64,9 +69,11 @@ public class Absent : WildfrostMod
 
     public static string CatalogFolder => Path.Combine(Instance.ModDirectory, "Windows");
     public static string CatalogPath => Path.Combine(CatalogFolder, "catalog.json");
-    
+
     public override void Load()
     {
+        StopWatch.Start();
+
         AbsentUtils.AddModInfo(new AbsentUtils.ModInfo
         {
             Mod = this,
@@ -125,6 +132,8 @@ public class Absent : WildfrostMod
         //needed for custom icons
         var floatingText = Object.FindObjectOfType<FloatingText>(true);
         floatingText.textAsset.spriteAsset.fallbackSpriteAssets.Add(_assetSprites);
+
+        LogHelper.Log($"Loaded Absent Avalanche in {StopWatch.Stop()} ms");
     }
 
     private void LoadStatusIcons()
@@ -240,7 +249,30 @@ public class Absent : WildfrostMod
          */
         _assets =
         [
-            PlushTribe.Builder()
+            PlushTribe.Builder(),
+            new StatusEffectDataBuilder(this)
+                .Create<StatusEffectCamcorder>("Camcorder")
+                .WithText("Camcorder")
+                .SubscribeToAfterAllBuildEvent(data =>
+                {
+                    var status = (StatusEffectCamcorder)data;
+                    status.effectToApply = AbsentUtils.GetStatus("Scrap");
+                    status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Target;
+                }),
+            new StatusEffectDataBuilder(this)
+                .Create<StatusEffectInstantDelegate>("instant func")
+                .SubscribeToAfterAllBuildEvent(data =>
+                {
+                    var status = (StatusEffectInstantDelegate)data;
+                    status.Action = instant =>
+                    {
+                        var bell = Object.FindObjectOfType<RedrawBellSystem>();
+                        var counterChange = bell.counterChange;
+                        bell.counterChange = -instant.count;
+                        bell.Counter();
+                        bell.counterChange = counterChange;
+                    };
+                })
             // NebulaTribe.Builder()
         ];
 
@@ -260,6 +292,20 @@ public class Absent : WildfrostMod
             new Leader<Chirp>(-1, 1, -1, 1, -1, 1).Builder(),
             new Leader<Cuddles>(-1, 1, counterModMin: -1, counterModMax: 1).Builder(),
             new Leader<Bubbles>(-1, 2).Builder(),
+            new Leader<Nami>(0, 1, 0, 2, -1).Builder(),
+            new Leader<April>(2, 3, 0, 0, -1, 0, card =>
+            {
+                card.traits =
+                [
+                    .. card.traits,
+                    AbsentUtils.TStack("Spark")
+                ];
+                card.startWithEffects =
+                [
+                    .. card.startWithEffects,
+                    AbsentUtils.SStack(WhileActiveCountDownEtherealWhenDrawn.Name)
+                ];
+            }).Builder()
         ];
         _assets.AddRange(Leaders);
 
@@ -287,7 +333,7 @@ public class Absent : WildfrostMod
 
             Make sure to pet the plush when they do well, and don't let them get hurt! Plushies need proper love and care!
             """);
-        
+
         uiText.SetString(NebulaTribe.TitleKey, "The Nebula");
         uiText.SetString(NebulaTribe.DescKey,
             """
@@ -295,13 +341,15 @@ public class Absent : WildfrostMod
 
             No fight stays the same, none of your cards are certain
             """);
-        
-        uiText.SetString(StatusEffects.InstantTutorDeck.Name, "Choose and draw a card from your draw pile");
-        uiText.SetString(StatusEffects.InstantTutorDiscard.Name, "Choose and draw a card from your discard pile");
-        uiText.SetString(StatusEffects.InstantTutorThreeRandomCompanions.Name, "Add a companion to your hand");
-        uiText.SetString(StatusEffects.InstantTutorThreeRandomTreasures.Name, "Add an item or a clunker to your hand");
-        uiText.SetString(StatusEffects.InstantTutorDeckCopyZoomlinConsume.Name, "Add a copy of a card in your deck to hand with zoomlin and consume");
-        uiText.SetString(StatusEffects.InstantTutorTenRandomCardsZoomlin.Name, "Add a random card to your hand with zoomlin and consume");
+
+        uiText.SetString(InstantTutorDeck.Name, "Choose and draw a card from your draw pile");
+        uiText.SetString(InstantTutorDiscard.Name, "Choose and draw a card from your discard pile");
+        uiText.SetString(InstantTutorThreeRandomCompanions.Name, "Add a companion to your hand");
+        uiText.SetString(InstantTutorThreeRandomTreasures.Name, "Add an item or a clunker to your hand");
+        uiText.SetString(InstantTutorDeckCopyZoomlinConsume.Name,
+            "Add a copy of a card in your deck to hand with zoomlin and consume");
+        uiText.SetString(InstantTutorTenRandomCardsZoomlin.Name,
+            "Add a random card to your hand with zoomlin and consume");
     }
 
     public override List<T> AddAssets<T, TY>()

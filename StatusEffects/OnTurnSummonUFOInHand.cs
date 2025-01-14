@@ -1,13 +1,14 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
-internal class OnTurnSummonUFOInHand() : AbstractApplyXStatus<StatusEffectApplyXOnTurn>(
+internal class OnTurnSummonUfoInHand() : AbstractApplyXStatus<StatusEffectApplyXOnTurn>(
     Name, "Add <{a}> {0} to your hand",
     canBoost: true,
-    effectToApply: InstantSummonUFOInHand.Name,
+    effectToApply: InstantSummonUfoInHand.Name,
     subscribe: status => status.textInsert = AbstractCard.CardTag(RescueUFO.Name))
 {
-    public const string Name = "On Turn Summon UFO In Hand";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

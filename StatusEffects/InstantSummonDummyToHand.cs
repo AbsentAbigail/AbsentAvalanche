@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class InstantSummonDummyToHand() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "InstantSummonDummyToHand";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     
     public override StatusEffectDataBuilder Builder()
     {

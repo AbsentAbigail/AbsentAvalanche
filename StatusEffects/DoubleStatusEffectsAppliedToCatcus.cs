@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -24,5 +25,5 @@ public class DoubleStatusEffectsAppliedToCatcus() : AbstractApplyXStatus<StatusE
             )];
     })
 {
-    public const string Name = "Double Status Effects Applied to Catcus";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

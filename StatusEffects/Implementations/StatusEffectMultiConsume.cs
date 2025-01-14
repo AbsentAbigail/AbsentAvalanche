@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace AbsentAvalanche.StatusEffects;
+namespace AbsentAvalanche.StatusEffects.Implementations;
 
 public class StatusEffectMultiConsume : StatusEffectData
 {

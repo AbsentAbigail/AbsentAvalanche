@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentAvalanche.StatusEffects.Scriptables;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -21,5 +22,5 @@ public class WhenDeployedGainHealthPerAlliedCompanion()
                 });
         })
 {
-    public const string Name = "When Deployed Gain Health Per Allied Companion";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

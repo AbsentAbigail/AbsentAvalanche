@@ -21,11 +21,13 @@ public static class AssetsCompanions
             new Chirp().Builder(),
             new Cuddles().Builder(),
             new Bubbles().Builder(),
+            new April().Builder(),
+            new Nami().Builder(),
             
             new BubblesAndCuddles().Builder(),
-            new Leader<BubblesAndCuddles>().Builder(),
             new SherbaAndCuddles().Builder(),
-            new Leader<SherbaAndCuddles>().Builder(),
+            new AprilAndMay().Builder(),
+            new AliceAndNami().Builder(),
 
             new Catcus().Builder(),
             new Catcitten().Builder(),

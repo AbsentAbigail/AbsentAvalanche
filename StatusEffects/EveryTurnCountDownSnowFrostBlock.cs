@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -8,5 +9,5 @@ public class EveryTurnCountDownSnowFrostBlock() : AbstractApplyXStatus<StatusEff
     applyToFlags: StatusEffectApplyX.ApplyToFlags.AlliesInRow
     )
 {
-    public const string Name = "Every Turn Count Down Snow Frost Block";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

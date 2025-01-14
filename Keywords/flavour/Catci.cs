@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Patches;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords.flavour;
 
 public class Catci() : AbstractKeyword(Name, "", Pronouns + "|" + Flavour)
 {
-    public const string Name = "catci" + "_flavour";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
     private const string Pronouns = "They/Them";
     private static readonly string Flavour = new Cards.Companion.Catci().FlavourText;
 

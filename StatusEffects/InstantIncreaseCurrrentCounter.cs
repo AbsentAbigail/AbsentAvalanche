@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ internal class InstantIncreaseCurrentCounter() : AbstractStatus<StatusInstantInc
     subscribe: status => status.type = "counter down"
 )
 {
-    public const string Name = "Instant Increase Current Counter";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

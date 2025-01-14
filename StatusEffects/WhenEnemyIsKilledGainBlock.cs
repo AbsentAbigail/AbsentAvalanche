@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -13,5 +14,5 @@ public class WhenEnemyIsKilledGainBlock() : AbstractApplyXStatus<StatusEffectApp
         status.ally = false;
     })
 {
-    public const string Name = "When Enemy Is Killed Gain Block";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

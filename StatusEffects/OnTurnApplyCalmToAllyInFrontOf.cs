@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ internal class OnTurnApplyCalmToAllyInFrontOf() : AbstractApplyXStatus<StatusEff
     applyToFlags: StatusEffectApplyX.ApplyToFlags.AllyInFrontOf
 )
 {
-    public const string Name = "On Turn Apply Calm To AllyInFrontOf";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

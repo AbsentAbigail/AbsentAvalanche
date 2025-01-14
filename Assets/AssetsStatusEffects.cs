@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using AbsentAvalanche.Cards.Clunkers;
+using AbsentAvalanche.Cards.Companion;
 using AbsentAvalanche.StatusEffects;
+using AbsentUtilities;
 
 namespace AbsentAvalanche.Assets;
 
@@ -8,12 +11,34 @@ public static class AssetsStatusEffects
     public static void AddToAssets(List<object> assets)
     {
         assets.AddRange([
+            # region Statuses
+
             new Ethereal().Builder(),
             new Cat().Builder(),
             new Calm().Builder(),
             new FakeCalm().Builder(),
             new Abduct().Builder(),
 
+            #endregion Statuses
+
+            # region Dream Team
+            
+            .. DreamTeam.EffectBuilders(Bubbles.Name, Cuddles.Name), // Bubbles and Cuddles
+            .. DreamTeam.EffectBuilders(Bam.Name, Boozle.Name), // Bam and Boozle
+            .. DreamTeam.EffectBuilders(Catcus.Name, Catcitten.Name), // Catci
+            .. DreamTeam.EffectBuilders(Sherba.Name, Cuddles.Name), // Snuggle Buddies
+            .. DreamTeam.EffectBuilders(Alice.Name, Nami.Name), // The coziest pacas
+            .. DreamTeam.EffectBuilders(April.Name, May.Name, // Sheep and Dino
+                instant => {
+                instant.ReplaceEffects =
+                [
+                    [AbsentUtils.SStack(OnCardPlayedAddWoolGrenadeToHand.Name),
+                    AbsentUtils.SStack(OnCardPlayedAddGoolWrenadeToHand.Name)]
+                ];
+            }),
+            
+            #endregion Dream Team
+            
             new OnCardPlayedGainOverload().Builder(),
             new WhenDestroyedSummonUnboundFlame().Builder(),
             new InstantSummonUnboundFlame().Builder(),
@@ -68,16 +93,16 @@ public static class AssetsStatusEffects
             new OnKillApplyCalmToSelf().Builder(),
             new OnTurnApplyCalmToAllyInFrontOf().Builder(),
 
-            new InstantSummonUFOInHand().Builder(),
-            new OnTurnSummonUFOInHand().Builder(),
-            new SummonUFO().Builder(),
+            new InstantSummonUfoInHand().Builder(),
+            new OnTurnSummonUfoInHand().Builder(),
+            new SummonUfo().Builder(),
 
             new InstantIncreaseCurrentCounter().Builder(),
 
             new InstantEat().Builder(),
             new OnHitEat().Builder(),
 
-            new Stress().Builder(),
+            new DealAdditionalDamageForEachDamagedAlly().Builder(),
 
             new OnCardPlayedDoubleAllCat().Builder(),
             new InstantDoubleCat().Builder(),
@@ -88,7 +113,6 @@ public static class AssetsStatusEffects
 
             new OnKillGainCat().Builder(),
 
-            new WhenAnythingSnowedGainBlock().Builder(),
             new WhenEnemyIsKilledGainBlock().Builder(),
             new WhileActiveGainFrenzyEqualToBlock().Builder(),
 
@@ -99,10 +123,6 @@ public static class AssetsStatusEffects
             new DoubleStatusEffectsAppliedToCatcus().Builder(),
 
             new WhenAllyHitGainFrenzy().Builder(),
-            new InstantTransformIntoBamAndBoozle().Builder(),
-            new WhenDeployedSplitIntoBamAndBoozle().Builder(),
-            new InstantTransformIntoBamAndBoozleAscended().Builder(),
-            new WhenDeployedSplitIntoBamAndBoozleAscended().Builder(),
 
             new InstantPermanentlyIncreaseHealth().Builder(),
             new OnKillIncreaseHealthPermanent().Builder(),
@@ -137,34 +157,39 @@ public static class AssetsStatusEffects
 
             new InstantCleanseText().Builder(),
             new InstantHeadpat().Builder(),
-            
+
             new InstantDrawAndApplyFrenzyAndAimless().Builder(),
             new OnCardPlayedDrawAndApplyFrenzyAndAimless().Builder(),
-            
+
             new WhenAllyGainsNegativeStatusApplyToSelfInstead().Builder(),
             new OnCardPlayedCleanseSelf().Builder(),
             new WhenAnAllyGainsAPositiveStatusShareHalfToSelf().Builder(),
-            
-            new WhenDeployedSplitIntoCatcusAndCatcitten().Builder(),
-            new InstantTransformIntoCatcusAndCatcitten().Builder(),
-            new WhenDeployedSplitIntoCatcusAndCatcittenAscended().Builder(),
-            new InstantTransformIntoCatcusAndCatcittenAscended().Builder(),
+
             new WhenEnemyIsKilledApplyTeethToAttacker().Builder(),
             new WhenEnemyIsKilledCountDownAttacker().Builder(),
             new CountDownASAP().Builder(),
-            
+
             new OnCardPlayedGainSnow().Builder(),
             new OnCardPlayedTriggerAllyAhead().Builder(),
-            new InstantTransformIntoBubblesAndCuddles().Builder(),
-            new WhenDeployedSplitIntoBubblesAndCuddles().Builder(),
-            new InstantTransformIntoBubblesAndCuddlesAscended().Builder(),
-            new WhenDeployedSplitIntoBubblesAndCuddlesAscended().Builder(),
-            
-            new InstantTransformIntoSherbaAndCuddles().Builder(),
-            new WhenDeployedSplitIntoSherbaAndCuddles().Builder(),
-            new InstantTransformIntoSherbaAndCuddlesAscended().Builder(),
-            new WhenDeployedSplitIntoSherbaAndCuddlesAscended().Builder(),
+
             new WhenDeployedApplySnowToEnemies().Builder(),
+
+            new WhenDestroyedApplyWeaknessToEnemies().Builder(),
+            new SummonWoolGrenade().Builder(),
+            new InstantSummonWoolGrenadeInHand().Builder(),
+            new OnCardPlayedAddWoolGrenadeToHand().Builder(),
+            new WhenDestroyedApplyWeaknessToAllies().Builder(),
+            new SummonGoolWrenade().Builder(),
+            new InstantSummonGoolWrenadeInHand().Builder(),
+            new OnCardPlayedAddGoolWrenadeToHand().Builder(),
+            new InstantCountDownEthereal().Builder(),
+            new CountDownEtherealWhenDrawn().Builder(),
+            new WhileActiveCountDownEtherealWhenDrawn().Builder(),
+
+            new InstantRandomBuff().Builder(),
+            new OnCardPlayedApplyRandomBuffToRandomAlly().Builder(),
+            new WhenDeployedApplyRandomBuffToAllAllies().Builder(),
+            
         ]);
     }
 }

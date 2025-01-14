@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Traits;
 
 public class Valor() : AbstractTrait(Name, Keywords.Valor.Name, HitHighestAttack.Name)
 {
-    public const string Name = "Valor";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override TraitDataBuilder Builder()
     {

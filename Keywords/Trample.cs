@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords;
 
 public class Trample() : AbstractKeyword(Name, "Trample", "On kill, trigger an additional time")
 {
-    public const string Name = "trample";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 
     public override KeywordDataBuilder Builder()
     {

@@ -21,6 +21,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
     public int damageChange;
     public int counterChange;
     public CardData.StatusEffectStacks[] startWithEffects;
+    public CardData.StatusEffectStacks[][] ReplaceEffects; 
 
     public override IEnumerator Process()
     {
@@ -37,6 +38,9 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
 
         var cards = GetCards();
 
+        // var replaceEffects = AbsentUtils.GetStatusOf<StatusEffectInstantChangeForm>(name)
+        //     .ReplaceEffects ?? [];
+
         cards.Do(c =>
         {
             if (c.hasHealth)
@@ -50,13 +54,36 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 ..c.startWithEffects,
                 ..startWithEffects
             ];
+            c.startWithEffects.Do(s =>
+            {
+                ReplaceEffects?.Where(r => r[0].data.name == s.data.name).Do(r =>
+                {
+                    s.data = r[1].data;
+                    s.count = r[1].count;
+                });
+            });
+
+            c.SetCustomData("absent.original", target.data.id);
         });
 
         var originalCardType = target.data.cardType;
         if (CheckCardType(originalCardType))
             cards.Do(c => c.cardType = originalCardType);
-
-        if (bossTransform != null && bossTransform.data != null)
+        
+        if (target.owner == Battle.instance.enemy)
+        {
+            cards.Do(c =>
+            {
+                c.cardType = c.cardType.name switch
+                {
+                    "Friendly" => AbsentUtils.GetCardType("Enemy"),
+                    "Leader" => AbsentUtils.GetCardType("Miniboss"),
+                    _ => c.cardType
+                };
+            });
+        }
+        
+        if (target.data.cardType == AbsentUtils.GetCardType("BossSmall") && bossTransform != null && bossTransform.data != null)
         {
             var randomCard = cards.RandomItem();
             randomCard.startWithEffects =
@@ -66,7 +93,6 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             ];
         }
 
-        AddCharms(cards);
         var targetCopy = target.data.InstantiateKeepName();
         var baseCard = AbsentUtils.GetCard(target.name);
         foreach (var upgrade in targetCopy.upgrades.ToArray().Reverse())
@@ -75,6 +101,8 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         var healthDiff = targetCopy.hp - baseCard.hp;
         var damageDiff = targetCopy.damage - baseCard.damage;
         var counterDiff = targetCopy.counter - baseCard.counter;
+
+        AddCharms(cards);
 
         foreach (var card in cards)
         {

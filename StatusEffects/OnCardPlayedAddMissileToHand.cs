@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 internal class OnCardPlayedAddMissileToHand() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "On Card Played Add Missile To Hand";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

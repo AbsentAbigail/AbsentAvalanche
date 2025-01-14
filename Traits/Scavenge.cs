@@ -1,9 +1,10 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Traits;
 
 public class Scavenge() : AbstractTrait(Name, Keywords.Scavenge.Name, OnBossKillGainRandomCharm.Name)
 {
-    public const string Name = "Scavenge";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

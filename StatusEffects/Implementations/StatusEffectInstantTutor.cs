@@ -26,6 +26,7 @@ public class StatusEffectInstantTutor : StatusEffectInstant
     public StatusEffectInstantSummon summonCopy;
     public CardData.StatusEffectStacks[] addEffectStacks;
     public LocalizedString title;
+    public bool addToDeck;
 
     private CardContainer _cardContainer;
     private GameObject _gameObject;
@@ -99,9 +100,21 @@ public class StatusEffectInstantTutor : StatusEffectInstant
         summonCopy.targetSummon.summonCard = cardData;
         summonCopy.withEffects = [.. addEffectStacks.Select(s => s.data)];
         ActionQueue.Stack(new ActionApplyStatus(target, target, summonCopy, count));
+
+        AddToDeck(cardData);
+        
         _selected = null;
     }
 
+    private void AddToDeck(CardData cardData)
+    {
+        if (!addToDeck)
+            return;
+        
+        References.PlayerData.inventory.deck.Add(cardData);
+        Events.InvokeEntityShowUnlocked(_selected);
+    }
+    
     private CardContainer GetCardContainer()
     {
         switch (source)

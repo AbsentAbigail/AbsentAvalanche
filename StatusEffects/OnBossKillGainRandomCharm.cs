@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -9,5 +10,5 @@ internal class OnBossKillGainRandomCharm() : AbstractApplyXStatus<StatusEffectAp
     effectToApply: InstantGainRandomCharm.Name
 )
 {
-    public const string Name = "On Kill Gain Random Charm";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

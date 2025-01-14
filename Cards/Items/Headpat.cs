@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -15,6 +16,6 @@ public class Headpat() : AbstractItem(Name, "Headpat",
         card.traits = [AbsentUtils.TStack("Draw")];
     })
 {
-    public const string Name = "Headpat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "There there, you did well!";
 }

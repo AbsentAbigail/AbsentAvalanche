@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 using static StatusEffectApplyX.ApplyToFlags;
 
 namespace AbsentAvalanche.StatusEffects;
@@ -9,5 +10,5 @@ public class OnCardPlayedDoubleAllCat() : AbstractApplyXStatus<StatusEffectApply
     applyToFlags: Allies | Self | Enemies | Hand
     )
 {
-    public const string Name = "On Card Played Double All Cat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

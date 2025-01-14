@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -11,5 +12,5 @@ internal class NovaShard() : AbstractItem(
         card.startWithEffects = [AbsentUtils.SStack("Trigger Against Random Ally When Drawn")];
     })
 {
-    public const string Name = "NovaShard";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

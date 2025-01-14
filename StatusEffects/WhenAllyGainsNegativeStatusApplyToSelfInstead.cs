@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -12,5 +13,5 @@ public class WhenAllyGainsNegativeStatusApplyToSelfInstead() : AbstractApplyXSta
         status.applyEqualAmount = true;
     })
 {
-    public const string Name = "WhenAllyGainsNegativeStatusApplyToSelfInstead";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

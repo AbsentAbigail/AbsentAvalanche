@@ -12,7 +12,7 @@ internal class Aftonsparv() : AbstractCompanion(
         card.startWithEffects =
         [
             AbsentUtils.SStack("On Card Played Apply Frost To RandomEnemy"),
-            AbsentUtils.SStack(OnTurnSummonUFOInHand.Name)
+            AbsentUtils.SStack(OnTurnSummonUfoInHand.Name)
         ];
         card.greetMessages =
         [

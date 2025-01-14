@@ -18,7 +18,8 @@ public static class AssetsKeywords
             new Warm().Builder(),
             new Panic().Builder(),
             new Friend().Builder(),
-            new PowerDuo().Builder(),
+            new DreamTeam().Builder(),
+            new RainbowFluff().Builder(),
         ]);
     }
 }

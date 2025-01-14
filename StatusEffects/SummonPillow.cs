@@ -1,13 +1,14 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 internal class SummonPillow() : AbstractStatus<StatusEffectData>(Name)
 {
-    public const string Name = "SummonPillow";
-    private const string CardName = Pillow.Name;
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
+    private static readonly string CardName = Pillow.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

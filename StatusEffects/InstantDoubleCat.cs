@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -10,5 +11,5 @@ internal class InstantDoubleCat() : AbstractStatus<StatusEffectInstantDoubleX>(
         status.countsAsHit = false;
     })
 {
-    public const string Name = "Instant Double Cat";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

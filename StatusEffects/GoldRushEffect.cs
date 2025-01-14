@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -12,5 +13,5 @@ internal class GoldRushEffect() : AbstractStatus<StatusEffectGoldRush>(
             ScriptableHelper.CreateScriptable<ScriptableGold>("0.02 of Gold", script => script.factor = 0.02f);
     })
 {
-    public const string Name = "Gold Rush Effect";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

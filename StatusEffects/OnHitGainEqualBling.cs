@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -7,5 +8,5 @@ internal class OnHitGainEqualBling() : AbstractApplyXStatus<StatusEffectApplyXOn
     effectToApply: "Gain Gold",
     subscribe: status => { status.applyEqualAmount = true; })
 {
-    public const string Name = "On Hit Gain Equal Bling";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

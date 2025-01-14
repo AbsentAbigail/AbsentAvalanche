@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -11,5 +12,5 @@ public class IncreaseEtherealToMatchRest() : AbstractApplyXStatus<StatusEffectRe
     subscribe: status => { status.applyEqualAmount = true; }
 )
 {
-    public const string Name = "Increase Ethereal To Match Rest";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

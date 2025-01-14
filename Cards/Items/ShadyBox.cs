@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -13,6 +14,6 @@ public class ShadyBox() : AbstractItem(Name, "Forgotten Box",
         ];
     })
 {
-    public const string Name = "ShadyBox";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "A cardboard box under the bed... What could be inside?";
 }

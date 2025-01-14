@@ -1,9 +1,10 @@
 ﻿using AbsentAvalanche.StatusEffects.Implementations;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class InstantPermanentlyIncreaseHealth() : AbstractStatus<StatusEffectInstantChangeStatsPermanent>(Name)
 {
-    public const string Name = "Instant Permanently Increase Health";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

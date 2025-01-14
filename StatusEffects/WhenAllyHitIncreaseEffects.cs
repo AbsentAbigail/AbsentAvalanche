@@ -1,4 +1,5 @@
 ﻿using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
@@ -7,5 +8,5 @@ public class WhenAllyHitIncreaseEffects() : AbstractApplyXStatus<StatusEffectApp
     effectToApply: "Increase Effects"
     )
 {
-    public const string Name = "When Ally Hit Increase Effects";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

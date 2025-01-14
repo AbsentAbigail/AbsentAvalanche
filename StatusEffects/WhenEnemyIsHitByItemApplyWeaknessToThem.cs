@@ -1,11 +1,12 @@
 ﻿using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
 public class WhenEnemyIsHitByItemApplyWeaknessToThem() : AbstractApplyXStatus<StatusEffectApplyXWhenUnitIsHit>(Name)
 {
-    public const string Name = "When Enemey Is Hit By Item Apply Weakness To Them";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

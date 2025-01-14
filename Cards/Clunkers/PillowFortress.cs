@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Clunkers;
 
@@ -15,7 +16,7 @@ public class PillowFortress() : AbstractClunker(
         ];
     })
 {
-    public const string Name = "PillowFortress";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "A stronghold to ward of evil, or to sleep in";
     protected override string IdleAnimation => "PulseAnimationProfile";
 }

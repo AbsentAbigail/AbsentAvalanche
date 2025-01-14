@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Patches;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Keywords.flavour;
 
 public class NebulaAuxilium() : AbstractKeyword(Name, "", " |" + Flavour)
 {
-    public const string Name = "nebulaauxilium" + "_flavour";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
     private static readonly string Flavour = new Cards.Items.NebulaAuxilium().FlavourText;
 
     public override KeywordDataBuilder Builder()

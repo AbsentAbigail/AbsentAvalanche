@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -19,7 +20,7 @@ internal class NebulaInstrumenta() : AbstractItem(
         ];
     })
 {
-    public const string Name = "NebulaInstrumenta";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Space donut";
 
     public override CardDataBuilder Builder()

@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.StatusEffects;
 using AbsentUtilities;
+using HarmonyLib;
 
 namespace AbsentAvalanche.Cards.Items;
 
@@ -13,6 +14,6 @@ internal class Imagination() : AbstractItem(
         ];
     })
 {
-    public const string Name = "Imagination";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public override string FlavourText => "Let your creativity be your limit";
 }

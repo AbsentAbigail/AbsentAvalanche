@@ -11,25 +11,30 @@ namespace AbsentAvalanche.Patches;
 [HarmonyPatch(typeof(FinalBossGenerationSettings), "Process", typeof(CardData), typeof(IList<CardData>))]
 public class FinalBossGenerationSettingsPatches
 {
+    public static List<string[]> DreamTeamSwaps = []; // Name, Effect name, Ascended effect name
+    
     [UsedImplicitly]
     private static void Prefix(FinalBossGenerationSettings __instance, CardData leader, IList<CardData> cards)
     {
+        List<FinalBossEffectSwapper> dreamTeams = [];
+        dreamTeams.AddRange(
+            DreamTeamSwaps.Select(combo => CreateSwapper(
+                combo[0],
+                combo[1],
+                combo[2]))
+        );
+
         __instance.effectSwappers =
         [
             .. __instance.effectSwappers,
+            .. dreamTeams,
             CreateSwapper("SalvoKitty 1", OnCardPlayedAddMissileToHand.Name,
                 OnCardPlayedAddCatomicBombToHand.Name,
                 minBoost: -1, maxBoost: 0),
             CreateSwapper("SalvoKitty 2", GainCatWhenMissileIsPlayed.Name,
                 OnCardPlayedGainCat.Name),
-            CreateSwapper("BamAndBoozle", WhenDeployedSplitIntoBamAndBoozle.Name,
-                WhenDeployedSplitIntoBamAndBoozleAscended.Name),
-            CreateSwapper("Catci", WhenDeployedSplitIntoCatcusAndCatcitten.Name,
-                WhenDeployedSplitIntoCatcusAndCatcittenAscended.Name),
-            CreateSwapper("BubblesAndCuddles", WhenDeployedSplitIntoBubblesAndCuddles.Name,
-                WhenDeployedSplitIntoBubblesAndCuddlesAscended.Name),
-            CreateSwapper("SherbaAndCuddles", WhenDeployedSplitIntoSherbaAndCuddles.Name,
-                WhenDeployedSplitIntoSherbaAndCuddlesAscended.Name),
+            CreateSwapper("April", OnCardPlayedAddWoolGrenadeToHand.Name,
+                OnCardPlayedAddGoolWrenadeToHand.Name)
         ];
     }
 

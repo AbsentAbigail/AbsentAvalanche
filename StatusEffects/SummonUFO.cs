@@ -1,12 +1,13 @@
 ﻿using AbsentAvalanche.Cards.Items;
 using AbsentUtilities;
 using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
 
 namespace AbsentAvalanche.StatusEffects;
 
-internal class SummonUFO() : AbstractStatus<StatusEffectSummon>(Name)
+internal class SummonUfo() : AbstractStatus<StatusEffectSummon>(Name)
 {
-    public const string Name = "Summon UFO";
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public override StatusEffectDataBuilder Builder()
     {

@@ -1,15 +1,14 @@
-REQUIRES AbsentUtils NOW. IF YOU HAD THIS INSTALLED PREVIOUSLY, ALSO INSTALL https://steamcommunity.com/sharedfiles/filedetails/?id=3355962208
-
 Avalanche of new and random cards and charms
 Lots of sillies to play with :3
 
 Content:
 1 Tribe
-8 Plushies (Plushies are both leaders for the plushie tribe and companions)
+15 Plushies (Most plushies are both leaders for the plushie tribe and companions)
+5 Dream Teams
 11 Companions (excluding plushies)
 3 Pets
-15 Items
-10 Charms
+19 Items
+11 Charms
 And new mechanics!
 
 Make sure to headpat the plushies when they do well!
@@ -17,9 +16,9 @@ If you see your leader as a companion please ignore them, the plushies get nervo
 
 Additional Credits:
 My plushies: For volunteering to fight against the Frost
-Megamarine: Sprites for May, Ethereal, Calm, and Cat
+Megamarine: Sprites for May, April, Sheep and Dino, Wool Grenade, Ethereal, Calm, and Cat, and animation for Calm
 Gaziter: Character designs for Lusine, and Eudora (and her buttons)
-Sunnaryi: Sprites for Eudora
+Sunnaryi: Sprites for Eudora, Nami, The cosiest pacas
 Code_Null: Concept for Catbom
 The Wildfrost Discords modding section: Being helpful, giving suggestions, and feedback
 
