@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 
 namespace AbsentAvalanche.StatusEffects.Implementations;
 
@@ -21,18 +22,22 @@ public class StatusEffectWhenXAppliedToRedirect : StatusEffectApplyX
         if (!CheckTarget(apply.target))
             return false;
 
-        effectToApply = apply.effectData;
+        ActionQueue.Stack(new ActionSequence(Run(apply.effectData, apply.count)));
         apply.effectData = null;
-
-        ActionQueue.Stack(new ActionSequence(Run(GetTargets(), apply.count)));
         return false;
+    }
+
+    private IEnumerator Run(StatusEffectData effect, int amount)
+    {
+        effectToApply = effect;
+        yield return Run(GetTargets(), amount);
     }
 
     private bool CheckTarget(Entity entity)
     {
         if (entity.statusEffects.Any(s => s.name == name))
             return false;
-        
+
         var apply = applyToFlags;
         applyToFlags = whenAppliedFlags;
         var entities = GetTargets();

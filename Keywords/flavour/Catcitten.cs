@@ -8,7 +8,7 @@ namespace AbsentAvalanche.Keywords.flavour;
 public class Catcitten() : AbstractKeyword(Name, "", Pronouns + "|" + Flavour)
 {
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
-    private const string Pronouns = "They/Them";
+    private const string Pronouns = "They/Them or She/Her";
     private static readonly string Flavour = new Cards.Companion.Catcitten().FlavourText;
 
     public override KeywordDataBuilder Builder()
