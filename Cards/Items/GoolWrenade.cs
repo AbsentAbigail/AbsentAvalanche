@@ -12,7 +12,7 @@ internal class GoolWrenade() : AbstractItem(
         card.startWithEffects =
         [
             AbsentUtils.SStack(Ethereal.Name, 4),
-            AbsentUtils.SStack(WhenDestroyedApplyWeaknessToEnemies.Name)
+            AbsentUtils.SStack(WhenDestroyedApplyWeaknessToAllies.Name)
         ];
     })
 {

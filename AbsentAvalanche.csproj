@@ -553,6 +553,7 @@
         <Compile Include="StatusEffects\CountDownEtherealWhenDrawn.cs" />
         <Compile Include="StatusEffects\DreamTeam.cs" />
         <Compile Include="StatusEffects\Implementations\charmsInBattle.cs" />
+        <Compile Include="StatusEffects\Implementations\StatusEffectApplyXWhenCertainUnitIsHit.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectCamcorder.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectInstantApplyRandom.cs" />
         <Compile Include="StatusEffects\Implementations\StatusEffectApplyXToAllyInColumn.cs" />
