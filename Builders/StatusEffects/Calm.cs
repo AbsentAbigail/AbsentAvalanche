@@ -1,0 +1,41 @@
+﻿#region
+
+using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
+using AbsentAvalanche.StatusEffectImplementations;
+using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
+using JetBrains.Annotations;
+using WildfrostHopeMod.VFX;
+
+#endregion
+
+namespace AbsentAvalanche.Builders.StatusEffects;
+
+[UsedImplicitly]
+public class Calm : IStatusBuilder
+{
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
+
+    public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
+    {
+        return new StatusEffectDataBuilder(Absent.Instance)
+            .Create<StatusEffectCalm>(Name)
+            .WithStackable(true)
+            .WithCanBeBoosted(false)
+            .WithTextInsert("{a}")
+            .Subscribe_WithStatusIcon(Icons.Calm.Name)
+            .SubscribeToAfterAllBuildEvent<StatusEffectCalm>(status =>
+            {
+                status.effectToApply = Absent.GetStatus("Reduce Max Counter");
+                status.countDownEffect = Absent.GetStatus("Reduce Counter");
+                status.counterIncreaseEffect = Absent.GetStatus("Increase Max Counter");
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+
+                status.applyEqualAmount = true;
+                status.eventPriority = -10;
+
+                status.targetConstraints = [TargetConstraintHelper.MaxCounterMoreThan(0)];
+            });
+    }
+}

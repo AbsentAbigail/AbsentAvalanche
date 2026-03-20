@@ -1,0 +1,33 @@
+﻿#region
+
+using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.StatusEffectImplementations;
+using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
+using JetBrains.Annotations;
+using WildfrostHopeMod.VFX;
+
+#endregion
+
+namespace AbsentAvalanche.Builders.StatusEffects;
+
+[UsedImplicitly]
+public class Abduct : IStatusBuilder
+{
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
+
+    public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
+    {
+        return new StatusEffectDataBuilder(Absent.Instance)
+            .Create<StatusEffectAbduct>(Name)
+            .WithStackable(true)
+            .WithCanBeBoosted(false)
+            .WithTextInsert("{a}")
+            .Subscribe_WithStatusIcon(Icons.Abduct.Name)
+            .SubscribeToAfterAllBuildEvent<StatusEffectAbduct>(status =>
+            {
+                status.effectToApply = Absent.GetStatus("Snow");
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+            });
+    }
+}

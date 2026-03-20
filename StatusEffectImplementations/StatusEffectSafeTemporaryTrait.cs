@@ -1,0 +1,35 @@
+﻿#region
+
+using System.Collections;
+using System.Linq;
+using UnityEngine;
+
+#endregion
+
+namespace AbsentAvalanche.StatusEffectImplementations;
+
+public class StatusEffectSafeTemporaryTrait : StatusEffectTemporaryTrait
+{
+    private int _finished;
+    private int _queued;
+
+    public override IEnumerator StackRoutine(int stacks)
+    {
+        var current = _queued;
+        _queued++;
+        yield return new WaitUntil(() => _finished == current);
+        yield return base.StackRoutine(stacks);
+        _finished++;
+    }
+}
+
+public class StatusEffectTriggerWhenAllyAttacksConstrainted : StatusEffectTriggerWhenAllyAttacks
+{
+    public TargetConstraint[] attackerConstraints;
+
+    public override bool RunHitEvent(Hit hit)
+    {
+        return hit.attacker != null && attackerConstraints.Any(constraint => constraint.Check(hit.attacker)) &&
+               base.RunHitEvent(hit);
+    }
+}
