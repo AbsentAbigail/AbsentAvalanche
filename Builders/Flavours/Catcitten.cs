@@ -23,7 +23,7 @@ public class Catcitten : IKeywordBuilder
             .WithTitleColour(KeywordColours.Orange)
             .WithShowName(true)
             .WithDescription(
-                "They/Them or She/Her|" + Cards.Companions.Catcitten.Flavour)
+                "They/Them|" + Cards.Companions.Catcitten.Flavour)
             .WithBodyColour(KeywordColours.Flavour)
             .WithNoteColour(KeywordColours.Gray)
             .AddToFlavours(Cards.Companions.Catcitten.Name);

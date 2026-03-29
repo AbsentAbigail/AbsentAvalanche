@@ -15,7 +15,7 @@ public class StatusEffectInstantChargeBell : StatusEffectInstant
         var redrawBellSystem = FindObjectOfType<RedrawBellSystem>(true);
         if (redrawBellSystem == null)
         {
-            Logger.Log("No RedrawBellSystem found");
+            LogHelper.Log("No RedrawBellSystem found");
             yield return base.Process();
         }
 

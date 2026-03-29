@@ -1,7 +1,6 @@
 ﻿#region
 
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 #endregion
@@ -20,16 +19,5 @@ public class StatusEffectSafeTemporaryTrait : StatusEffectTemporaryTrait
         yield return new WaitUntil(() => _finished == current);
         yield return base.StackRoutine(stacks);
         _finished++;
-    }
-}
-
-public class StatusEffectTriggerWhenAllyAttacksConstrainted : StatusEffectTriggerWhenAllyAttacks
-{
-    public TargetConstraint[] attackerConstraints;
-
-    public override bool RunHitEvent(Hit hit)
-    {
-        return hit.attacker != null && attackerConstraints.Any(constraint => constraint.Check(hit.attacker)) &&
-               base.RunHitEvent(hit);
     }
 }

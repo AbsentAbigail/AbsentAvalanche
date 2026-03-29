@@ -24,7 +24,7 @@ public class StatusEffectInstantChangeStatsPermanent : StatusEffectInstant
         _deckCopy = References.PlayerData.inventory.deck.FirstOrDefault(c => id == c.id);
         if (_deckCopy is null)
         {
-            Logger.Error("No deck copy found");
+            LogHelper.Error("No deck copy found");
             yield return Remove();
             yield break;
         }
@@ -61,10 +61,12 @@ public class StatusEffectInstantChangeStatsPermanent : StatusEffectInstant
         if (target.counter > 0)
         {
             target.counter.max = Math.Max(1, target.counter.max + _change);
-            target.counter.current = target.counter.current;
+            target.counter.current += _change;
         }
 
         if (_deckCopy.counter > 0)
+        {
             _deckCopy.counter = Math.Max(1, _deckCopy.counter + _change);
+        }
     }
 }

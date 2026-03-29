@@ -19,8 +19,8 @@ public class CardScriptChangeLeader : CardScript
         if (promotion == default(CardData))
             return;
 
-        Logger.Warn($"[CardScriptChangeLeader] Demoting [{target.name}]");
-        Logger.Warn($"[CardScriptChangeLeader] Promoting [{promotion.name}]");
+        LogHelper.Warn($"[CardScriptChangeLeader] Demoting [{target.name}]");
+        LogHelper.Warn($"[CardScriptChangeLeader] Promoting [{promotion.name}]");
 
         var targetClone = target.Clone(false);
         targetClone.upgrades.RemoveAllWhere(upgrade => upgrade.type == CardUpgradeData.Type.Crown);

@@ -22,8 +22,9 @@ public class Combo : IKeywordBuilder
             .WithTitleColour(KeywordColours.Orange)
             .WithShowName(true)
             .WithDescription(
-                "Play additional times before being discarded or consumed\nUses reset when discarded|Noomlin only works on first play each hand")
+                "Play additional times before being discarded or consumed\nUses reset when discarded|Noomlin only works on the first use when drawn")
             .WithBodyColour(KeywordColours.White)
-            .WithNoteColour(KeywordColours.Gray);
+            .WithNoteColour(KeywordColours.Gray)
+            .WithCanStack(true);
     }
 }

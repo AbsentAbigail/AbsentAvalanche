@@ -54,7 +54,7 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
         if (!addToTarget)
         {
             inventory.upgrades.Add(charm);
-            Logger.Log($"Added {charm.name} to inventory");
+            LogHelper.Log($"Added {charm.name} to inventory");
             return;
         }
 
@@ -62,6 +62,6 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
         if (deckCopy == null)
             return;
         charm.Assign(deckCopy);
-        Logger.Log($"Assigned [{charm.name}] to [{target.name}] in deck");
+        LogHelper.Log($"Assigned [{charm.name}] to [{target.name}] in deck");
     }
 }

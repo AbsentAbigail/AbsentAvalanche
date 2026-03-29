@@ -21,12 +21,11 @@ public class DoubleStatusEffectsAppliedToCatcus : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectApplyXWhenPositiveYAppliedTo>(Name)
-            .WithText("Double positive Status Effects applied to {0}")
+            .WithText("Double positive Status Effects applied to any <Catcus>")
             .WithStackable(true)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenPositiveYAppliedTo>(status =>
             {
-                status.textInsert = Absent.CardTag(Catcus.Name);
                 status.whenAppliedToFlags = StatusEffectApplyX.ApplyToFlags.Allies;
                 status.whenAnyApplied = true;
                 status.adjustAmount = true;
@@ -38,7 +37,15 @@ public class DoubleStatusEffectsAppliedToCatcus : IStatusBuilder
                         tc => tc.allowedCards =
                         [
                             Absent.GetCard(Catcus.Name),
-                            Absent.GetCard(Catcitten.Name)
+                            Absent.GetCard(Catcitten.Name),
+                            Absent.GetCard(CatcittenExplorer.Name),
+                            Absent.GetCard(CatcittenExplorer.Name + "Leader"),
+                            Absent.GetCard(CatcittenShell.Name),
+                            Absent.GetCard(CatcittenSpice.Name),
+                            Absent.GetCard(CatcittenSnow.Name),
+                            Absent.GetCard(CatcittenFrenzy.Name),
+                            Absent.GetCard(CatcusZoom.Name),
+                            Absent.GetCard(CatcusZoom.Name + "Leader"),
                         ]
                     )
                 ];

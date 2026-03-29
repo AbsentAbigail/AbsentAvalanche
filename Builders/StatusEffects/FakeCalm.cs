@@ -23,7 +23,7 @@ public class FakeCalm : IStatusBuilder
             .WithStackable(true)
             .WithCanBeBoosted(false)
             .WithTextInsert("{a}")
-            .Subscribe_WithStatusIcon(Icons.Calm.Name)
+            .Subscribe_WithStatusIcon(Icons.FakeCalm.Name)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenDeployedOnce>(status =>
             {
                 status.effectToApply = Absent.GetStatus(Calm.Name);

@@ -67,14 +67,14 @@ public class CardSaveDataPatches
                 if (__result.startWithEffects[i].data.name != SarcophagusName)
                     continue;
                 __result.startWithEffects[i] = new CardData.StatusEffectStacks(applyX, __result.startWithEffects[i].count);
-                Logger.Warn("Replaced effect");
+                LogHelper.Warn("Replaced effect");
             }
         }
         catch (Exception e)
         {
-            Logger.Error("Loading Sarcophagus data failed");
-            Logger.Error(e.Message);
-            Logger.Error(e.StackTrace);
+            LogHelper.Error("Loading Sarcophagus data failed");
+            LogHelper.Error(e.Message);
+            LogHelper.Error(e.StackTrace);
         }
     }
 }

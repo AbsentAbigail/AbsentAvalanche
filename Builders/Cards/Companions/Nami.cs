@@ -21,7 +21,7 @@ public class Nami : ILeaderBuilder
             .CreateUnit(Name, "Nami",
                 "TargetModeBasic",
                 "Blood Profile Pink Wisp")
-            .SetStats(7, 2, 4)
+            .SetStats(8, 3, 4)
             .SetSprites(
                 Absent.GetSprite("Nami"),
                 Absent.GetSprite("NamiBG"))

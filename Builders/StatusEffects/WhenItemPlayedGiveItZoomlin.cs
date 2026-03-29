@@ -1,6 +1,7 @@
 ﻿#region
 
 using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -19,7 +20,7 @@ public class WhenItemPlayedGiveItZoomlin : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectApplyXWhenCertainCardPlayed>(Name)
-            .WithText($"When an <Item> is played, give it {Absent.VanillaKeywordTag("zoomlin")}")
+            .WithText($"When a <non->{Absent.VanillaKeywordTag("noomlin")} <Item> is played, give it {Absent.VanillaKeywordTag("zoomlin")}")
             .WithStackable(true)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCertainCardPlayed>(status =>
@@ -28,6 +29,10 @@ public class WhenItemPlayedGiveItZoomlin : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(InstantQueueTemporaryZoomlin.Name);
 
                 status.allowedCardType = Absent.GetCardType("Item");
+                status.applyConstraints =
+                [
+                    TargetConstraintHelper.HasTrait("Noomlin", not: true)
+                ];
             });
     }
 }

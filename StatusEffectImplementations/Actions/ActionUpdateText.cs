@@ -14,7 +14,6 @@ internal class ActionUpdateText(Entity entity) : PlayAction
     {
         entity.display.promptUpdateDescription = true;
         entity.PromptUpdate();
-        entity.Update();
         yield break;
     }
 }

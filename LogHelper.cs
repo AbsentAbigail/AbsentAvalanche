@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace AbsentAvalanche;
 
-public class Logger
+public static class LogHelper
 {
     public static void Log(object message)
     {

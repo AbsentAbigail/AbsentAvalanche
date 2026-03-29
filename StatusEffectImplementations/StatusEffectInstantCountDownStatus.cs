@@ -17,6 +17,7 @@ public class StatusEffectInstantCountDownStatus : StatusEffectInstant
     public override IEnumerator Process()
     {
         var matchingStatus = target.statusEffects.Where(status =>
+            status.isStatus &&
             (types.Length == 0 || types.Contains(status.type)) &&
             (positive != status.IsNegativeStatusEffect() ||
              negative == status.IsNegativeStatusEffect()));

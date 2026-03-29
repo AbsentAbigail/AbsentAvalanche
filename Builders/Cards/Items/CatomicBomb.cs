@@ -27,8 +27,13 @@ public class CatomicBomb : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Weakness", 4),
-                    Absent.SStack(Cat.Name, 8)
+                    Absent.SStack(Cat.Name, 2)
+                ];
+                card.startWithEffects =
+                [
+                    Absent.SStack(Cat.Name),
+                    Absent.SStack(OnCardPlayedDoubleAllCat.Name),
+                    Absent.SStack(HitsAllAlliesAndEnemies.Name)
                 ];
             });
     }

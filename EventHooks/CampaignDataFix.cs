@@ -13,7 +13,7 @@ public static class CampaignDataFix
 {
     public static Task SaveCampaignData()
     {
-        Logger.Warn("~CAMPAIGN GENERATED~");
+        LogHelper.Warn("~CAMPAIGN GENERATED~");
         var preset = Campaign.instance.preset.text;
         SaveSystem.SaveCampaignData(Campaign.Data.GameMode, "absent.preset", preset);
 
@@ -29,10 +29,10 @@ public static class CampaignDataFix
     {
         if (!Campaign.instance || Campaign.Data == null)
             return;
-        Logger.Warn("~CAMPAIGN LOADED~");
+        LogHelper.Warn("~CAMPAIGN LOADED~");
         var preset = SaveSystem.LoadCampaignData<string>(Campaign.Data.GameMode, "absent.preset", null);
         Campaign.instance.preset ??= new TextAsset(preset);
-        Logger.Warn("Reusing campaign preset from custom data:\n" + preset);
+        LogHelper.Warn("Reusing campaign preset from custom data:\n" + preset);
 
         var rewards2 =
             SaveSystem.LoadCampaignData<Dictionary<string, SaveCollection<string>>>(Campaign.Data.GameMode,
@@ -52,7 +52,7 @@ public static class CampaignDataFix
                 };
                 if (type == null)
                 {
-                    Logger.Error(
+                    LogHelper.Error(
                         $"Unrecognised CharacterReward category [{category}]. Couldn't assign decide which AddressableLoader group it belonged to");
                     continue;
                 }
@@ -69,11 +69,11 @@ public static class CampaignDataFix
 
         foreach (var key in rewards.Keys)
             poolLookup[key] = rewards[key];
-        Logger.Warn("Reusing character rewards from custom data:");
+        LogHelper.Warn("Reusing character rewards from custom data:");
         foreach (var pool in poolLookup)
         {
-            Logger.Warn($"{pool.Key}");
-            Logger.Log(string.Join(", ", pool.Value.list.ToArrayOfNames().DefaultIfEmpty("")));
+            LogHelper.Warn($"{pool.Key}");
+            LogHelper.Log(string.Join(", ", pool.Value.list.ToArrayOfNames().DefaultIfEmpty("")));
         }
     }
 }

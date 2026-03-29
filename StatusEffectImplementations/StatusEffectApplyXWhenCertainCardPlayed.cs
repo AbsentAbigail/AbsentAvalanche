@@ -41,7 +41,7 @@ public class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyXOnCardP
         return allowedCards is not { Length: > 0 } || allowedCards.ToList().Any(c => c.name == entity.data.name);
     }
 
-    public new IEnumerator Check(Entity entity, Entity[] targets)
+    private new IEnumerator Check(Entity entity, Entity[] targets)
     {
         return Run(GetTargets(_hackyHit, GetWasInRows(entity, targets), null, targets));
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace AbsentAvalanche.Helpers;
 
-public class LeaderHelper
+public static class LeaderHelper
 {
     public static CardScript GiveUpgrade(string name = "Crown")
     {

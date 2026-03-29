@@ -16,6 +16,7 @@ internal static class PetHutFlagSetterPatches
     private static readonly string[] Flags =
     [
         "Flag_Catcus",
+        "Flag_Nest",
         "Flag_SalvoKitty",
         "Flag_NebulaAuxilium"
     ];

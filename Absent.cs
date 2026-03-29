@@ -105,7 +105,7 @@ public class Absent : WildfrostMod
         LoadOverrides();
         LoadEvents();
         
-        Logger.Log($"Loaded Absent Avalanche in {StopWatch.Stop()} ms");
+        LogHelper.Log($"Loaded Absent Avalanche in {StopWatch.Stop()} ms");
     }
 
     public override void Unload()
@@ -201,7 +201,6 @@ public class Absent : WildfrostMod
             .Select(builder => builder.Builder()).ToList()
         );
 
-        List<string> leaders = [];
         _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
             .Where(t =>
                 string.Equals(t.Namespace, "AbsentAvalanche.Builders.Cards.Companions",
@@ -331,6 +330,8 @@ public class Absent : WildfrostMod
         Events.OnCampaignLoaded += CampaignDataFix.LoadCampaignData;
         Events.OnEntityCreated += LeaderImageFix.FixImage;
         Events.OnSceneLoaded += CombineCombos.SceneLoaded;
+        Events.OnPreCampaignPopulate += NestReplace.Replace;
+        Events.OnCampaignGenerated += LuminBlessing.ResetLuminBlessing;
     }
 
     private static void UnloadEvents()
@@ -339,6 +340,8 @@ public class Absent : WildfrostMod
         Events.OnCampaignLoaded -= CampaignDataFix.LoadCampaignData;
         Events.OnEntityCreated -= LeaderImageFix.FixImage;
         Events.OnSceneLoaded -= CombineCombos.SceneLoaded;
+        Events.OnPreCampaignPopulate -= NestReplace.Replace;
+        Events.OnCampaignGenerated -= LuminBlessing.ResetLuminBlessing;
     }
 
     private void UnloadFromClasses()
@@ -378,7 +381,7 @@ public class Absent : WildfrostMod
         uiText.SetString(InstantTutorDeckCopyZoomlinConsume.Name,
             "Add a copy of a card in your deck to hand with zoomlin and consume");
         uiText.SetString(InstantTutorTenRandomCardsZoomlin.Name,
-            "Add a random card to your hand with zoomlin and consume");
+            "Add a random card to your hand with zoomlin");
     }
 
     public static T[] RemoveNulls<T>(T[] data) where T : DataFile
@@ -391,7 +394,7 @@ public class Absent : WildfrostMod
     public override List<T> AddAssets<T, TY>()
     {
         if (_assets.OfType<T>().Any())
-            Logger.Warn($"[{Title}] adding {typeof(TY).Name}s: {_assets.OfType<T>().Select(a => a._data.name).Join()}");
+            LogHelper.Warn($"[{Title}] adding {typeof(TY).Name}s: {_assets.OfType<T>().Select(a => a._data.name).Join()}");
         return _assets.OfType<T>().ToList();
     }
 
@@ -476,7 +479,6 @@ public class Absent : WildfrostMod
     {
         var data = GetStatus(oldName).InstantiateKeepName();
         data.name = PrefixGuid(newName);
-        data.name = Instance.GUID + "." + newName;
         var builder = data.Edit<StatusEffectData, StatusEffectDataBuilder>();
         builder.Mod = Instance;
         return builder;

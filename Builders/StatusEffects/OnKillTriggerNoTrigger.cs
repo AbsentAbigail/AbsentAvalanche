@@ -18,7 +18,6 @@ public class OnKillTriggerNoTrigger : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectApplyXOnKill>(Name)
-            .WithText("On kill, <permanently> gain {0}")
             .WithStackable(true)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnKill>(status =>

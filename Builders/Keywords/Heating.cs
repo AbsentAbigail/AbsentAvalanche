@@ -26,6 +26,7 @@ public class Heating : IKeywordBuilder
                              When <sprite=spice>'d gain equal Heating instead
                              """)
             .WithBodyColour(KeywordColours.White)
-            .WithNoteColour(KeywordColours.Gray);
+            .WithNoteColour(KeywordColours.Gray)
+            .WithCanStack(true);
     }
 }

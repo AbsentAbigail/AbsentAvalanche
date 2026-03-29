@@ -34,7 +34,7 @@ public class FireSpell : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack(Combo.Name, 2),
-                    Absent.TStack("Noomlin"),
+                    Absent.TStack("Zoomlin"),
                     Absent.TStack("Consume")
                 ];
             });
