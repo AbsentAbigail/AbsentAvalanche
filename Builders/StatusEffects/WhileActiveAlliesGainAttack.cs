@@ -19,7 +19,7 @@ public class WhileActiveAlliesGainAttack : IStatusBuilder
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectWhileActiveX>(Name)
             .WithStackable(true)
-            .WithCanBeBoosted(false)
+            .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectWhileActiveX>(status =>
             {
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Allies;

@@ -867,6 +867,7 @@
         <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenDeployedBoostable.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenDeployedOnce.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenPositiveYAppliedTo.cs" />
+        <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenYAppliedToAnywhere.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectAttackWithTeeth.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectCalm.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectCamcorder.cs" />

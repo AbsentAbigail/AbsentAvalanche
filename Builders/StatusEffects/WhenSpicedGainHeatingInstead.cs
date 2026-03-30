@@ -1,6 +1,7 @@
 ﻿#region
 
 using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -17,10 +18,10 @@ public class WhenSpicedGainHeatingInstead : IStatusBuilder
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Absent.Instance)
-            .Create<StatusEffectApplyXWhenYAppliedTo>(Name)
-            .WithStackable(true)
+            .Create<StatusEffectApplyXWhenYAppliedToAnywhere>(Name)
+            .WithStackable(false)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenYAppliedTo>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenYAppliedToAnywhere>(status =>
             {
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.effectToApply = Absent.GetStatus(TemporarySafeHeating.Name);
