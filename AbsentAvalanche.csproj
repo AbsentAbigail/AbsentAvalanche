@@ -835,7 +835,8 @@
         <Compile Include="Patches\ReferencesPatches.cs" />
         <Compile Include="Patches\SelectLeaderCreateLeaderPatches.cs" />
         <Compile Include="Patches\StatusEffectDataGetDescPatches.cs" />
-        <Compile Include="Patches\StatusEffectDestroyAfterUseCheckActionPatches.cs" />
+        <Compile Include="Patches\StatusFixes\StatusEffectDestroyAfterUseCheckActionPatches.cs" />
+        <Compile Include="Patches\StatusFixes\WhenAllyHealedRunApplyFix.cs" />
         <Compile Include="Patches\TribeHutSequencePatches.cs" />
         <Compile Include="Patches\UnplayableCrownCardSystemPatches.cs" />
         <Compile Include="Scriptables\CardImage\ValCardImage.cs" />
