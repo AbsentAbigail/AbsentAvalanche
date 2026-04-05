@@ -819,7 +819,7 @@
         <Compile Include="EventHooks\NestReplace.cs" />
         <Compile Include="Helpers\CardExtensions.cs" />
         <Compile Include="Helpers\LeaderHelper.cs" />
-        <Compile Include="Helpers\Logger.cs" />
+        <Compile Include="Helpers\LogHelper.cs" />
         <Compile Include="Helpers\Script.cs" />
         <Compile Include="Helpers\TargetConstraintHelper.cs" />
         <Compile Include="Helpers\VFXHelper.cs" />

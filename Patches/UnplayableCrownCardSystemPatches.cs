@@ -24,6 +24,11 @@ public class UnplyableCrownCardSystemPatches
         {
             return true;
         }
+
+        if (!card.data.HasCrown)
+        {
+            return true;
+        }
         
         if (card.traits.All(trait => trait.data.name != _comboName))
         {
