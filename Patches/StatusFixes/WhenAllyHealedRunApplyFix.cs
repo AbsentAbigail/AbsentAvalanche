@@ -1,5 +1,9 @@
-﻿using HarmonyLib;
+﻿#region
+
+using HarmonyLib;
 using JetBrains.Annotations;
+
+#endregion
 
 namespace AbsentAvalanche.Patches.StatusFixes;
 

@@ -25,7 +25,6 @@ public class WhenEnemyOverkilledProgressExplorer : IStatusBuilder
             {
                 status.effectToApply = Absent.GetStatus(ProgressExplorerOverkill.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
-                status.whenOverkilledFlags = StatusEffectApplyX.ApplyToFlags.Enemies;
                 status.applyEqualAmount = true;
             });
     }

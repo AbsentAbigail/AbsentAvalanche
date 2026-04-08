@@ -26,7 +26,6 @@ public class WhenEnemyOverkilledIncreaseAttackersAttack : IStatusBuilder
             {
                 status.effectToApply = Absent.GetStatus("Increase Attack");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Attacker;
-                status.whenOverkilledFlags = StatusEffectApplyX.ApplyToFlags.Enemies;
                 status.applyEqualAmount = true;
             });
     }

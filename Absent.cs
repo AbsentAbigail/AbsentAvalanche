@@ -253,6 +253,13 @@ public class Absent : WildfrostMod
                 && typeof(IClassBuilder).IsAssignableFrom(t))
             .Select(type => ((IClassBuilder)Activator.CreateInstance(type)).Builder()).ToList());
 
+        _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t =>
+                string.Equals(t.Namespace, "AbsentAvalanche.Builders.GameModifiers",
+                    StringComparison.Ordinal)
+                && typeof(IGameModifierBuilder).IsAssignableFrom(t))
+            .Select(type => ((IGameModifierBuilder)Activator.CreateInstance(type)).Builder()).ToList());
+
         CreateLocalizedStrings();
         
         _loaded = true;
@@ -403,6 +410,12 @@ public class Absent : WildfrostMod
         return _spriteAtlas.GetSprite(spriteName) ?? Instance.ImagePath($"{spriteName}.png").ToSprite();
     }
 
+    public static Sprite GetBellSprite(string spriteName, float offset)
+    {
+        var texture = Instance.ImagePath(Path.Combine("Bells", spriteName + ".png")).ToTex();
+        return Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, offset), 327f);;
+    }
+    
     public static string PrefixGuid(string name)
     {
         return Extensions.PrefixGUID(name, Instance);

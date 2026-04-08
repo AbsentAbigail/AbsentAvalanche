@@ -62,9 +62,6 @@ public class PlushTribe : IClassBuilder
                     Extensions.GetRewardPool("GeneralUnitPool"),
                     Extensions.GetRewardPool("GeneralItemPool"),
                     Extensions.GetRewardPool("GeneralCharmPool"),
-                    Extensions.GetRewardPool("SnowUnitPool"),
-                    Extensions.GetRewardPool("SnowItemPool"),
-                    Extensions.GetRewardPool("SnowCharmPool")
                 ];
             });
     }

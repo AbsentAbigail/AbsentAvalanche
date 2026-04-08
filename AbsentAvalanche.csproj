@@ -560,6 +560,7 @@
         <Compile Include="Builders\Flavours\Spot.cs" />
         <Compile Include="Builders\Flavours\UnboundFlame.cs" />
         <Compile Include="Builders\Flavours\WoolGrenade.cs" />
+        <Compile Include="Builders\GameModifiers\PushedLimitsBell.cs" />
         <Compile Include="Builders\Icons\Abduct.cs" />
         <Compile Include="Builders\Icons\Calm.cs" />
         <Compile Include="Builders\Icons\Cat.cs" />
@@ -847,7 +848,8 @@
         <Compile Include="Scriptables\CardScripts\CardScriptSarcophagus.cs" />
         <Compile Include="Scriptables\ScriptableAmounts\ScriptableTargetsOnBoard.cs" />
         <Compile Include="Scriptables\ScriptableAmounts\ScriptableTurnCount.cs" />
-        <Compile Include="Scriptables\TargetConstraint\TargetConstraintCompanionInDeck.cs" />
+        <Compile Include="Scriptables\Scripts\ScriptRunScriptsOnCardsInDeck.cs" />
+        <Compile Include="Scriptables\TargetConstraints\TargetConstraintCompanionInDeck.cs" />
         <Compile Include="Scriptables\TargetModes\TargetModeAlliesAndEnemies.cs" />
         <Compile Include="Scriptables\TargetModes\TargetModeHighestAttack.cs" />
         <Compile Include="StatusEffectImplementations\Actions\ActionApplyStatusQuicklyPlease.cs" />

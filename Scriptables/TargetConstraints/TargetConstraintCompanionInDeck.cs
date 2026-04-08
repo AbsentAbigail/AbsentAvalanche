@@ -4,9 +4,9 @@ using System.Linq;
 
 #endregion
 
-namespace AbsentAvalanche.Scriptables.TargetConstraint;
+namespace AbsentAvalanche.Scriptables.TargetConstraints;
 
-public class TargetConstraintCompanionInDeck : global::TargetConstraint
+public class TargetConstraintCompanionInDeck : TargetConstraint
 {
     public override bool Check(Entity target)
     {

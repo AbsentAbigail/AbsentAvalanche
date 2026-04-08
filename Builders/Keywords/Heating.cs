@@ -22,7 +22,7 @@ public class Heating : IKeywordBuilder
             .WithTitleColour(KeywordColours.Orange)
             .WithShowName(true)
             .WithDescription("""
-                             Give attack to all allies
+                             While active, add <keyword=attack> to all allies
                              When <sprite=spice>'d gain equal Heating instead
                              """)
             .WithBodyColour(KeywordColours.White)
