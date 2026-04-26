@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 #endregion
 
-namespace AbsentAvalanche.Patches;
+namespace AbsentAvalanche.Patches.StatusFixes;
 
 [HarmonyPatch(typeof(StatusEffectDestroyAfterUse), nameof(StatusEffectDestroyAfterUse.CheckAction))]
 public class StatusEffectDestroyAfterUseCheckActionPatches

@@ -19,7 +19,7 @@ public class GoolWrenade : ICardBuilder
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Absent.Instance)
-            .CreateItem(Name, "Ghostly Presence")
+            .CreateItem(Name, "Gool Wrenade")
             .SetDamage(null)
             .SetSprites(Absent.GetSprite("GoolWrenade"), Absent.GetSprite("GoolWrenadeBG"))
             .WithFlavour(Flavour)

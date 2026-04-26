@@ -12,6 +12,7 @@ using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
+using Extensions = Deadpan.Enums.Engine.Components.Modding.Extensions;
 using Object = UnityEngine.Object;
 
 #endregion
@@ -130,7 +131,7 @@ public class PlushTribe : IClassBuilder
                 "ZoomlinNest",
                 "BeepopMask",
                 "Bumblebee", // Blaze Bom
-                "Shwooper",
+                "Shwooper", // Blizard Bottle
                 "EnergyDart", // Clockwork Bom
                 "DragonflamePepper",
                 "FallowMask",
@@ -141,7 +142,7 @@ public class PlushTribe : IClassBuilder
                 "NutshellCake",
                 "Peppereaper",
                 "Peppering",
-                "Putty",
+                "Putty", // Shade clay
                 "ShellShield",
                 "Shellbo",
                 "SpiceStones",

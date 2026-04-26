@@ -1,4 +1,4 @@
-﻿namespace AbsentAvalanche;
+﻿namespace AbsentAvalanche.GameSystems;
 
 public class ChargeRedrawBellSystem : GameSystem
 {

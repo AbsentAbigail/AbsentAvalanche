@@ -20,7 +20,7 @@ public class LeafPipsqueak : ICardBuilder
     {
         return new CardDataBuilder(Absent.Instance)
             .CreateUnit(Name, "Pipsqueak")
-            .SetStats(6, 4, 3)
+            .SetStats(4, 0, 4)
             .SetSprites(
                 Absent.GetSprite("Pipsqueak"),
                 Absent.GetSprite("PipBG"))
@@ -29,9 +29,9 @@ public class LeafPipsqueak : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack("While Active Increase Attack To Allies"),
-                    Absent.SStack(ExplorerOverkill.Name, 100),
-                    Absent.SStack(WhenEnemyOverkilledProgressExplorer.Name),
+                    Absent.SStack(OnCardPlayedGainCascadingAttack.Name),
+                    Absent.SStack(ExplorerDamageEnemies.Name, 150),
+                    Absent.SStack(WhenEnemyTakesDamageProgressExplorer.Name),
                 ];
             });
     }

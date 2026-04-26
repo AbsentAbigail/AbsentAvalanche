@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using AbsentAvalanche.Helpers;
 
 #endregion
 
@@ -58,7 +59,7 @@ public class StatusEffectInstantChangeStatsPermanent : StatusEffectInstant
 
     public void ChangeCounter()
     {
-        if (target.counter > 0)
+        if (target.counter.max > 0)
         {
             target.counter.max = Math.Max(1, target.counter.max + _change);
             target.counter.current += _change;

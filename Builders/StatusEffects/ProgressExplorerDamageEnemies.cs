@@ -11,21 +11,19 @@ using JetBrains.Annotations;
 namespace AbsentAvalanche.Builders.StatusEffects;
 
 [UsedImplicitly]
-public class InstantApplyGainBlockOnKill : IStatusBuilder
+public class ProgressExplorerDamageEnemies : IStatusBuilder
 {
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Absent.Instance)
-            .Create<StatusEffectApplyXInstantAndUpdate>(Name)
-            .WithText("Apply Gain <{a}><keyword=block> on kill")
-            .WithStackable(true)
+            .Create<StatusEffectProgressExplorer>(Name)
+            .WithStackable(false)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXInstantAndUpdate>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectProgressExplorer>(status =>
             {
-                status.effectToApply = Absent.GetStatus(OnKillGainBlock.Name);
-                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.countDownName = Absent.GetStatus(ExplorerDamageEnemies.Name).name;
             });
     }
 }

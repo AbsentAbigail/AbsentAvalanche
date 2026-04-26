@@ -1,6 +1,5 @@
 ﻿#region
 
-using System.Linq;
 using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Keywords;
 using AbsentAvalanche.Helpers;
@@ -26,7 +25,7 @@ public class PushedLimitsBell : IGameModifierBuilder
             .WithDescription(
                 $"Add {Absent.KeywordTag(Combo.Name)} <1> and <keyword=consume> to all <Items> in your deck")
             .WithBellSprite(Absent.GetBellSprite("BellOfPushedLimits", 0.9f))
-            .WithDingerSprite(Absent.GetBellSprite("Dinger", 1.82f))
+            .WithDingerSprite(Absent.GetBellSprite("Dinger", 1.5f))
             .WithStartScripts(new Script<ScriptRunScriptsOnCardsInDeck>("Add Combo and Consume to items in deck",
                 script =>
                 {
@@ -45,23 +44,7 @@ public class PushedLimitsBell : IGameModifierBuilder
             .WithSystemsToAdd()
             .WithVisible()
             .WithValue(25)
-            .SubscribeToAfterAllBuildEvent(_ =>
-            {
-                foreach (var classes in AddressableLoader.GetGroup<ClassData>("ClassData"))
-                {
-                    foreach (var pool in classes.rewardPools)
-                    {
-                        if (pool.type != "Modifiers")
-                        {
-                            continue;
-                        }
-
-                        pool.list = pool.list
-                            .AddItem(Absent.TryGet<GameModifierData>("PushedLimitsBell"))
-                            .ToList();
-                    }
-                }
-            });
+            .SubscribeToAfterAllBuildEvent(Absent.AddToModifierPool);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

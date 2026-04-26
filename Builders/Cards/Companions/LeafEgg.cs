@@ -29,8 +29,9 @@ public class LeafEgg : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(ExplorerOverkill.Name, 10),
-                    Absent.SStack(WhenEnemyOverkilledProgressExplorer.Name),
+                    Absent.SStack("While Active Increase Attack To AlliesInRow"),
+                    Absent.SStack(ExplorerDamageEnemies.Name, 25),
+                    Absent.SStack(WhenEnemyTakesDamageProgressExplorer.Name),
                 ];
             });
     }

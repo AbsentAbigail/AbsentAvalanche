@@ -57,7 +57,11 @@ internal class StatusEffectCalm : StatusEffectApplyX
 
         yield return StatusEffectSystem.Apply(target, target, counterIncreaseEffect, increase);
         target.display.promptUpdateDescription = true;
-        yield return RemoveStacks(halved, false);
+        Events.InvokeStatusEffectCountDown(this, ref halved);
+        if (halved != 0)
+        {
+            yield return CountDown(target, halved);
+        }
     }
 
     private IEnumerator Stack(int stacks)

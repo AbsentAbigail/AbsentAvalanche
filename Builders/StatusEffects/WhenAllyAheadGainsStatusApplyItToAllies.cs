@@ -19,7 +19,7 @@ public class WhenAllyAheadGainsStatusApplyItToAllies : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectShareStatus>(Name)
-            .WithText("When ally in front gains a positive status, share it to all other allies")
+            .WithText("When ally ahead gains a positive status, share it to all other allies")
             .WithStackable(true)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectShareStatus>(status =>

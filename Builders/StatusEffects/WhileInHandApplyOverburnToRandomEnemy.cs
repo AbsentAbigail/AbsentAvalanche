@@ -1,6 +1,7 @@
 ﻿#region
 
 using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -17,11 +18,11 @@ public class WhileInHandApplyOverburnToRandomEnemy : IStatusBuilder
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Absent.Instance)
-            .Create<StatusEffectWhileInHandX>(Name)
+            .Create<StatusEffectApplyXEveryTurnInHand>(Name)
             .WithText($"While in hand, every turn apply <{{a}}>{Absent.VanillaKeywordTag("overload")} to a random enemy")
             .WithStackable(true)
             .WithCanBeBoosted(true)
-            .SubscribeToAfterAllBuildEvent<StatusEffectWhileInHandX>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXEveryTurnInHand>(status =>
             {
                 status.effectToApply = Absent.GetStatus("Overload");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.RandomEnemy;

@@ -12,7 +12,7 @@ namespace AbsentAvalanche.StatusEffectImplementations;
 // Code heavily inspired from Pokefrosts Synchronise
 public class StatusEffectShareStatus : StatusEffectApplyX
 {
-    private const int MaxChain = 3;
+    private const int MaxChain = 10;
     public ApplyToFlags whenAppliedFlags;
     public bool negativeStatus = true;
     public bool positiveStatus = true;
@@ -31,7 +31,7 @@ public class StatusEffectShareStatus : StatusEffectApplyX
         if (!apply.applier || apply.applier == target || !apply.target || !apply.effectData ||
             apply.effectData.type.IsNullOrWhitespace() || target.silenced)
             return false;
-
+        
         if (!CheckType(apply.effectData))
             return false;
 
@@ -47,7 +47,7 @@ public class StatusEffectShareStatus : StatusEffectApplyX
         if (!apply.applier || apply.applier == target || !apply.target || !apply.effectData ||
             apply.effectData.type.IsNullOrWhitespace() || target.silenced)
             return false;
-
+        
         if (!CheckType(apply.effectData))
             return false;
 
@@ -70,7 +70,7 @@ public class StatusEffectShareStatus : StatusEffectApplyX
         _chain++;
         if (_chain >= MaxChain)
             yield break;
-
+        
         effectToApply = apply.effectData;
         var targets = GetTargets();
         targets.Remove(apply.target);
@@ -91,17 +91,26 @@ public class StatusEffectShareStatus : StatusEffectApplyX
     private static Vector2Int CurrentAmounts(Entity frontAlly, string effectType)
     {
         var effect = frontAlly.statusEffects.FirstOrDefault(s => s.type == effectType);
-        return effect == default(StatusEffectData) ? Vector2Int.zero : new Vector2Int(effect.count, effect.temporary);
+        return effect == null ? Vector2Int.zero : new Vector2Int(effect.count, effect.temporary);
     }
 
     private bool CheckType(StatusEffectData effectData)
     {
         if (!effectData.isStatus)
+        {
             return false;
+        }
+
+        if (effectData.type == "equip")
+        { 
+            return false;
+        }
 
         if (!(negativeStatus == effectData.IsNegativeStatusEffect() ||
               positiveStatus != effectData.IsNegativeStatusEffect()))
+        {
             return false;
+        }
 
         return whenAppliedTypes.Length == 0 || whenAppliedTypes.Contains(effectData.type);
     }

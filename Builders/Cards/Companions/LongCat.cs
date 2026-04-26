@@ -52,7 +52,7 @@ public class LongCat : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-2, 1),
-        damageRange = new Vector2Int(-1, 2),
-        counterRange =  new Vector2Int(-2, 0),
+        damageRange = new Vector2Int(0, 1),
+        counterRange =  new Vector2Int(-1, 0),
     };
 }

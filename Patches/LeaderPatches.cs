@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 
 namespace AbsentAvalanche.Patches;
 
-[HarmonyPatch(typeof(Leader), "AssignEvent")]
+[HarmonyPatch(typeof(Leader), nameof(Leader.AssignEvent))]
 public class LeaderPatches
 {
     [UsedImplicitly]

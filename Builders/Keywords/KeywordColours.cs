@@ -21,6 +21,7 @@ public static class KeywordColours
     public static readonly Color Trample = Color(56, 235, 164);
     public static readonly Color CatColor = Color(220, 60, 60);
     public static readonly Color EtherealColor = new(0.35f, 0.35f, 0.45f);
+    public static readonly Color EquipColor = Color(180, 44, 84);
 
     public static readonly Color Flavour = Color(188, 188, 224);
     

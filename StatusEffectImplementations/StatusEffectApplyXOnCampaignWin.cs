@@ -1,4 +1,10 @@
-﻿namespace AbsentAvalanche.StatusEffectImplementations;
+﻿#region
+
+using AbsentAvalanche.Helpers;
+
+#endregion
+
+namespace AbsentAvalanche.StatusEffectImplementations;
 
 public class StatusEffectApplyXOnCampaignWin : StatusEffectApplyX
 {

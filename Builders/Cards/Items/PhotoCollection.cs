@@ -28,8 +28,7 @@ public class PhotoCollection : ICardBuilder
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.traits = [
-                    Absent.TStack(Scavenge.Name, 2),
-                    Absent.TStack("Consume"),
+                    Absent.TStack(Scavenge.Name, 2)
                 ];
                 card.createScripts =
                 [

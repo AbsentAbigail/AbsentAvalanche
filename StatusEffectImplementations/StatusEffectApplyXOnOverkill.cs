@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections;
 
 #endregion
@@ -10,7 +11,7 @@ public class StatusEffectApplyXOnOverkill : StatusEffectApplyX
 {
     public bool allies = false;
     public bool enemies = true;
-    public string damageType = null;
+    public string damageType;
     
     public override void Init()
     {
@@ -25,7 +26,8 @@ public class StatusEffectApplyXOnOverkill : StatusEffectApplyX
     private IEnumerator Check(Hit hit)
     {
         var currentHp = hit.target.hp.current;
-        yield return Run(GetTargets(hit), -currentHp);
+        var amount = Math.Min(hit.damage, -currentHp);
+        yield return Run(GetTargets(hit), amount);
     }
 
     private bool CheckDamageType(string hitDamageType)

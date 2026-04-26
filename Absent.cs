@@ -141,6 +141,7 @@ public class Absent : WildfrostMod
                     ];
                 }),
             .. DreamTeam.EffectBuilders(Bubbles.Name, Kiki.Name),
+            .. DreamTeam.EffectBuilders(Emerald.Name, Sally.Name)
         ]);
         
         _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
@@ -259,7 +260,7 @@ public class Absent : WildfrostMod
                     StringComparison.Ordinal)
                 && typeof(IGameModifierBuilder).IsAssignableFrom(t))
             .Select(type => ((IGameModifierBuilder)Activator.CreateInstance(type)).Builder()).ToList());
-
+        
         CreateLocalizedStrings();
         
         _loaded = true;
@@ -313,6 +314,15 @@ public class Absent : WildfrostMod
                 TargetConstraintHelper.HasTrait(Heating.Name)
             )
         ];
+        var demonize = GetStatus("Demonize");
+        demonize.targetConstraints =
+        [
+            TargetConstraintHelper.Or(
+                "Demonize constrains or equipment",
+                false,
+                [TargetConstraintHelper.HasStatus(Equip.Name), .. demonize.targetConstraints]
+            )
+        ];
     }
 
     private static void UnloadOverrides()
@@ -329,6 +339,8 @@ public class Absent : WildfrostMod
         
         var spice = GetStatus("Spice");
         spice.targetConstraints = [TargetConstraintHelper.General<TargetConstraintDoesDamage>("Does Damage")];
+        var demonize = GetStatus("Demonize");
+        demonize.targetConstraints = [TargetConstraintHelper.General<TargetConstraintCanBeHit>()];
     }
     
     private static void LoadEvents()
@@ -391,13 +403,6 @@ public class Absent : WildfrostMod
             "Add a random card to your hand with zoomlin");
     }
 
-    public static T[] RemoveNulls<T>(T[] data) where T : DataFile
-    {
-        var list = data.ToList();
-        list.RemoveAll(x => x == null || x.ModAdded == Instance);
-        return list.ToArray();
-    }
-
     public override List<T> AddAssets<T, TY>()
     {
         if (_assets.OfType<T>().Any())
@@ -405,11 +410,19 @@ public class Absent : WildfrostMod
         return _assets.OfType<T>().ToList();
     }
 
+    public static T[] RemoveNulls<T>(T[] data) where T : DataFile
+    {
+        var list = data.ToList();
+        list.RemoveAll(x => x == null || x.ModAdded == Instance);
+        return list.ToArray();
+    }
+
     public static Sprite GetSprite(string spriteName)
     {
         return _spriteAtlas.GetSprite(spriteName) ?? Instance.ImagePath($"{spriteName}.png").ToSprite();
     }
 
+    // Bells not bundled because of size and offset changes
     public static Sprite GetBellSprite(string spriteName, float offset)
     {
         var texture = Instance.ImagePath(Path.Combine("Bells", spriteName + ".png")).ToTex();
@@ -524,5 +537,10 @@ public class Absent : WildfrostMod
     public static string VanillaKeywordTag(string name)
     {
         return $"<keyword={name}>";
+    }
+
+    public static void AddToModifierPool(GameModifierData data)
+    {
+        Extensions.GetRewardPool("GeneralModifierPool").list.Add(data);
     }
 }

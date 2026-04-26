@@ -20,23 +20,18 @@ public class DysphoriaHoodie : ICardBuilder
         return new CardDataBuilder(Absent.Instance)
             .CreateItem(Name, "Dysphoria Hoodie")
             .SetDamage(null)
+            .SetHealth(1)
             .SetSprites(Absent.GetSprite("DysphoriaHoodie"), Absent.GetSprite("DysphoriaHoodieBG"))
             .WithFlavour("A trans persons best friend")
             .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.attackEffects =
+                card.startWithEffects =
                 [
-                    Absent.SStack(InstantApplyGainBlockOnKill.Name)
+                    Absent.SStack(Equip.Name),
+                    Absent.SStack(OnKillGainBlock.Name)
                 ];
-                card.traits =
-                [
-                    Absent.TStack("Consume")
-                ];
-                card.canPlayOnFriendly = true;
-                card.canPlayOnEnemy = false;
-                card.canPlayOnHand = true;
             });
     }
 }

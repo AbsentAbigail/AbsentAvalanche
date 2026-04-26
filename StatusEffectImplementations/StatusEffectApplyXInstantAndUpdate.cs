@@ -17,11 +17,10 @@ internal class StatusEffectApplyXInstantAndUpdate : StatusEffectApplyXInstant
     {
         var targets = GetTargets();
         yield return Run(targets);
-        foreach (var target in targets)
+        foreach (var entity in targets)
         {
-            target.display.promptUpdateDescription = true;
-            target.PromptUpdate();
-            target.Update();
+            entity.display.promptUpdateDescription = true;
+            entity.PromptUpdate();
         }
 
         yield return Remove();

@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using AbsentAvalanche.Builders.StatusEffects;
+using AbsentAvalanche.Helpers;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -10,7 +11,7 @@ using JetBrains.Annotations;
 
 namespace AbsentAvalanche.Patches;
 
-[HarmonyPatch(typeof(CardSaveData), "Load", typeof(bool))]
+[HarmonyPatch(typeof(CardSaveData), nameof(CardSaveData.Load), typeof(bool))]
 public class CardSaveDataPatches
 {
     public static string SarcophagusName = Absent.GetStatus(WhenDestroyedSummonSarcophagus.Name).name;
@@ -18,7 +19,13 @@ public class CardSaveDataPatches
     [UsedImplicitly]
     private static void Postfix(ref CardData __result, CardSaveData __instance) //__instance is the instance calling the method
     {
-        var saveData = __result.customData;
+        LoadSarcophagus(ref __result);
+        LoadEquipmentTraits(ref __result);
+    }
+
+    private static void LoadSarcophagus(ref CardData result)
+    {
+        var saveData = result.customData;
         if (saveData == null || !saveData.ContainsKey("Sarcophagus")) return;
         try
         {
@@ -62,11 +69,11 @@ public class CardSaveDataPatches
             applyX.effectToApply = instantSummon;
             applyX.textInsert = $"<{cardData.title}>";
             
-            for (var i = 0; i < __result.startWithEffects.Length; i++)
+            for (var i = 0; i < result.startWithEffects.Length; i++)
             {
-                if (__result.startWithEffects[i].data.name != SarcophagusName)
+                if (result.startWithEffects[i].data.name != SarcophagusName)
                     continue;
-                __result.startWithEffects[i] = new CardData.StatusEffectStacks(applyX, __result.startWithEffects[i].count);
+                result.startWithEffects[i] = new CardData.StatusEffectStacks(applyX, result.startWithEffects[i].count);
                 LogHelper.Warn("Replaced effect");
             }
         }
@@ -76,5 +83,17 @@ public class CardSaveDataPatches
             LogHelper.Error(e.Message);
             LogHelper.Error(e.StackTrace);
         }
+    }
+
+    private static void LoadEquipmentTraits(ref CardData result)
+    {
+        if (result.GetCustomDataOrNull("absent.equipped.traits") is not SaveCollection<(string, int)> traits)
+        {
+            return;
+        }
+
+        CardData.TraitStacks.Stack(
+            ref result.traits, 
+            traits.collection.Select(a => Absent.TStack(a.Item1, a.Item2)));
     }
 }

@@ -1,7 +1,9 @@
 ﻿#region
 
+using System.Linq;
 using AbsentAvalanche.Builders.Flavours;
 using AbsentAvalanche.Builders.StatusEffects;
+using AbsentAvalanche.Helpers;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -20,11 +22,12 @@ public class CardPatches
     private static readonly string SarcophagusEffectName = Absent.PrefixGuid(WhenDestroyedSummonSarcophagus.Name);
 
     [UsedImplicitly]
-    private static void Postfix(Card __instance) //__instance is the instance calling the method
+    private static void Postfix(Card __instance)
     {
         FlavourBoxes(__instance);
         SarcophagusInsert(__instance);
         UsesDisplay(__instance);
+        EquipmentDisplay(__instance);
     }
 
     private static void FlavourBoxes(Card card)
@@ -62,6 +65,33 @@ public class CardPatches
         if (uses.max > 1)
         {
             card.descText.text += $"\n<color=#{Color.gray.ToHexRGB()}>Uses: {uses.current}/{uses.max}";
+        }
+    }
+    
+    private static void EquipmentDisplay(Card card)
+    {
+        if (!References.Player?.reserveContainer)
+        {
+            return;
+        }
+
+        var cardData = card.entity.data;
+        if (cardData.GetCustomDataOrNull("absent.equipments") is not SaveCollection<ulong> equipmentIds)
+        {
+            return;
+        }
+        
+        foreach (var equipmentId in equipmentIds.collection)
+        {
+            var equipment = References.Player.reserveContainer.FirstOrDefault(entity =>
+                entity.data.GetCustomDataOrNull("absent.equipment") is ulong id && id == equipmentId);
+            
+            if (equipment == null)
+            {
+                continue;
+            }
+            
+            card.mentionedCards.Add(equipment.data);
         }
     }
 }
