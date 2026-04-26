@@ -19,7 +19,7 @@ public class Emerald : ILeaderBuilder
     {
         return new CardDataBuilder(Absent.Instance)
             .CreateUnit(Name, "Emerald")
-            .SetStats(6, 0, 4)
+            .SetStats(5, 0, 5)
             .SetSprites(
                 Absent.GetSprite("Emerald"),
                 Absent.GetSprite("EmeraldBG"))

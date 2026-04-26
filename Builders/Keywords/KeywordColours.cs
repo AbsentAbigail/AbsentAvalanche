@@ -15,6 +15,7 @@ public static class KeywordColours
     public static readonly Color LightPurple = Color(100, 67, 158);
     public static readonly Color Blue = Color(91, 206, 250);
     public static readonly Color Pink = Color(245, 169, 184);
+    public static readonly Color Red = Color(195, 37, 35);
 
     public static readonly Color Rest = Color(253, 97, 195);
     public static readonly Color Scavenge = Color(72, 195, 157);

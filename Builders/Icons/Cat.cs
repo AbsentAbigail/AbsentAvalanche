@@ -25,7 +25,7 @@ public class Cat : IIconBuilder
                 Absent.Instance.ImagePath("Icons/cat.png").ToSprite())
             .WithIconGroupName(StatusIconBuilder.IconGroups.damage)
             .WithTextColour(new Color(0.2f, 0.2f, 0.3f))
-            .WithTextShadow(KeywordColours.Rest)
+            .WithTextShadow(KeywordColours.Red)
             // .WithTextboxSprite(Absent.Instance.ImagePath("Icons/catkeyword.png").ToSprite())
             .WithTextboxSprite()
             .WithKeywords(Keywords.Cat.Name);

@@ -24,7 +24,7 @@ public class Calm : IIconBuilder
                 Absent.Instance.ImagePath("Icons/calm.png").ToSprite())
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
             .WithTextColour(KeywordColours.White)
-            .WithTextShadow(KeywordColours.White)
+            .WithTextShadow(KeywordColours.Pink)
             .WithTextboxSprite()
             .WithKeywords(Keywords.Calm.Name);
     }
