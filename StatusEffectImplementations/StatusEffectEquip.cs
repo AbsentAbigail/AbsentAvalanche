@@ -16,6 +16,7 @@ public class StatusEffectEquip : StatusEffectData
 {
     private static CardContainer ReserveContainer => References.Player.reserveContainer;
     private static CardContainer HandContainer => References.Player.handContainer;
+    public ulong? cardId;
     
     public override void Init()
     {
@@ -27,7 +28,27 @@ public class StatusEffectEquip : StatusEffectData
     {
         Events.OnActionQueued -= ActionQueued;
         Events.OnEntityKilled -= EntityKilled;
+
+        target?.data?.customData?.Remove("absent.equipped.traits");
     }
+
+    public override object GetMidBattleData()
+    {
+        return cardId;
+    }
+
+    public override void RestoreMidBattleData(object data)
+    {
+        cardId = (ulong)data;
+        var card = Battle.GetAllCards().FirstOrDefault(card => card.data.id == cardId);
+        if (card == null)
+        {
+            return;
+        }
+        card.display.promptUpdateDescription = true;
+        card.PromptUpdate();
+    }
+
 
     private void ActionQueued(PlayAction action)
     {
@@ -47,21 +68,10 @@ public class StatusEffectEquip : StatusEffectData
             return;
         }
 
-        if (target.data.GetCustomDataOrNull("absent.equipment") is not ulong equipmentId)
+        if (entity.data.id != cardId)
         {
             return;
         }
-        
-        if (entity.data.GetCustomDataOrNull("absent.equipments") is not SaveCollection<ulong> equipmentIds)
-        {
-            return;
-        }
-
-        if (!equipmentIds.collection.Contains(equipmentId))
-        {
-            return;
-        }
-        
         ActionQueue.Stack(new ActionSequence(ReturnToHandSequence(entity.transform.position)), fixedPosition: true);
         ActionQueue.Stack(new ActionRunEnableEvent(target), fixedPosition: true);
     }
@@ -90,6 +100,8 @@ public class StatusEffectEquip : StatusEffectData
         {
             return;
         }
+
+        cardId = trigger.target.data.id;
         ActionQueue.Insert(ActionQueue.IndexOf(action), new ActionEquip(trigger.entity, trigger.target));
         ActionQueue.Remove(action);
     }

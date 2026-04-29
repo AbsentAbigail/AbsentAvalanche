@@ -16,6 +16,11 @@ public class StatusEffectWhenXAppliedToRedirect : StatusEffectApplyX
 
     public override bool RunApplyStatusEvent(StatusEffectApply apply)
     {
+        if (Battle.instance == null || !Battle.IsOnBoard(target))
+        {
+            return false;
+        }
+        
         if (!apply.applier || apply.applier == target || !apply.target || !apply.effectData ||
             apply.effectData.type.IsNullOrWhitespace() || target.silenced)
             return false;

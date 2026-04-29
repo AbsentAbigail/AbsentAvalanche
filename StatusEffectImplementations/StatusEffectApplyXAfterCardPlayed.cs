@@ -28,10 +28,7 @@ internal class StatusEffectApplyXAfterCardPlayed : StatusEffectApplyX
             return false;
 
         var hasQueuedTriggers = ActionQueue.GetActions()
-            .Any(a => a as ActionTrigger != null && (a as ActionTrigger).entity == target);
-        if (hasQueuedTriggers)
-            return false;
-
-        return true;
+            .Any(playAction => playAction is ActionTrigger actionTrigger && actionTrigger.entity == target);
+        return !hasQueuedTriggers;
     }
 }

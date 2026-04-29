@@ -30,18 +30,19 @@ public class StatusEffectApplyWhenEquipeeDies : StatusEffectApplyX
         {
             return;
         }
-
-        if (target.data.GetCustomDataOrNull("absent.equipment") is not ulong equipmentId)
-        {
-            return;
-        }
         
-        if (killedEntity.data.GetCustomDataOrNull("absent.equipments") is not SaveCollection<ulong> equipmentIds)
+        if (killedEntity.FindStatus<StatusEffectEquip>("equip") == null)
         {
             return;
         }
 
-        if (!equipmentIds.collection.Contains(equipmentId))
+        var equipEffect = target.FindStatus<StatusEffectEquip>("equip");
+        if (equipEffect == null)
+        {
+            return;
+        }
+
+        if (equipEffect.cardId != killedEntity.data.id)
         {
             return;
         }

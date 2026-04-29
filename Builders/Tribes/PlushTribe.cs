@@ -165,7 +165,6 @@ public class PlushTribe : IClassBuilder
                 "CardUpgradeOverload",
                 "CardUpgradeTrash",
                 "CardUpgradeHeartburn",
-                "CardUpgradeShellBecomesSpice",
                 "CardUpgradeScrap",
                 "CardUpgradeShellOnKill",
                 "CardUpgradeSpice",

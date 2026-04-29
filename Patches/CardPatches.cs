@@ -1,9 +1,9 @@
 ﻿#region
 
-using System.Linq;
 using AbsentAvalanche.Builders.Flavours;
 using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
+using AbsentAvalanche.StatusEffectImplementations;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -75,23 +75,27 @@ public class CardPatches
             return;
         }
 
-        var cardData = card.entity.data;
-        if (cardData.GetCustomDataOrNull("absent.equipments") is not SaveCollection<ulong> equipmentIds)
+        if (References.Player.reserveContainer.entities.Contains(card.entity))
         {
             return;
         }
-        
-        foreach (var equipmentId in equipmentIds.collection)
+
+        if (card.entity.FindStatus<StatusEffectEquip>("equip") == null)
         {
-            var equipment = References.Player.reserveContainer.FirstOrDefault(entity =>
-                entity.data.GetCustomDataOrNull("absent.equipment") is ulong id && id == equipmentId);
-            
-            if (equipment == null)
+            return;
+        }
+
+        foreach (var equipment in References.Player.reserveContainer)
+        {
+            var equipEffect = equipment.FindStatus<StatusEffectEquip>("equip");
+            if (equipEffect is null)
             {
-                continue;
+                return;
             }
-            
-            card.mentionedCards.Add(equipment.data);
+            if (equipEffect.cardId == card.entity.data.id)
+            {
+                card.mentionedCards.Add(equipment.data);
+            }
         }
     }
 }

@@ -87,24 +87,7 @@ internal class ActionEquip(Entity equipment, Entity target) : PlayAction
 
     private void MarkCustomData()
     {
-        var id = equipment.data.id;
-        equipment.data.customData ??= new Dictionary<string, object>();
-        equipment.data.customData["absent.equipment"] = id;
-        
-        ulong[] array = [];
-        if (target.data.customData?.TryGetValue("absent.equipments", out var equipments) ?? false)
-        {
-            array = ((SaveCollection<ulong>)equipments).collection;
-        }
-
-        array = [
-            ..array,
-            id
-        ];
-        
         target.data.customData ??= new Dictionary<string, object>();
-        target.data.customData["absent.equipments"] = new SaveCollection<ulong>(array);
-        
         var traits = new SaveCollection<(string, int)>(equipment.traits
             .Where(t => !_illegalTraits.Contains(t.data))
             .Select<Entity.TraitStacks, (string, int)>(a => (a.data.name, a.count)).ToArray());

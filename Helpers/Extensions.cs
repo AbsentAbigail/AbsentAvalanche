@@ -19,6 +19,12 @@ public static class Extensions
         return cardData.customData?.Get<object>(key, null);
     }
 
+    public static T FindStatus<T>(this Entity entity, string type) where T : StatusEffectData
+    {
+        var status = entity.FindStatus(type);
+        return status as T;
+    }
+    
     public static KeywordDataBuilder AddToFlavours(this KeywordDataBuilder keywordDataBuilder, string cardName)
     {
         CardPatches.Flavours =
