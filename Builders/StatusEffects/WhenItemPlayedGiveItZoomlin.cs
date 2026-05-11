@@ -19,19 +19,19 @@ public class WhenItemPlayedGiveItZoomlin : IStatusBuilder
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Absent.Instance)
-            .Create<StatusEffectApplyXWhenCertainCardPlayed>(Name)
-            .WithText($"When a <non->{Absent.VanillaKeywordTag("noomlin")} <Item> is played, give it {Absent.VanillaKeywordTag("zoomlin")}")
+            .Create<StatusEffectApplyXAfterACardPlayed>(Name)
+            .WithText($"After a <non->{Absent.VanillaKeywordTag("noomlin")} <Item> is played, give it {Absent.VanillaKeywordTag("zoomlin")}")
             .WithStackable(true)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCertainCardPlayed>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXAfterACardPlayed>(status =>
             {
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Attacker;
                 status.effectToApply = Absent.GetStatus(InstantQueueTemporaryZoomlin.Name);
-
-                status.allowedCardType = Absent.GetCardType("Item");
-                status.applyConstraints =
+                status.allies = true;
+                status.constraints =
                 [
-                    TargetConstraintHelper.HasTrait("Noomlin", not: true)
+                    TargetConstraintHelper.IsCardType(["Item"]),
+                    TargetConstraintHelper.HasTrait("Noomlin", not: true),
                 ];
             });
     }

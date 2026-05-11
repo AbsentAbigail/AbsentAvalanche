@@ -17,11 +17,11 @@ public class OnTurnApplyCalmToAllyInFrontOf : IStatusBuilder
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Absent.Instance)
-            .Create<StatusEffectApplyXOnKill>(Name)
+            .Create<StatusEffectApplyXOnTurn>(Name)
             .WithText("Apply <{a}>{0} to ally in front")
             .WithStackable(true)
             .WithCanBeBoosted(true)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnKill>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnTurn>(status =>
             {
                 status.effectToApply = Absent.GetStatus(Calm.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.AllyInFrontOf;

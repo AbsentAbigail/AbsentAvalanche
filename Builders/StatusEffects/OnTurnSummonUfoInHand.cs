@@ -18,14 +18,14 @@ public class OnTurnSummonUfoInHand : IStatusBuilder
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Absent.Instance)
-            .Create<StatusEffectApplyXOnKill>(Name)
+            .Create<StatusEffectApplyXOnCardPlayed>(Name)
             .WithText("Add <{a}> {0} to your hand")
             .WithStackable(true)
             .WithCanBeBoosted(true)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnKill>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnCardPlayed>(status =>
             {
                 status.effectToApply = Absent.GetStatus(InstantSummonUfoInHand.Name);
-                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.AllyInFrontOf;
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.textInsert = Absent.CardTag(RescueUfo.Name);
             });
     }

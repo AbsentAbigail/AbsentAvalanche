@@ -132,7 +132,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         cards.Do(card =>
         {
             card.charmSlots = target.data.charmSlots;
-            foreach (var upgrade in upgrades.Where(upgrade => upgrade.CanAssign(card)))
+            foreach (var upgrade in upgrades.Where(upgrade => upgrade.type == CardUpgradeData.Type.Crown || upgrade.CanAssign(card)))
                 upgrade.Clone().Assign(card);
         });
     }
