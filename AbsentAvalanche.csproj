@@ -901,6 +901,7 @@
     <Compile Include="Patches\PetHutFlagSetterPatches.cs" />
     <Compile Include="Patches\ReferencesPatches.cs" />
     <Compile Include="Patches\SelectLeaderCreateLeaderPatches.cs" />
+    <Compile Include="Patches\SelectStartingPetPatches.cs" />
     <Compile Include="Patches\StatusEffectDataGetDescPatches.cs" />
     <Compile Include="Patches\StatusFixes\ApplyXAllyBehindFix.cs" />
     <Compile Include="Patches\StatusFixes\StatusEffectChangeTargetModePatch.cs" />
