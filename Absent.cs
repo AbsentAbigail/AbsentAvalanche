@@ -401,6 +401,8 @@ public class Absent : WildfrostMod
             "Add a copy of a card in your deck to hand with zoomlin and consume");
         uiText.SetString(InstantTutorTenRandomCardsZoomlin.Name,
             "Add a random card to your hand with zoomlin");
+        uiText.SetString("ChargeBell", "{0} charged the Redraw Bell by [{1}]");
+        uiText.SetString("ChargeBellFully", "{0} fully charged the Redraw Bell");
     }
 
     public override List<T> AddAssets<T, TY>()

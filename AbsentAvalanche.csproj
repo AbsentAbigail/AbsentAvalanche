@@ -626,6 +626,7 @@
     <Compile Include="Builders\Keywords\Heating.cs" />
     <Compile Include="Builders\Keywords\KeywordColours.cs" />
     <Compile Include="Builders\Keywords\Panic.cs" />
+    <Compile Include="Builders\Keywords\Pilot.cs" />
     <Compile Include="Builders\Keywords\RainbowFluff.cs" />
     <Compile Include="Builders\Keywords\Resist.cs" />
     <Compile Include="Builders\Keywords\Rest.cs" />
@@ -853,12 +854,14 @@
     <Compile Include="Builders\Traits\GoldRush.cs" />
     <Compile Include="Builders\Traits\Heating.cs" />
     <Compile Include="Builders\Traits\Grandmaster.cs" />
+    <Compile Include="Builders\Traits\Pilot.cs" />
     <Compile Include="Builders\Traits\Rest.cs" />
     <Compile Include="Builders\Traits\Scavenge.cs" />
     <Compile Include="Builders\Traits\Trample.cs" />
     <Compile Include="Builders\Traits\Valor.cs" />
     <Compile Include="Builders\Traits\Warm.cs" />
     <Compile Include="Builders\Traits\WombatParty.cs" />
+    <Compile Include="Builders\Tribes\PilotTribe.cs" />
     <Compile Include="Builders\Tribes\PlushTribe.cs" />
     <Compile Include="Builders\Upgrades\CardUpgradeCat.cs" />
     <Compile Include="Builders\Upgrades\CardUpgradeBravery.cs" />

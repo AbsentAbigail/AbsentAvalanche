@@ -3,6 +3,8 @@
 using System.Collections;
 using AbsentAvalanche.GameSystems;
 using AbsentAvalanche.Helpers;
+using Deadpan.Enums.Engine.Components.Modding;
+using UnityEngine;
 
 #endregion
 
@@ -24,6 +26,9 @@ public class StatusEffectInstantChargeBell : StatusEffectInstant
         FindObjectOfType<ChargeRedrawBellSystem>(true)
             .ChargeRedrawBell(fully ? 0 : GetAmount());
 
+        var localisedString = LocalizationHelper.GetCollection("UI Text", SystemLanguage.English).GetString(fully ? "ChargeBellFully" : "ChargeBell");
+        FindObjectOfType<BattleLogSystem>()?.Log(localisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(applier), GetAmount());
+        
         yield return Remove();
     }
 }

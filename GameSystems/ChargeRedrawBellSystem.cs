@@ -20,22 +20,34 @@ public class ChargeRedrawBellSystem : GameSystem
         var redrawBellSystem = FindObjectOfType<RedrawBellSystem>(true);
         _chargeRedraw = true;
         _amount = amount;
-        if (redrawBellSystem.bell.activeSelf) ChargeBell(redrawBellSystem);
+        if (redrawBellSystem.bell.activeSelf)
+        {
+            ChargeBell(redrawBellSystem);
+        }
     }
 
     private void RedrawBellRevealed(RedrawBellSystem redrawBellSystem)
     {
-        if (!_chargeRedraw) return;
+        if (!_chargeRedraw)
+        {
+            return;
+        }
         ChargeBell(redrawBellSystem);
     }
 
     private void ChargeBell(RedrawBellSystem redrawBellSystem)
     {
         if (_amount == 0)
+        {
             redrawBellSystem.SetCounter(0);
+        }
         else
+        {
             for (var i = 0; i < _amount; i++)
+            {
                 redrawBellSystem.Counter();
+            }
+        }
 
         _chargeRedraw = false;
     }

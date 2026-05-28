@@ -18,6 +18,11 @@ public class StatusEffectShareStatus : StatusEffectApplyX
     public bool positiveStatus = true;
     public string[] whenAppliedTypes = [];
 
+    public string[] excludeTypes =
+    [
+        "equip"
+    ];
+
     private readonly Dictionary<string, Vector2Int> _amounts = new();
     private int _chain;
 
@@ -101,7 +106,7 @@ public class StatusEffectShareStatus : StatusEffectApplyX
             return false;
         }
 
-        if (effectData.type == "equip")
+        if (excludeTypes.Contains(effectData.type))
         { 
             return false;
         }
