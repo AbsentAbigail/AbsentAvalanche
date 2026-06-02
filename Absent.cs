@@ -1,6 +1,4 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,8 +25,6 @@ using WildfrostHopeMod.Utils;
 using WildfrostHopeMod.VFX;
 using Extensions = Deadpan.Enums.Engine.Components.Modding.Extensions;
 using Object = UnityEngine.Object;
-
-#endregion
 
 namespace AbsentAvalanche;
 
@@ -233,6 +229,34 @@ public class Absent : WildfrostMod
         
         _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
             .Where(t =>
+                string.Equals(t.Namespace, "AbsentAvalanche.Builders.Cards.PilotLeaders",
+                    StringComparison.Ordinal)
+                && typeof(ILeaderBuilder).IsAssignableFrom(t))
+            .Select(type =>
+            {
+                var builder = (ILeaderBuilder)Activator.CreateInstance(type);
+                var mods = builder.LeaderModifiers;
+                var cardBuilder = (CardDataBuilder)builder.Builder();
+                cardBuilder
+                    .WithCardType("Leader")
+                    .FreeModify(card =>
+                    {
+                        card.createScripts =
+                        [
+                            LeaderHelper.GiveUpgrade(),
+                            LeaderHelper.AddRandomHealth(mods.healthRange),
+                            LeaderHelper.AddRandomDamage(mods.damageRange),
+                            LeaderHelper.AddRandomCounter(mods.counterRange)
+                        ];
+                    })
+                    .SubscribeToAfterAllBuildEvent(mods.subscribe.Invoke);
+                
+                return cardBuilder;
+            }).ToList()
+        );
+
+        _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t =>
                 string.Equals(t.Namespace, "AbsentAvalanche.Builders.Cards.Items",
                     StringComparison.Ordinal)
                 && typeof(ICardBuilder).IsAssignableFrom(t))
@@ -269,7 +293,10 @@ public class Absent : WildfrostMod
     private static void LoadTribes()
     {
         var gameMode = TryGet<GameMode>("GameModeNormal"); //GameModeNormal is the standard game mode. 
-        gameMode.classes = gameMode.classes.Append(GetTribe(PlushTribe.Name)).ToArray();
+        gameMode.classes = gameMode.classes
+            .Append(GetTribe(PlushTribe.Name))
+            .Append(GetTribe(PilotTribe.Name))
+            .ToArray();
         // gameMode.classes = gameMode.classes.Append(GetTribe(NebulaTribe.Name)).ToArray();
     }
 

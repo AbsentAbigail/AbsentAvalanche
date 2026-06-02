@@ -1,13 +1,9 @@
-﻿#region
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AbsentAvalanche.Builders.Traits;
 using Dead;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.StatusEffectImplementations.Actions;
 

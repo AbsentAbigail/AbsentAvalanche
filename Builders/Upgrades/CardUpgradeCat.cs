@@ -1,14 +1,10 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Interfaces;
+﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using Cat = AbsentAvalanche.Builders.Keywords.Cat;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Upgrades;
 

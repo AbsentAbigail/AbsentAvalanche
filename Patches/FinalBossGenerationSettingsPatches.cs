@@ -1,6 +1,4 @@
-﻿#region
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
@@ -8,8 +6,6 @@ using AbsentAvalanche.Scriptables.CardScripts;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 

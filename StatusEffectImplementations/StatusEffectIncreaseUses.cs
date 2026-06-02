@@ -1,11 +1,7 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Linq;
 using AbsentAvalanche.StatusEffectImplementations.Actions;
-
-#endregion
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 

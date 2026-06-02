@@ -1,8 +1,4 @@
-﻿#region
-
-using Deadpan.Enums.Engine.Components.Modding;
-
-#endregion
+﻿using Deadpan.Enums.Engine.Components.Modding;
 
 namespace AbsentAvalanche.Scriptables.CardScripts;
 

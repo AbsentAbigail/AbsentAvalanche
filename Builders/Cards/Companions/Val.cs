@@ -1,6 +1,4 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Interfaces;
+﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
 using AbsentAvalanche.Scriptables.CardImage;
@@ -9,8 +7,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Cards.Companions;
 

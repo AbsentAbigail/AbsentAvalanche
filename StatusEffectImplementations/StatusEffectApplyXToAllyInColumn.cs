@@ -1,10 +1,6 @@
-﻿#region
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
-#endregion
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 

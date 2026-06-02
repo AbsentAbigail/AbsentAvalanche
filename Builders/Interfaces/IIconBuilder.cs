@@ -1,9 +1,5 @@
-﻿#region
-
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using WildfrostHopeMod.VFX;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Interfaces;
 

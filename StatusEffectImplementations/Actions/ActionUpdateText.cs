@@ -1,8 +1,4 @@
-﻿#region
-
-using System.Collections;
-
-#endregion
+﻿using System.Collections;
 
 namespace AbsentAvalanche.StatusEffectImplementations.Actions;
 

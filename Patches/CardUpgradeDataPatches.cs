@@ -1,9 +1,5 @@
-﻿#region
-
-using HarmonyLib;
+﻿using HarmonyLib;
 using JetBrains.Annotations;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 

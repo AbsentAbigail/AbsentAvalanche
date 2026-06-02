@@ -1,7 +1,3 @@
-﻿#region
-
-#endregion
-
-namespace AbsentAvalanche.StatusEffectImplementations;
+﻿namespace AbsentAvalanche.StatusEffectImplementations;
 
 public class StatusEffectInstantDoNothing : StatusEffectInstant;

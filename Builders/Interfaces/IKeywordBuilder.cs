@@ -1,9 +1,5 @@
-﻿#region
-
-using Deadpan.Enums.Engine.Components.Modding;
+﻿using Deadpan.Enums.Engine.Components.Modding;
 using JetBrains.Annotations;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Interfaces;
 

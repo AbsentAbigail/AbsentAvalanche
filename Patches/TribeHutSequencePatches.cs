@@ -1,6 +1,4 @@
-﻿#region
-
-using System.Linq;
+﻿using System.Linq;
 using AbsentAvalanche.Builders.Cards.Companions;
 using AbsentAvalanche.Builders.Tribes;
 using Deadpan.Enums.Engine.Components.Modding;
@@ -10,8 +8,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 

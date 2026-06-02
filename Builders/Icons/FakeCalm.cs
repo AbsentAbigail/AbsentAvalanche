@@ -1,13 +1,9 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Interfaces;
+﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Keywords;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using WildfrostHopeMod.VFX;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Icons;
 

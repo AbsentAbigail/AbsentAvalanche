@@ -1,14 +1,10 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Cards.Items;
+﻿using AbsentAvalanche.Builders.Cards.Items;
 using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.StatusEffects;
 

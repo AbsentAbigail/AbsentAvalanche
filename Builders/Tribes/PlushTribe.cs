@@ -1,6 +1,4 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using AbsentAvalanche.Builders.Cards.Clunkers;
@@ -14,8 +12,6 @@ using JetBrains.Annotations;
 using UnityEngine;
 using Extensions = Deadpan.Enums.Engine.Components.Modding.Extensions;
 using Object = UnityEngine.Object;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Tribes;
 
@@ -36,6 +32,8 @@ public class PlushTribe : IClassBuilder
             .WithFlag(Absent.GetSprite("plushbanner"))
             .SubscribeToAfterAllBuildEvent(tribe =>
             {
+                tribe.id = "Plush";
+                
                 var playerCharacter = tribe.characterPrefab.gameObject.InstantiateKeepName();
                 Object.DontDestroyOnLoad(playerCharacter);
                 playerCharacter.name = "AbsentAvalanche.Plush";

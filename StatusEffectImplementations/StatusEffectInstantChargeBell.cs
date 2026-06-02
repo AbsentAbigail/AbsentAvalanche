@@ -1,12 +1,8 @@
-﻿#region
-
-using System.Collections;
+﻿using System.Collections;
 using AbsentAvalanche.GameSystems;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 

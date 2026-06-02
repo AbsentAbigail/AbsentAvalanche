@@ -1,8 +1,4 @@
-#region
-
 using System.Threading.Tasks;
-
-#endregion
 
 namespace AbsentAvalanche.EventHooks;
 

@@ -1,11 +1,7 @@
-﻿#region
-
-using System;
+﻿using System;
 using AbsentAvalanche.Patches;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.StatusEffects;
 

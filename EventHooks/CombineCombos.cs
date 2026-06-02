@@ -1,14 +1,10 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Cards.Clunkers;
+﻿using AbsentAvalanche.Builders.Cards.Clunkers;
 using AbsentAvalanche.Builders.Cards.Companions;
 using AbsentAvalanche.Builders.Cards.Items;
 using AbsentAvalanche.GameSystems;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-#endregion
 
 namespace AbsentAvalanche.EventHooks;
 

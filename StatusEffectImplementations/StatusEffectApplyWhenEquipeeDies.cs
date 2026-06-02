@@ -1,8 +1,4 @@
-﻿#region
-
-using AbsentAvalanche.Helpers;
-
-#endregion
+﻿using AbsentAvalanche.Helpers;
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 

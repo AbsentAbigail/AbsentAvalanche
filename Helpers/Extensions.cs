@@ -1,9 +1,5 @@
-#region
-
 using AbsentAvalanche.Patches;
 using Deadpan.Enums.Engine.Components.Modding;
-
-#endregion
 
 namespace AbsentAvalanche.Helpers;
 

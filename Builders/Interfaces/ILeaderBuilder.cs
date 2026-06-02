@@ -1,10 +1,6 @@
-﻿#region
-
-using System;
+﻿using System;
 using JetBrains.Annotations;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Interfaces;
 

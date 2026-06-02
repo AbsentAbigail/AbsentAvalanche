@@ -1,6 +1,4 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,8 +7,6 @@ using AbsentAvalanche.Helpers;
 using HarmonyLib;
 using JetBrains.Annotations;
 using Random = System.Random;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 

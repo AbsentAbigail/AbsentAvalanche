@@ -1,9 +1,5 @@
-﻿#region
-
-using WildfrostHopeMod.SFX;
+﻿using WildfrostHopeMod.SFX;
 using WildfrostHopeMod.VFX;
-
-#endregion
 
 namespace AbsentAvalanche.Helpers;
 

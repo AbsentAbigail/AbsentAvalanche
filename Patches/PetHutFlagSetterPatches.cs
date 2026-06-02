@@ -1,12 +1,8 @@
-﻿#region
-
-using System.Linq;
+﻿using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
 using WildfrostHopeMod.Utils;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 

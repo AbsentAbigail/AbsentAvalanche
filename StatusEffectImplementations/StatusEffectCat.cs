@@ -1,11 +1,7 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using WildfrostHopeMod.VFX;
-
-#endregion
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 

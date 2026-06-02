@@ -1,14 +1,10 @@
-﻿#region
-
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations.Actions;
 using HarmonyLib;
 using UnityEngine;
 using Extensions = Deadpan.Enums.Engine.Components.Modding.Extensions;
-
-#endregion
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 

@@ -1,13 +1,9 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AbsentAvalanche.Builders.StatusEffects;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.Scriptables.CardScripts;
 

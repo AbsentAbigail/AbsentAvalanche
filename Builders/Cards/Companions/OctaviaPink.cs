@@ -1,14 +1,10 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Interfaces;
+﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
-
-#endregion
 
 namespace AbsentAvalanche.Builders.Cards.Companions;
 

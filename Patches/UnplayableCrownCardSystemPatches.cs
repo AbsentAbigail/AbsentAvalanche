@@ -1,11 +1,7 @@
-﻿#region
-
-using System.Linq;
+﻿using System.Linq;
 using AbsentAvalanche.Builders.Traits;
 using HarmonyLib;
 using JetBrains.Annotations;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 

@@ -1,8 +1,4 @@
-﻿#region
-
-#endregion
-
-namespace AbsentAvalanche.Scriptables.ScriptableAmounts;
+﻿namespace AbsentAvalanche.Scriptables.ScriptableAmounts;
 
 internal class ScriptableTurnCount : ScriptableAmount
 {

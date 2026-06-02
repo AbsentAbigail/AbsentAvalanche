@@ -1,8 +1,4 @@
-﻿#region
-
-using AbsentAvalanche.Builders.Traits;
-
-#endregion
+﻿using AbsentAvalanche.Builders.Traits;
 
 namespace AbsentAvalanche.Scriptables.CardScripts;
 

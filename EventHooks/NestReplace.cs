@@ -1,9 +1,5 @@
-#region
-
 using System.Linq;
 using Dead;
-
-#endregion
 
 namespace AbsentAvalanche.EventHooks;
 

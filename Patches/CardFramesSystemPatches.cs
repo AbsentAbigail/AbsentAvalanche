@@ -1,14 +1,10 @@
-﻿#region
-
-using System.Linq;
+﻿using System.Linq;
 using AbsentAvalanche.Builders.Cards.Clunkers;
 using AbsentAvalanche.Builders.Cards.Companions;
 using AbsentAvalanche.Builders.Cards.Items;
 using AbsentAvalanche.Helpers;
 using HarmonyLib;
 using JetBrains.Annotations;
-
-#endregion
 
 namespace AbsentAvalanche.Patches;
 
