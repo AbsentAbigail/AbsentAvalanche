@@ -18,6 +18,7 @@ public class RingerCosplay : ICardBuilder
             .SetHealth(1)
             .SetDamage(1)
             .SetSprites(Absent.GetSprite("RingerCosplay"), Absent.GetSprite("RingerCosplayBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

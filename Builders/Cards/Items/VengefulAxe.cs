@@ -17,6 +17,7 @@ public class VengefulAxe : ICardBuilder
             .CreateItem(Name, "Vengeful Axe")
             .SetDamage(1)
             .SetSprites(Absent.GetSprite("VengefulAxe"), Absent.GetSprite("VengefulAxeBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

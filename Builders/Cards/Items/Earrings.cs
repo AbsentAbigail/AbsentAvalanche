@@ -17,6 +17,7 @@ public class Earrings : ICardBuilder
             .CreateItem(Name, "Earrings")
             .SetDamage(null)
             .SetSprites(Absent.GetSprite("Earrings"), Absent.GetSprite("EarringsBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

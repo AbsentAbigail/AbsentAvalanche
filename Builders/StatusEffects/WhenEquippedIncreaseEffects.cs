@@ -20,7 +20,7 @@ public class WhenEquippedIncreaseEffects : IStatusBuilder
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenEquipped>(status =>
             {
-                status.effectToApply = Absent.GetStatus("Increase Effects");
+                status.effectToApply = Absent.GetStatus("Instant Ongoing Increase Effects");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
             });
     }

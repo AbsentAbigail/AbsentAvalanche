@@ -19,6 +19,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 using WildfrostHopeMod;
 using WildfrostHopeMod.SFX;
 using WildfrostHopeMod.Utils;
@@ -411,6 +412,12 @@ public class Absent : WildfrostMod
 
             Make sure to pet the plush when they do well, and don't let them get hurt! Plushies need proper love and care!
             """);
+        uiText.SetString(PilotTribe.TitleKey, "The Pilot");
+        uiText.SetString(PilotTribe.DescKey,
+            """
+            Good Day, gentleladies, gentlemen, and gentle people in general. I am your captain, Amelia Bearheart, and I'd like to welcome you aboard this flight bound for the Frostlands. The weather today is cold and frosty and we're gonna change that. So enjoy your flight!
+            """);
+
 
 //         uiText.SetString(NebulaTribe.TitleKey, "The Nebula");
 //         uiText.SetString(NebulaTribe.DescKey,
@@ -571,5 +578,29 @@ public class Absent : WildfrostMod
     public static void AddToModifierPool(GameModifierData data)
     {
         Extensions.GetRewardPool("GeneralModifierPool").list.Add(data);
+    }
+    
+    // Code by Phan
+    public static T CreateScriptableCardImage<T>(string name) where T : ScriptableCardImage
+    {
+        // Create a new GameObject that will host the ScriptableImage
+        var ghostObject = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(T))
+        {
+            // HideAndDontSave so it doesn't get touched during gameplay, OR
+            hideFlags = HideFlags.HideAndDontSave
+        };
+
+        // ensure the GameObject is kept in memory this session
+        Object.DontDestroyOnLoad(ghostObject);
+
+        // Set the GameObject's size to the card size
+        ghostObject.GetComponent<RectTransform>().sizeDelta = new Vector2(3.8f, 5.7f);
+
+        // The image will try to autofill to fit the RectTransform size
+        ghostObject.GetComponent<Image>().preserveAspect = true;
+        // This fixes the card being hoverable
+        ghostObject.GetComponent<Image>().raycastTarget = false;
+
+        return ghostObject.GetComponent<T>();
     }
 }

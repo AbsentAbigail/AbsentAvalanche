@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using AbsentAvalanche.Helpers;
 using DeadExtensions;
 using HarmonyLib;
 using UnityEngine;

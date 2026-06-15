@@ -17,6 +17,7 @@ public class MawJawCosplay : ICardBuilder
             .CreateItem(Name, "Maw Jaw Cosplay")
             .SetDamage(null)
             .SetSprites(Absent.GetSprite("MawJawCosplay"), Absent.GetSprite("MawJawCosplayBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

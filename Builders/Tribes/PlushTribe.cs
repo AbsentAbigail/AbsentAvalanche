@@ -88,7 +88,7 @@ public class PlushTribe : IClassBuilder
         return DataList<CardData>(leaderNames);
     }
     
-    private static RewardPool UnitPool()
+    public static RewardPool UnitPool()
     {
         return CreateRewardPool(UnitPoolName, RewardPool.Type.Units.ToString(),
         [
@@ -115,7 +115,7 @@ public class PlushTribe : IClassBuilder
         ]);
     }
 
-    private static RewardPool ItemPool()
+    public static RewardPool ItemPool()
     {
         return CreateRewardPool(ItemPoolName, RewardPool.Type.Items.ToString(),
         [
@@ -146,12 +146,13 @@ public class PlushTribe : IClassBuilder
                 "SpiceStones",
                 Catbom.Name,
                 GhostlyPresence.Name,
-                FireSpell.Name
+                FireSpell.Name,
+                MarshallingLights.Name
             )
         ]);
     }
 
-    private static RewardPool CharmPool()
+    public static RewardPool CharmPool()
     {
         return CreateRewardPool(CharmPoolName, RewardPool.Type.Charms.ToString(),
         [

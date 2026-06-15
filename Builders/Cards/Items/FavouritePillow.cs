@@ -18,6 +18,7 @@ public class FavouritePillow : ICardBuilder
             .SetDamage(null)
             .SetHealth(2)
             .SetSprites(Absent.GetSprite("FavouritePillow"), Absent.GetSprite("FavouritePillowBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

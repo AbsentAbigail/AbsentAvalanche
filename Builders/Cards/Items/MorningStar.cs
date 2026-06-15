@@ -17,6 +17,7 @@ public class MorningStar : ICardBuilder
             .CreateItem(Name, "Morning Sun")
             .SetDamage(3)
             .SetSprites(Absent.GetSprite("MorningStar"), Absent.GetSprite("MorningStarBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

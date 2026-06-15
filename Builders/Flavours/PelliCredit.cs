@@ -1,4 +1,6 @@
-﻿using AbsentAvalanche.Builders.Cards.Items;
+﻿using AbsentAvalanche.Builders.Cards.Clunkers;
+using AbsentAvalanche.Builders.Cards.Companions;
+using AbsentAvalanche.Builders.Cards.Items;
 using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Keywords;
 using AbsentAvalanche.Helpers;
@@ -31,6 +33,21 @@ public class PelliCredit : IKeywordBuilder
             .AddToFlavours(MorningStar.Name)
             .AddToFlavours(RazorPlush.Name)
             .AddToFlavours(RingerCosplay.Name)
-            .AddToFlavours(VengefulAxe.Name);
+            .AddToFlavours(VengefulAxe.Name)
+            .AddToFlavours(Airliner.Name)
+            .AddToFlavours(Airship.Name)
+            .AddToFlavours(FighterJet.Name)
+            .AddToFlavours(Paperplane.Name)
+            .AddToFlavours(PrivateJet.Name)
+            .AddToFlavours(RescueHelicopter.Name)
+            .AddToFlavours(Seaplane.Name)
+            .AddToFlavours(EmptySeat.Name)
+            .AddToFlavours(ButterflyKnife.Name)
+            .AddToFlavours(Chakram.Name)
+            .AddToFlavours(Coolant.Name)
+            .AddToFlavours(JumpStart.Name)
+            .AddToFlavours(MarshallingLights.Name)
+            .AddToFlavours(StoppedClock.Name)
+            .AddToFlavours(Uppies.Name);
     }
 }

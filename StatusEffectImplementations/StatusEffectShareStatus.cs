@@ -36,6 +36,8 @@ public class StatusEffectShareStatus : StatusEffectApplyX
         if (!CheckType(apply.effectData))
             return false;
 
+        effectToApply = apply.effectData;
+        
         if (!CheckTarget(apply.target))
             return false;
 
@@ -73,7 +75,7 @@ public class StatusEffectShareStatus : StatusEffectApplyX
             yield break;
         
         effectToApply = apply.effectData;
-        var targets = GetTargets();
+        var targets = GetTargets(new Hit(apply.applier, null));
         targets.Remove(apply.target);
 
         yield return Run(targets, apply.count);

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
+using UnityEngine;
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 
 public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
 {
     public bool resetHealth;
+    public bool ignoreSilence;
 
     private bool _activated;
     private int _lastHealth;
@@ -73,4 +75,16 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
         _lastHealth = target.hp.current;
         _lastScrap = (bool)target.FindStatus("scrap");
     }
+    
+    
+    public override bool TargetSilenced() => !ignoreSilence && target.silenced;
+    
+    
+    public override int GetAmount()
+    {
+        if (!target || TargetSilenced())
+            return 0;
+        return !canBeBoosted ? count : Mathf.Max(0, Mathf.RoundToInt((count + target.effectBonus) * target.effectFactor));
+    }
+
 }

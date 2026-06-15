@@ -1,6 +1,7 @@
 ﻿using AbsentAvalanche.Builders.Cards.Clunkers;
 using AbsentAvalanche.Builders.Cards.Companions;
 using AbsentAvalanche.Builders.Cards.Items;
+using AbsentAvalanche.Builders.Cards.PilotLeaders;
 using AbsentAvalanche.GameSystems;
 using HarmonyLib;
 using UnityEngine;
@@ -23,6 +24,22 @@ public static class CombineCombos
         Combo(
             Absent.PrefixGuid(Catcus.Name), Absent.PrefixGuid(Catcitten.Name),
             Absent.PrefixGuid(Catci.Name)
+        ),
+        Combo(
+            Absent.PrefixGuid(AmeliaDraw.Name), Absent.PrefixGuid(Sally.Name),
+            Absent.PrefixGuid(AmeliaSally.Name)
+        ),
+        Combo(
+            Absent.PrefixGuid(AmeliaTrigger.Name), Absent.PrefixGuid(Sally.Name),
+            Absent.PrefixGuid(AmeliaSally.Name)
+        ),
+        Combo(
+            Absent.PrefixGuid(AmeliaFreePlay.Name), Absent.PrefixGuid(Sally.Name),
+            Absent.PrefixGuid(AmeliaSally.Name)
+        ),
+        Combo(
+            Absent.PrefixGuid(AmeliaFrenzy.Name), Absent.PrefixGuid(Sally.Name),
+            Absent.PrefixGuid(AmeliaSally.Name)
         ),
         .. LeaderCombo(Bubbles.Name, Cuddles.Name, BubblesAndCuddles.Name),
         .. LeaderCombo(Sherba.Name, Cuddles.Name, SherbaAndCuddles.Name),

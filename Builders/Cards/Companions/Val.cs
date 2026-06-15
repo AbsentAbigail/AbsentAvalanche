@@ -5,8 +5,6 @@ using AbsentAvalanche.Scriptables.CardImage;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace AbsentAvalanche.Builders.Cards.Companions;
 
@@ -38,31 +36,7 @@ public class Val : ICardBuilder
                     "In the mouth of this big blue whale there is room for pajamas or a treasure. It’s because this soft animal is a true friend who can keep a secret, play and give hugs when needed."
                 ];
 
-                card.scriptableImagePrefab = CreateScriptableCardImage<ValCardImage>("val");
+                card.scriptableImagePrefab = Absent.CreateScriptableCardImage<ValCardImage>("val");
             });
-    }
-    
-    // Code by Phan
-    private static T CreateScriptableCardImage<T>(string name) where T : ScriptableCardImage
-    {
-        // Create a new GameObject that will host the ScriptableImage
-        var ghostObject = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(T))
-        {
-            // HideAndDontSave so it doesn't get touched during gameplay, OR
-            hideFlags = HideFlags.HideAndDontSave
-        };
-
-        // ensure the GameObject is kept in memory this session
-        Object.DontDestroyOnLoad(ghostObject);
-
-        // Set the GameObject's size to the card size
-        ghostObject.GetComponent<RectTransform>().sizeDelta = new Vector2(3.8f, 5.7f);
-
-        // The image will try to autofill to fit the RectTransform size
-        ghostObject.GetComponent<Image>().preserveAspect = true;
-        // This fixes the card being hoverable
-        ghostObject.GetComponent<Image>().raycastTarget = false;
-
-        return ghostObject.GetComponent<T>();
     }
 }

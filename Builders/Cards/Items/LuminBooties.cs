@@ -17,6 +17,7 @@ public class LuminBooties : ICardBuilder
             .CreateItem(Name, "Lumin Booties")
             .SetDamage(null)
             .SetSprites(Absent.GetSprite("LuminBooties"), Absent.GetSprite("LuminBootiesBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

@@ -20,7 +20,7 @@ public class WhenAllyHitIncreaseEffects : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenAllyIsHit>(status =>
             {
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
-                status.effectToApply = Absent.GetStatus("Increase Effects");
+                status.effectToApply = Absent.GetStatus("Instant Ongoing Increase Effects");
             });
     }
 }

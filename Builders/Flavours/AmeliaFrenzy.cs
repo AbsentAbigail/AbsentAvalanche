@@ -1,0 +1,28 @@
+﻿using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Builders.Keywords;
+using AbsentAvalanche.Helpers;
+using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
+using JetBrains.Annotations;
+
+namespace AbsentAvalanche.Builders.Flavours;
+
+[UsedImplicitly]
+public class AmeliaFrenzy : IKeywordBuilder
+{
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower() + "_flavour";
+
+    public DataFileBuilder<KeywordData, KeywordDataBuilder> Builder()
+    {
+        return new KeywordDataBuilder(Absent.Instance)
+            .Create(Name)
+            .WithTitle("")
+            .WithTitleColour(KeywordColours.Orange)
+            .WithShowName(true)
+            .WithDescription(
+                "She/Her|" + Cards.PilotLeaders.AmeliaFrenzy.Flavour + "\n(Sprites by Pelli)")
+            .WithBodyColour(KeywordColours.Flavour)
+            .WithNoteColour(KeywordColours.Gray)
+            .AddToFlavours(Cards.PilotLeaders.AmeliaFrenzy.Name);
+    }
+}

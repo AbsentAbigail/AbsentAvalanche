@@ -17,6 +17,7 @@ public class BunHum : ICardBuilder
             .CreateItem(Name, "Bun Hum")
             .SetDamage(1)
             .SetSprites(Absent.GetSprite("BunHum"), Absent.GetSprite("BunHumBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

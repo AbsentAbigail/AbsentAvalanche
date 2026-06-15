@@ -17,11 +17,13 @@ public static class SelectStartingPetPatches
 {
     private static readonly string[] Pets =
     [
-        Absent.PrefixGuid(Sally.Name),
-        Absent.PrefixGuid(Bam.Name),
-        Absent.PrefixGuid(Catcitten.Name),
-        Absent.PrefixGuid(LilGuy.Name),
-        Absent.PrefixGuid(Chirp.Name),
+        Absent.PrefixGuid(PrivateJet.Name),
+        Absent.PrefixGuid(Paperplane.Name),
+        Absent.PrefixGuid(FighterJet.Name),
+        Absent.PrefixGuid(Airliner.Name),
+        Absent.PrefixGuid(Seaplane.Name),
+        Absent.PrefixGuid(Airship.Name),
+        Absent.PrefixGuid(RescueHelicopter.Name),
     ];
     private static readonly List<Entity> OtherPets = [];
     private static bool _altPet;
@@ -33,6 +35,7 @@ public static class SelectStartingPetPatches
     {
         if (__instance.leaderSelect.current.entity.traits.Any(t => t.data.name == _trait))
         {
+            LogHelper.Log("Replace pet selection");
             yield return ChangePets(__instance, leader);
             yield break;
         }
@@ -92,14 +95,11 @@ public static class SelectStartingPetPatches
     [UsedImplicitly, HarmonyPrefix, HarmonyPatch(typeof(SelectStartingPet), nameof(SelectStartingPet.Gain))]
     private static bool GainPrefix(SelectStartingPet __instance, PlayerData playerData)
     {
-        LogHelper.Log("Prefix gain");
         if (!_altPet)
         {
-            LogHelper.Log("Normal pet");
             return true;
         }
         
-        LogHelper.Log("adding Sally");
         var pet = OtherPets[__instance.selectedPetIndex];
         Events.InvokeEntityChosen(pet);
         playerData.inventory.deck.Insert(0, pet.data);

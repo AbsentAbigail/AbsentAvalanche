@@ -19,7 +19,7 @@ public class OnCardPlayedBoostSelf : IStatusBuilder
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnCardPlayed>(status =>
             {
-                status.effectToApply = Absent.GetStatus("Increase Effects");
+                status.effectToApply = Absent.GetStatus("Instant Ongoing Increase Effects");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
             });
     }
