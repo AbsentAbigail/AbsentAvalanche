@@ -57,7 +57,8 @@ public static class SelectStartingPetPatches
         _container = Object.Instantiate(__instance.group, __instance.transform);
         _container.name = "CustomPetContainer";
         _container.gameObject.SetActive(false);
-        
+
+        OtherPets.Clear();
         var clump = new Routine.Clump();
         foreach (var str in Pets)
         {
@@ -144,6 +145,7 @@ public static class SelectStartingPetPatches
         instance.leaderContainer.Add(leader);
         instance.leaderContainer.TweenChildPositions();
         instance.leaderSelect.Hide();
+        yield return null;
         foreach (var child in OtherPets.OrderBy(_ => Random.Range(0.0f, 1f)))
         {
             _container.TweenChildPosition(child);
