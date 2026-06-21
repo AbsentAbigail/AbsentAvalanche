@@ -145,7 +145,6 @@ public static class SelectStartingPetPatches
         instance.leaderContainer.Add(leader);
         instance.leaderContainer.TweenChildPositions();
         instance.leaderSelect.Hide();
-        yield return null;
         foreach (var child in OtherPets.OrderBy(_ => Random.Range(0.0f, 1f)))
         {
             _container.TweenChildPosition(child);

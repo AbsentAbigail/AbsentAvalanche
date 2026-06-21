@@ -15,6 +15,7 @@ public class MarshallingLights : ICardBuilder
     {
         return new CardDataBuilder(Absent.Instance)
             .CreateItem(Name, "Marshalling Lights")
+            .NeedsTarget(false)
             .SetDamage(null)
             .SetSprites(
                 Absent.GetSprite("MarshallingLights"),

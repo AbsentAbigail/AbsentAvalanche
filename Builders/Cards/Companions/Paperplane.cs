@@ -15,7 +15,7 @@ public class Paperplane : ICardBuilder
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Absent.Instance)
-            .CreateUnit(Name, "Paper plane")
+            .CreateUnit(Name, "Paper Plane")
             .SetStats(3, 3, 6)
             .SetSprites(
                 Absent.GetSprite("Paperplane"),

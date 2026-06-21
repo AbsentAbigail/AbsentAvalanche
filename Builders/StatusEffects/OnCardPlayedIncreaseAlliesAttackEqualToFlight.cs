@@ -1,5 +1,4 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -20,9 +19,8 @@ public class OnCardPlayedIncreaseAlliesAttackEqualToFlight : IStatusBuilder
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnCardPlayed>(status =>
             {
-                status.effectToApply = Absent.GetStatus("Increase Attack");
+                status.effectToApply = Absent.GetStatus(InstantIncreaseAttackEqualToFlight.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Allies;
-                status.scriptableAmount = new Script<ScriptableCurrentStatus>(script => script.statusType = "flight");
             });
     }
 }

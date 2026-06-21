@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 
@@ -8,6 +9,12 @@ public class StatusEffectInstantRecall : StatusEffectInstant
     
     public override IEnumerator Process()
     {
+        if (AlreadyRecalling(target))
+        {
+            yield return Remove();
+            yield break;
+        }
+        
         if (forceRecall || target.CanRecall())
         {
             var action = new ActionMove(target, References.Player.discardContainer);
@@ -20,5 +27,10 @@ public class StatusEffectInstantRecall : StatusEffectInstant
         }
         
         yield return Remove();
+    }
+
+    private static bool AlreadyRecalling(Entity entity)
+    {
+        return ActionQueue.GetActions().Any(action => action is ActionMove move && move.entity == entity && move.toContainers.Contains(References.Player.discardContainer));
     }
 }

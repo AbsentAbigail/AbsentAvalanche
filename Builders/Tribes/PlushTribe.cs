@@ -84,7 +84,7 @@ public class PlushTribe : IClassBuilder
                  where pool != null
                  select pool)
         {
-            pool.list.RemoveAllWhere(data => data == null || leaderNames.Contains(data.name));
+            pool.list.RemoveAllWhere(data => data.ToString() == "null" || leaderNames.Contains(data.name));
         }
         
         return DataList<CardData>(leaderNames);

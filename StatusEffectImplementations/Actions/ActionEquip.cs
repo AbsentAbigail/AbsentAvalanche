@@ -9,6 +9,8 @@ namespace AbsentAvalanche.StatusEffectImplementations.Actions;
 
 internal class ActionEquip(Entity equipment, Entity target) : PlayAction
 {
+    public readonly Entity equipment = equipment;
+    public readonly Entity target = target;
     private static StatusEffectData[] _illegalStatusEffects = [];
     private static TraitData[] _illegalTraits = [
         Absent.GetTrait("Zoomlin"),

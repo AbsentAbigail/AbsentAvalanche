@@ -25,7 +25,8 @@ public class RescueHelicopter : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenAllyRecalledRecallAlliesAndSnowEnemies.Name)
+                    Absent.SStack(WhenRecalledRecallAllies.Name),
+                    Absent.SStack(WhenRecalledSnowEnemies.Name, 3)
                 ];
             });
     }

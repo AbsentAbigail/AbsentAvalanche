@@ -699,7 +699,6 @@
     <Compile Include="Builders\StatusEffects\InstantAddCharmToInventory.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddRandomPlushToHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantApplyBomEqualToApplierBom.cs" />
-    <Compile Include="Builders\StatusEffects\InstantApplySnowToAllEnemies.cs" />
     <Compile Include="Builders\StatusEffects\InstantCascadingAttack.cs" />
     <Compile Include="Builders\StatusEffects\InstantCascadingAttackAndHealth.cs" />
     <Compile Include="Builders\StatusEffects\InstantCascadingSnow.cs" />
@@ -711,13 +710,13 @@
     <Compile Include="Builders\StatusEffects\InstantDrawAlliesAndApplyZoomlin.cs" />
     <Compile Include="Builders\StatusEffects\InstantGainApplySnow.cs" />
     <Compile Include="Builders\StatusEffects\InstantHealFull.cs" />
+    <Compile Include="Builders\StatusEffects\InstantIncreaseAttackEqualToFlight.cs" />
     <Compile Include="Builders\StatusEffects\InstantNewLeadersGetCharms.cs" />
     <Compile Include="Builders\StatusEffects\InstantPermanentlyDecreaseCounter.cs" />
     <Compile Include="Builders\StatusEffects\InstantPermanentlyGainFrenzy.cs" />
     <Compile Include="Builders\StatusEffects\InstantPermanentlyIncreaseAttack.cs" />
     <Compile Include="Builders\StatusEffects\InstantRecall.cs" />
     <Compile Include="Builders\StatusEffects\InstantRecallAndApplyFrenzy.cs" />
-    <Compile Include="Builders\StatusEffects\InstantRecallAndSnowEnemies.cs" />
     <Compile Include="Builders\StatusEffects\InstantShuffleDeck.cs" />
     <Compile Include="Builders\StatusEffects\InstantSummonFromReserve.cs" />
     <Compile Include="Builders\StatusEffects\InstantSummonHogCosplayInHand.cs" />
@@ -865,7 +864,8 @@
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFreePlay.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFrenzy.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledItTriggersAgainstRandomEnemy.cs" />
-    <Compile Include="Builders\StatusEffects\WhenAllyRecalledRecallAlliesAndSnowEnemies.cs" />
+    <Compile Include="Builders\StatusEffects\WhenRecalledRecallAllies.cs" />
+    <Compile Include="Builders\StatusEffects\WhenRecalledSnowEnemies.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllySnowedCountDownSelf.cs" />
     <Compile Include="Builders\StatusEffects\AfterAllyAttacksApplyCascadingAttack.cs" />
     <Compile Include="Builders\StatusEffects\WhenAnAllyGainsAPositiveStatusShareHalfToSelf.cs" />
@@ -1012,6 +1012,7 @@
     <Compile Include="StatusEffectImplementations\Actions\ActionEquip.cs" />
     <Compile Include="StatusEffectImplementations\Actions\ActionUpdateText.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectAbduct.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectApplyXInstantScriptableTimesCount.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectFlight.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectFreePlay.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantAddAttackEffect.cs" />
