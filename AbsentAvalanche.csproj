@@ -439,6 +439,7 @@
     <Compile Include="Builders\Cards\Companions\FighterJet.cs" />
     <Compile Include="Builders\Cards\Companions\FrozenFlame.cs" />
     <Compile Include="Builders\Cards\Companions\FusilladeCat.cs" />
+    <Compile Include="Builders\Cards\Companions\GrinkNova.cs" />
     <Compile Include="Builders\Cards\Companions\Hearth.cs" />
     <Compile Include="Builders\Cards\Companions\Jerry.cs" />
     <Compile Include="Builders\Cards\Companions\Kiki.cs" />
@@ -466,6 +467,7 @@
     <Compile Include="Builders\Cards\Companions\Patch.cs" />
     <Compile Include="Builders\Cards\Companions\Pengu.cs" />
     <Compile Include="Builders\Cards\Companions\CatcusZoom.cs" />
+    <Compile Include="Builders\Cards\Companions\PiggybankSeal.cs" />
     <Compile Include="Builders\Cards\Companions\PrivateJet.cs" />
     <Compile Include="Builders\Cards\Companions\Puppo.cs" />
     <Compile Include="Builders\Cards\Companions\RescueHelicopter.cs" />
@@ -485,6 +487,7 @@
     <Compile Include="Builders\Cards\Companions\Tiramisu.cs" />
     <Compile Include="Builders\Cards\Companions\UnboundFlame.cs" />
     <Compile Include="Builders\Cards\Companions\Val.cs" />
+    <Compile Include="Builders\Cards\Companions\WitchSherba.cs" />
     <Compile Include="Builders\Cards\Items\Avalanche.cs" />
     <Compile Include="Builders\Cards\Items\Avarice.cs" />
     <Compile Include="Builders\Cards\Items\BiglooCosplay.cs" />
@@ -706,6 +709,7 @@
     <Compile Include="Builders\StatusEffects\InstantDealDamage.cs" />
     <Compile Include="Builders\StatusEffects\InstantDealDamageEqualToAttackToRandomEnemyInRow.cs" />
     <Compile Include="Builders\StatusEffects\InstantDealDamageEqualToFlightToEnemiesInRow.cs" />
+    <Compile Include="Builders\StatusEffects\InstantDealDamageEqualToFrost.cs" />
     <Compile Include="Builders\StatusEffects\InstantDoNothing.cs" />
     <Compile Include="Builders\StatusEffects\InstantDrawAlliesAndApplyZoomlin.cs" />
     <Compile Include="Builders\StatusEffects\InstantGainApplySnow.cs" />
@@ -729,6 +733,7 @@
     <Compile Include="Builders\StatusEffects\OnCardPlayedAddRandomPlushToHand.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedApplyShellToAlliesInRow.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedBoostSelf2.cs" />
+    <Compile Include="Builders\StatusEffects\OnCardPlayedDealDamageToAllFrostedEnemiesEqualToFrost.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedGainBom.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedGainCascadingAttack.cs" />
     <Compile Include="Builders\StatusEffects\Equip.cs" />
@@ -854,6 +859,7 @@
     <Compile Include="Builders\StatusEffects\WhenAllyAheadGainsStatusApplyItToAllies.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyGainsNegativeStatusApplyToSelfInstead.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHealedCleanse.cs" />
+    <Compile Include="Builders\StatusEffects\WhenAllyHitApplyFrostToAttacker.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHitCountDown.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHitGainEqualSpice.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHitGainFrenzy.cs" />
@@ -924,6 +930,7 @@
     <Compile Include="Builders\StatusEffects\WhileActiveAlliesSnowFrostResist.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveCountDownEtherealWhenDrawn.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveGainFrenzyEqualToBlock.cs" />
+    <Compile Include="Builders\StatusEffects\WhileActiveHasFrenzyEqualToCurrentCounter.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveWombatPartyHaveMultihit.cs" />
     <Compile Include="Builders\StatusEffects\WhileInHandApplyOverburnToRandomEnemy.cs" />
     <Compile Include="Builders\Traits\Combo.cs" />
@@ -998,6 +1005,7 @@
     <Compile Include="Scriptables\CardScripts\CardScriptReplaceGrandmaster.cs" />
     <Compile Include="Scriptables\CardScripts\CardScriptSarcophagus.cs" />
     <Compile Include="Scriptables\CardScripts\CardScriptTargetModeBasic.cs" />
+    <Compile Include="Scriptables\ScriptableAmounts\ScriptableCurrentCounter.cs" />
     <Compile Include="Scriptables\ScriptableAmounts\ScriptableMaxHealth.cs" />
     <Compile Include="Scriptables\ScriptableAmounts\ScriptableTargetsOnBoard.cs" />
     <Compile Include="Scriptables\ScriptableAmounts\ScriptableTurnCount.cs" />

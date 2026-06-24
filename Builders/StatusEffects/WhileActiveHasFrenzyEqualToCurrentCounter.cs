@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Helpers;
+using AbsentAvalanche.Scriptables.ScriptableAmounts;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -7,7 +8,7 @@ using JetBrains.Annotations;
 namespace AbsentAvalanche.Builders.StatusEffects;
 
 [UsedImplicitly]
-public class WhileActiveGainFrenzyEqualToBlock : IStatusBuilder
+public class WhileActiveHasFrenzyEqualToCurrentCounter : IStatusBuilder
 {
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 
@@ -15,7 +16,7 @@ public class WhileActiveGainFrenzyEqualToBlock : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectWhileActiveX>(Name)
-            .WithText($"Has {Absent.VanillaKeywordTag("frenzy")} equal to {Absent.VanillaKeywordTag("block")}")
+            .WithText($"Has bonus {Absent.VanillaKeywordTag("frenzy")} equal to {Absent.VanillaKeywordTag("counter")}")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectWhileActiveX>(status =>
@@ -23,9 +24,8 @@ public class WhileActiveGainFrenzyEqualToBlock : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("MultiHit");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
 
-                status.scriptableAmount = new Script<ScriptableCurrentStatus>(
-                    "Current Block",
-                    s => s.statusType = Absent.GetStatus("Block").type
+                status.scriptableAmount = new Script<ScriptableCurrentCounter>(
+                    "Current Counter", null
                 );
             });
     }
