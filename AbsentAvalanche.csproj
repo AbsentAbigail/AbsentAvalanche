@@ -665,6 +665,7 @@
     <Compile Include="Builders\Keywords\KeywordColours.cs" />
     <Compile Include="Builders\Keywords\Panic.cs" />
     <Compile Include="Builders\Keywords\Pilot.cs" />
+    <Compile Include="Builders\Keywords\PlushBag.cs" />
     <Compile Include="Builders\Keywords\RainbowFluff.cs" />
     <Compile Include="Builders\Keywords\Resist.cs" />
     <Compile Include="Builders\Keywords\Rest.cs" />
