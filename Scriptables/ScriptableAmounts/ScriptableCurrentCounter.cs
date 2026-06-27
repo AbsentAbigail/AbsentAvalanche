@@ -5,7 +5,7 @@ namespace AbsentAvalanche.Scriptables.ScriptableAmounts;
 internal class ScriptableCurrentCounter : ScriptableAmount
 {
     public float multiplier = 1f;
-    public bool roundUp;
+    public bool roundUp = false;
 
     public override int Get(Entity entity)
     {

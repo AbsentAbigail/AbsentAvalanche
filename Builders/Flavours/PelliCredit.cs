@@ -48,6 +48,7 @@ public class PelliCredit : IKeywordBuilder
             .AddToFlavours(JumpStart.Name)
             .AddToFlavours(MarshallingLights.Name)
             .AddToFlavours(StoppedClock.Name)
-            .AddToFlavours(Uppies.Name);
+            .AddToFlavours(Uppies.Name)
+            ;
     }
 }

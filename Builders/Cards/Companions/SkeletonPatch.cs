@@ -10,16 +10,16 @@ using UnityEngine;
 namespace AbsentAvalanche.Builders.Cards.Companions;
 
 [UsedImplicitly]
-public class PiggybankSeal : ILeaderBuilder
+public class SkeletonPatch : ILeaderBuilder
 {
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Absent.Instance)
-            .CreateUnit(Name, "Piggybank Seal")
-            .SetStats(5, 0, 5)
+            .CreateUnit(Name, "Skeleton Patch")
+            .SetStats(8, null, 4)
             .SetSprites(
-                Absent.GetSprite("PiggybankSeal"),
-                Absent.GetSprite("PiggybankSealBG"))
+                Absent.GetSprite("SkeletonPatch"),
+                Absent.GetSprite("SkeletonPatchBG"))
             .WithFlavour(Flavour)
             .WithPools(CardPools.GeneralUnits)
             .DropsBling(4)
@@ -27,21 +27,18 @@ public class PiggybankSeal : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack("When Hit Apply Gold To Attacker (No Ping)", 5)
-                ];
-                card.traits =
-                [
-                    Absent.TStack("Greed")
+                    Absent.SStack("When Hit Gain Teeth To Self", 2),
+                    Absent.SStack(OnCardPlayedHealEqualToTeeth.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Do you wanna save some money?"
+                    "My friends helped me dig these bones up"
                 ];
             });
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-    public const string Flavour = "Give him your money, he'll take good care of it";
+    public const string Flavour = "Throw the dog a bone, would you?";
 
     public bool LeaderExclusive => false;
 
@@ -49,7 +46,7 @@ public class PiggybankSeal : ILeaderBuilder
 
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
-        healthRange = new Vector2Int(-2, 1),
-        counterRange = new Vector2Int(-1, 0)
+        healthRange = new Vector2Int(-2, 2),
+        counterRange = new Vector2Int(-1, 1)
     };
 }

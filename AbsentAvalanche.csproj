@@ -414,6 +414,7 @@
     <Compile Include="Builders\Cards\Companions\BigBroWombat.cs" />
     <Compile Include="Builders\Cards\Companions\Blackfisk.cs" />
     <Compile Include="Builders\Cards\Companions\Blahaj.cs" />
+    <Compile Include="Builders\Cards\Companions\BomCuddles.cs" />
     <Compile Include="Builders\Cards\Companions\Bubbles.cs" />
     <Compile Include="Builders\Cards\Companions\BubblesAndCuddles.cs" />
     <Compile Include="Builders\Cards\Companions\BubblesAndKiki.cs" />
@@ -431,6 +432,7 @@
     <Compile Include="Builders\Cards\Companions\CuddlePip.cs" />
     <Compile Include="Builders\Cards\Companions\CuddlePipsqueak.cs" />
     <Compile Include="Builders\Cards\Companions\Cuddles.cs" />
+    <Compile Include="Builders\Cards\Companions\Doodle.cs" />
     <Compile Include="Builders\Cards\Companions\Elsta.cs" />
     <Compile Include="Builders\Cards\Companions\Emerald.cs" />
     <Compile Include="Builders\Cards\Companions\EmeraldAndSally.cs" />
@@ -478,6 +480,7 @@
     <Compile Include="Builders\Cards\Companions\Seaplane.cs" />
     <Compile Include="Builders\Cards\Companions\Sherba.cs" />
     <Compile Include="Builders\Cards\Companions\SherbaAndCuddles.cs" />
+    <Compile Include="Builders\Cards\Companions\SkeletonPatch.cs" />
     <Compile Include="Builders\Cards\Companions\SlothPillow.cs" />
     <Compile Include="Builders\Cards\Companions\Snowflake.cs" />
     <Compile Include="Builders\Cards\Companions\Splash.cs" />
@@ -563,6 +566,7 @@
     <Compile Include="Builders\Flavours\Bam.cs" />
     <Compile Include="Builders\Flavours\Bamboozle.cs" />
     <Compile Include="Builders\Flavours\Blanket.cs" />
+    <Compile Include="Builders\Flavours\BomCuddles.cs" />
     <Compile Include="Builders\Flavours\Boozle.cs" />
     <Compile Include="Builders\Flavours\Bubbles.cs" />
     <Compile Include="Builders\Flavours\BubblesAndCuddles.cs" />
@@ -574,6 +578,7 @@
     <Compile Include="Builders\Flavours\CatcusZoom.cs" />
     <Compile Include="Builders\Flavours\Coral.cs" />
     <Compile Include="Builders\Flavours\Cuddles.cs" />
+    <Compile Include="Builders\Flavours\Doodle.cs" />
     <Compile Include="Builders\Flavours\Elsta.cs" />
     <Compile Include="Builders\Flavours\Emerald.cs" />
     <Compile Include="Builders\Flavours\EmeraldAndSally.cs" />
@@ -582,6 +587,7 @@
     <Compile Include="Builders\Flavours\FrozenFlame.cs" />
     <Compile Include="Builders\Flavours\FusilladeCat.cs" />
     <Compile Include="Builders\Flavours\GoolWrenade.cs" />
+    <Compile Include="Builders\Flavours\GrinkNova.cs" />
     <Compile Include="Builders\Flavours\HappyDreams.cs" />
     <Compile Include="Builders\Flavours\Headpat.cs" />
     <Compile Include="Builders\Flavours\Hearth.cs" />
@@ -607,6 +613,7 @@
     <Compile Include="Builders\Flavours\PelliCredit.cs" />
     <Compile Include="Builders\Flavours\Pengu.cs" />
     <Compile Include="Builders\Flavours\Pengulina.cs" />
+    <Compile Include="Builders\Flavours\PiggybankSeal.cs" />
     <Compile Include="Builders\Flavours\PillowFortress.cs" />
     <Compile Include="Builders\Flavours\PlushBag.cs" />
     <Compile Include="Builders\Flavours\Puppo.cs" />
@@ -617,6 +624,7 @@
     <Compile Include="Builders\Flavours\ForgottenBox.cs" />
     <Compile Include="Builders\Flavours\Sherba.cs" />
     <Compile Include="Builders\Flavours\SherbaAndCuddles.cs" />
+    <Compile Include="Builders\Flavours\SkeletonPatch.cs" />
     <Compile Include="Builders\Flavours\SlothPillow.cs" />
     <Compile Include="Builders\Flavours\Snowflake.cs" />
     <Compile Include="Builders\Flavours\SpookyCredit.cs" />
@@ -626,6 +634,7 @@
     <Compile Include="Builders\Flavours\Tiramisu.cs" />
     <Compile Include="Builders\Flavours\UnboundFlame.cs" />
     <Compile Include="Builders\Flavours\MegamarineCredit.cs" />
+    <Compile Include="Builders\Flavours\WitchSherba.cs" />
     <Compile Include="Builders\GameModifiers\PengulinaBell.cs" />
     <Compile Include="Builders\GameModifiers\PlushBagBell.cs" />
     <Compile Include="Builders\GameModifiers\PushedLimitsBell.cs" />
@@ -702,6 +711,7 @@
     <Compile Include="Builders\StatusEffects\InstantAddCharmToInventory.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddRandomPlushToHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantApplyBomEqualToApplierBom.cs" />
+    <Compile Include="Builders\StatusEffects\InstantApplyBomToRandomEnemyThreeTimes.cs" />
     <Compile Include="Builders\StatusEffects\InstantCascadingAttack.cs" />
     <Compile Include="Builders\StatusEffects\InstantCascadingAttackAndHealth.cs" />
     <Compile Include="Builders\StatusEffects\InstantCascadingSnow.cs" />
@@ -737,6 +747,7 @@
     <Compile Include="Builders\StatusEffects\OnCardPlayedGainBom.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedGainCascadingAttack.cs" />
     <Compile Include="Builders\StatusEffects\Equip.cs" />
+    <Compile Include="Builders\StatusEffects\OnCardPlayedHealEqualToTeeth.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedIncreaseAlliesAttackEqualToFlight.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedRecallAllAlliedCompanions.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedRecallAllyBehindAndApplyFrenzy.cs" />
@@ -870,6 +881,7 @@
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFreePlay.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFrenzy.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledItTriggersAgainstRandomEnemy.cs" />
+    <Compile Include="Builders\StatusEffects\WhenHitApplyBomToRandomEnemyThreeTimes.cs" />
     <Compile Include="Builders\StatusEffects\WhenRecalledRecallAllies.cs" />
     <Compile Include="Builders\StatusEffects\WhenRecalledSnowEnemies.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllySnowedCountDownSelf.cs" />
@@ -1020,6 +1032,7 @@
     <Compile Include="StatusEffectImplementations\Actions\ActionEquip.cs" />
     <Compile Include="StatusEffectImplementations\Actions\ActionUpdateText.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectAbduct.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectApplyXInstantMultipleTimes.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectApplyXInstantScriptableTimesCount.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectFlight.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectFreePlay.cs" />

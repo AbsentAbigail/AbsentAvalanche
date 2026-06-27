@@ -10,16 +10,16 @@ using UnityEngine;
 namespace AbsentAvalanche.Builders.Cards.Companions;
 
 [UsedImplicitly]
-public class PiggybankSeal : ILeaderBuilder
+public class Doodle : ILeaderBuilder
 {
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Absent.Instance)
-            .CreateUnit(Name, "Piggybank Seal")
-            .SetStats(5, 0, 5)
+            .CreateUnit(Name, "Doodle")
+            .SetStats(3, 1, 6)
             .SetSprites(
-                Absent.GetSprite("PiggybankSeal"),
-                Absent.GetSprite("PiggybankSealBG"))
+                Absent.GetSprite("Doodle"),
+                Absent.GetSprite("DoodleBG"))
             .WithFlavour(Flavour)
             .WithPools(CardPools.GeneralUnits)
             .DropsBling(4)
@@ -27,29 +27,25 @@ public class PiggybankSeal : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack("When Hit Apply Gold To Attacker (No Ping)", 5)
-                ];
-                card.traits =
-                [
-                    Absent.TStack("Greed")
+                    Absent.SStack("Hit All Enemies")
                 ];
                 card.greetMessages =
                 [
-                    "Do you wanna save some money?"
+                    "°-°"
                 ];
             });
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-    public const string Flavour = "Give him your money, he'll take good care of it";
+    public const string Flavour = "pcrowDoodle";
 
     public bool LeaderExclusive => false;
 
     public bool InPool => true;
-
+    
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
-        healthRange = new Vector2Int(-2, 1),
-        counterRange = new Vector2Int(-1, 0)
+        healthRange = new Vector2Int(-1, 1),
+        counterRange =  new Vector2Int(-1, 1),
     };
 }
