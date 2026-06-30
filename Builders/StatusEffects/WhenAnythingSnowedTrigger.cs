@@ -15,8 +15,7 @@ public class WhenAnythingSnowedTrigger : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectApplyXWhenYAppliedTo>(Name)
-            .WithText(
-                "Trigger when anything is <keyword=snow>'d")
+            .WithText("Trigger when anything is <keyword=snow>'d")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .IsReaction()
