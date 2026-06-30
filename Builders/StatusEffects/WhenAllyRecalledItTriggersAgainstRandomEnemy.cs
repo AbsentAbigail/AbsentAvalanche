@@ -25,6 +25,8 @@ public class WhenAllyRecalledItTriggersAgainstRandomEnemy : IStatusBuilder
 
                 status.allies = true;
                 status.onBoard = true;
+
+                status.eventPriority = -1;
             });
     }
 }

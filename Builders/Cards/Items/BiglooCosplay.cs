@@ -16,7 +16,10 @@ public class BiglooCosplay : ICardBuilder
         return new CardDataBuilder(Absent.Instance)
             .CreateItem(Name, "Bigloo Cosplay")
             .SetDamage(null)
-            .SetSprites(Absent.GetSprite("BiglooCosplay"), Absent.GetSprite("BiglooCosplayBG"))
+            .SetSprites(
+                Absent.GetSprite("BiglooCosplay"),
+                Absent.GetSprite("BiglooCosplayBG"))
+            .WithPools(CardPools.GeneralItems)
             .WithValue(50)
             .CanPlayOnHand(false)
             .SubscribeToAfterAllBuildEvent(card =>

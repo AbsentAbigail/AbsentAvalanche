@@ -677,6 +677,7 @@
     <Compile Include="Builders\Keywords\KeywordColours.cs" />
     <Compile Include="Builders\Keywords\Panic.cs" />
     <Compile Include="Builders\Keywords\Pilot.cs" />
+    <Compile Include="Builders\Keywords\PlushBag.cs" />
     <Compile Include="Builders\Keywords\RainbowFluff.cs" />
     <Compile Include="Builders\Keywords\Resist.cs" />
     <Compile Include="Builders\Keywords\Rest.cs" />
@@ -876,6 +877,7 @@
     <Compile Include="Builders\StatusEffects\WhenAllyHitGainFrenzy.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHitIncreaseEffects.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHealedProgressExplorer.cs" />
+    <Compile Include="Builders\StatusEffects\WhenAnythingSnowedTrigger.cs" />
     <Compile Include="Builders\StatusEffects\WhenCompanionKilledInsteadRecallThem.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledDraw.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFreePlay.cs" />

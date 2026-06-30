@@ -1,5 +1,4 @@
-﻿using AbsentAvalanche.Builders.Cards.Items;
-using AbsentAvalanche.Builders.Interfaces;
+﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Keywords;
 using AbsentAvalanche.GameSystems;
 using AbsentAvalanche.Helpers;
@@ -7,6 +6,7 @@ using AbsentAvalanche.Scriptables.Scripts;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
+using PlushBag = AbsentAvalanche.Builders.Keywords.PlushBag;
 
 namespace AbsentAvalanche.Builders.GameModifiers;
 
@@ -22,7 +22,7 @@ public class PlushBagBell : IGameModifierBuilder
             .WithDescription(
                 $"""
                 <Companions> don't follow you into battle
-                Gain a crowned {Absent.CardTag(PlushBag.Name)}
+                Gain a crowned {Absent.KeywordTag(PlushBag.Name)}
                 <color=#{KeywordColours.Gray.ToHexRGB()}>(Sprites by Pelli)
                 """)
             .WithBellSprite(Absent.GetBellSprite("PlushBagBell", 0.9f))
