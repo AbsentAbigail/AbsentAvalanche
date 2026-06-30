@@ -31,4 +31,11 @@ public static class Extensions
         ];
         return keywordDataBuilder;
     }
+
+    public static StatusEffectDataBuilder IsReaction(this StatusEffectDataBuilder statusEffectDataBuilder)
+    {
+        return statusEffectDataBuilder
+            .WithIsReaction(true)
+            .FreeModify(status => status.descColorHex = "F99C61");
+    }
 }

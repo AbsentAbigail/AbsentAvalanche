@@ -18,7 +18,7 @@ public class Nova : ILeaderBuilder
                 "TargetModeBasic",
                 "Blood Profile Normal",
                 "SwayAnimationProfile")
-            .SetStats(5, 1, 2)
+            .SetStats(6, 2)
             .SetSprites(
                 Absent.GetSprite("Nova"),
                 Absent.GetSprite("NovaBG"))
@@ -29,8 +29,8 @@ public class Nova : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack("When Snow Applied To Self Gain Equal Attack"),
-                    Absent.SStack(HitAllSnowed.Name)
+                    Absent.SStack(HitAllSnowed.Name),
+                    Absent.SStack(WhenAnythingSnowedTrigger.Name),
                 ];
                 card.greetMessages =
                 [

@@ -860,6 +860,7 @@
     <Compile Include="Builders\StatusEffects\WhenAllyHitGainFrenzy.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHitIncreaseEffects.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyHealedProgressExplorer.cs" />
+    <Compile Include="Builders\StatusEffects\WhenAnythingSnowedTrigger.cs" />
     <Compile Include="Builders\StatusEffects\WhenCompanionKilledInsteadRecallThem.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledDraw.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFreePlay.cs" />
