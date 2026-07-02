@@ -1,4 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -18,10 +19,6 @@ public class TriggerWhenAllyBehindTriggers : IStatusBuilder
             .WithText("Trigger when ally behind attacks")
             .WithStackable(true)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenAllyBehindTriggers>(status =>
-            {
-                status.isReaction = true;
-                status.descColorHex = "F99C61";
-            });
+            .IsReaction();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.Builders.Cards.Items;
 using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -19,10 +20,9 @@ public class TriggerAgainstTargetWhenMissileAttacks : IStatusBuilder
             .WithText("Trigger against the target when a {0} is played")
             .WithStackable(true)
             .WithCanBeBoosted(false)
+            .IsReaction()
             .SubscribeToAfterAllBuildEvent<StatusEffectTriggerWhenCardIsPlayed>(status =>
             {
-                status.isReaction = true;
-                status.descColorHex = "F99C61";
                 status.whenCardsPlayed = [Absent.GetCard(Missile.Name)];
                 status.textInsert = Absent.CardTag(Missile.Name);
             });

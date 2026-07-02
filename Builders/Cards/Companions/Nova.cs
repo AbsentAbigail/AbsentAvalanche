@@ -40,7 +40,7 @@ public class Nova : ILeaderBuilder
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-    public const string Flavour = "Smol rhino friend with big love";
+    public const string Flavour = "Loves to play in the snow";
 
     public bool LeaderExclusive => false;
 

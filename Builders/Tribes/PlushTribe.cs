@@ -55,6 +55,7 @@ public class PlushTribe : IClassBuilder
                 tribe.rewardPools =
                 [
                     UnitPool(),
+                    LongCatPool(),
                     ItemPool(),
                     CharmPool(),
                     Extensions.GetRewardPool("GeneralModifierPool"),
@@ -92,7 +93,7 @@ public class PlushTribe : IClassBuilder
     
     public static RewardPool UnitPool()
     {
-        return CreateRewardPool(UnitPoolName, RewardPool.Type.Units.ToString(),
+        return CreateRewardPool(UnitPoolName, nameof(RewardPool.Type.Units),
         [
             .. DataList<CardData>(
                 "BloodBoy", // Berry Sis
@@ -117,9 +118,20 @@ public class PlushTribe : IClassBuilder
         ]);
     }
 
+    public static RewardPool LongCatPool()
+    {
+        // Exclude Long Cat from Pilot Tribe
+        return CreateRewardPool(UnitPoolName, nameof(RewardPool.Type.Units),
+        [
+            .. DataList<CardData>(
+                LongCat.Name
+            )
+        ]);
+    }
+
     public static RewardPool ItemPool()
     {
-        return CreateRewardPool(ItemPoolName, RewardPool.Type.Items.ToString(),
+        return CreateRewardPool(ItemPoolName, nameof(RewardPool.Type.Items),
         [
             .. DataList<CardData>(
                 "PomDispenser", // Gacha Pomper
@@ -156,7 +168,7 @@ public class PlushTribe : IClassBuilder
 
     public static RewardPool CharmPool()
     {
-        return CreateRewardPool(CharmPoolName, RewardPool.Type.Charms.ToString(),
+        return CreateRewardPool(CharmPoolName, nameof(RewardPool.Type.Charms),
         [
             .. DataList<CardUpgradeData>(
                 "CardUpgradeAcorn",

@@ -519,6 +519,7 @@
     <Compile Include="Builders\Cards\Items\Headpat.cs" />
     <Compile Include="Builders\Cards\Items\HealthPotion.cs" />
     <Compile Include="Builders\Cards\Items\HeavySmash.cs" />
+    <Compile Include="Builders\Cards\Items\IceLanternCosplay.cs" />
     <Compile Include="Builders\Cards\Items\IceShard.cs" />
     <Compile Include="Builders\Cards\Items\Imagination.cs" />
     <Compile Include="Builders\Cards\Items\JumpStart.cs" />
@@ -546,6 +547,7 @@
     <Compile Include="Builders\Cards\Items\TrainingSword.cs" />
     <Compile Include="Builders\Cards\Items\HogCosplay.cs" />
     <Compile Include="Builders\Cards\Items\Uppies.cs" />
+    <Compile Include="Builders\Cards\Items\VeiledLadyCosplay.cs" />
     <Compile Include="Builders\Cards\Items\VengefulAxe.cs" />
     <Compile Include="Builders\Cards\Items\WombatPoop.cs" />
     <Compile Include="Builders\Cards\Items\WoolGrenade.cs" />
@@ -883,6 +885,7 @@
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFreePlay.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledGainFrenzy.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyRecalledItTriggersAgainstRandomEnemy.cs" />
+    <Compile Include="Builders\StatusEffects\WhenEquippedGainScrap.cs" />
     <Compile Include="Builders\StatusEffects\WhenHitApplyBomToRandomEnemyThreeTimes.cs" />
     <Compile Include="Builders\StatusEffects\WhenRecalledRecallAllies.cs" />
     <Compile Include="Builders\StatusEffects\WhenRecalledSnowEnemies.cs" />
@@ -1079,6 +1082,7 @@
     <Compile Include="StatusEffectImplementations\StatusEffectInstantChangeStatsPermanent.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantChargeBell.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantCountDownStatus.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectInstantCountUpStatus.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantDealDamage.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantDoNothing.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantDrawAndApplyX.cs" />

@@ -22,7 +22,6 @@ public class LongCat : ILeaderBuilder
                 Absent.GetSprite("LongCat"),
                 Absent.GetSprite("LongCatBG"))
             .WithFlavour(Flavour)
-            .WithPools(CardPools.GeneralUnits)
             .DropsBling(4)
             .SubscribeToAfterAllBuildEvent(card =>
             {

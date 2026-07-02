@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Linq;
+using UnityEngine;
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 
-public class StatusEffectInstantCountDownStatus : StatusEffectInstant
+public class StatusEffectInstantCountUpStatus : StatusEffectInstant
 {
     public string[] types;
     public bool negative;
     public bool positive;
-    public bool remove;
 
     public override IEnumerator Process()
     {
@@ -20,21 +20,15 @@ public class StatusEffectInstantCountDownStatus : StatusEffectInstant
 
         foreach (var status in matchingStatus.ToArray())
         {
-            yield return CountDown(status);
+            yield return CountUp(status);
         }
 
         yield return Remove();
     }
 
-    private IEnumerator CountDown(StatusEffectData status)
+    private IEnumerator CountUp(StatusEffectData status)
     {
-        if (remove)
-        {
-            yield return status.Remove();
-        }
-        else
-        {
-            yield return status.CountDown(target, count);
-        }
+        yield return StatusEffectSystem.Apply(target, applier, status, count);
+        yield return new WaitForSeconds(0.1f);
     }
 }
