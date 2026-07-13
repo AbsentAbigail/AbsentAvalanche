@@ -29,11 +29,19 @@ public class StatusEffectInstantChangeStatsPermanent : StatusEffectInstant
         _change = GetAmount() * (increase ? 1 : -1);
 
         if (health)
+        {
             ChangeHealth();
+        }
+
         if (damage)
+        {
             ChangeDamage();
+        }
+
         if (counter)
+        {
             ChangeCounter();
+        }
 
         Campaign.PromptSave();
         yield return Remove();

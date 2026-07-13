@@ -1,4 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -24,6 +25,10 @@ public class Abduct : IStatusBuilder
             {
                 status.effectToApply = Absent.GetStatus("Snow");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.targetConstraints =
+                [
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>()
+                ];
             });
     }
 }

@@ -37,20 +37,28 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
 
         var cards = GetCards();
 
-        cards.Do(c =>
+        cards.Do(card =>
         {
-            if (c.hasHealth)
-                c.hp += healthChange;
-            if (c.hasAttack)
-                c.damage += damageChange;
-            if (c.counter > 0)
-                c.counter += counterChange;
-            c.startWithEffects =
+            if (card.hasHealth)
+            {
+                card.hp += healthChange;
+            }
+
+            if (card.hasAttack)
+            {
+                card.damage += damageChange;
+            }
+
+            if (card.counter > 0)
+            {
+                card.counter += counterChange;
+            }
+            card.startWithEffects =
             [
-                ..c.startWithEffects,
+                ..card.startWithEffects,
                 ..startWithEffects
             ];
-            c.startWithEffects.Do(s =>
+            card.startWithEffects.Do(s =>
             {
                 replaceEffects?.Where(r => r[0].data.name == s.data.name).Do(r =>
                 {
@@ -59,14 +67,17 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 });
             });
 
-            c.SetCustomData("absent.original", target.data.id);
+            card.SetCustomData("absent.original", target.data.id);
         });
 
         var originalCardType = target.data.cardType;
         if (CheckCardType(originalCardType))
+        {
             cards.Do(c => c.cardType = originalCardType);
+        }
 
         if (target.owner == Battle.instance.enemy)
+        {
             cards.Do(c =>
             {
                 c.cardType = c.cardType.name switch
@@ -76,6 +87,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                     _ => c.cardType
                 };
             });
+        }
 
         if (target.data.cardType == Absent.GetCardType("BossSmall") && bossTransform != null &&
             bossTransform.data != null)
@@ -91,7 +103,9 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         var targetCopy = target.data.InstantiateKeepName();
         var baseCard = Absent.GetCard(target.name);
         foreach (var upgrade in targetCopy.upgrades.ToArray().Reverse())
+        {
             upgrade.UnAssign(targetCopy);
+        }
 
         var healthDiff = targetCopy.hp - baseCard.hp;
         var damageDiff = targetCopy.damage - baseCard.damage;
@@ -102,11 +116,19 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         foreach (var card in cards)
         {
             if (card.hasHealth)
+            {
                 card.hp = Math.Max(1, card.hp + healthDiff);
+            }
+
             if (card.hasAttack)
+            {
                 card.damage += damageDiff;
+            }
+
             if (card.counter > 0)
+            {
                 card.counter = Math.Max(1, card.counter + counterDiff);
+            }
         }
 
         var action = new ActionChangeForm(target, cards, animation)
@@ -128,8 +150,11 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         cards.Do(card =>
         {
             card.charmSlots = target.data.charmSlots;
-            foreach (var upgrade in upgrades.Where(upgrade => upgrade.type == CardUpgradeData.Type.Crown || upgrade.CanAssign(card)))
+            foreach (var upgrade in upgrades.Where(upgrade =>
+                         upgrade.type == CardUpgradeData.Type.Crown || upgrade.CanAssign(card)))
+            {
                 upgrade.Clone().Assign(card);
+            }
         });
     }
 
@@ -160,7 +185,9 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
     private IEnumerator Text(NoTargetType noTargetType)
     {
         if (!NoTargetTextSystem.Exists())
+        {
             yield break;
+        }
 
         yield return NoTargetTextSystem.Run(target, noTargetType);
     }

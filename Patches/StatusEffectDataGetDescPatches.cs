@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using AbsentAvalanche.Builders.StatusEffects;
+using AbsentAvalanche.Helpers;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -9,15 +10,22 @@ namespace AbsentAvalanche.Patches;
 public class StatusEffectDataGetDescPatches
 {
     private static readonly string BossExplorerEffectName = Absent.PrefixGuid(ExplorerDefeatBossFight.Name);
+    private static readonly string InvitationEffectName = Absent.PrefixGuid(Invitation.Name);
     
     [UsedImplicitly]
     public static void Prefix(StatusEffectData __instance)
     {
-        if (__instance.name != BossExplorerEffectName)
+        ExplorerLilGuy(__instance);
+        MailpuppySam(__instance);
+    }
+
+    private static void ExplorerLilGuy(StatusEffectData instance)
+    {
+        if (instance.name != BossExplorerEffectName)
         {
             return;
         }
-        __instance.textInsert = "Unknown";
+        instance.textInsert = "Unknown";
         
         if (Campaign.instance is null)
         {
@@ -46,8 +54,25 @@ public class StatusEffectDataGetDescPatches
             }
             var textInsert = $"<{battleData.nameRef?.GetLocalizedString()}>";
 
-            __instance.textInsert = textInsert;
+            instance.textInsert = textInsert;
             return;
         }
+    }
+
+    private static void MailpuppySam(StatusEffectData instance)
+    {
+        if (instance.name != InvitationEffectName)
+        {
+            return;
+        }
+        instance.textInsert = "no one...";
+
+        var invitationTarget = instance.target.data.GetCustomDataOrNull("absent.invitation") as string;
+        if (invitationTarget.IsNullOrEmpty())
+        {
+            return;
+        }
+
+        instance.textInsert = $"<card={invitationTarget}>";
     }
 }

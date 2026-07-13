@@ -56,8 +56,6 @@ public static class CombineCombos
         var combineCardSystem = Object.FindObjectOfType<CombineCardSystem>(true);
         combineCardSystem.enabled = true;
         combineCardSystem.combos = combineCardSystem.combos.AddRangeToArray(Combos);
-
-        GameObject.Find("Systems")?.AddComponent<ChargeRedrawBellSystem>();
     }
 
     private static CombineCardSystem.Combo[] LeaderCombo(string card1, string card2, string resultingCardName)

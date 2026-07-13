@@ -15,7 +15,7 @@ public class InstantCountDownSnowFrost : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectInstantCountDownStatus>(Name)
-            .WithStackable(true)
+            .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantCountDownStatus>(status =>
             {

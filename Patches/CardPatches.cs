@@ -46,7 +46,9 @@ public class CardPatches
         cardData.startWithEffects.Do(stack =>
         {
             if (stack.data.name != SarcophagusEffectName)
+            {
                 return;
+            }
             var stackData = (StatusEffectApplyX)stack.data;
             var insertCard = ((StatusEffectInstantSummon)stackData.effectToApply)
                 .targetSummon.summonCard;

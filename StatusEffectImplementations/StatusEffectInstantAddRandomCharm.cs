@@ -29,7 +29,9 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
     private CardUpgradeData GetCharm()
     {
         if (customList is { Length: > 0 })
+        {
             return customList.RandomItem();
+        }
 
         var predicate1 = Absent.GetStatusOf<StatusEffectInstantAddRandomCharm>(name).predicate;
 
@@ -57,7 +59,9 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
 
         var deckCopy = inventory.deck.FirstOrDefault(card => card.id == target.data.id);
         if (deckCopy == null)
+        {
             return;
+        }
         charm.Assign(deckCopy);
         LogHelper.Log($"Assigned [{charm.name}] to [{target.name}] in deck");
     }

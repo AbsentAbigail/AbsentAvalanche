@@ -1,4 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -15,11 +16,16 @@ public class TemporarySafeZoomlin : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Absent.Instance)
             .Create<StatusEffectSafeTemporaryTrait>(Name)
-            .WithStackable(true)
+            .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectSafeTemporaryTrait>(status =>
             {
                 status.trait = Absent.GetTrait("Zoomlin");
+                status.targetConstraints =
+                [
+                    TargetConstraintHelper.IsCardType(["Item"]),
+                    TargetConstraintHelper.HasTrait("Noomlin", not: true),
+                ];
             });
     }
 }

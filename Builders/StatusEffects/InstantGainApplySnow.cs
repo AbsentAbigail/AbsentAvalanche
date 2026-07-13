@@ -1,4 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -18,6 +19,10 @@ public class InstantGainApplySnow : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantAddAttackEffect>(status =>
             {
                 status.effectToApply = Absent.GetStatus("Snow");
+                status.targetConstraints =
+                [
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                ];
             });
     }
     

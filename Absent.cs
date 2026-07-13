@@ -379,6 +379,9 @@ public class Absent : WildfrostMod
         Events.OnSceneLoaded += CombineCombos.SceneLoaded;
         Events.OnPreCampaignPopulate += NestReplace.Replace;
         Events.OnCampaignGenerated += LuminBlessing.ResetLuminBlessing;
+        Events.OnCampaignGenerated += MailpuppyHooks.CampaignStart;
+        Events.OnEntityEnterBackpack += MailpuppyHooks.EntityEnterBackpack;
+        Events.OnSceneLoaded += AddGameSystems.SceneLoaded;
     }
 
     private static void UnloadEvents()
@@ -389,6 +392,9 @@ public class Absent : WildfrostMod
         Events.OnSceneLoaded -= CombineCombos.SceneLoaded;
         Events.OnPreCampaignPopulate -= NestReplace.Replace;
         Events.OnCampaignGenerated -= LuminBlessing.ResetLuminBlessing;
+        Events.OnCampaignGenerated -= MailpuppyHooks.CampaignStart;
+        Events.OnEntityEnterBackpack -= MailpuppyHooks.EntityEnterBackpack;
+        Events.OnSceneLoaded -= AddGameSystems.SceneLoaded;
     }
 
     private void UnloadFromClasses()
@@ -437,6 +443,18 @@ public class Absent : WildfrostMod
             "Add a random card to your hand with zoomlin");
         uiText.SetString("ChargeBell", "{0} charged the Redraw Bell by [{1}]");
         uiText.SetString("ChargeBellFully", "{0} fully charged the Redraw Bell");
+        
+        # region Metronome
+        
+        uiText.SetString("Splash", "{0} used Splash! It had no effect!");
+        uiText.SetString("Metronome", "{0} used {1}!");
+        uiText.SetString("CriticalHit", "It's a critical hit!");
+        uiText.SetString("MetronomeBattleLog", "{0} used {1}! It gained {2}");
+        uiText.SetString("SheerCold", "Sheer Cold!");
+        uiText.SetString("SheerColdMiss", "Missed!");
+        
+        # endregion
+        
     }
 
     public override List<T> AddAssets<T, TY>()

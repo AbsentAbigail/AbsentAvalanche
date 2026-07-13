@@ -1,5 +1,6 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Traits;
+using AbsentAvalanche.Helpers;
 using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -21,6 +22,10 @@ public class TemporarySafeCombo : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectSafeTemporaryTrait>(status =>
             {
                 status.trait = Absent.GetTrait(Combo.Name);
+                status.targetConstraints =
+                [
+                    TargetConstraintHelper.IsCardType(["Item"])
+                ];
             });
     }
 }

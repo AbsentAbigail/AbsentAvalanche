@@ -22,6 +22,11 @@ public class InstantHealFull : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Heal");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.scriptableAmount = new Script<ScriptableMaxHealth>();
+                status.targetConstraints =
+                [
+                    TargetConstraintHelper.General<TargetConstraintIsAlive>(),
+                    TargetConstraintHelper.HealthMoreThan(0)
+                ];
             });
     }
     

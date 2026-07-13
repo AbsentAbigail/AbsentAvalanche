@@ -55,6 +55,6 @@ public class WitchSherba : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-1, 2),
-        counterRange = new Vector2Int(-1, 1)
+        counterRange = new Vector2Int(0, 1)
     };
 }
