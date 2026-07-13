@@ -13,7 +13,7 @@ public class StatusEffectInstantCountUpStatus : StatusEffectInstant
     public override IEnumerator Process()
     {
         var matchingStatus = target.statusEffects.Where(status =>
-            status.isStatus &&
+            status.isStatus && status.stackable &&
             (types.Length == 0 || types.Contains(status.type)) &&
             (positive != status.IsNegativeStatusEffect() ||
              negative == status.IsNegativeStatusEffect()));
