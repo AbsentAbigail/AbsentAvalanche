@@ -33,7 +33,7 @@ public class Val : ICardBuilder
                 card.greetMessages =
                 [
                     "Has a zipper for a mouth!",
-                    "In the mouth of this big blue whale there is room for pajamas or a treasure. It’s because this soft animal is a true friend who can keep a secret, play and give hugs when needed."
+                    "In the mouth of this big blue whale there is room for pajamas or a treasure. It’s because this soft animal is a true friend who can keep a secret, play and give hugs when needed.",
                 ];
 
                 card.scriptableImagePrefab = Absent.CreateScriptableCardImage<ValCardImage>("val");

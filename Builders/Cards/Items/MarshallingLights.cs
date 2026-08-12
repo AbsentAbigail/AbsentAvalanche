@@ -31,7 +31,7 @@ public class MarshallingLights : ICardBuilder
 
                 card.traits =
                 [
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

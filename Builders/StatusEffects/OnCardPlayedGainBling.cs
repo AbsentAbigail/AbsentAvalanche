@@ -24,7 +24,7 @@ public class OnCardPlayedGainBling : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.DoesTrigger()
+                    TargetConstraintHelper.DoesTrigger(),
                 ];
             });
     }

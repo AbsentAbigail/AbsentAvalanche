@@ -27,12 +27,12 @@ public class LongCat : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedSplit.Name)
+                    Absent.SStack(OnCardPlayedSplit.Name),
                 ];
                 card.greetMessages =
                 [
                     "Hi :3",
-                    "Meow"
+                    "Meow",
                 ];
             });
     }

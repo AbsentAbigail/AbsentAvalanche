@@ -22,7 +22,7 @@ public static class NestReplace
         {
             <= 2500 => Absent.GetCard("LeafEgg"),
             <= 5000 => Absent.GetCard("CuddleEgg"),
-            _ => Absent.GetCard("Egg")
+            _ => Absent.GetCard("Egg"),
         };
         deck.Add(card.Clone());
         CardDiscoverSystem.instance.DiscoverCard(card);

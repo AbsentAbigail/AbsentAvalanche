@@ -18,10 +18,14 @@ internal class StatusEffectApplyXAfterCardPlayed : StatusEffectApplyX
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
         if (entity != target)
+        {
             return false;
+        }
 
         if (target.silenced)
+        {
             return false;
+        }
 
         var hasQueuedTriggers = ActionQueue.GetActions()
             .Any(playAction => playAction is ActionTrigger actionTrigger && actionTrigger.entity == target);

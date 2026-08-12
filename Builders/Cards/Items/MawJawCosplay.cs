@@ -25,7 +25,7 @@ public class MawJawCosplay : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Equip.Name),
-                    Absent.SStack("When Hit Trigger To Self")
+                    Absent.SStack("When Hit Trigger To Self"),
                 ];
             });
     }

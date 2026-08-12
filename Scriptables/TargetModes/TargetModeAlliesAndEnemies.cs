@@ -14,9 +14,12 @@ internal class TargetModeAlliesAndEnemies : TargetModeAll
             select e,
             .. from e in entity.GetAllAllies()
             where (bool)e && e.enabled && e.alive && e.canBeHit && CheckConstraints(e)
-            select e
+            select e,
         ];
-        if (hashSet.Count <= 0) return null;
+        if (hashSet.Count <= 0)
+        {
+            return null;
+        }
 
         return [.. hashSet];
     }

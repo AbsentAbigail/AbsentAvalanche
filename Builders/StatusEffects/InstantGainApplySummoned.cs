@@ -21,7 +21,7 @@ public class InstantGainApplySummoned : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Temporary Summoned");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

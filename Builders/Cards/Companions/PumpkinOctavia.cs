@@ -31,7 +31,7 @@ public class PumpkinOctavia : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Hey! Let's carve some pumpkins c:<"
+                    "Hey! Let's carve some pumpkins c:<",
                 ];
             });
     }
@@ -47,6 +47,6 @@ public class PumpkinOctavia : ILeaderBuilder
     {
         healthRange = new Vector2Int(-1, 1),
         damageRange = new Vector2Int(0, 1),
-        counterRange = new Vector2Int(-1, 0)
+        counterRange = new Vector2Int(-1, 0),
     };
 }

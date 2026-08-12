@@ -28,7 +28,7 @@ public class IceLanternCosplay : ICardBuilder
                 [
                     Absent.SStack(Equip.Name),
                     Absent.SStack(WhenEquippedGainScrap.Name),
-                    Absent.SStack("While Active Increase Attack To Allies")
+                    Absent.SStack("While Active Increase Attack To Allies"),
                 ];
             });
     }

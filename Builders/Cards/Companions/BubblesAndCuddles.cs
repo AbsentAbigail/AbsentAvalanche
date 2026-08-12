@@ -27,7 +27,7 @@ public class BubblesAndCuddles : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(DreamTeam.NameWhenDeployed(Bubbles.Name, Cuddles.Name))
+                    Absent.SStack(DreamTeam.NameWhenDeployed(Bubbles.Name, Cuddles.Name)),
                 ];
                 card.charmSlots *= 2;
             });

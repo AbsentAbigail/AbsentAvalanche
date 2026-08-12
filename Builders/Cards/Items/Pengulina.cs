@@ -29,7 +29,7 @@ public class Pengulina : ICardBuilder
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack("Hit All Enemies")
+                    Absent.SStack("Hit All Enemies"),
                 ];
             });
     }

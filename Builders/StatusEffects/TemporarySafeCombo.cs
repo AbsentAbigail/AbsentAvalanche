@@ -24,7 +24,7 @@ public class TemporarySafeCombo : IStatusBuilder
                 status.trait = Absent.GetTrait(Combo.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.IsCardType(["Item"])
+                    TargetConstraintHelper.IsCardType(["Item"]),
                 ];
             });
     }

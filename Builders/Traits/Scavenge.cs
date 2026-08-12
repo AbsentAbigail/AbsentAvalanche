@@ -19,7 +19,7 @@ public class Scavenge : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(OnBossKillGainRandomCharm.Name)
+                    Absent.GetStatus(OnBossKillGainRandomCharm.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Scavenge.Name);
             });

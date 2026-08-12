@@ -16,7 +16,7 @@ public class StatusEffectShareStatus : StatusEffectApplyX
 
     public string[] excludeTypes =
     [
-        "equip"
+        "equip",
     ];
 
     private readonly Dictionary<string, Vector2Int> _amounts = new();
@@ -31,15 +31,21 @@ public class StatusEffectShareStatus : StatusEffectApplyX
     {
         if (!apply.applier || apply.applier == target || !apply.target || !apply.effectData ||
             apply.effectData.type.IsNullOrWhitespace() || target.silenced)
+        {
             return false;
-        
+        }
+
         if (!CheckType(apply.effectData))
+        {
             return false;
+        }
 
         effectToApply = apply.effectData;
         
         if (!CheckTarget(apply.target))
+        {
             return false;
+        }
 
         _amounts[apply.effectData.type] = CurrentAmounts(apply.target, apply.effectData.type);
         return false;
@@ -49,20 +55,30 @@ public class StatusEffectShareStatus : StatusEffectApplyX
     {
         if (!apply.applier || apply.applier == target || !apply.target || !apply.effectData ||
             apply.effectData.type.IsNullOrWhitespace() || target.silenced)
+        {
             return false;
-        
+        }
+
         if (!CheckType(apply.effectData))
+        {
             return false;
+        }
 
         if (!CheckTarget(apply.target))
+        {
             return false;
+        }
 
         if (!_amounts.TryGetValue(apply.effectData.type, out var amount))
+        {
             return false;
+        }
 
         var newAmount = CurrentAmounts(apply.target, apply.effectData.type);
         if (newAmount.x - amount.x - (newAmount.y - amount.y) <= 0 && newAmount.x - amount.x != 0)
+        {
             return false;
+        }
 
         _amounts.Remove(apply.effectData.type);
         return true;
@@ -72,8 +88,10 @@ public class StatusEffectShareStatus : StatusEffectApplyX
     {
         _chain++;
         if (_chain >= MaxChain)
+        {
             yield break;
-        
+        }
+
         effectToApply = apply.effectData;
         var targets = GetTargets(new Hit(apply.applier, null));
         targets.Remove(apply.target);

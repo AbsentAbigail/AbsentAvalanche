@@ -21,7 +21,7 @@ public class InstantSpiceAndShell : IStatusBuilder
                 status.effects =
                 [
                     Absent.GetStatusOf<StatusEffectInstant>(InstantSpice.Name),
-                    Absent.GetStatusOf<StatusEffectInstant>(InstantShell.Name)
+                    Absent.GetStatusOf<StatusEffectInstant>(InstantShell.Name),
                 ];
             });
     }

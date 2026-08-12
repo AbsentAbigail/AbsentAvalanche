@@ -21,6 +21,7 @@ public class CardFramesSystemPatches
         (RazorPlush.Name, HogCosplay.Name),
         (PillowFortress.Name, Pillow.Name),
         (MamaWombat.Name, WombatPoop.Name),
+        (LongCat.Name, LongKitty.Name),
         
         (BubblesAndCuddles.Name, Bubbles.Name),
         (BubblesAndCuddles.Name, Cuddles.Name),

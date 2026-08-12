@@ -26,7 +26,7 @@ public class Flight : IStatusBuilder
                 
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintCanBeHit>("Can be hit")
+                    TargetConstraintHelper.General<TargetConstraintCanBeHit>("Can be hit"),
                 ];
             })
             .Subscribe_WithStatusIcon("flight");

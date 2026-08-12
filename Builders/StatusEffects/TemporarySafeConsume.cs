@@ -23,7 +23,7 @@ public class TemporarySafeConsume : IStatusBuilder
                 status.trait = Absent.GetTrait("Consume");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.IsCardType(["Item"])
+                    TargetConstraintHelper.IsCardType(["Item"]),
                 ];
             });
     }

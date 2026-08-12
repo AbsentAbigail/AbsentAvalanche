@@ -31,11 +31,11 @@ public class Catci : ICardBuilder
                 [
                     Absent.SStack(Cat.Name, 2),
                     Absent.SStack("MultiHit"),
-                    Absent.SStack(DreamTeam.NameWhenDeployed(Catcus.Name, Catcitten.Name))
+                    Absent.SStack(DreamTeam.NameWhenDeployed(Catcus.Name, Catcitten.Name)),
                 ];
                 card.createScripts =
                 [
-                    LeaderHelper.GiveUpgrade()
+                    LeaderHelper.GiveUpgrade(),
                 ];
                 card.charmSlots *= 2;
             })

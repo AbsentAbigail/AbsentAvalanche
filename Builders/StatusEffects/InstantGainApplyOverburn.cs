@@ -21,7 +21,7 @@ public class InstantGainApplyOverburn : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Overload");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

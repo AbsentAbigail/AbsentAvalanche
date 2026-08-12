@@ -30,7 +30,7 @@ public class AmeliaFreePlay : ILeaderBuilder
                 ];
                 card.traits =
                 [
-                    Absent.TStack(Pilot.Name)
+                    Absent.TStack(Pilot.Name),
                 ];
             });
     }

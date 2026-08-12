@@ -17,18 +17,18 @@ public class Invitation : ICardBuilder
             .CreateItem(Name, "Invitation")
             .SetDamage(null)
             .SetSprites(
-                Absent.GetSprite("Blanket"),
-                Absent.GetSprite("BlanketBG"))
+                Absent.GetSprite("Invitation"),
+                Absent.GetSprite("InvitationBG"))
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.attackEffects =
                 [
-                    Absent.SStack(InstantDoNothing.Name)
+                    Absent.SStack(InstantDoNothing.Name), // Attack effect so that the card has a target for the other effect
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(StatusEffects.Invitation.Name)
+                    Absent.SStack(StatusEffects.Invitation.Name),
                 ];
                 card.charmSlots = 0;
             });

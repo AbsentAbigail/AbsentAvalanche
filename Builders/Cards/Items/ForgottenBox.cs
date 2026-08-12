@@ -26,7 +26,7 @@ public class ForgottenBox : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Ethereal.Name, 4),
-                    Absent.SStack("When Destroyed Apply Frenzy To RandomAlly")
+                    Absent.SStack("When Destroyed Apply Frenzy To RandomAlly"),
                 ];
             });
     }

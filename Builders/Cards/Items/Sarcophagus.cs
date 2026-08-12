@@ -24,7 +24,7 @@ public class Sarcophagus : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Ethereal.Name, 3),
-                    Absent.SStack(WhenDestroyedSummonSarcophagus.Name, 2)
+                    Absent.SStack(WhenDestroyedSummonSarcophagus.Name, 2),
                 ];
             });
     }

@@ -14,7 +14,7 @@ internal static class PetHutFlagSetterPatches
         "Flag_Catcus",
         "Flag_Nest",
         "Flag_SalvoKitty",
-        "Flag_NebulaAuxilium"
+        "Flag_NebulaAuxilium",
     ];
 
     [UsedImplicitly]

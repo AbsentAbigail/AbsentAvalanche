@@ -41,7 +41,9 @@ public class StatusEffectInstantSummonRandomFromPool : StatusEffectInstantSummon
         if (CanSummon(out var container, out var shoveData))
         {
             if (shoveData != null)
+            {
                 yield return ShoveSystem.DoShove(shoveData, true);
+            }
             var amount = GetAmount();
             yield return toSummon ? targetSummon.SummonPreMade(toSummon, container, applier.display.hover.controller, applier, withEffects, amount) : summonCopy ? targetSummon.SummonCopy(target, container, applier.display.hover.controller, applier, withEffects, amount) : (object) targetSummon.Summon(container, applier.display.hover.controller, applier, withEffects, amount);
         }

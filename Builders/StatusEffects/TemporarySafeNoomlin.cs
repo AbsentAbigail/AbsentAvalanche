@@ -24,7 +24,7 @@ public class TemporarySafeNoomlin : IStatusBuilder
                 status.targetConstraints =
                 [
                     TargetConstraintHelper.IsCardType(["Item"]),
-                    TargetConstraintHelper.HasTrait("Noomlin", not: true)
+                    TargetConstraintHelper.HasTrait("Noomlin", not: true),
                 ];
             });
     }

@@ -25,7 +25,7 @@ public class TemporarySafeHogheaded : IStatusBuilder
                 [
                     TargetConstraintHelper.HasTrait("Pigheaded", not: true),
                     TargetConstraintHelper.General<TargetConstraintIsUnit>("Is Not Miniboss",
-                        tc => tc.mustBeMiniboss = true, true)
+                        tc => tc.mustBeMiniboss = true, true),
                 ];
             });
     }

@@ -21,7 +21,7 @@ public class InstantGainApplySnow : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Snow");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

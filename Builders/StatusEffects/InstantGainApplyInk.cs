@@ -21,7 +21,7 @@ public class InstantGainApplyInk : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Null");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

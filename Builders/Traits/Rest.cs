@@ -19,7 +19,7 @@ public class Rest : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(IncreaseEtherealToMatchRest.Name)
+                    Absent.GetStatus(IncreaseEtherealToMatchRest.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Rest.Name);
             });

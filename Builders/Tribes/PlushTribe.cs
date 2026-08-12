@@ -114,7 +114,7 @@ public class PlushTribe : IClassBuilder
                 FrozenFlame.Name,
                 PanickedNut.Name,
                 Splash.Name
-            )
+            ),
         ]);
     }
 
@@ -125,7 +125,7 @@ public class PlushTribe : IClassBuilder
         [
             .. DataList<CardData>(
                 LongCat.Name
-            )
+            ),
         ]);
     }
 
@@ -162,7 +162,7 @@ public class PlushTribe : IClassBuilder
                 GhostlyPresence.Name,
                 FireSpell.Name,
                 MarshallingLights.Name
-            )
+            ),
         ]);
     }
 
@@ -182,7 +182,7 @@ public class PlushTribe : IClassBuilder
                 "CardUpgradeShellOnKill",
                 "CardUpgradeSpice",
                 "CardUpgradeTeethWhenHit"
-            )
+            ),
         ]);
     }
 

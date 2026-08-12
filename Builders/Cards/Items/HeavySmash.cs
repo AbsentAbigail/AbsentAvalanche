@@ -23,15 +23,15 @@ public class HeavySmash : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack(InstantPlaySqueakSound.Name)
+                    Absent.SStack(InstantPlaySqueakSound.Name),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnKillGainCombo.Name)
+                    Absent.SStack(OnKillGainCombo.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

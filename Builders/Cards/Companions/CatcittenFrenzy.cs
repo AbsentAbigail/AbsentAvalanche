@@ -29,7 +29,7 @@ public class CatcittenFrenzy : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("MultiHit"),
-                    Absent.SStack("While Active Frenzy To Allies")
+                    Absent.SStack("While Active Frenzy To Allies"),
                 ];
             });
     }

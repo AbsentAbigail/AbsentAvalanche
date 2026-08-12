@@ -11,7 +11,7 @@ public class StatusEffectApplyXWhenYAppliedToAnywhere : StatusEffectApplyXWhenYA
 
   public override bool RunApplyStatusEvent(StatusEffectApply apply)
   {
-    if ((!adjustAmount && !instead) || !target.enabled || TargetSilenced() || (!target.alive && targetMustBeAlive) ||
+    if (!adjustAmount && !instead || !target.enabled || TargetSilenced() || !target.alive && targetMustBeAlive ||
         !(bool)(Object)apply.effectData || apply.count <= 0 || !CheckType(apply.effectData) ||
         !CheckTarget(apply.target))
     {
@@ -40,9 +40,13 @@ public class StatusEffectApplyXWhenYAppliedToAnywhere : StatusEffectApplyXWhenYA
   private new bool CheckTarget(Entity entity)
   {
     if (entity == target)
+    {
       return CheckFlag(ApplyToFlags.Self);
+    }
     if (entity.owner == target.owner)
+    {
       return CheckFlag(ApplyToFlags.Allies);
+    }
     return entity.owner != target.owner && CheckFlag(ApplyToFlags.Enemies);
   }
 }

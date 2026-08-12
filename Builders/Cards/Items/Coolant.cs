@@ -24,11 +24,11 @@ public class Coolant : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Snow")
+                    Absent.SStack("Snow"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenAllyRecalledGainApplySnow.Name)
+                    Absent.SStack(WhenAllyRecalledGainApplySnow.Name),
                 ];
             });
     }

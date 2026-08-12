@@ -25,11 +25,11 @@ public class Seaplane : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenDeployedApplyBomToFurthestEnemies.Name, 2)
+                    Absent.SStack(WhenDeployedApplyBomToFurthestEnemies.Name, 2),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Longshot")
+                    Absent.TStack("Longshot"),
                 ];
             });
     }

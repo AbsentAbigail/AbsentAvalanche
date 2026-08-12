@@ -25,7 +25,7 @@ public class Avalanche : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack(InstantCascadingSnow.Name)
+                    Absent.SStack(InstantCascadingSnow.Name),
                 ];
             });
     }

@@ -36,7 +36,7 @@ public class InstantMetronome : IStatusBuilder
                     Move("Metal Sound", "Apply [{0}]<sprite name=demonize>", InstantGainApplyDemonize.Name, 2),
                     Move("Tail Whip", "Apply [{0}]<sprite name=vim>", InstantGainApplyBom.Name, 1),
                     Move("Screech", "Apply [{0}]<sprite name=vim>", InstantGainApplyBom.Name, 2),
-                    Move("Powdered Snow", "Apply [{0}]<sprite name=snow>", InstantGainApplyFrost.Name, 2),
+                    Move("Powdered Snow", "Apply [{0}]<sprite name=frost>", InstantGainApplyFrost.Name, 2),
                     Move("Tri Attack", "Apply [{0}]<sprite name=snow>, [{0}]<sprite name=overload>, [{0}]<sprite name=ink>", [InstantGainApplySnow.Name, InstantGainApplyOverburn.Name, InstantGainApplyInk.Name], 1),
                     Move("Dire Claw", "Apply [{0}]<sprite name=frost>, [{0}]<sprite name=ink>, [{0}]<sprite name=shroom>", [InstantGainApplyFrost.Name, InstantGainApplyInk.Name, InstantGainApplyShroom.Name], 1),
                     Move("Self Destruct", "Consume, deal [{0}] damage to all enemies", [OnCardPlayedDealDamageToAllEnemies.Name, TemporarySafeConsume.Name], 4, 2),

@@ -21,7 +21,7 @@ public class InstantGainApplyFrost : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Frost");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

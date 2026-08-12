@@ -28,15 +28,15 @@ public class CatcittenSnow : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Snow", 3)
+                    Absent.SStack("Snow", 3),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack("Snow")
+                    Absent.SStack("Snow"),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Barrage")
+                    Absent.TStack("Barrage"),
                 ];
             });
     }

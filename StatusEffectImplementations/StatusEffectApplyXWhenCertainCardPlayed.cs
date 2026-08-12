@@ -18,19 +18,27 @@ public class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyXOnCardP
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
         if (!target.enabled)
+        {
             return false;
+        }
 
         if (target == entity)
+        {
             return false;
+        }
 
         if (allowedCardType is not null && allowedCardType.name != entity.data.cardType.name)
+        {
             return false;
+        }
 
         var cardTraits = entity.traits.Select(t => t.data);
 
         var traitList = cardTraits.ToList();
         if (allowedTraits is { Length: > 0 } && !traitList.ToList().ContainsAny(allowedTraits))
+        {
             return false;
+        }
 
         _hackyHit = new Hit(entity, null);
 

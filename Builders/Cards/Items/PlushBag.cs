@@ -27,15 +27,15 @@ public class PlushBag : ICardBuilder
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.createScripts = [
-                    LeaderHelper.GiveUpgrade()
+                    LeaderHelper.GiveUpgrade(),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedAddRandomPlushToHand.Name, 3)
+                    Absent.SStack(OnCardPlayedAddRandomPlushToHand.Name, 3),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

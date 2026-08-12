@@ -23,7 +23,7 @@ public class TrainingSword : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnBattleWonIncreaseAttack.Name, 2)
+                    Absent.SStack(OnBattleWonIncreaseAttack.Name, 2),
                 ];
             });
     }

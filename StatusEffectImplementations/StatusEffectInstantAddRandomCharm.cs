@@ -33,7 +33,7 @@ public class StatusEffectInstantAddRandomCharm : StatusEffectInstant
             return customList.RandomItem();
         }
 
-        var predicate1 = Absent.GetStatusOf<StatusEffectInstantAddRandomCharm>(name).predicate;
+        var predicate1 = ((StatusEffectInstantAddRandomCharm)original).predicate;
 
         var component = References.Player.GetComponent<CharacterRewards>();
         var result = component.Pull<CardUpgradeData>(target, "Charms", 1, false,

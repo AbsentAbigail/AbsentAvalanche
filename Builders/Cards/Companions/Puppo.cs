@@ -30,7 +30,7 @@ public class Puppo : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "*He looks at you with excitement*"
+                    "*He looks at you with excitement*",
                 ];
             });
     }

@@ -26,13 +26,13 @@ public class CardUpgradeChangeLeader : IUpgradeBuilder
             {
                 charm.scripts =
                 [
-                    new Script<CardScriptChangeLeader>("Change Leader Script", null)
+                    new Script<CardScriptChangeLeader>("Change Leader Script", null),
                 ];
                 charm.targetConstraints =
                 [
                     TargetConstraintHelper.General<TargetConstraintIsCardType>("Is Leader",
                         tc => tc.allowedTypes = [Absent.GetCardType("Leader")]),
-                    TargetConstraintHelper.General<TargetConstraintCompanionInDeck>("Companion In Deck")
+                    TargetConstraintHelper.General<TargetConstraintCompanionInDeck>("Companion In Deck"),
                 ];
             });
     }

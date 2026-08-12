@@ -21,7 +21,7 @@ public class InstantGainDealAdditionalDamage : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(InstantDealDamage.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

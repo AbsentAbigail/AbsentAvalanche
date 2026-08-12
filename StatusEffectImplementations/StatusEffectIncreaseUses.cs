@@ -16,7 +16,10 @@ internal class StatusEffectIncreaseUses : StatusEffectData
 
     public override void RestoreMidBattleData(object data)
     {
-        if (data is int baseUses) _baseUses = baseUses;
+        if (data is int baseUses)
+        {
+            _baseUses = baseUses;
+        }
     }
 
     public override bool RunBeginEvent()
@@ -33,7 +36,7 @@ internal class StatusEffectIncreaseUses : StatusEffectData
 
         var consume = (StatusEffectDestroyAfterUse)target.statusEffects.Find(s => s is StatusEffectDestroyAfterUse
         {
-            destroy: true
+            destroy: true,
         });
         consume?.destroy = false;
         consume?.Unsub();
@@ -43,7 +46,10 @@ internal class StatusEffectIncreaseUses : StatusEffectData
 
     public override bool RunCardMoveEvent(Entity entity)
     {
-        if (entity != target) return false;
+        if (entity != target)
+        {
+            return false;
+        }
 
         entity.display.promptUpdateDescription = true;
         entity.PromptUpdate();
@@ -53,17 +59,25 @@ internal class StatusEffectIncreaseUses : StatusEffectData
 
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
-        if (entity != target) return false;
+        if (entity != target)
+        {
+            return false;
+        }
         if (!ActionQueue.GetActions()
                 .Any(action => action is ActionUpdateText textAction && textAction.entity == target))
+        {
             ActionQueue.Add(new ActionUpdateText(target));
+        }
 
         return false;
     }
 
     public override bool RunPreTriggerEvent(Trigger trigger)
     {
-        if (trigger.entity != target) return false;
+        if (trigger.entity != target)
+        {
+            return false;
+        }
 
         IncreaseUses();
 
@@ -83,8 +97,12 @@ internal class StatusEffectIncreaseUses : StatusEffectData
         var change = newMax - target.uses.max;
         target.uses.max = newMax;
         if (change > 0)
+        {
             target.uses.current += change;
+        }
         else
+        {
             target.uses.current = Math.Min(target.uses.current, newMax);
+        }
     }
 }

@@ -11,7 +11,9 @@ public class StatusEffectExplorer : StatusEffectData
     {
         count -= amount;
         if (removeTemporary)
+        {
             temporary -= amount;
+        }
         if (count <= 0)
         {
             yield return ReplaceInDeck();
@@ -26,7 +28,7 @@ public class StatusEffectExplorer : StatusEffectData
 
     private CardData GetReplacement()
     {
-        var evolutionArrays = Absent.GetStatusOf<StatusEffectExplorer>(name).evolutions;
+        var evolutionArrays = ((StatusEffectExplorer)original).evolutions;
         return (from pair in evolutionArrays where Absent.PrefixGuid(pair[0]).Equals(target.name) select Absent.GetCard(pair[1])).FirstOrDefault()?.Clone();
     }
 

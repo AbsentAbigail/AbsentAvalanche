@@ -25,7 +25,7 @@ public class OnKillGainFrenzy : IStatusBuilder
 
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesKill>()
+                    TargetConstraintHelper.General<TargetConstraintDoesKill>(),
                 ];
             });
     }

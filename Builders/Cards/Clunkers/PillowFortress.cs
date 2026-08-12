@@ -26,7 +26,7 @@ public class PillowFortress : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Scrap", 2),
-                    Absent.SStack(WhenHitSummonPillow.Name)
+                    Absent.SStack(WhenHitSummonPillow.Name),
                 ];
             });
     }

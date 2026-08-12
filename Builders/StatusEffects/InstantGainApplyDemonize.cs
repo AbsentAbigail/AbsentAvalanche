@@ -21,7 +21,7 @@ public class InstantGainApplyDemonize : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Demonize");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

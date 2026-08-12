@@ -33,7 +33,7 @@ public class CardUpgradeViolence : IUpgradeBuilder
                     new Script<CardScriptMultiplyDamage>(
                         "Double Damage",
                         script => script.multiply = 2
-                    )
+                    ),
                 ];
 
                 charm.giveTraits = [Absent.TStack("Fragile")];

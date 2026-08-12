@@ -1,6 +1,4 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.Builders.StatusEffects;
-using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -27,15 +25,15 @@ public class PiggybankSeal : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack("When Hit Apply Gold To Attacker (No Ping)", 5)
+                    Absent.SStack("When Hit Apply Gold To Attacker (No Ping)", 5),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Greed")
+                    Absent.TStack("Greed"),
                 ];
                 card.greetMessages =
                 [
-                    "Do you wanna save some money?"
+                    "Do you wanna save some money?",
                 ];
             });
     }
@@ -50,6 +48,6 @@ public class PiggybankSeal : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-2, 1),
-        counterRange = new Vector2Int(-1, 0)
+        counterRange = new Vector2Int(-1, 0),
     };
 }

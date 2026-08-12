@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using AbsentAvalanche.Builders.Cards.Clunkers;
 using AbsentAvalanche.Builders.Cards.Companions;
 using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.StatusEffectImplementations;
@@ -29,7 +28,6 @@ public class InstantAddRandomPlushToHand : IStatusBuilder
                     Amber.Name,
                     April.Name,
                     Bam.Name,
-                    Boozle.Name,
                     Bubbles.Name,
                     Catcitten.Name,
                     CatcittenFrenzy.Name,
@@ -62,7 +60,15 @@ public class InstantAddRandomPlushToHand : IStatusBuilder
                     Snowflake.Name,
                     Spot.Name,
                     Tiny.Name,
-                    Tiramisu.Name
+                    Tiramisu.Name,
+                    
+                    WitchSherba.Name,
+                    PiggybankSeal.Name,
+                    GravestonePengu.Name,
+                    SkeletonPatch.Name,
+                    PumpkinOctavia.Name,
+                    Doodle.Name,
+                    MailpuppySam.Name
                 );
             });
     }

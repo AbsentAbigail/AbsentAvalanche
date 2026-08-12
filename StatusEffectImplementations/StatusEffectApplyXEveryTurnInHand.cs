@@ -12,10 +12,14 @@ public class StatusEffectApplyXEveryTurnInHand : StatusEffectApplyX
     public override bool RunTurnEndEvent(Entity entity)
     {
         if (!target.enabled)
+        {
             return false;
+        }
 
         if (entity != target.owner.entity)
+        {
             return false;
+        }
 
         return target.InHand();
     }

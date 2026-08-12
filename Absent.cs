@@ -79,7 +79,9 @@ public class Absent : WildfrostMod
         StopWatch.Start();
 
         if (!Addressables.ResourceLocators.Any(r => r is ResourceLocationMap map && map.LocatorId == CatalogPath))
+        {
             Addressables.LoadContentCatalogAsync(CatalogPath).WaitForCompletion();
+        }
 
         _spriteAtlas = (SpriteAtlas)Addressables.LoadAssetAsync<Object>($"Assets/{GUID}/Sprite Atlas.spriteatlas")
             .WaitForCompletion();
@@ -95,7 +97,10 @@ public class Absent : WildfrostMod
         // IconKeywords.CreateIconKeywords();
         SpriteAsset.RegisterSpriteAsset();
 
-        if (!_loaded) CreateModAssets();
+        if (!_loaded)
+        {
+            CreateModAssets();
+        }
         base.Load();
 
         LoadTribes();
@@ -134,11 +139,11 @@ public class Absent : WildfrostMod
                     instant.replaceEffects =
                     [
                         [SStack(OnCardPlayedAddWoolGrenadeToHand.Name),
-                        SStack(OnCardPlayedAddGoolWrenadeToHand.Name)]
+                        SStack(OnCardPlayedAddGoolWrenadeToHand.Name)],
                     ];
                 }),
             .. DreamTeam.EffectBuilders(Bubbles.Name, Kiki.Name),
-            .. DreamTeam.EffectBuilders(Emerald.Name, Sally.Name)
+            .. DreamTeam.EffectBuilders(Emerald.Name, Sally.Name),
         ]);
         
         _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
@@ -219,7 +224,7 @@ public class Absent : WildfrostMod
                             LeaderHelper.GiveUpgrade(),
                             LeaderHelper.AddRandomHealth(mods.healthRange),
                             LeaderHelper.AddRandomDamage(mods.damageRange),
-                            LeaderHelper.AddRandomCounter(mods.counterRange)
+                            LeaderHelper.AddRandomCounter(mods.counterRange),
                         ];
                     })
                     .SubscribeToAfterAllBuildEvent(mods.subscribe.Invoke);
@@ -247,7 +252,7 @@ public class Absent : WildfrostMod
                             LeaderHelper.GiveUpgrade(),
                             LeaderHelper.AddRandomHealth(mods.healthRange),
                             LeaderHelper.AddRandomDamage(mods.damageRange),
-                            LeaderHelper.AddRandomCounter(mods.counterRange)
+                            LeaderHelper.AddRandomCounter(mods.counterRange),
                         ];
                     })
                     .SubscribeToAfterAllBuildEvent(mods.subscribe.Invoke);
@@ -318,18 +323,18 @@ public class Absent : WildfrostMod
         var longCatProfile = new StatusEffectInstantSplit.Profile
         {
             cardName = GetCard(LongCat.Name).name,
-            changeToCardName = GetCard(LongKitty.Name).name
+            changeToCardName = GetCard(LongKitty.Name).name,
         };
 
         var longCatLeaderProfile = new StatusEffectInstantSplit.Profile
         {
             cardName = GetCard(LongCat.Name + "Leader").name,
-            changeToCardName = GetCard(LongKitty.Name + "Leader").name
+            changeToCardName = GetCard(LongKitty.Name + "Leader").name,
         };
         split.profiles = [
             .. split.profiles,
             longCatProfile,
-            longCatLeaderProfile
+            longCatLeaderProfile,
         ];
 
         var spice = GetStatus("Spice");
@@ -340,7 +345,7 @@ public class Absent : WildfrostMod
                 false,
                 TargetConstraintHelper.General<TargetConstraintDoesDamage>("Does Damage"),
                 TargetConstraintHelper.HasTrait(Heating.Name)
-            )
+            ),
         ];
         var demonize = GetStatus("Demonize");
         demonize.targetConstraints =
@@ -349,7 +354,7 @@ public class Absent : WildfrostMod
                 "Demonize constrains or equipment",
                 false,
                 [TargetConstraintHelper.HasStatus(Equip.Name), .. demonize.targetConstraints]
-            )
+            ),
         ];
     }
 
@@ -405,7 +410,10 @@ public class Absent : WildfrostMod
                  where tribe != null && tribe.rewardPools != null
                  from pool in tribe.rewardPools
                  where pool != null
-                 select pool) pool.list.RemoveAllWhere(item => item == null || item.ModAdded == this);
+                 select pool)
+        {
+            pool.list.RemoveAllWhere(item => item == null || item.ModAdded == this);
+        }
     }
 
     private static void CreateLocalizedStrings()
@@ -460,7 +468,9 @@ public class Absent : WildfrostMod
     public override List<T> AddAssets<T, TY>()
     {
         if (_assets.OfType<T>().Any())
+        {
             LogHelper.Warn($"[{Title}] adding {typeof(TY).Name}s: {_assets.OfType<T>().Select(a => a._data.name).Join()}");
+        }
         return _assets.OfType<T>().ToList();
     }
 
@@ -546,9 +556,13 @@ public class Absent : WildfrostMod
     {
         T dataFile;
         if (typeof(StatusEffectData).IsAssignableFrom(typeof(T)))
+        {
             dataFile = Instance.Get<StatusEffectData>(datafileName) as T;
+        }
         else
+        {
             dataFile = Instance.Get<T>(datafileName);
+        }
 
         return dataFile ??
                throw new Exception(
@@ -605,7 +619,7 @@ public class Absent : WildfrostMod
         var ghostObject = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(T))
         {
             // HideAndDontSave so it doesn't get touched during gameplay, OR
-            hideFlags = HideFlags.HideAndDontSave
+            hideFlags = HideFlags.HideAndDontSave,
         };
 
         // ensure the GameObject is kept in memory this session

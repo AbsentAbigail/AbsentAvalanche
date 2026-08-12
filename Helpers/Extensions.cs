@@ -27,7 +27,7 @@ public static class Extensions
         [
             ..CardPatches.Flavours,
             [Absent.PrefixGuid(cardName), keywordDataBuilder._data.name],
-            [Absent.PrefixGuid(cardName + "Leader"), keywordDataBuilder._data.name]
+            [Absent.PrefixGuid(cardName + "Leader"), keywordDataBuilder._data.name],
         ];
         return keywordDataBuilder;
     }

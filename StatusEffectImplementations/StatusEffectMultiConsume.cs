@@ -18,7 +18,9 @@ public class StatusEffectMultiConsume : StatusEffectData
     {
         count -= amount;
         if (removeTemporary)
+        {
             temporary -= amount;
+        }
         if (count <= 0)
         {
             yield return Remove();
@@ -31,10 +33,14 @@ public class StatusEffectMultiConsume : StatusEffectData
     private void CheckAction(PlayAction action)
     {
         if (action is not ActionReduceUses actionReduceUses)
+        {
             return;
+        }
 
         if (actionReduceUses.entity != target)
+        {
             return;
+        }
 
         ActionQueue.Stack(
             new ActionSequence(RemoveStacks(1, false)) { note = "MultiConsume count down" }

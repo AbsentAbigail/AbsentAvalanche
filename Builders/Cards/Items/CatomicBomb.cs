@@ -23,13 +23,13 @@ public class CatomicBomb : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack(Cat.Name, 2)
+                    Absent.SStack(Cat.Name, 2),
                 ];
                 card.startWithEffects =
                 [
                     Absent.SStack(Cat.Name),
                     Absent.SStack(OnCardPlayedDoubleAllCat.Name),
-                    Absent.SStack(HitsAllAlliesAndEnemies.Name)
+                    Absent.SStack(HitsAllAlliesAndEnemies.Name),
                 ];
             });
     }

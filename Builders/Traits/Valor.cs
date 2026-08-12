@@ -19,7 +19,7 @@ public class Valor : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(HitHighestAttack.Name)
+                    Absent.GetStatus(HitHighestAttack.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Valor.Name);
             })

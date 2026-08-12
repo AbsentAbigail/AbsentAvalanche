@@ -48,7 +48,7 @@ public class StatusEffectSummonWithCrown : StatusEffectData
     {
       CardSlot cardSlot => [cardSlot],
       CardSlotLane row => target.targetMode.GetTargetSlots(row),
-      _ => toSummon
+      _ => toSummon,
     };
   }
 
@@ -64,10 +64,12 @@ public class StatusEffectSummonWithCrown : StatusEffectData
       var list = new HashSet<CardContainer>();
       list.AddRange(entity.actualContainers);
       if (list.Count > 0 && list.ToArray().RandomItem() is CardSlot cardSlot)
+      {
         toSummon =
         [
-          cardSlot
+          cardSlot,
         ];
+      }
     }
     if (toSummon != null && toSummon.Length != 0)
     {
@@ -116,7 +118,7 @@ public class StatusEffectSummonWithCrown : StatusEffectData
     }
     var action = new ActionSequence(ShoveIfNecessary(entity, container))
     {
-      note = "Shove If Necessary"
+      note = "Shove If Necessary",
     };
     ActionQueue.Stack(action, true);
     ActionQueue.Stack(new ActionRunEnableEvent(entity), true);

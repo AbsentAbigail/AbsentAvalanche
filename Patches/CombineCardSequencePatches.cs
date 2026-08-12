@@ -94,11 +94,17 @@ public class CombineCardSequencePatches
         var counterDiff = comboCard.counter - originalCard.counter;
 
         if (finalCard.hasHealth)
+        {
             finalCard.hp = Math.Max(1, finalCard.hp + healthDiff);
+        }
         if (finalCard.hasAttack)
+        {
             finalCard.damage += damageDiff;
+        }
         if (finalCard.counter > 0)
+        {
             finalCard.counter = Math.Max(1, finalCard.counter + counterDiff);
+        }
     }
     
     private static void AddStatsAndEffects(CardData card, CardData finalCard)

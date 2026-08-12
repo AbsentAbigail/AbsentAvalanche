@@ -13,7 +13,7 @@ public static class DreamTeam
         FinalBossGenerationSettingsPatches.DreamTeamSwaps.Add([
             $"{cardNameA}And{cardNameB}",
             NameWhenDeployed(cardNameA, cardNameB),
-            NameWhenDeployedAscended(cardNameA, cardNameB)
+            NameWhenDeployedAscended(cardNameA, cardNameB),
         ]);
 
         return
@@ -21,7 +21,7 @@ public static class DreamTeam
             Instant(cardNameA, cardNameB),
             WhenDeployed(cardNameA, cardNameB),
             InstantAscended(cardNameA, cardNameB, ascendedModifiers),
-            WhenDeployedAscended(cardNameA, cardNameB)
+            WhenDeployedAscended(cardNameA, cardNameB),
         ];
     }
 
@@ -92,7 +92,7 @@ public static class DreamTeam
                 status.startWithEffects =
                 [
                     .. status.startWithEffects,
-                    Absent.SStack("ImmuneToSnow")
+                    Absent.SStack("ImmuneToSnow"),
                 ];
             })
             .SubscribeToAfterAllBuildEvent(d => (subscribe ?? delegate { }).Invoke((StatusEffectInstantChangeForm)d));

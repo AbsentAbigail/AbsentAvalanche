@@ -1,5 +1,4 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.Builders.StatusEffects;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -19,7 +18,7 @@ public class Mailpuppy : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(StatusEffects.Mailpuppy.Name)
+                    Absent.GetStatus(StatusEffects.Mailpuppy.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Mailpuppy.Name);
             });

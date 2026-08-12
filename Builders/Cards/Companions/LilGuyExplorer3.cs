@@ -27,7 +27,7 @@ public class LilGuyExplorer3 : ILeaderBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("On Turn Apply Shell To Self", 3),
-                    Absent.SStack("MultiHit")
+                    Absent.SStack("MultiHit"),
                 ];
             });
     }

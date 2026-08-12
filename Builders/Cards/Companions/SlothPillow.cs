@@ -32,7 +32,7 @@ public class SlothPillow : ILeaderBuilder
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenRedrawHitTriggerEnemies.Name)
+                    Absent.SStack(WhenRedrawHitTriggerEnemies.Name),
                 ];
             });
     }

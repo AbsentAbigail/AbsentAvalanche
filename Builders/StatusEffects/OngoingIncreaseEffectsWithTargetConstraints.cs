@@ -18,7 +18,7 @@ public class OngoingIncreaseEffectsWithTargetConstraints : IStatusBuilder
             {
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintCanBeBoosted>()
+                    TargetConstraintHelper.General<TargetConstraintCanBeBoosted>(),
                 ];
             });
     }

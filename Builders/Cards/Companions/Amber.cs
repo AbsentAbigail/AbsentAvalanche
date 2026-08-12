@@ -42,7 +42,7 @@ public class Amber : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "I can keep your team warm"
+                    "I can keep your team warm",
                 ];
             });
     }

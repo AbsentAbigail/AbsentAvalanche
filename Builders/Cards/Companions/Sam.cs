@@ -26,11 +26,11 @@ public class Sam : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenAllyAheadGainsStatusApplyItToAllies.Name)
+                    Absent.SStack(WhenAllyAheadGainsStatusApplyItToAllies.Name),
                 ];
                 card.greetMessages =
                 [
-                    "*You're not sure if he's sleeping or not*"
+                    "*You're not sure if he's sleeping or not*",
                 ];
             });
     }

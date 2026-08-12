@@ -25,7 +25,7 @@ public class WhenCompanionKilledInsteadRecallThem : IStatusBuilder
 
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.IsCardType(["Friendly"])
+                    TargetConstraintHelper.IsCardType(["Friendly"]),
                 ];
             });
     }

@@ -24,7 +24,7 @@ public class InstantSummonFromReserve : IStatusBuilder
                 status.backupSummon = Absent.GetCard(EmptySeat.Name);
                 status.withEffects =
                 [
-                    Absent.GetStatus("Temporary Summoned")
+                    Absent.GetStatus("Temporary Summoned"),
                 ];
             });
     }

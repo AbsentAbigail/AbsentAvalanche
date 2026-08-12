@@ -27,7 +27,7 @@ public class TangledBlanket : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack(Combo.Name, 2),
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

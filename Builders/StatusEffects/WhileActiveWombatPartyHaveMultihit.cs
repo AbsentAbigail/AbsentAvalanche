@@ -25,7 +25,7 @@ public class WhileActiveWombatPartyHaveMultihit : IStatusBuilder
 
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.HasTrait(WombatParty.Name)
+                    TargetConstraintHelper.HasTrait(WombatParty.Name),
                 ];
             });
     }

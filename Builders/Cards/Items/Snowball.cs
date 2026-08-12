@@ -23,7 +23,7 @@ public class Snowball : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Snow", 2)
+                    Absent.SStack("Snow", 2),
                 ];
                 card.startWithEffects = [Absent.SStack(OnCardPlayedBoostSelf.Name)];
                 card.traits = [Absent.TStack("Zoomlin")];

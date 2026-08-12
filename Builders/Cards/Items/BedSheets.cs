@@ -26,7 +26,7 @@ public class BedSheets : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Equip.Name),
-                    Absent.SStack(WhenEquippedGainSnow.Name, 3),
+                    Absent.SStack(WhenEquippedGainSnow.Name, 5),
                     Absent.SStack(WhileSnowedInvisible.Name),
                 ];
             });

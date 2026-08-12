@@ -24,7 +24,7 @@ public class OnCardPlayedRecallAllAlliedCompanions : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Allies;
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.IsCardType(["Friendly"])
+                    TargetConstraintHelper.IsCardType(["Friendly"]),
                 ];
             });
     }

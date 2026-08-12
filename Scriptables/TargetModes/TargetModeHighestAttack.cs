@@ -13,27 +13,43 @@ internal class TargetModeHighestAttack : TargetMode
         var hashSet = new HashSet<Entity>();
         if ((bool)targetContainer)
         {
-            if (targetContainer.Count > 0) hashSet.Add(GetTarget(targetContainer));
+            if (targetContainer.Count > 0)
+            {
+                hashSet.Add(GetTarget(targetContainer));
+            }
         }
         else if ((bool)target)
         {
             if (target.containers.Length == 0)
+            {
                 return hashSet.Count <= 0 ? null : hashSet.ToArray();
+            }
             var cardContainer = target.containers.RandomItem();
             if (cardContainer.Count > 0)
+            {
                 hashSet.Add(GetTarget(cardContainer));
+            }
         }
         else
         {
             var rowIndices = Battle.instance.GetRowIndices(entity);
-            foreach (var rowIndex in rowIndices) AddTargets(entity, hashSet, rowIndex);
+            foreach (var rowIndex in rowIndices)
+            {
+                AddTargets(entity, hashSet, rowIndex);
+            }
 
             if (hashSet.Count != 0)
+            {
                 return hashSet.Count <= 0 ? null : hashSet.ToArray();
+            }
             var rowCount = Battle.instance.rowCount;
             for (var j = 0; j < rowCount; j++)
+            {
                 if (!rowIndices.Contains(j))
+                {
                     AddTargets(entity, hashSet, j);
+                }
+            }
         }
 
         return hashSet.Count <= 0 ? null : hashSet.ToArray();
@@ -46,12 +62,15 @@ internal class TargetModeHighestAttack : TargetMode
         var containers = entity.containers;
         var entityDamage = GetDamage(entity);
         foreach (var cardContainer in containers)
+        {
             for (var num = 0; num < cardContainer.Count; num++)
             {
                 var test = cardContainer[num];
                 var testDamage = GetDamage(test);
                 if (!test || !test.enabled || !test.alive || !test.canBeHit)
+                {
                     continue;
+                }
                 if (entityDamage < testDamage)
                 {
                     flag = false;
@@ -64,6 +83,7 @@ internal class TargetModeHighestAttack : TargetMode
                     break;
                 }
             }
+        }
 
         return flag;
     }
@@ -84,7 +104,10 @@ internal class TargetModeHighestAttack : TargetMode
         }
 
         target = GetEnemyCharacter(entity);
-        if ((bool)target) targets.Add(target);
+        if ((bool)target)
+        {
+            targets.Add(target);
+        }
     }
 
     // Search for highest attack
@@ -95,10 +118,14 @@ internal class TargetModeHighestAttack : TargetMode
         foreach (var entity in targets)
         {
             if (!(bool)entity || !entity.enabled || !entity.alive || !entity.canBeHit)
+            {
                 continue;
+            }
             var damage = GetDamage(entity);
             if (target is not null && highest >= damage)
+            {
                 continue;
+            }
             highest = damage;
             target = entity;
         }

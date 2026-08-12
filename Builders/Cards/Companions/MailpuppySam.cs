@@ -1,5 +1,4 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -13,7 +12,7 @@ namespace AbsentAvalanche.Builders.Cards.Companions;
 public class MailpuppySam : ILeaderBuilder
 {
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-    public const string Flavour = "Woolly Friend";
+    public const string Flavour = "He's got a letter with your name on it";
 
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
@@ -30,11 +29,11 @@ public class MailpuppySam : ILeaderBuilder
             {
                 card.traits =
                 [
-                    Absent.TStack(Mailpuppy.Name)
+                    Absent.TStack(Mailpuppy.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Will you help me deliver these letters?"
+                    "Will you help me deliver these letters?",
                 ];
             });
     }

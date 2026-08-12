@@ -31,11 +31,11 @@ public class Bubbles : ILeaderBuilder
                 [
                     Absent.SStack(OnCardPlayedGainSnow.Name, 2),
                     Absent.SStack(OnCardPlayedTriggerAllyAhead.Name),
-                    Absent.SStack("Trigger When Redraw Hit")
+                    Absent.SStack("Trigger When Redraw Hit"),
                 ];
                 card.greetMessages =
                 [
-                    "She's cheering you on!"
+                    "She's cheering you on!",
                 ];
             });
     }

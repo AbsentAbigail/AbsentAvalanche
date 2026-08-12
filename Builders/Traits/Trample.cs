@@ -19,7 +19,7 @@ public class Trample : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(OnKillTriggerNoTrigger.Name)
+                    Absent.GetStatus(OnKillTriggerNoTrigger.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Trample.Name);
             });

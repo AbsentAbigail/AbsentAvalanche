@@ -28,7 +28,7 @@ public class AliceAndNami : ILeaderBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(DreamTeam.NameWhenDeployed(Alice.Name, Nami.Name)),
-                    Absent.SStack(WhenDeployedApplyRandomBuffToAllAllies.Name)
+                    Absent.SStack(WhenDeployedApplyRandomBuffToAllAllies.Name),
                 ];
                 card.charmSlots *= 2;
             });

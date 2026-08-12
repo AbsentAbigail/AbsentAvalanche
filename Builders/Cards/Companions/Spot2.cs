@@ -32,7 +32,7 @@ public class Spot2 : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "I wanna help protect the friends"
+                    "I wanna help protect the friends",
                 ];
             });
     }

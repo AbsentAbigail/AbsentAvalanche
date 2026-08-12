@@ -26,7 +26,7 @@ public class WhenEnemyEntersBattleApplyShroom : IStatusBuilder
 
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsUnit>()
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>(),
                 ];
             });
     }

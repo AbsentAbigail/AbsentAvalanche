@@ -19,7 +19,7 @@ public class StatusEffectTriggerWithoutFrenzy : StatusEffectInstant
                 var targetContainer = randomTarget.containers.RandomItem();
                 ActionQueue.Stack(new ActionTriggerAgainst(randomTarget, applier, randomTarget, targetContainer)
                 {
-                    countsAsTrigger = false
+                    countsAsTrigger = false,
                 }, true);
             }
         }
@@ -27,13 +27,15 @@ public class StatusEffectTriggerWithoutFrenzy : StatusEffectInstant
         {
             var action = new ActionTriggerNoFrenzy(target, applier)
             {
-                priority = priority
+                priority = priority,
             };
             ActionQueue.Stack(action, true);
         }
 
         if (reduceUses)
+        {
             ActionQueue.Add(new ActionReduceUses(target));
+        }
 
         yield return base.Process();
     }

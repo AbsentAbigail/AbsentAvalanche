@@ -31,7 +31,7 @@ public class LilSisWombat : ICardBuilder
                 ];
                 card.greetMessages =
                 [
-                    "*wombat noises*"
+                    "*wombat noises*",
                 ];
             });
     }

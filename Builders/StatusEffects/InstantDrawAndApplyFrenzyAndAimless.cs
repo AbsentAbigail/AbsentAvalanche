@@ -22,7 +22,7 @@ public class InstantDrawAndApplyFrenzyAndAimless : IStatusBuilder
                 status.effects =
                 [
                     Absent.GetStatus("Temporary Aimless"),
-                    Absent.GetStatus("MultiHit")
+                    Absent.GetStatus("MultiHit"),
                 ];
             });
     }

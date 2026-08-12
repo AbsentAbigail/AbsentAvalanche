@@ -27,15 +27,15 @@ public class Cuddles : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedCleanseSelf.Name)
+                    Absent.SStack(OnCardPlayedCleanseSelf.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack(Friend.Name)
+                    Absent.TStack(Friend.Name),
                 ];
                 card.greetMessages =
                 [
-                    "*offers you a hug in these trying times*"
+                    "*offers you a hug in these trying times*",
                 ];
             });
     }

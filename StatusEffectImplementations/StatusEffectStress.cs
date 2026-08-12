@@ -22,7 +22,10 @@ internal class StatusEffectStress : StatusEffectBonusDamageEqualToX
                 break;
         }
 
-        if (num > 0) yield return GainAmount(num);
+        if (num > 0)
+        {
+            yield return GainAmount(num);
+        }
     }
 
     private new int FindOnBoard()

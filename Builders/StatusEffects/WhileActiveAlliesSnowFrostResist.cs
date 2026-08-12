@@ -27,7 +27,7 @@ public class WhileActiveAlliesSnowFrostResist : IStatusBuilder
                 status.resistTypes =
                 [
                     Absent.GetStatus("Frost").type,
-                    Absent.GetStatus("Snow").type
+                    Absent.GetStatus("Snow").type,
                 ];
             });
     }

@@ -26,7 +26,7 @@ public class DysphoriaHoodie : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Equip.Name),
-                    Absent.SStack(OnKillGainBlock.Name)
+                    Absent.SStack(OnKillGainBlock.Name),
                 ];
             });
     }

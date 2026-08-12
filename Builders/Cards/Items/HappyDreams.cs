@@ -26,7 +26,7 @@ public class HappyDreams : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedTutorDeckCopyConsumeZoomlin.Name)
+                    Absent.SStack(OnCardPlayedTutorDeckCopyConsumeZoomlin.Name),
                 ];
             });
     }

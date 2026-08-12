@@ -19,7 +19,7 @@ public class StatusEffectMetronome : StatusEffectInstantApplyEffect
         yield return CustomTextPopupSystem.Run(target, GetLocalizedString("Metronome"), target.data.title, "Metronome");
         var crit = criticalOdds > 0 && Random.Range(0, criticalOdds) == 0;
         
-        var metronome = Absent.GetStatusOf<StatusEffectMetronome>(name); // The game does not properly copy struct arrays so we have to get the pools from the original
+        var metronome = (StatusEffectMetronome)original; // The game does not properly copy struct arrays so we have to get the pools from the original
         var pool = (crit ? metronome.criticalMovePool : metronome.movePool).ToList();
         
         pool.RemoveAllWhere(move => !ValidMove(move));

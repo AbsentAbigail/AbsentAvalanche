@@ -36,7 +36,7 @@ public class Catcitten : ICardBuilder
                 ];
                 card.greetMessages =
                 [
-                    "I got sepewated fwom my big sister, have you seen her? She's de coolest!"
+                    "I got sepewated fwom my big sister, have you seen her? She's de coolest!",
                 ];
             });
     }

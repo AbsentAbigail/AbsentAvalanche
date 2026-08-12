@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.StatusEffects;
-using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -34,7 +33,7 @@ public class GrinkNova : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Do you like my Grink costume? <3"
+                    "Do you like my Grink costume? <3",
                 ];
             });
     }
@@ -49,6 +48,6 @@ public class GrinkNova : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-2, 1),
-        counterRange = new Vector2Int(-1, 0)
+        counterRange = new Vector2Int(-1, 0),
     };
 }

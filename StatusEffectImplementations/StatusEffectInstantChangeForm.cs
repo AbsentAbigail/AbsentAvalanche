@@ -33,7 +33,9 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         }
 
         if (phaseOptions.Length <= 0)
+        {
             throw new ArgumentException("Next phase not given!");
+        }
 
         var cards = GetCards();
 
@@ -56,7 +58,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             card.startWithEffects =
             [
                 ..card.startWithEffects,
-                ..startWithEffects
+                ..startWithEffects,
             ];
             card.startWithEffects.Do(s =>
             {
@@ -84,7 +86,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 {
                     "Friendly" => Absent.GetCardType("Enemy"),
                     "Leader" => Absent.GetCardType("Miniboss"),
-                    _ => c.cardType
+                    _ => c.cardType,
                 };
             });
         }
@@ -96,7 +98,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             randomCard.startWithEffects =
             [
                 ..randomCard.startWithEffects,
-                bossTransform
+                bossTransform,
             ];
         }
 
@@ -133,7 +135,7 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
 
         var action = new ActionChangeForm(target, cards, animation)
         {
-            priority = 10
+            priority = 10,
         };
         ActionQueue.Stack(action, true);
 
@@ -143,7 +145,9 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
     private void AddCharms(CardData[] cards)
     {
         if (!keepUpgrades)
+        {
             return;
+        }
 
         var upgrades = target.data.upgrades;
 
@@ -164,11 +168,13 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         List<CardData> cards = [];
 
         while (cards.Count < splitCount)
+        {
             cards.AddRange(
                 remaining < phaseOptions.Length
                     ? phaseOptions
                     : phaseOptions.RandomItems(remaining)
             );
+        }
 
         return cards.Select(a => a.Clone()).ToArray();
     }
@@ -197,7 +203,10 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
     {
         public override IEnumerator Run()
         {
-            if (!entity.IsAliveAndExists()) yield break;
+            if (!entity.IsAliveAndExists())
+            {
+                yield break;
+            }
 
             Events.InvokeEntityChangePhase(entity);
             _ = new Routine(CreateNewCards());
@@ -205,37 +214,50 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
             PauseMenu.Block();
             DeckpackBlocker.Block();
             if (Deckpack.IsOpen && References.Player.entity.display is CharacterDisplay display)
+            {
                 display.CloseInventory();
+            }
             var animationSystem = FindObjectOfType<ChangePhaseAnimationSystem>();
             if (animationSystem)
+            {
                 yield return animationSystem.Focus(entity);
+            }
             if (animation)
+            {
                 yield return animation.Routine(entity);
+            }
             foreach (var action in ActionQueue.GetActions())
+            {
                 switch (action)
                 {
                     case ActionTrigger actionTrigger:
                         if (actionTrigger.entity == entity)
+                        {
                             ActionQueue.Remove(action);
+                        }
                         break;
                     case ActionEffectApply actionEffectApply:
                         actionEffectApply.TryRemoveEntity(entity);
                         break;
                 }
+            }
 
             var splitAction = new ActionSequence(Split(entity))
             {
                 note = "Split boss",
-                priority = 10
+                priority = 10,
             };
             ActionQueue.Stack(splitAction, true);
 
-            if (!animationSystem) yield break;
+            if (!animationSystem)
+            {
+                yield break;
+            }
 
             var animationAction = new ActionSequence(animationSystem.UnFocus())
             {
                 note = "Unfocus boss",
-                priority = 10
+                priority = 10,
             };
             ActionQueue.Stack(animationAction, true);
         }
@@ -245,7 +267,9 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
         {
             entity.alive = false;
             while (loadingNewCards)
+            {
                 yield return null;
+            }
             var num = 0;
             var count = entity.actualContainers.Count;
             var toMove = new Dictionary<CardContainer, List<Entity>>();
@@ -261,9 +285,13 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 {
                     var container = entity.containers[index];
                     if (toMove.ContainsKey(container))
+                    {
                         toMove[container].Add(newCard);
+                    }
                     else
+                    {
                         toMove[container] = [newCard];
+                    }
                 }
                 else
                 {
@@ -281,7 +309,10 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 var cardContainer = keyValuePair.Key;
                 var entityList = keyValuePair.Value;
 
-                if (entityList == null) continue;
+                if (entityList == null)
+                {
+                    continue;
+                }
 
                 foreach (var entity1 in entityList)
                 {
@@ -307,13 +338,15 @@ public class StatusEffectInstantChangeForm : StatusEffectInstant
                 }
 
                 if (objectOfType2)
+                {
                     objectOfType2.Ignore(newCard);
+                }
             }
 
             var action = new ActionSequence(FinalSplit(toMove))
             {
                 note = "Final boss split",
-                priority = 10
+                priority = 10,
             };
             ActionQueue.Stack(action, true);
         }

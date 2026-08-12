@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using AbsentAvalanche.Helpers;
 
 namespace AbsentAvalanche.StatusEffectImplementations;
 
@@ -31,7 +30,7 @@ internal class StatusEffectShroomTriggersAdditionalTimes : StatusEffectData
             var echo = new Hit(hit.attacker, hit.target, hit.damage)
             {
                 screenShake = 0.25f,
-                damageType = "shroom"
+                damageType = "shroom",
             };
             _additionalHits.Add(echo);
             yield return echo.Process();

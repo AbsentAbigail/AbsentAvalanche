@@ -30,11 +30,11 @@ public class Seal : ILeaderBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(DoubleStatusEffectsAppliedToCatcus.Name),
-                    Absent.SStack("ImmuneToSnow")
+                    Absent.SStack("ImmuneToSnow"),
                 ];
                 card.greetMessages =
                 [
-                    "*rolls around blissfully*"
+                    "*rolls around blissfully*",
                 ];
             });
     }
@@ -49,6 +49,6 @@ public class Seal : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-2, 2),
-        damageRange = new Vector2Int(-2, 2)
+        damageRange = new Vector2Int(-2, 2),
     };
 }

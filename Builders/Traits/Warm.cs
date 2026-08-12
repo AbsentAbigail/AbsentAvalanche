@@ -19,7 +19,7 @@ public class Warm : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(EveryTurnCountDownSnowFrost.Name)
+                    Absent.GetStatus(EveryTurnCountDownSnowFrost.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Warm.Name);
             });

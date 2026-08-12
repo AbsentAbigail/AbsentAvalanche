@@ -19,13 +19,19 @@ public class StatusEffectWhenXAppliedToRedirect : StatusEffectApplyX
         
         if (!apply.applier || apply.applier == target || !apply.target || !apply.effectData ||
             apply.effectData.type.IsNullOrWhitespace() || target.silenced)
+        {
             return false;
+        }
 
         if (!CheckType(apply.effectData))
+        {
             return false;
+        }
 
         if (!CheckTarget(apply.target))
+        {
             return false;
+        }
 
         ActionQueue.Stack(new ActionSequence(Run(apply.effectData, apply.count)));
         apply.effectData = null;
@@ -41,7 +47,9 @@ public class StatusEffectWhenXAppliedToRedirect : StatusEffectApplyX
     private bool CheckTarget(Entity entity)
     {
         if (entity.statusEffects.Any(s => s.name == name))
+        {
             return false;
+        }
 
         var apply = applyToFlags;
         applyToFlags = whenAppliedFlags;
@@ -53,11 +61,15 @@ public class StatusEffectWhenXAppliedToRedirect : StatusEffectApplyX
     private bool CheckType(StatusEffectData effectData)
     {
         if (!effectData.isStatus)
+        {
             return false;
+        }
 
         if (!(negativeStatus == effectData.IsNegativeStatusEffect() ||
               positiveStatus != effectData.IsNegativeStatusEffect()))
+        {
             return false;
+        }
 
         return whenAppliedTypes.Length == 0 || whenAppliedTypes.Contains(effectData.type);
     }

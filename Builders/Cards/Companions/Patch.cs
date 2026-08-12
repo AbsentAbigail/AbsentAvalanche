@@ -27,11 +27,11 @@ public class Patch : ILeaderBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(OnCardPlayedIncreaseAlliesHealthEqualToOwn.Name),
-                    Absent.SStack(WhenSelfOrAllyHitIncreaseOwnHealth.Name)
+                    Absent.SStack(WhenSelfOrAllyHitIncreaseOwnHealth.Name),
                 ];
                 card.greetMessages =
                 [
-                    "You feel the urge to give a boop"
+                    "You feel the urge to give a boop",
                 ];
             });
     }
@@ -46,6 +46,6 @@ public class Patch : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-1, 1),
-        counterRange = new Vector2Int(-2, 0)
+        counterRange = new Vector2Int(-2, 0),
     };
 }

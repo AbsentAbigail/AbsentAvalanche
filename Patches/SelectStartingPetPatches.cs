@@ -82,10 +82,14 @@ public static class SelectStartingPetPatches
     private static void SelectPostfix(SelectStartingPet __instance, Entity entity)
     {
         if (!__instance.running)
+        {
             return;
+        }
         var num = OtherPets.IndexOf(entity);
         if (num < 0)
+        {
             return;
+        }
         __instance.selectedPetIndex = num;
         __instance.selectionSequence.SetUnit(entity);
         __instance.selectionSequence.Begin();

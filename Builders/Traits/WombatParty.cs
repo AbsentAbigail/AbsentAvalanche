@@ -19,7 +19,7 @@ public class WombatParty : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(WhileActiveWombatPartyHaveMultihit.Name)
+                    Absent.GetStatus(WhileActiveWombatPartyHaveMultihit.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.WombatParty.Name);
             });

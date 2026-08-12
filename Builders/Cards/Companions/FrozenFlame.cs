@@ -32,13 +32,13 @@ public class FrozenFlame : ICardBuilder
                 [
                     Absent.SStack(OnCardPlayedGainOverload.Name),
                     Absent.SStack("Block", 4),
-                    Absent.SStack(WhenDestroyedSummonUnboundFlame.Name)
+                    Absent.SStack(WhenDestroyedSummonUnboundFlame.Name),
                 ];
                 card.greetMessages =
                 [
                     "This damned frost... Hey you, help me out!",
                     "Is it cold here, or is that just me?",
-                    "Who touched the thermostat?!"
+                    "Who touched the thermostat?!",
                 ];
             });
     }

@@ -25,11 +25,11 @@ public class NebulaInstrumenta : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack("Zoomlin"),
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedTutorRandomTreasure.Name)
+                    Absent.SStack(OnCardPlayedTutorRandomTreasure.Name),
                 ];
             });
     }

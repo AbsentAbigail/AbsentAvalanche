@@ -39,7 +39,7 @@ public class CatcittenExplorer : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "I'm weady to see da wowld!"
+                    "I'm weady to see da wowld!",
                 ];
             });
     }

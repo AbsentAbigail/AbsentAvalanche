@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Helpers;
-using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -23,7 +22,7 @@ public class InstantReplaceAttackWithOverburn : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(InstantApplyOverburnRemoveAttack.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.AttackMoreThan(0)
+                    TargetConstraintHelper.AttackMoreThan(0),
                 ];
             });
     }

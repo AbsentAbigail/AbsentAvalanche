@@ -24,7 +24,7 @@ public class Catbom : ICardBuilder
                 card.attackEffects =
                 [
                     Absent.SStack("Weakness", 4),
-                    Absent.SStack(Cat.Name, 8)
+                    Absent.SStack(Cat.Name, 8),
                 ];
             });
     }

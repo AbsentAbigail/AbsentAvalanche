@@ -27,7 +27,7 @@ public class EmeraldAndSally : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(DreamTeam.NameWhenDeployed(Emerald.Name, Sally.Name))
+                    Absent.SStack(DreamTeam.NameWhenDeployed(Emerald.Name, Sally.Name)),
                 ];
                 card.charmSlots *= 2;
             });

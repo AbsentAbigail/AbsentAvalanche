@@ -30,7 +30,7 @@ public class Sally : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Just happy to be here :)"
+                    "Just happy to be here :)",
                 ];
             });
     }

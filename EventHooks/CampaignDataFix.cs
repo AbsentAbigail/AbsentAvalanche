@@ -16,7 +16,10 @@ public static class CampaignDataFix
 
         var rewards = References.Player.GetComponent<CharacterRewards>().poolLookup;
         var rewards2 = new Dictionary<string, SaveCollection<string>>();
-        foreach (var category in rewards.Keys) rewards2[category] = rewards[category].list.ToSaveCollectionOfNames();
+        foreach (var category in rewards.Keys)
+        {
+            rewards2[category] = rewards[category].list.ToSaveCollectionOfNames();
+        }
 
         SaveSystem.SaveCampaignData(Campaign.Data.GameMode, "absent.rewards", rewards2);
         return Task.CompletedTask;
@@ -25,7 +28,9 @@ public static class CampaignDataFix
     public static void LoadCampaignData()
     {
         if (!Campaign.instance || Campaign.Data == null)
+        {
             return;
+        }
         LogHelper.Warn("~CAMPAIGN LOADED~");
         var preset = SaveSystem.LoadCampaignData<string>(Campaign.Data.GameMode, "absent.preset", null);
         Campaign.instance.preset ??= new TextAsset(preset);
@@ -45,7 +50,7 @@ public static class CampaignDataFix
                     "Items" or "Units" => typeof(CardData),
                     "Charms" => typeof(CardUpgradeData),
                     "Modifiers" => typeof(GameModifierData),
-                    _ => null
+                    _ => null,
                 };
                 if (type == null)
                 {
@@ -56,16 +61,22 @@ public static class CampaignDataFix
 
                 var data = AddressableLoader.Get<DataFile>(type.Name, name);
                 if (data)
+                {
                     rewards[category].Add(data);
+                }
             }
         }
 
         var poolLookup = References.Player.GetComponent<CharacterRewards>()?.poolLookup;
         if (poolLookup == null)
+        {
             return;
+        }
 
         foreach (var key in rewards.Keys)
+        {
             poolLookup[key] = rewards[key];
+        }
         LogHelper.Warn("Reusing character rewards from custom data:");
         foreach (var pool in poolLookup)
         {

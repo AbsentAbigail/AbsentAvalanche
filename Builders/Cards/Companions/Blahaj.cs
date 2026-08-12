@@ -32,7 +32,7 @@ public class Blahaj : ICardBuilder
                 [
                     "Big and safe to have by your side if you want to discover the world below the surface of the ocean. The blue shark can swim very far, dive really deep and hear noises from almost 250 metres away.",
                     "Accepts and loves you <3",
-                    "*shark noises*"
+                    "*shark noises*",
                 ];
             });
     }

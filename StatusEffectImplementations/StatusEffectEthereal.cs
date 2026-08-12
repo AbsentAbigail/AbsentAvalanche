@@ -12,10 +12,14 @@ public class StatusEffectEthereal : StatusEffectData
     public override bool RunTurnEndEvent(Entity entity)
     {
         if (!target.enabled)
+        {
             return false;
+        }
 
         if (entity != target.owner.entity)
+        {
             return false;
+        }
 
         return target.InHand();
     }
@@ -31,7 +35,9 @@ public class StatusEffectEthereal : StatusEffectData
     {
         count -= amount;
         if (removeTemporary)
+        {
             temporary -= amount;
+        }
         if (count <= 0)
         {
             yield return Remove();

@@ -21,7 +21,7 @@ public class InstantDrawAlliesAndApplyZoomlin : IStatusBuilder
             {
                 data.predicate = predicate => predicate.cardType.unit;
                 data.addEffectStacks = [
-                    Absent.SStack("Temporary Zoomlin")
+                    Absent.SStack("Temporary Zoomlin"),
                 ];
             });
     }

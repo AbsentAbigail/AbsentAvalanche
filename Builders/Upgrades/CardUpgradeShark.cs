@@ -27,7 +27,7 @@ public class CardUpgradeShark : IUpgradeBuilder
             {
                 charm.targetConstraints =
                 [
-                    TargetConstraintHelper.MaxCounterMoreThan(0)
+                    TargetConstraintHelper.MaxCounterMoreThan(0),
                 ];
                 charm.effects = [Absent.SStack(OnKillApplyCalmToSelf.Name)];
             });

@@ -20,7 +20,7 @@ public class StatusEffectInstantDealDamage : StatusEffectApplyXInstant
             var hit = new Hit(applier, entity, amount)
             {
                 canRetaliate = canRetaliate,
-                countsAsHit = countsAsHit
+                countsAsHit = countsAsHit,
             };
             clump.Add(hit.Process());
         }

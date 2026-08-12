@@ -25,7 +25,7 @@ public class Airliner : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenRecalledApplyFlightToAllAllies.Name)
+                    Absent.SStack(WhenRecalledApplyFlightToAllAllies.Name),
                 ];
             });
     }

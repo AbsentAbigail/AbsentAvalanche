@@ -27,7 +27,7 @@ public class UnboundFlame : ICardBuilder
                 card.attackEffects = [Absent.SStack("Overload", 3)];
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 3)
+                    Absent.SStack(OnCardPlayedApplyOverloadToAlliesInRow.Name, 3),
                 ];
                 card.traits = [Absent.TStack("Barrage")];
                 card.cardType = Absent.GetCardType("Summoned");

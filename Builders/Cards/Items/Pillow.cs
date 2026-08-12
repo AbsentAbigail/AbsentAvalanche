@@ -22,12 +22,12 @@ public class Pillow : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Heal", 2)
+                    Absent.SStack("Heal", 2),
                 ];
                 card.traits =
                 [
                     Absent.TStack("Zoomlin"),
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

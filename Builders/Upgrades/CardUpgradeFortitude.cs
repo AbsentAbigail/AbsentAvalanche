@@ -30,7 +30,7 @@ public class CardUpgradeFortitude : IUpgradeBuilder
                 charm.targetConstraints =
                 [
                     TargetConstraintHelper.HealthMoreThan(0),
-                    TargetConstraintHelper.General<TargetConstraintIsUnit>("Is Unit")
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>("Is Unit"),
                 ];
             });
     }

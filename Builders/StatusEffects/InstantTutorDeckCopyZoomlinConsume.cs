@@ -24,7 +24,7 @@ public class InstantTutorDeckCopyZoomlinConsume : IStatusBuilder
                 status.addEffectStacks =
                 [
                     Absent.SStack(TemporarySafeZoomlin.Name),
-                    Absent.SStack(TemporarySafeConsume.Name)
+                    Absent.SStack(TemporarySafeConsume.Name),
                 ];
                 status.title = LocalizationHelper.GetCollection("UI Text", SystemLanguage.English).GetString(Name);
             });

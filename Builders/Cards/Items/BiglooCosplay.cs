@@ -26,15 +26,15 @@ public class BiglooCosplay : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Snow")
+                    Absent.SStack("Snow"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(Equip.Name)
+                    Absent.SStack(Equip.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Barrage")
+                    Absent.TStack("Barrage"),
                 ];
             });
     }

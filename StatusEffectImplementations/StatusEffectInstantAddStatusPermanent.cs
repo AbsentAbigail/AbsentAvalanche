@@ -36,7 +36,7 @@ public class StatusEffectInstantAddStatusPermanent : StatusEffectInstantApplyEff
                 .. cardData.startWithEffects,
                 new CardData.StatusEffectStacks(
                     effectToApply,
-                    amount)
+                    amount),
             ];
         }
     }

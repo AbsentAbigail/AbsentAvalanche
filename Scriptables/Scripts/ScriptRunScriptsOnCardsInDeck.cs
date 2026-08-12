@@ -18,7 +18,9 @@ public class ScriptRunScriptsOnCardsInDeck : Script
         List<CardData> cardDataList = [];
         AddRangeIfConstraints(cardDataList, References.PlayerData.inventory.deck, constraints);
         if (includeReserve)
+        {
             AddRangeIfConstraints(cardDataList, References.PlayerData.inventory.reserve, constraints);
+        }
         if (cardDataList.Count <= 0)
         {
             yield break;
@@ -32,7 +34,9 @@ public class ScriptRunScriptsOnCardsInDeck : Script
         TargetConstraint[] constraints)
     {
         foreach (var cardData in toAdd)
+        {
             AddIfConstraints(collection, cardData, constraints);
+        }
     }
 
     private static void AddIfConstraints(
@@ -41,7 +45,9 @@ public class ScriptRunScriptsOnCardsInDeck : Script
         TargetConstraint[] constraints)
     {
         if (constraints.Any(tc => !tc.Check(item)))
+        {
             return;
+        }
         collection.Add(item);
     }
 

@@ -27,7 +27,7 @@ public class AfterAllyAttacksApplyCascadingAttack : IStatusBuilder
                 status.constraints =
                 [
                     TargetConstraintHelper.General<TargetConstraintDoesDamage>(),
-                    TargetConstraintHelper.IsCardType(["Item"], not: true)
+                    TargetConstraintHelper.IsCardType(["Item"], not: true),
                 ];
                 status.allies = true;
                 status.includeSelf = true;

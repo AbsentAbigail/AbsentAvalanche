@@ -27,7 +27,7 @@ public class AprilAndMay : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(DreamTeam.NameWhenDeployed(April.Name, May.Name))
+                    Absent.SStack(DreamTeam.NameWhenDeployed(April.Name, May.Name)),
                 ];
                 card.charmSlots *= 2;
             })

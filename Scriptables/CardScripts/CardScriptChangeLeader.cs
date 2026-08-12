@@ -12,8 +12,10 @@ public class CardScriptChangeLeader : CardScript
         var inventory = References.PlayerData.inventory;
 
         var promotion = inventory.deck.FirstOrDefault(c => c.cardType.name == "Friendly");
-        if (promotion == default(CardData))
+        if (promotion == null)
+        {
             return;
+        }
 
         LogHelper.Warn($"[CardScriptChangeLeader] Demoting [{target.name}]");
         LogHelper.Warn($"[CardScriptChangeLeader] Promoting [{promotion.name}]");
@@ -55,13 +57,19 @@ public class CardScriptChangeLeader : CardScript
 
         var deckDisplaySequence = FindObjectOfType<DeckDisplaySequence>();
         if (deckDisplaySequence is null)
+        {
             yield break;
+        }
 
         var entity = card.entity;
         if (leader)
+        {
             deckDisplaySequence.activeCardsGroup.GetGrid(card).Insert(0, entity);
+        }
         else
+        {
             deckDisplaySequence.activeCardsGroup.GetGrid(card).Add(entity);
+        }
         deckDisplaySequence.UpdatePositions();
     }
 }

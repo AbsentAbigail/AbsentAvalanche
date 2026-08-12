@@ -1,9 +1,7 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.StatusEffectImplementations;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using UnityEngine;
 
 namespace AbsentAvalanche.Builders.StatusEffects;
 

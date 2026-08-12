@@ -31,7 +31,7 @@ public class Tiny : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Hi :3"
+                    "Hi :3",
                 ];
             });
     }

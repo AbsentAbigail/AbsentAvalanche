@@ -16,7 +16,7 @@ public class StatusEffectInstantTutor : StatusEffectInstant
     {
         Draw,
         Discard,
-        Custom // Use Summon Copy
+        Custom, // Use Summon Copy
     }
 
     public CardSource source = CardSource.Draw;
@@ -44,13 +44,19 @@ public class StatusEffectInstantTutor : StatusEffectInstant
         var container = GetCardContainer();
 
         if (source == CardSource.Custom)
+        {
             foreach (var entity in container)
+            {
                 yield return entity.GetCard()!.UpdateData();
+            }
+        }
 
         CinemaBarSystem.In();
         CinemaBarSystem.SetSortingLayer("UI2");
         if (!title.IsEmpty)
+        {
             CinemaBarSystem.Top.SetPrompt(title.GetLocalizedString(), "Select");
+        }
         _sequence.AddCards(container);
         yield return _sequence.Run();
 
@@ -66,7 +72,9 @@ public class StatusEffectInstantTutor : StatusEffectInstant
             _selected.display.hover.enabled = true;
 
             foreach (var stack in addEffectStacks)
+            {
                 ActionQueue.Stack(new ActionApplyStatus(_selected, null, stack.data, stack.count));
+            }
 
             _selected.display.promptUpdateDescription = true;
             _selected.PromptUpdate();
@@ -93,7 +101,9 @@ public class StatusEffectInstantTutor : StatusEffectInstant
         _sequence.promptEnd = true;
 
         if (!summonCopy)
+        {
             return;
+        }
 
         var cardData = _selected.data;
         summonCopy.targetSummon.summonCard = cardData;
@@ -108,7 +118,9 @@ public class StatusEffectInstantTutor : StatusEffectInstant
     private void AddToDeck(CardData cardData)
     {
         if (!addToDeck)
+        {
             return;
+        }
 
         References.PlayerData.inventory.deck.Add(cardData);
         Events.InvokeEntityShowUnlocked(_selected);
@@ -186,15 +198,19 @@ public class StatusEffectInstantTutor : StatusEffectInstant
 
     private void PredicateContainer()
     {
-        var predicate1 = Absent.GetStatusOf<StatusEffectInstantTutor>(name).predicate;
+        var predicate1 = ((StatusEffectInstantTutor)original).predicate;
         if (predicate1 is null)
+        {
             throw new ArgumentException("No predicate found");
+        }
 
         var cards = AddressableLoader.GetGroup<CardData>("CardData")
             .Where(c => predicate1.Invoke(c) && c.mainSprite?.name != "Nothing")
             .OrderBy(_ => PettyRandom.Range(0f, 1f)).ToList();
         if (amount != 0)
+        {
             cards = cards.Take(amount).ToList();
+        }
 
         cards.Do(cardData =>
         {

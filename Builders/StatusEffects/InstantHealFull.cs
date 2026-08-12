@@ -25,7 +25,7 @@ public class InstantHealFull : IStatusBuilder
                 status.targetConstraints =
                 [
                     TargetConstraintHelper.General<TargetConstraintIsAlive>(),
-                    TargetConstraintHelper.HealthMoreThan(0)
+                    TargetConstraintHelper.HealthMoreThan(0),
                 ];
             });
     }

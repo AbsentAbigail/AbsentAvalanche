@@ -31,7 +31,7 @@ public class AmeliaTrigger : ILeaderBuilder
                 ];
                 card.traits =
                 [
-                    Absent.TStack(Pilot.Name)
+                    Absent.TStack(Pilot.Name),
                 ];
             });
     }

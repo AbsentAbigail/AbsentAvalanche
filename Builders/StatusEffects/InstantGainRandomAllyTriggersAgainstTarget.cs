@@ -21,7 +21,7 @@ public class InstantGainRandomAllyTriggersAgainstTarget : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(InstantRandomEnemyTriggersAgainst.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

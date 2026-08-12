@@ -28,11 +28,11 @@ public class PushedLimitsBell : IGameModifierBuilder
                     script.constraints =
                     [
                         TargetConstraintHelper.General<TargetConstraintIsCardType>("Is Item",
-                            tc => tc.allowedTypes = [Absent.GetCardType("Item")])
+                            tc => tc.allowedTypes = [Absent.GetCardType("Item")]),
                     ];
                     script.scripts =
                     [
-                        new Script<CardScriptComboConsume>("Card Script Add Combo and Consume", null)
+                        new Script<CardScriptComboConsume>("Card Script Add Combo and Consume", null),
                     ];
                 }))
             .WithRingSfxEvent(boostBell.ringSfxEvent)

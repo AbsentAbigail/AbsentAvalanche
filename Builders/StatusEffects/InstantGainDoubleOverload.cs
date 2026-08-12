@@ -21,7 +21,7 @@ public class InstantGainDoubleOverload : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Double Overload");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

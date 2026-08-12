@@ -25,7 +25,7 @@ public class WhileActiveAddFrenzyToItemsInHand : IStatusBuilder
 
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsItem>("Is Item")
+                    TargetConstraintHelper.General<TargetConstraintIsItem>("Is Item"),
                 ];
             });
     }

@@ -21,7 +21,7 @@ public class InstantGainRemoveShellAndBlock : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(InstantRemoveBlockShell.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

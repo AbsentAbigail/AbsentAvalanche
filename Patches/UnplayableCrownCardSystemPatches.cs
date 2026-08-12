@@ -8,7 +8,7 @@ namespace AbsentAvalanche.Patches;
 [HarmonyPatch(typeof(UnplayableCrownCardSystem), nameof(UnplayableCrownCardSystem.CardIsBlocked),
     [
         typeof(Entity),
-        typeof(CardContainer[])
+        typeof(CardContainer[]),
     ])]
 public class UnplyableCrownCardSystemPatches
 {

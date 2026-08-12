@@ -24,7 +24,7 @@ public class InstantEat : IStatusBuilder
                 status.illegalEffects =
                 [
                     Absent.GetStatus("On Turn Escape To Self"),
-                    Absent.GetStatus("Scrap")
+                    Absent.GetStatus("Scrap"),
                 ];
             });
     }

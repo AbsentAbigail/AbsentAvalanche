@@ -1,11 +1,9 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.Keywords;
-using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using Cat = AbsentAvalanche.Builders.Keywords.Cat;
 
 namespace AbsentAvalanche.Builders.Upgrades;
 
@@ -27,7 +25,7 @@ public class CardUpgradeMetronome : IUpgradeBuilder
             {
                 charm.giveTraits =
                 [
-                    Absent.TStack(Traits.Metronome.Name)
+                    Absent.TStack(Traits.Metronome.Name),
                 ];
                 charm.targetConstraints =
                 [

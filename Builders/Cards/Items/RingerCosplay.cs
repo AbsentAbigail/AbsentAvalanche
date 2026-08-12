@@ -26,7 +26,7 @@ public class RingerCosplay : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Equip.Name),
-                    Absent.SStack("When Hit Apply Frost To RandomEnemy", 2)
+                    Absent.SStack("When Hit Apply Frost To RandomEnemy", 2),
                 ];
             });
     }

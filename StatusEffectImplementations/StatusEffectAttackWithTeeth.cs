@@ -14,7 +14,9 @@ public class StatusEffectAttackWithTeeth : StatusEffectData
     private IEnumerator Check(Hit hit)
     {
         if (hit.attacker != target)
+        {
             yield break;
+        }
 
         var attack = target.FindStatus(attackWithType)?.count ?? 0;
 

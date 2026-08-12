@@ -31,7 +31,7 @@ public class StoppedClock : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Scrap"),
-                    Absent.SStack(FreePlay.Name, 3)
+                    Absent.SStack(FreePlay.Name, 3),
                 ];
                 card.scriptableImagePrefab = Absent.CreateScriptableCardImage<StoppedClockCardImage>("stopped_clock");
             });
@@ -78,7 +78,7 @@ internal class StoppedClockCardImage : ScriptableCardImage
             0 or 1 => sprites[0],
             2 or 5 => sprites[1],
             3 or 4 => sprites[2],
-            _ => Image.sprite
+            _ => Image.sprite,
         };
     }
 

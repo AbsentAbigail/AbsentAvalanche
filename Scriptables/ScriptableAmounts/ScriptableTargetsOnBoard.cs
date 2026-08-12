@@ -19,8 +19,14 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
             return InRow(entity, rows);
         }
 
-        if (allies) result += entity.GetAllies().Count(e => cardType is null || e.data.cardType == cardType);
-        if (enemies) result += entity.GetEnemies().Count(e => cardType is null || e.data.cardType == cardType);
+        if (allies)
+        {
+            result += entity.GetAllies().Count(e => cardType is null || e.data.cardType == cardType);
+        }
+        if (enemies)
+        {
+            result += entity.GetEnemies().Count(e => cardType is null || e.data.cardType == cardType);
+        }
         return result;
     }
 
@@ -30,9 +36,13 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
         foreach (var row in rows)
         {
             if (allies)
+            {
                 result += entity.GetAlliesInRow(row).Count(e => cardType is null || e.data.cardType == cardType);
+            }
             if (enemies)
+            {
                 result += entity.GetEnemiesInRow(row).Count(e => cardType is null || e.data.cardType == cardType);
+            }
         }
 
         return result;

@@ -30,11 +30,11 @@ public class Alice : ILeaderBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(WhenEnemyIsKilledGainBlock.Name),
-                    Absent.SStack(WhileActiveGainFrenzyEqualToBlock.Name)
+                    Absent.SStack(WhileActiveGainFrenzyEqualToBlock.Name),
                 ];
                 card.greetMessages =
                 [
-                    "*She moves her head forward expecting headpats*"
+                    "*She moves her head forward expecting headpats*",
                 ];
             });
     }

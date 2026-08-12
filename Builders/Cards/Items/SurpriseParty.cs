@@ -25,11 +25,11 @@ public class SurpriseParty : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Hit All Enemies"),
-                    Absent.SStack(TriggerWhenDrawn.Name)
+                    Absent.SStack(TriggerWhenDrawn.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

@@ -49,6 +49,11 @@ public class PelliCredit : IKeywordBuilder
             .AddToFlavours(MarshallingLights.Name)
             .AddToFlavours(StoppedClock.Name)
             .AddToFlavours(Uppies.Name)
+            .AddToFlavours(Togepi.Name)
+            .AddToFlavours(VeiledLadyCosplay.Name)
+            .AddToFlavours(IceLanternCosplay.Name)
+            .AddToFlavours(BedSheets.Name)
+            .AddToFlavours(BunnyShuffle.Name)
             ;
     }
 }

@@ -26,7 +26,7 @@ public class LongKitty : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedSplit.Name)
+                    Absent.SStack(OnCardPlayedSplit.Name),
                 ];
             });
     }

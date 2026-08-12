@@ -24,7 +24,7 @@ public class StatusEffectInstantShuffleDeck : StatusEffectInstant
         while (!fromContainer.Empty)
         {
             yield return Sequences.CardMove(fromContainer[Random.Range(0, fromContainer.Count)], [
-                toContainer
+                toContainer,
             ]);
             if (delayBetween > 0.0)
             {

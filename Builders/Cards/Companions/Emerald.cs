@@ -26,15 +26,15 @@ public class Emerald : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenHealedGainCascadeAttackHealth.Name)
+                    Absent.SStack(WhenHealedGainCascadeAttackHealth.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Smackback")
+                    Absent.TStack("Smackback"),
                 ];
                 card.greetMessages =
                 [
-                    "Hello! *she gives a big smile*"
+                    "Hello! *she gives a big smile*",
                 ];
             });
     }

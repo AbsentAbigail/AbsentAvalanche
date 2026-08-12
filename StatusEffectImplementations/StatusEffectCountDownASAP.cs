@@ -22,14 +22,18 @@ public class StatusEffectCountDownAsap : StatusEffectData
     private void EntityDisplayUpdated(Entity entity)
     {
         if (entity == null || entity != target)
+        {
             return;
+        }
         TryActivate();
     }
 
     private void TryActivate()
     {
         if (_activated || target.counter.current <= 0)
+        {
             return;
+        }
         _activated = true;
         ActionQueue.Stack(new ActionSequence(Activate()) { note = "Count down ASAP" });
     }

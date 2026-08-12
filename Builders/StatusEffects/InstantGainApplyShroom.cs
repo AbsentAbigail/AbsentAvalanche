@@ -21,7 +21,7 @@ public class InstantGainApplyShroom : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Shroom");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

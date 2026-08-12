@@ -32,11 +32,11 @@ public class April : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedAddWoolGrenadeToHand.Name)
+                    Absent.SStack(OnCardPlayedAddWoolGrenadeToHand.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Is it time to throw soft explosives?"
+                    "Is it time to throw soft explosives?",
                 ];
             });
     }
@@ -54,13 +54,13 @@ public class April : ILeaderBuilder
             card.traits =
             [
                 .. card.traits,
-                Absent.TStack("Spark")
+                Absent.TStack("Spark"),
             ];
             card.startWithEffects =
             [
                 .. card.startWithEffects,
-                Absent.SStack(WhileActiveCountDownEtherealWhenDrawn.Name)
+                Absent.SStack(WhileActiveCountDownEtherealWhenDrawn.Name),
             ];
-        }
+        },
     };
 }

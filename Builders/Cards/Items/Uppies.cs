@@ -16,6 +16,7 @@ public class Uppies : ICardBuilder
         return new CardDataBuilder(Absent.Instance)
             .CreateItem(Name, "Uppies")
             .SetDamage(null)
+            .CanPlayOnHand()
             .SetSprites(
                 Absent.GetSprite("Uppies"),
                 Absent.GetSprite("UppiesBG"))

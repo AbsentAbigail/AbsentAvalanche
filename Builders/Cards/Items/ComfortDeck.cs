@@ -26,7 +26,7 @@ public class ComfortDeck : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedShuffleDeck.Name)
+                    Absent.SStack(OnCardPlayedShuffleDeck.Name),
                 ];
                 card.traits =
                 [

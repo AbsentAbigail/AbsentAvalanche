@@ -6,7 +6,7 @@ public class StatusEffectApplyXOnBossKill : StatusEffectApplyXOnKill
     [
         Absent.GetCardType("Boss"),
         Absent.GetCardType("BossSmall"),
-        Absent.GetCardType("Miniboss")
+        Absent.GetCardType("Miniboss"),
     ];
 
     public override bool RunEntityDestroyedEvent(Entity entity, DeathType deathType)

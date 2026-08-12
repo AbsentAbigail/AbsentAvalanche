@@ -17,9 +17,13 @@ public class StatusEffectInstantReplaceInDeck : StatusEffectInstant
         foreach (var upgradeCopy in current.upgrades.Select(upgrade => Absent.GetCardUpgrade(upgrade.name).Clone()))
         {
             if (upgradeCopy.CanAssign(transformInto))
+            {
                 upgradeCopy.Assign(transformInto);
+            }
             else
+            {
                 inventory.upgrades.Add(upgradeCopy);
+            }
         }
         
         // Keep card type if leader
@@ -41,9 +45,13 @@ public class StatusEffectInstantReplaceInDeck : StatusEffectInstant
         }
 
         if (current.cardType.name == "Leader")
+        {
             inventory.deck.Insert(0, card.entity.data);
+        }
         else
+        {
             inventory.deck.Add(card.entity.data);
+        }
         inventory.deck.RemoveWhere(c => c.id == current.id);
         
         CardDiscoverSystem.instance.DiscoverCard(transformInto);

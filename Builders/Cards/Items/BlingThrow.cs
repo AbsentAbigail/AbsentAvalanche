@@ -26,7 +26,7 @@ public class BlingThrow : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Pre Turn Take Gold", 2),
-                    Absent.SStack("On Kill Apply Gold To Self", 2)
+                    Absent.SStack("On Kill Apply Gold To Self", 2),
                 ];
             });
     }

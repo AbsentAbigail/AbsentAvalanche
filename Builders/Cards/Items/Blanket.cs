@@ -26,7 +26,7 @@ public class Blanket : ICardBuilder
                 [
                     Absent.SStack("Spice"),
                     Absent.SStack("Shell"),
-                    Absent.SStack(Calm.Name)
+                    Absent.SStack(Calm.Name),
                 ];
             });
     }

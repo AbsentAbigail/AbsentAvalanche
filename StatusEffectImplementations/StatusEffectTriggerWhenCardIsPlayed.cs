@@ -22,7 +22,10 @@ internal class StatusEffectTriggerWhenCardIsPlayed : StatusEffectTriggerWhenAlly
 
     public override bool RunActionPerformedEvent(PlayAction action)
     {
-        if (!ActionQueue.Empty) return base.RunActionPerformedEvent(action);
+        if (!ActionQueue.Empty)
+        {
+            return base.RunActionPerformedEvent(action);
+        }
 
         _primed = false;
         _isPlayed = false;
@@ -33,19 +36,29 @@ internal class StatusEffectTriggerWhenCardIsPlayed : StatusEffectTriggerWhenAlly
     public override bool RunHitEvent(Hit hit)
     {
         if (hit.attacker is null)
+        {
             return false;
+        }
 
         if (_primed)
+        {
             return false;
+        }
 
         if (!References.Player.handContainer.Contains(target))
+        {
             return false;
+        }
 
         if (whenCardsPlayed.All(cardData => cardData.name != hit.attacker.data.name))
+        {
             return false;
+        }
 
         if (target.enabled && (bool)hit.target && hit.trigger != null && CheckEntity(hit.attacker))
+        {
             _primed = true;
+        }
 
         return false;
     }
@@ -59,11 +72,15 @@ internal class StatusEffectTriggerWhenCardIsPlayed : StatusEffectTriggerWhenAlly
         }
 
         if (!_primed || _isPlayed || targets is not { Length: > 0 })
+        {
             return false;
+        }
 
         _isPlayed = true;
         if (CanTrigger())
+        {
             Run(targets);
+        }
 
         return false;
     }
@@ -71,16 +88,22 @@ internal class StatusEffectTriggerWhenCardIsPlayed : StatusEffectTriggerWhenAlly
     public void Run(Entity[] targets)
     {
         foreach (var entity in targets)
+        {
             ActionQueue.Stack(new ActionApplyStatusQuicklyPlease(entity, target, _triggerEffect, 1));
+        }
     }
 
     private new bool CheckEntity(Entity entity)
     {
         if (!entity)
+        {
             return false;
+        }
 
         if (entity.owner.team != target.owner.team)
+        {
             return false;
+        }
 
         return entity != target && CheckRow(entity);
     }

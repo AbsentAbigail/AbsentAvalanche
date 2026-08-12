@@ -27,7 +27,7 @@ public class CuddlePipsqueak : ICardBuilder
                 [
                     Absent.SStack("On Turn Heal Allies", 3),
                     Absent.SStack(ExplorerHealAllies.Name, 150),
-                    Absent.SStack(WhenAllyHealedProgressExplorer.Name)
+                    Absent.SStack(WhenAllyHealedProgressExplorer.Name),
                 ];
             });
     }

@@ -34,7 +34,7 @@ public class Nova : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "*She stares at you*"
+                    "*She stares at you*",
                 ];
             });
     }
@@ -49,6 +49,6 @@ public class Nova : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-1, 1),
-        damageRange = new Vector2Int(0, 1)
+        damageRange = new Vector2Int(0, 1),
     };
 }

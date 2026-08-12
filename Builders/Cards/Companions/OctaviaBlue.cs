@@ -30,7 +30,7 @@ public class OctaviaBlue : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "*twirls around*"
+                    "*twirls around*",
                 ];
             });
     }
@@ -45,6 +45,6 @@ public class OctaviaBlue : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(0, 1),
-        counterRange = new Vector2Int(-1, 0)
+        counterRange = new Vector2Int(-1, 0),
     };
 }

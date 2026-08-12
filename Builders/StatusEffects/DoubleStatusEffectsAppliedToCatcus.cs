@@ -43,7 +43,7 @@ public class DoubleStatusEffectsAppliedToCatcus : IStatusBuilder
                             Absent.GetCard(CatcusZoom.Name),
                             Absent.GetCard(CatcusZoom.Name + "Leader"),
                         ]
-                    )
+                    ),
                 ];
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Allies;
             });

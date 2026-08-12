@@ -24,7 +24,7 @@ public class ButterflyKnife : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenAllyRecalledGainFrenzy.Name)
+                    Absent.SStack(WhenAllyRecalledGainFrenzy.Name),
                 ];
             });
     }

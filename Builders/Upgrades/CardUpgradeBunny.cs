@@ -1,5 +1,4 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.Builders.StatusEffects;
 using AbsentAvalanche.Helpers;
 using AbsentAvalanche.Scriptables.CardScripts;
 using Deadpan.Enums.Engine.Components.Modding;
@@ -25,12 +24,12 @@ public class CardUpgradeBunny : IUpgradeBuilder
             .SubscribeToAfterAllBuildEvent(charm =>
             {
                 charm.scripts = [
-                    new Script<CardScriptSwapHealthAttack>("Swap Health and Attack", null)
+                    new Script<CardScriptSwapHealthAttack>("Swap Health and Attack", null),
                 ];
                 charm.targetConstraints =
                 [
                     TargetConstraintHelper.HealthMoreThan(0),
-                    TargetConstraintHelper.AttackMoreThan(0)
+                    TargetConstraintHelper.AttackMoreThan(0),
                 ];
             });
     }

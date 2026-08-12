@@ -26,7 +26,7 @@ public class CuddlePip : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(OnCardPlayedIncreaseHealthToAllies.Name, 3),
-                    Absent.SStack(WhenAllyHealedCleanse.Name)
+                    Absent.SStack(WhenAllyHealedCleanse.Name),
                 ];
             });
     }

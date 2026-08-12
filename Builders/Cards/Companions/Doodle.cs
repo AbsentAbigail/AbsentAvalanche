@@ -1,6 +1,4 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
-using AbsentAvalanche.Builders.StatusEffects;
-using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -27,11 +25,11 @@ public class Doodle : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack("Hit All Enemies")
+                    Absent.SStack("Hit All Enemies"),
                 ];
                 card.greetMessages =
                 [
-                    "°-°"
+                    "°-°",
                 ];
             });
     }

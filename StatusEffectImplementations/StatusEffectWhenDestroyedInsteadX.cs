@@ -27,14 +27,18 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
     public void EntityDisplayUpdated(Entity entity)
     {
         if (!_activated && target.hp.current <= 0 && entity == target)
+        {
             TryActivate();
+        }
         UpdateHealth();
     }
 
     public override bool RunPostHitEvent(Hit hit)
     {
         if (!_activated && hit.target == target && target.hp.current <= 0)
+        {
             TryActivate();
+        }
         UpdateHealth();
         return false;
     }
@@ -45,7 +49,10 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
                 s.preventDeath &&
                 s is not StatusEffectWhenDestroyedInsteadX &&
                 s is not StatusEffectNextPhase)
-           ) return;
+           )
+        {
+            return;
+        }
 
         _activated = true;
 
@@ -53,7 +60,9 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
         {
             target.hp.current = _lastHealth;
             if (_lastScrap)
+            {
                 ActionQueue.Stack(new ActionApplyStatus(target, target, Absent.GetStatus("Scrap"), 1), true);
+            }
         }
 
         ActionQueue.Stack(new ActionSequence(Run(GetTargets())));
@@ -71,7 +80,9 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
     private void UpdateHealth()
     {
         if (!resetHealth)
+        {
             return;
+        }
         _lastHealth = target.hp.current;
         _lastScrap = (bool)target.FindStatus("scrap");
     }
@@ -83,7 +94,9 @@ public class StatusEffectWhenDestroyedInsteadX : StatusEffectApplyX
     public override int GetAmount()
     {
         if (!target || TargetSilenced())
+        {
             return 0;
+        }
         return !canBeBoosted ? count : Mathf.Max(0, Mathf.RoundToInt((count + target.effectBonus) * target.effectFactor));
     }
 

@@ -24,7 +24,7 @@ public class LuminBlessing : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCampaignWinLeaderStartsWithCharm.Name)
+                    Absent.SStack(OnCampaignWinLeaderStartsWithCharm.Name),
                 ];
                 card.needsTarget = false;
                 card.canPlayOnBoard = false;

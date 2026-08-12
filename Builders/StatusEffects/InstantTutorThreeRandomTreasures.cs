@@ -24,7 +24,7 @@ public class InstantTutorThreeRandomTreasures : IStatusBuilder
                 status.summonCopy = Absent.GetStatusOf<StatusEffectInstantSummon>(InstantSummonDummyToHand.Name);
                 status.amount = 3;
                 status.predicate = cardData =>
-                    cardData.cardType.name == "Item" || (cardData.cardType.name == "Clunker" && !cardData.IsPet());
+                    cardData.cardType.name == "Item" || cardData.cardType.name == "Clunker" && !cardData.IsPet();
                 status.title = LocalizationHelper.GetCollection("UI Text", SystemLanguage.English).GetString(Name);
             });
     }

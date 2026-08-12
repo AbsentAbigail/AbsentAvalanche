@@ -32,7 +32,7 @@ public class CardUpgradeBravery : IUpgradeBuilder
                         "Is Not Leader",
                         tc => tc.allowedTypes = [Absent.GetCardType("Leader")],
                         true
-                    )
+                    ),
                 ];
             });
     }

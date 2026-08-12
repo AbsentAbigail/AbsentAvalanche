@@ -27,7 +27,7 @@ public class GhostlyPresence : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Ethereal.Name, 3),
-                    Absent.SStack(WhileInHandApplyOverburnToRandomEnemy.Name, 3)
+                    Absent.SStack(WhileInHandApplyOverburnToRandomEnemy.Name, 3),
                 ];
             });
     }

@@ -22,7 +22,10 @@ public class CardSaveDataPatches
     private static void LoadSarcophagus(ref CardData result)
     {
         var saveData = result.customData;
-        if (saveData == null || !saveData.ContainsKey("Sarcophagus")) return;
+        if (saveData == null || !saveData.ContainsKey("Sarcophagus"))
+        {
+            return;
+        }
         try
         {
             var customData = saveData.Get<SaveCollection<object>>("Sarcophagus");
@@ -36,21 +39,21 @@ public class CardSaveDataPatches
             [
                 .. ((SaveCollection<(string, int)>)customData[3]).collection
                 .ToDictionary(a => a.Item1, a => a.Item2)
-                .Select(a => Absent.TStack(a.Key, a.Value))
+                .Select(a => Absent.TStack(a.Key, a.Value)),
             ];
 
             cardData.attackEffects =
             [
                 .. ((SaveCollection<(string, int)>)customData[1]).collection
                     .ToDictionary(a => a.Item1, a => a.Item2)
-                    .Select(a => Absent.SStack(a.Key, a.Value))
+                    .Select(a => Absent.SStack(a.Key, a.Value)),
             ];
 
             cardData.startWithEffects =
             [
                 .. ((SaveCollection<(string, int)>)customData[2]).collection
                     .ToDictionary(a => a.Item1, a => a.Item2)
-                    .Select(a => Absent.SStack(a.Key, a.Value))
+                    .Select(a => Absent.SStack(a.Key, a.Value)),
             ];
 
             var summon = Absent.GetStatusOf<StatusEffectSummon>(SummonSarcophagus.Name).InstantiateKeepName();
@@ -68,7 +71,9 @@ public class CardSaveDataPatches
             for (var i = 0; i < result.startWithEffects.Length; i++)
             {
                 if (result.startWithEffects[i].data.name != SarcophagusName)
+                {
                     continue;
+                }
                 result.startWithEffects[i] = new CardData.StatusEffectStacks(applyX, result.startWithEffects[i].count);
                 LogHelper.Warn("Replaced effect");
             }

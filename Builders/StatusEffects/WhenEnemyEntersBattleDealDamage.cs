@@ -28,7 +28,7 @@ public class WhenEnemyEntersBattleDealDamage : IStatusBuilder
 
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsUnit>()
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>(),
                 ];
             });
     }

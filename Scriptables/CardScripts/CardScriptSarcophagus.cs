@@ -14,7 +14,9 @@ public class CardScriptSarcophagus : CardScript
     public override void Run(CardData target)
     {
         if (vessel is null)
+        {
             throw new ArgumentException("Vessel not given!");
+        }
 
         var inventory = References.PlayerData.inventory;
         var sarcophagus = vessel.Clone();
@@ -35,7 +37,7 @@ public class CardScriptSarcophagus : CardScript
         sarcophagus.startWithEffects =
         [
             Absent.SStack(Ethereal.Name, 3),
-            new CardData.StatusEffectStacks(applyX, 2)
+            new CardData.StatusEffectStacks(applyX, 2),
         ];
 
         object[] customData =
@@ -48,7 +50,7 @@ public class CardScriptSarcophagus : CardScript
                 (string, int)>(a => (a.data.name, a.count)).ToArray()),
             new SaveCollection<(string, int)>(target.traits.Select<CardData.TraitStacks,
                 (string, int)>(a => (a.data.name, a.count)).ToArray()),
-            new SaveCollection<string>(target.upgrades.Select(a => a.name).ToArray())
+            new SaveCollection<string>(target.upgrades.Select(a => a.name).ToArray()),
         ];
 
         sarcophagus.customData ??= new Dictionary<string, object>();
@@ -75,8 +77,10 @@ public class CardScriptSarcophagus : CardScript
 
         var deckDisplaySequence = FindObjectOfType<DeckDisplaySequence>();
         if (deckDisplaySequence is null)
+        {
             yield break;
-        
+        }
+
         var entity = card.entity;
         deckDisplaySequence.activeCardsGroup.GetGrid(card).Add(entity);
         deckDisplaySequence.UpdatePositions();

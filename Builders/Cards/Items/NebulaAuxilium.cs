@@ -27,15 +27,15 @@ public class NebulaAuxilium : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack("Zoomlin"),
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedTutorRandomCompanion.Name)
+                    Absent.SStack(OnCardPlayedTutorRandomCompanion.Name),
                 ];
                 card.greetMessages =
                 [
-                    "As you stare into the void, the void stares back"
+                    "As you stare into the void, the void stares back",
                 ];
             });
     }

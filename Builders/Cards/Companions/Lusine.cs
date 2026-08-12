@@ -27,19 +27,19 @@ public class Lusine : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Demonize")
+                    Absent.SStack("Demonize"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack("MultiHit")
+                    Absent.SStack("MultiHit"),
                 ];
                 card.traits =
                 [
-                    Absent.TStack(Trample.Name)
+                    Absent.TStack(Trample.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Don't stand in my way, or I'll have to step on you"
+                    "Don't stand in my way, or I'll have to step on you",
                 ];
             });
     }

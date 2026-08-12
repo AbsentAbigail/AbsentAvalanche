@@ -16,7 +16,7 @@ internal class ActionEquip(Entity equipment, Entity target) : PlayAction
         Absent.GetTrait("Zoomlin"),
         Absent.GetTrait("Noomlin"),
         Absent.GetTrait("Consume"),
-        Absent.GetTrait(Combo.Name)
+        Absent.GetTrait(Combo.Name),
     ];
     private static CardContainer ReserveContainer => References.Player.reserveContainer;
     

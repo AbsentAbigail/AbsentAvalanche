@@ -26,7 +26,7 @@ public class Boozle : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Scrap", 3),
-                    Absent.SStack("When Hit Apply Shell To Self", 3)
+                    Absent.SStack("When Hit Apply Shell To Self", 3),
                 ];
             });
     }

@@ -32,7 +32,7 @@ public class GravestonePengu : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Will you leave a flower here?"
+                    "Will you leave a flower here?",
                 ];
             });
     }
@@ -47,6 +47,6 @@ public class GravestonePengu : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-1, 1),
-        damageRange = new Vector2Int(0, 1)
+        damageRange = new Vector2Int(0, 1),
     };
 }

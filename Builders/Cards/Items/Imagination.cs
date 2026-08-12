@@ -26,7 +26,7 @@ public class Imagination : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedTutorRandomCardZoomlin.Name)
+                    Absent.SStack(OnCardPlayedTutorRandomCardZoomlin.Name),
                 ];
             });
     }

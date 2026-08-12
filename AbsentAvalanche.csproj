@@ -501,6 +501,7 @@
     <Compile Include="Builders\Cards\Items\Blanket.cs" />
     <Compile Include="Builders\Cards\Items\BlingThrow.cs" />
     <Compile Include="Builders\Cards\Items\BunHum.cs" />
+    <Compile Include="Builders\Cards\Items\BunnyShuffle.cs" />
     <Compile Include="Builders\Cards\Items\ButterflyKnife.cs" />
     <Compile Include="Builders\Cards\Items\Cannon.cs" />
     <Compile Include="Builders\Cards\Items\Catbom.cs" />
@@ -595,6 +596,7 @@
     <Compile Include="Builders\Flavours\FrozenFlame.cs" />
     <Compile Include="Builders\Flavours\FusilladeCat.cs" />
     <Compile Include="Builders\Flavours\GoolWrenade.cs" />
+    <Compile Include="Builders\Flavours\GravestonePengu.cs" />
     <Compile Include="Builders\Flavours\GrinkNova.cs" />
     <Compile Include="Builders\Flavours\HappyDreams.cs" />
     <Compile Include="Builders\Flavours\Headpat.cs" />
@@ -609,6 +611,7 @@
     <Compile Include="Builders\Flavours\LongCat.cs" />
     <Compile Include="Builders\Flavours\LongKitty.cs" />
     <Compile Include="Builders\Flavours\Lusine.cs" />
+    <Compile Include="Builders\Flavours\MailpuppySam.cs" />
     <Compile Include="Builders\Flavours\May.cs" />
     <Compile Include="Builders\Flavours\Nami.cs" />
     <Compile Include="Builders\Flavours\NebulaAuxilium.cs" />
@@ -624,6 +627,7 @@
     <Compile Include="Builders\Flavours\PiggybankSeal.cs" />
     <Compile Include="Builders\Flavours\PillowFortress.cs" />
     <Compile Include="Builders\Flavours\PlushBag.cs" />
+    <Compile Include="Builders\Flavours\PumpkinOctavia.cs" />
     <Compile Include="Builders\Flavours\Puppo.cs" />
     <Compile Include="Builders\Flavours\Sally.cs" />
     <Compile Include="Builders\Flavours\SalvoKitty.cs" />
@@ -759,6 +763,7 @@
     <Compile Include="Builders\StatusEffects\InstantRandomEnemyTriggersAgainst.cs" />
     <Compile Include="Builders\StatusEffects\InstantRemoveBlockShell.cs" />
     <Compile Include="Builders\StatusEffects\InstantShadeWispCopy.cs" />
+    <Compile Include="Builders\StatusEffects\InstantSwapAttackHealth.cs" />
     <Compile Include="Builders\StatusEffects\InstantTakeHpFromApplier.cs" />
     <Compile Include="Builders\StatusEffects\InstantTransform.cs" />
     <Compile Include="Builders\StatusEffects\InstantHealFull.cs" />
@@ -1173,6 +1178,7 @@
     <Compile Include="StatusEffectImplementations\StatusEffectInstantShuffleDeck.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantSummonFromReserve.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantSummonRandomFromPool.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectInstantSwapHealthAttack.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantTutor.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInvitation.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInvulnerableWhileSnowed.cs" />

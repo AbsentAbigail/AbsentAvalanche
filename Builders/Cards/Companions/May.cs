@@ -31,11 +31,11 @@ public class May : ILeaderBuilder
                 [
                     Absent.SStack("Teeth", 2),
                     Absent.SStack("On Turn Apply Teeth To Self"),
-                    Absent.SStack(OnKillIncreaseHealthPermanent.Name)
+                    Absent.SStack(OnKillIncreaseHealthPermanent.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Gawr! I'm a big scawy dinosauw!"
+                    "Gawr! I'm a big scawy dinosauw!",
                 ];
             });
     }

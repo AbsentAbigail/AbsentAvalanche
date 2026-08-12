@@ -27,7 +27,7 @@ public class CardUpgradeWill : IUpgradeBuilder
                 charm.effects =
                 [
                     Absent.SStack(WhenKilledInsteadGainScrap.Name),
-                    Absent.SStack("ImmuneToSnow")
+                    Absent.SStack("ImmuneToSnow"),
                 ];
                 charm.targetConstraints = [TargetConstraintHelper.General<TargetConstraintIsUnit>("Is Unit")];
             });

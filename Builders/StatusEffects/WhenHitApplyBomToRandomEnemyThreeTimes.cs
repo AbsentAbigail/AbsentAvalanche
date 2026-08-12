@@ -1,5 +1,4 @@
-﻿using AbsentAvalanche.Builders.Cards.Items;
-using AbsentAvalanche.Builders.Interfaces;
+﻿using AbsentAvalanche.Builders.Interfaces;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;

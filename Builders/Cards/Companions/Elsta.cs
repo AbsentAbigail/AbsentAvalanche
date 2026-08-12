@@ -30,15 +30,15 @@ public class Elsta : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("On Kill Apply Gold To Self", 4),
-                    Absent.SStack("MultiHit")
+                    Absent.SStack("MultiHit"),
                 ];
                 card.traits =
                 [
-                    Absent.TStack(GoldRush.Name)
+                    Absent.TStack(GoldRush.Name),
                 ];
                 card.greetMessages =
                 [
-                    "*stares at your Bling pouch*"
+                    "*stares at your Bling pouch*",
                 ];
             });
     }

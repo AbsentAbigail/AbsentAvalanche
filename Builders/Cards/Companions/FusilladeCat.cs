@@ -33,7 +33,7 @@ public class FusilladeCat : ICardBuilder
                     Absent.SStack("Weakness"),
                     Absent.SStack(WhenEnemyIsHitByItemApplyWeaknessToThem.Name),
                     Absent.SStack(GainCatWhenItemIsPlayed.Name),
-                    Absent.SStack(OnCardPlayedAddMissileToHand.Name, 2)
+                    Absent.SStack(OnCardPlayedAddMissileToHand.Name, 2),
                 ];
             });
     }

@@ -33,7 +33,7 @@ public class Snowflake : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Hi, I'm Snowflake. I like warm hugs"
+                    "Hi, I'm Snowflake. I like warm hugs",
                 ];
             });
     }

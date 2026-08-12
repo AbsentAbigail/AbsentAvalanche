@@ -26,7 +26,7 @@ public class FavouritePillow : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Equip.Name),
-                    Absent.SStack(EveryTurnRestoreHealth.Name)
+                    Absent.SStack(EveryTurnRestoreHealth.Name),
                 ];
             });
     }

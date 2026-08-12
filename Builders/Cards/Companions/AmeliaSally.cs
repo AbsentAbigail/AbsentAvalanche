@@ -31,7 +31,7 @@ public class AmeliaSally : ICardBuilder
                 ];
                 card.createScripts =
                 [
-                    LeaderHelper.GiveUpgrade()
+                    LeaderHelper.GiveUpgrade(),
                 ];
                 card.charmSlots *= 2;
             })

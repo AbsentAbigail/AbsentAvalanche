@@ -23,7 +23,9 @@ internal class StatusEffectApplyXAfterACardPlayed : StatusEffectApplyX
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
         if (target.silenced)
+        {
             return false;
+        }
 
         if (!includeSelf && entity == target)
         {

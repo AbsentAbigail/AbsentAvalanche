@@ -9,7 +9,7 @@ internal class StatusEffectInstantKillOrPhase : StatusEffectInstant
     [
         "block",
         "shell",
-        "scrap"
+        "scrap",
     ];
 
     public override IEnumerator Process()
@@ -19,7 +19,9 @@ internal class StatusEffectInstantKillOrPhase : StatusEffectInstant
         {
             var status = target.FindStatus(typeToClear);
             if (status != null)
+            {
                 clump.Add(status.Remove());
+            }
         }
         yield return clump.WaitForEnd();
         foreach (var statusEffectData in target.statusEffects.Where(s => s is StatusEffectNextPhase))

@@ -21,7 +21,7 @@ public class InstantGainSheerCold : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(SheerCold.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

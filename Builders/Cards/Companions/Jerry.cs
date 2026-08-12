@@ -32,7 +32,7 @@ public class Jerry : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "That's a lot of sharks"
+                    "That's a lot of sharks",
                 ];
             });
     }

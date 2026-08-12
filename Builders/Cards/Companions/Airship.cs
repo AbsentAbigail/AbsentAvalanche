@@ -25,11 +25,11 @@ public class Airship : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenDeployedDrawAlliesAndApplyZoomlin.Name)
+                    Absent.SStack(WhenDeployedDrawAlliesAndApplyZoomlin.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Noomlin")
+                    Absent.TStack("Noomlin"),
                 ];
             });
     }

@@ -9,14 +9,26 @@ public class StatusEffectResistStatus : StatusEffectApplyX
 
     public override bool RunApplyStatusEvent(StatusEffectApply apply)
     {
-        if (!Battle.instance) return false;
-        if (!Battle.IsOnBoard(target)) return false;
+        if (!Battle.instance)
+        {
+            return false;
+        }
+        if (!Battle.IsOnBoard(target))
+        {
+            return false;
+        }
 
-        if (!GetTargets().Contains(apply.target)) return false;
+        if (!GetTargets().Contains(apply.target))
+        {
+            return false;
+        }
 
         var applyType = apply.effectData.type;
 
-        if (!resistTypes.Contains(applyType)) return false;
+        if (!resistTypes.Contains(applyType))
+        {
+            return false;
+        }
 
         var targetEffectCount = apply.target.FindStatus(applyType)?.count ?? 0;
 

@@ -32,7 +32,7 @@ public class MamaWombat : ICardBuilder
                 ];
                 card.greetMessages =
                 [
-                    "*wombat noises*"
+                    "*wombat noises*",
                 ];
             });
     }

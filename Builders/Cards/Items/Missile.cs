@@ -23,7 +23,7 @@ public class Missile : ICardBuilder
                 card.traits = [Absent.TStack("Consume")];
                 card.startWithEffects =
                 [
-                    Absent.SStack(TriggerAgainstTargetWhenMissileAttacks.Name)
+                    Absent.SStack(TriggerAgainstTargetWhenMissileAttacks.Name),
                 ];
             });
     }

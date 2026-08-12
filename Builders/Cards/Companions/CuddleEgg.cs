@@ -27,7 +27,7 @@ public class CuddleEgg : ICardBuilder
                 [
                     Absent.SStack(OnCardPlayedHealAllyInFront.Name),
                     Absent.SStack(ExplorerHealAllies.Name, 15),
-                    Absent.SStack(WhenAllyHealedProgressExplorer.Name)
+                    Absent.SStack(WhenAllyHealedProgressExplorer.Name),
                 ];
             });
     }

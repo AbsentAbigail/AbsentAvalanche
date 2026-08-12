@@ -14,7 +14,9 @@ public class StatusEffectApplyXWhenCertainUnitIsHit : StatusEffectApplyXWhenUnit
     public override bool RunPostHitEvent(Hit hit)
     {
         if (!CheckTarget(hit.target))
+        {
             return false;
+        }
         return target.enabled && target.alive && hit.canRetaliate && hit.BasicHit && hit.Offensive &&
                (!targetMustBeAlive || hit.target.alive) && Battle.IsOnBoard(target) && CheckConstraints(hit.target) &&
                CheckAttackerConstraints(hit.attacker);

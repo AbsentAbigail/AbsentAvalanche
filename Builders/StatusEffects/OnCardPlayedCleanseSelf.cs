@@ -24,7 +24,7 @@ public class OnCardPlayedCleanseSelf : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsUnit>()
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>(),
                 ];
             });
     }

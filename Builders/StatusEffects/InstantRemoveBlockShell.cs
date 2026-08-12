@@ -23,7 +23,7 @@ public class InstantRemoveBlockShell : IStatusBuilder
                 status.types =
                 [
                     Absent.GetStatus("Shell").type,
-                    Absent.GetStatus("Block").type
+                    Absent.GetStatus("Block").type,
                 ];
                 status.remove = true;
             });

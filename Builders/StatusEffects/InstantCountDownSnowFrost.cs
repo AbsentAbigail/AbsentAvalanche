@@ -22,7 +22,7 @@ public class InstantCountDownSnowFrost : IStatusBuilder
                 status.types =
                 [
                     Absent.GetStatus("Snow").type,
-                    Absent.GetStatus("Frost").type
+                    Absent.GetStatus("Frost").type,
                 ];
             });
     }

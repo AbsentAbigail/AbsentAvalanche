@@ -15,7 +15,9 @@ public class ActionDrawAndApply(
     public override IEnumerator Run()
     {
         if (_count <= 0 || !character.drawContainer || !character.handContainer || !character.discardContainer)
+        {
             yield break;
+        }
 
         Events.InvokeCardDraw(_count);
         while (_count > 0)
@@ -35,7 +37,9 @@ public class ActionDrawAndApply(
                 yield return Sequences.CardMove(top, [character.handContainer]);
                 character.handContainer.TweenChildPositions();
                 foreach (var stack in stacks)
+                {
                     ActionQueue.Stack(new ActionApplyStatusQuicklyPlease(top, applier, stack.data, stack.count));
+                }
             }
 
             _count--;

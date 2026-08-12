@@ -25,7 +25,7 @@ public class GoolWrenade : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Ethereal.Name, 4),
-                    Absent.SStack(WhenDestroyedApplyWeaknessToAllies.Name)
+                    Absent.SStack(WhenDestroyedApplyWeaknessToAllies.Name),
                 ];
             });
     }

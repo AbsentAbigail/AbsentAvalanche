@@ -28,11 +28,11 @@ public class Nami : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedApplyRandomBuffToRandomAlly.Name)
+                    Absent.SStack(OnCardPlayedApplyRandomBuffToRandomAlly.Name),
                 ];
                 card.greetMessages =
                 [
-                    "*She starts cuddling you*"
+                    "*She starts cuddling you*",
                 ];
             });
     }

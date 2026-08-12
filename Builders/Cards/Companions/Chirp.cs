@@ -27,11 +27,11 @@ public class Chirp : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnCardPlayedDrawAndApplyFrenzyAndAimless.Name)
+                    Absent.SStack(OnCardPlayedDrawAndApplyFrenzyAndAimless.Name),
                 ];
                 card.greetMessages =
                 [
-                    "*chirps along shily*"
+                    "*chirps along shily*",
                 ];
             });
     }

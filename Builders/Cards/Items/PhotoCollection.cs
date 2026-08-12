@@ -24,7 +24,7 @@ public class PhotoCollection : ICardBuilder
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.traits = [
-                    Absent.TStack(Scavenge.Name, 2)
+                    Absent.TStack(Scavenge.Name, 2),
                 ];
                 card.createScripts =
                 [
@@ -32,7 +32,7 @@ public class PhotoCollection : ICardBuilder
                     new Script<CardScriptGiveUpgrade>(
                         "Add Chuckle Charm",
                         script => script.upgradeData = Absent.GetCardUpgrade("CardUpgradeRemoveCharmLimit")
-                    )
+                    ),
                 ];
                 card.charmSlots = int.MaxValue - 100_001;
             });

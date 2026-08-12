@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.StatusEffects;
-using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -28,19 +27,19 @@ public class WitchSherba : ILeaderBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Overload")
+                    Absent.SStack("Overload"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhileActiveHasFrenzyEqualToCurrentCounter.Name)
+                    Absent.SStack(WhileActiveHasFrenzyEqualToCurrentCounter.Name),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Smackback")
+                    Absent.TStack("Smackback"),
                 ];
                 card.greetMessages =
                 [
-                    "Hehehee witchy hours are here"
+                    "Hehehee witchy hours are here",
                 ];
             });
     }
@@ -55,6 +54,6 @@ public class WitchSherba : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-1, 2),
-        counterRange = new Vector2Int(0, 1)
+        counterRange = new Vector2Int(0, 1),
     };
 }

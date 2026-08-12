@@ -26,11 +26,11 @@ public class CardUpgradeEquip : IUpgradeBuilder
             {
                 charm.effects =
                 [
-                    Absent.SStack(StatusEffects.Equip.Name)
+                    Absent.SStack(StatusEffects.Equip.Name),
                 ];
                 charm.scripts =
                 [
-                    new Script<CardScriptTargetModeBasic>()
+                    new Script<CardScriptTargetModeBasic>(),
                 ];
                 charm.targetConstraints =
                 [

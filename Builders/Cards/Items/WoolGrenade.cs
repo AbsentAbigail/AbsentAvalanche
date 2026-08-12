@@ -24,7 +24,7 @@ public class WoolGrenade : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Ethereal.Name, 4),
-                    Absent.SStack(WhenDestroyedApplyWeaknessToEnemies.Name, 3)
+                    Absent.SStack(WhenDestroyedApplyWeaknessToEnemies.Name, 3),
                 ];
             });
     }

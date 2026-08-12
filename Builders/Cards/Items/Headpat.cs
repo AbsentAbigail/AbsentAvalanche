@@ -27,7 +27,7 @@ public class Headpat : ICardBuilder
                 [
                     Absent.SStack("Heal", 2),
                     Absent.SStack(InstantCleanseText.Name),
-                    Absent.SStack(InstantHeadpat.Name)
+                    Absent.SStack(InstantHeadpat.Name),
                 ];
                 card.traits = [Absent.TStack("Draw")];
             });

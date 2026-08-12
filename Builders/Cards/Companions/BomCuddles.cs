@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.StatusEffects;
-using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -27,15 +26,15 @@ public class BomCuddles : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenHitApplyBomToRandomEnemyThreeTimes.Name, 2)
+                    Absent.SStack(WhenHitApplyBomToRandomEnemyThreeTimes.Name, 2),
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Barrage")
+                    Absent.TStack("Barrage"),
                 ];
                 card.greetMessages =
                 [
-                    "Do you wanna go trick or treating together?"
+                    "Do you wanna go trick or treating together?",
                 ];
             });
     }

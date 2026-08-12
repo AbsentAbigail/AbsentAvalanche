@@ -25,12 +25,12 @@ public class CardUpgradeMitosis : IUpgradeBuilder
             {
                 charm.effects =
                 [
-                    Absent.SStack("When X Health Lost Split", 4)
+                    Absent.SStack("When X Health Lost Split", 4),
                 ];
 
                 charm.targetConstraints =
                 [
-                    TargetConstraintHelper.HealthMoreThan(0)
+                    TargetConstraintHelper.HealthMoreThan(0),
                 ];
             });
     }

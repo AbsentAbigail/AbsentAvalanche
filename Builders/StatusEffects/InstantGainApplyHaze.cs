@@ -21,7 +21,7 @@ public class InstantGainApplyHaze : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Haze");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

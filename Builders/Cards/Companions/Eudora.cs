@@ -29,11 +29,11 @@ public class Eudora : ICardBuilder
                 [
                     Absent.SStack("MultiHit", 2),
                     Absent.SStack("Scrap", 2),
-                    Absent.SStack(TriggerWhenAllyBehindTriggers.Name)
+                    Absent.SStack(TriggerWhenAllyBehindTriggers.Name),
                 ];
                 card.greetMessages =
                 [
-                    "I'm all wound up!"
+                    "I'm all wound up!",
                 ];
             });
     }

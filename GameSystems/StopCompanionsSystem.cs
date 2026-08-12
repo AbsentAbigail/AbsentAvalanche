@@ -21,7 +21,7 @@ public class StopCompanionsSystem : GameSystem
         {
             companion.flipper.FlipUp();
             companion.RemoveFromContainers();
-            companion.Kill();
+            CardManager.ReturnToPool(companion);
         }
     }
 }

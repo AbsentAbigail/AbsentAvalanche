@@ -25,13 +25,13 @@ public class FireSpell : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(OnCardPlayedApplyOverloadToTarget.Name),
-                    Absent.SStack(OnCardPlayedGainApplyOverburn.Name)
+                    Absent.SStack(OnCardPlayedGainApplyOverburn.Name),
                 ];
                 card.traits =
                 [
                     Absent.TStack(Combo.Name, 2),
                     Absent.TStack("Zoomlin"),
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

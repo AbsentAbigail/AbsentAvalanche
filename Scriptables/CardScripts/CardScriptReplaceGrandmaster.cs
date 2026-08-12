@@ -12,7 +12,7 @@ internal class CardScriptReplaceGrandmaster : CardScript
         }
         target.startWithEffects = [
             .. target.startWithEffects,
-            Absent.SStack("While Active Unmovable To Enemies")
+            Absent.SStack("While Active Unmovable To Enemies"),
         ];
     }
 }

@@ -25,7 +25,7 @@ public class FighterJet : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenRecalledDealDamageToEnemiesInRow.Name, 2)
+                    Absent.SStack(WhenRecalledDealDamageToEnemiesInRow.Name, 2),
                 ];
             });
     }

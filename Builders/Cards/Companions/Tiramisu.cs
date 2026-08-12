@@ -26,7 +26,7 @@ public class Tiramisu : ILeaderBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack(InstantApplyBomEqualToApplierBom.Name)
+                    Absent.SStack(InstantApplyBomEqualToApplierBom.Name),
                 ];
                 card.startWithEffects =
                 [
@@ -35,11 +35,11 @@ public class Tiramisu : ILeaderBuilder
                 ];
                 card.traits =
                 [
-                    Absent.TStack("Barrage")
+                    Absent.TStack("Barrage"),
                 ];
                 card.greetMessages =
                 [
-                    "Hi, I'm Tiramisu!"
+                    "Hi, I'm Tiramisu!",
                 ];
             });
     }

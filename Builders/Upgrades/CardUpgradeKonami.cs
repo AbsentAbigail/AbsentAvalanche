@@ -26,7 +26,7 @@ public class CardUpgradeKonami : IUpgradeBuilder
             {
                 charm.giveTraits = [Absent.TStack(Traits.Combo.Name)];
                 charm.targetConstraints = [
-                    TargetConstraintHelper.General<TargetConstraintIsCardType>("Is Item", tc => tc.allowedTypes = [Absent.GetCardType("Item")])
+                    TargetConstraintHelper.General<TargetConstraintIsCardType>("Is Item", tc => tc.allowedTypes = [Absent.GetCardType("Item")]),
                 ];
             });
     }

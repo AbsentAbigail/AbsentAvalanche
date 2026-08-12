@@ -28,11 +28,11 @@ public class Nina : ILeaderBuilder
                 [
                     Absent.SStack("Teeth", 2),
                     Absent.SStack("On Kill Apply Teeth To Self", 2),
-                    Absent.SStack(AttackWithTeeth.Name)
+                    Absent.SStack(AttackWithTeeth.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Hi! I'm Nina!"
+                    "Hi! I'm Nina!",
                 ];
             });
     }
@@ -46,6 +46,6 @@ public class Nina : ILeaderBuilder
     
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
-        healthRange = new Vector2Int(1, 3)
+        healthRange = new Vector2Int(1, 3),
     };
 }

@@ -32,7 +32,7 @@ public class Coral : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "Rosahaj!"
+                    "Rosahaj!",
                 ];
             });
     }

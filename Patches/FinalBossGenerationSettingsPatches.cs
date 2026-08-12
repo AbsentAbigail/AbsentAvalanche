@@ -35,12 +35,12 @@ public class FinalBossGenerationSettingsPatches
             CreateSwapper("SalvoKitty 2", GainCatWhenMissileIsPlayed.Name,
                 OnCardPlayedGainCat.Name),
             CreateSwapper("April", OnCardPlayedAddWoolGrenadeToHand.Name,
-                OnCardPlayedAddGoolWrenadeToHand.Name)
+                OnCardPlayedAddGoolWrenadeToHand.Name),
         ];
 
         __instance.leaderScripts = [
             .. __instance.leaderScripts,
-            new Script<CardScriptReplaceGrandmaster>("Replace Grandmaster with Jailer", null)
+            new Script<CardScriptReplaceGrandmaster>("Replace Grandmaster with Jailer", null),
         ];
     }
 
@@ -59,7 +59,9 @@ public class FinalBossGenerationSettingsPatches
         swapper.replaceWithOptions = replacements?.Select(s => Absent.GetStatus(s)).ToArray();
         swapper.boostRange = new Vector2Int(minBoost, maxBoost);
         if (attackEffectOptions is not null)
+        {
             swapper.replaceWithAttackEffect = Absent.GetStatus(attackEffectOptions);
+        }
 
         return swapper;
     }

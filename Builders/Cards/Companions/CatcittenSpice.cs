@@ -30,7 +30,7 @@ public class CatcittenSpice : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Spice", 6),
-                    Absent.SStack(WhenAllyHitGainEqualSpice.Name, 4)
+                    Absent.SStack(WhenAllyHitGainEqualSpice.Name, 4),
                 ];
             });
     }

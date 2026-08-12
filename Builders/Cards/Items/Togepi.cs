@@ -25,7 +25,7 @@ public class Togepi : ICardBuilder
             {
                 card.traits =
                 [
-                    Absent.TStack(Metronome.Name)
+                    Absent.TStack(Metronome.Name),
                 ];
             });
     }

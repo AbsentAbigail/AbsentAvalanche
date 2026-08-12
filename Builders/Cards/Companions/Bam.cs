@@ -31,11 +31,11 @@ public class Bam : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenAllyHitGainFrenzy.Name)
+                    Absent.SStack(WhenAllyHitGainFrenzy.Name),
                 ];
                 card.greetMessages =
                 [
-                    "I lost my friend, have you seen her? She's a bamboo"
+                    "I lost my friend, have you seen her? She's a bamboo",
                 ];
             });
     }

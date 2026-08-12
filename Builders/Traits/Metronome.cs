@@ -19,7 +19,7 @@ public class Metronome : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(PreTriggerGainMetronomeBuff.Name)
+                    Absent.GetStatus(PreTriggerGainMetronomeBuff.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Metronome.Name);
             });

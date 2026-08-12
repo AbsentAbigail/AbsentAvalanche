@@ -27,11 +27,11 @@ public class OnHitDamageTargetOn1Counter : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Target;
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintCurrentCounter>("Current Counter is 1")
+                    TargetConstraintHelper.General<TargetConstraintCurrentCounter>("Current Counter is 1"),
                 ];
             });
     }

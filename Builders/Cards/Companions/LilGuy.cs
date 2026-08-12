@@ -30,11 +30,11 @@ public class LilGuy : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(FakeCalm.Name, 3)
+                    Absent.SStack(FakeCalm.Name, 3),
                 ];
                 card.traits =
                 [
-                    Absent.TStack(Scavenge.Name)
+                    Absent.TStack(Scavenge.Name),
                 ];
                 card.createScripts =
                 [
@@ -42,12 +42,12 @@ public class LilGuy : ILeaderBuilder
                     new Script<CardScriptGiveUpgrade>(
                         "Add Chuckle Charm",
                         script => script.upgradeData = Absent.GetCardUpgrade("CardUpgradeRemoveCharmLimit")
-                    )
+                    ),
                 ];
                 card.charmSlots = int.MaxValue - 100_001;
                 card.greetMessages =
                 [
-                    "Can I join on your adventure?"
+                    "Can I join on your adventure?",
                 ];
             });
     }

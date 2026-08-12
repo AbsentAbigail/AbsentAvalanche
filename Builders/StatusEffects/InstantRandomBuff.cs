@@ -32,7 +32,7 @@ public class InstantRandomBuff : IStatusBuilder
                     Absent.GetStatus("Spice"),
                     Absent.GetStatus("Teeth"),
                     Absent.GetStatus("Reduce Counter"),
-                    Absent.GetStatus("Reduce Max Counter")
+                    Absent.GetStatus("Reduce Max Counter"),
                 ];
             });
     }

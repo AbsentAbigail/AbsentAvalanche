@@ -27,7 +27,7 @@ public class CardUpgradeCat : IUpgradeBuilder
                 charm.damage = -2;
                 charm.effects =
                 [
-                    Absent.SStack(OnCardPlayedGainCat.Name)
+                    Absent.SStack(OnCardPlayedGainCat.Name),
                 ];
                 charm.targetConstraints =
                 [
@@ -41,7 +41,7 @@ public class CardUpgradeCat : IUpgradeBuilder
                     TargetConstraintHelper.General<TargetConstraintPlayOnSlot>(
                         "Plays On Board",
                         tc => tc.board = true
-                    )
+                    ),
                 ];
             });
     }

@@ -30,7 +30,7 @@ public class Bamboozle : ILeaderBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Scrap", 3),
-                    Absent.SStack(DreamTeam.NameWhenDeployed(Bam.Name, Boozle.Name))
+                    Absent.SStack(DreamTeam.NameWhenDeployed(Bam.Name, Boozle.Name)),
                 ];
                 card.charmSlots *= 2;
             });

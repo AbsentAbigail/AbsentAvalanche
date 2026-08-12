@@ -24,7 +24,7 @@ public class OnCardPlayedAddFrenzyToRandomAlly : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.RandomAlly;
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.DoesTrigger()
+                    TargetConstraintHelper.DoesTrigger(),
                 ];
             });
     }

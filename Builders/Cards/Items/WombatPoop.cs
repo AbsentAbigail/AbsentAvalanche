@@ -22,7 +22,7 @@ public class WombatPoop : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack("Zoomlin"),
-                    Absent.TStack("Consume")
+                    Absent.TStack("Consume"),
                 ];
             });
     }

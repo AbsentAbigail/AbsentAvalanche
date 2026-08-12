@@ -30,7 +30,7 @@ public class CatcittenShell : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("Shell", 5),
-                    Absent.SStack(OnCardPlayedApplyShellToAlliesInRow.Name, 4)
+                    Absent.SStack(OnCardPlayedApplyShellToAlliesInRow.Name, 4),
                 ];
             });
     }

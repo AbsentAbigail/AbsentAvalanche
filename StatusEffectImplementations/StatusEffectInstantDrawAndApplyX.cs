@@ -14,7 +14,9 @@ public class StatusEffectInstantDrawAndApplyX : StatusEffectInstant
         if (player.drawContainer.Empty && player.discardContainer.Empty)
         {
             if (NoTargetTextSystem.Exists())
+            {
                 yield return NoTargetTextSystem.Run(target, NoTargetType.NoCardsToDraw);
+            }
         }
         else
         {

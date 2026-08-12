@@ -24,7 +24,7 @@ public class SewingKit : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack(InstantHealFull.Name)
+                    Absent.SStack(InstantHealFull.Name),
                 ];
             });
     }

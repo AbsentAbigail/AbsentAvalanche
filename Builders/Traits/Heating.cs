@@ -20,7 +20,7 @@ public class Heating : ITraitBuilder
                 trait.effects =
                 [
                     Absent.GetStatus(WhileActiveAlliesGainAttack.Name),
-                    Absent.GetStatus(WhenSpicedGainHeatingInstead.Name)
+                    Absent.GetStatus(WhenSpicedGainHeatingInstead.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Heating.Name);
             });

@@ -20,7 +20,7 @@ public class Friend : ITraitBuilder
                 trait.effects =
                 [
                     Absent.GetStatus(WhenAllyGainsNegativeStatusApplyToSelfInstead.Name),
-                    Absent.GetStatus(WhenAnAllyGainsAPositiveStatusShareHalfToSelf.Name)
+                    Absent.GetStatus(WhenAnAllyGainsAPositiveStatusShareHalfToSelf.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.Friend.Name);
             });

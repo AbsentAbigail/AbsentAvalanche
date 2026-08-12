@@ -33,12 +33,12 @@ public class Blackfisk : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack("Pull"),
-                    Absent.TStack("Aimless")
+                    Absent.TStack("Aimless"),
                 ];
                 card.greetMessages =
                 [
                     "The octopus is a truly unique marine animal with its 8 arms and the ability to camouflage itself. Imagine all the exciting adventures your child can experience with such a companion by their side.",
-                    "8 arms to give 8 times better hugs!"
+                    "8 arms to give 8 times better hugs!",
                 ];
             });
     }

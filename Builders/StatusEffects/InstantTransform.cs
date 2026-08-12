@@ -21,7 +21,7 @@ public class InstantTransform : IStatusBuilder
                 status.effectToApply = Absent.GetStatus(InstantShadeWispCopy.Name);
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

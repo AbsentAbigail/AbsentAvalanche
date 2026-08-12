@@ -36,8 +36,14 @@ internal class StatusEffectCalm : StatusEffectApplyX
 
     public override bool RunHitEvent(Hit hit)
     {
-        if (hit.target != target) return false;
-        if (!hit.Offensive) return false;
+        if (hit.target != target)
+        {
+            return false;
+        }
+        if (!hit.Offensive)
+        {
+            return false;
+        }
 
         return hit.damage > 0;
     }

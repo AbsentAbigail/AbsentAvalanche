@@ -30,8 +30,7 @@ public class Cat : IStatusBuilder
 
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.DoesTrigger(),
-                    TargetConstraintHelper.General<TargetConstraintDoesDamage>("Does Damage")
+                    TargetConstraintHelper.General<TargetConstraintDoesDamage>("Does Damage"),
                 ];
             })
             .Subscribe_WithStatusIcon("cat");

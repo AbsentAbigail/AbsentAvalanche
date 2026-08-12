@@ -24,7 +24,7 @@ public class CursedClaymore : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(Ethereal.Name),
-                    Absent.SStack(WhenDestroyedDealDamageToRandomAlly.Name)
+                    Absent.SStack(WhenDestroyedDealDamageToRandomAlly.Name),
                 ];
             });
     }

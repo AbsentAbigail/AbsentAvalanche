@@ -29,7 +29,7 @@ public class Kramig : ICardBuilder
                 card.greetMessages =
                 [
                     "In the wild, an adult panda eats about 83 pounds of bamboo – every day! But this black and white softie doesn’t need any food, just a lot of love.",
-                    "Protects its friends"
+                    "Protects its friends",
                 ];
             });
     }

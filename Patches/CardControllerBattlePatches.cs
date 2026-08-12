@@ -47,7 +47,9 @@ public class CardControllerBattlePatchesRelease
     private static bool Prefix(CardControllerBattle __instance) //__instance is the instance calling the method
     {
     if (!(bool) __instance.dragging)
+    {
       return false;
+    }
     var retainPosition = false;
     var retainRotation = false;
     var retainScale = false;
@@ -55,7 +57,9 @@ public class CardControllerBattlePatchesRelease
     if (__instance.enabled)
     {
       if (InputSwitcher.justSwitched)
+      {
         __instance.dragging.TweenToContainer();
+      }
       else if ((bool) __instance.hoverContainer && __instance.hoverContainer.canBePlacedOn && __instance.hoverContainer == __instance.owner.discardContainer && __instance.dragging.owner == __instance.owner)
       {
         if (__instance.dragging.CanRecall())
@@ -65,7 +69,9 @@ public class CardControllerBattlePatchesRelease
           {
             Events.InvokeDiscard(__instance.dragging);
             if (Battle.IsOnBoard(__instance.dragging))
+            {
               __instance.owner.freeAction = true;
+            }
             ActionQueue.Add(action);
             ActionQueue.Add(new ActionEndTurn(__instance.owner));
             __instance.enabled = false;
@@ -107,7 +113,9 @@ public class CardControllerBattlePatchesRelease
                 if (Events.CheckAction(action))
                 {
                   if (ShoveSystem.Active)
+                  {
                     ShoveSystem.Fix = true;
+                  }
                   ActionQueue.Add(action);
                   ActionQueue.Add(new ActionReduceUses(__instance.dragging));
                   ActionQueue.Add(new ActionResetOffset(__instance.dragging));
@@ -165,12 +173,14 @@ public class CardControllerBattlePatchesRelease
                 {
                   var flag = Battle.IsOnBoard(__instance.dragging) && Battle.IsOnBoard(__instance.hoverSlot.Group);
                   Events.InvokeEntityPlace(__instance.dragging, [
-                    __instance.hoverSlot
+                    __instance.hoverSlot,
                   ], (flag ? 1 : 0) != 0);
                   ActionQueue.Add(action);
                   ActionQueue.Add(new ActionEndTurn(__instance.owner));
                   if (flag)
+                  {
                     __instance.owner.freeAction = true;
+                  }
                   __instance.enabled = false;
                 }
                 break;
@@ -184,13 +194,15 @@ public class CardControllerBattlePatchesRelease
                   var flag = Battle.IsOnBoard(__instance.dragging) && Battle.IsOnBoard(__instance.hoverSlot.Group);
                   ShoveSystem.Fix = true;
                   Events.InvokeEntityPlace(__instance.dragging, [
-                    __instance.hoverSlot
+                    __instance.hoverSlot,
                   ], (flag ? 1 : 0) != 0);
                   ActionQueue.Add(new ActionShove(shoveData));
                   ActionQueue.Add(action);
                   ActionQueue.Add(new ActionEndTurn(__instance.owner));
                   if (flag)
+                  {
                     __instance.owner.freeAction = true;
+                  }
                   __instance.enabled = false;
                 }
               }
@@ -201,7 +213,9 @@ public class CardControllerBattlePatchesRelease
         }
       }
       if (ActionQueue.Empty)
+      {
         __instance.dragging.TweenToContainer();
+      }
     }
     __instance.TweenUnHover(__instance.dragging, retainScale, retainPosition, retainRotation, retainDrawOrder);
     __instance.DragEnd();

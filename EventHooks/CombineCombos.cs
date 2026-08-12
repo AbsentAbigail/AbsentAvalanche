@@ -2,7 +2,6 @@
 using AbsentAvalanche.Builders.Cards.Companions;
 using AbsentAvalanche.Builders.Cards.Items;
 using AbsentAvalanche.Builders.Cards.PilotLeaders;
-using AbsentAvalanche.GameSystems;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -51,7 +50,9 @@ public static class CombineCombos
     public static void SceneLoaded(Scene scene)
     {
         if (scene.name != "Campaign")
+        {
             return;
+        }
 
         var combineCardSystem = Object.FindObjectOfType<CombineCardSystem>(true);
         combineCardSystem.enabled = true;
@@ -70,7 +71,7 @@ public static class CombineCombos
         [
             Combo(companion1, companion2, resultingCompanion),
             Combo(leader1, companion2, resultingCompanion),
-            Combo(companion1, leader2, resultingCompanion)
+            Combo(companion1, leader2, resultingCompanion),
         ];
     }
 
@@ -79,7 +80,7 @@ public static class CombineCombos
         return new CombineCardSystem.Combo
         {
             cardNames = [card1, card2],
-            resultingCardName = result
+            resultingCardName = result,
         };
     }
 }

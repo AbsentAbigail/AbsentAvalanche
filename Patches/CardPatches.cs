@@ -12,7 +12,7 @@ namespace AbsentAvalanche.Patches;
 public class CardPatches
 {
     public static string[][] Flavours = [
-        ["verdego.wildfrost.specialdelivery.AbigailIsakai", Bubbles.Name]
+        ["verdego.wildfrost.specialdelivery.AbigailIsakai", Bubbles.Name],
     ];
 
     private static readonly string SarcophagusEffectName = Absent.PrefixGuid(WhenDestroyedSummonSarcophagus.Name);

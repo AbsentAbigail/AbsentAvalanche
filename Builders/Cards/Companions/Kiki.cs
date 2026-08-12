@@ -30,7 +30,7 @@ public class Kiki : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "I wanna go on an adventure!"
+                    "I wanna go on an adventure!",
                 ];
             });
     }
@@ -45,6 +45,6 @@ public class Kiki : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(0, 2),
-        damageRange = new Vector2Int(0, 1)
+        damageRange = new Vector2Int(0, 1),
     };
 }

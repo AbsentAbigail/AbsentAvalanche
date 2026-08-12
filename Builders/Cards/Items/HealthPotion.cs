@@ -23,12 +23,12 @@ public class HealthPotion : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Heal", 3)
+                    Absent.SStack("Heal", 3),
                 ];
                 card.traits =
                 [
                     Absent.TStack(Combo.Name),
-                    Absent.TStack("Noomlin")
+                    Absent.TStack("Noomlin"),
                 ];
             });
     }

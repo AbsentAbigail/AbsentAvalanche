@@ -20,19 +20,19 @@ public class CardUpgradeEclipse : IUpgradeBuilder
             .WithTitle("Eclipse Charm")
             .WithText(
                 """
-                Add <x1><keyword=frenzy>
+                Add <x2><keyword=frenzy>
                 Add <keyword=spark>
                 Remove <sprite=counter>
                 """)
             .WithPools(CharmPools.GeneralCharms)
             .SubscribeToAfterAllBuildEvent(charm =>
             {
-                charm.effects = [Absent.SStack("MultiHit")];
+                charm.effects = [Absent.SStack("MultiHit", 2)];
                 charm.giveTraits = [Absent.TStack("Spark")];
                 charm.counter = 0;
                 charm.setCounter = true;
                 charm.targetConstraints = [
-                    TargetConstraintHelper.MaxCounterMoreThan(0)
+                    TargetConstraintHelper.MaxCounterMoreThan(0),
                 ];
             });
     }

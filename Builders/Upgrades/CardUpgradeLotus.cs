@@ -27,7 +27,7 @@ public class CardUpgradeLotus : IUpgradeBuilder
             {
                 charm.effects = [Absent.SStack(FakeCalm.Name, 6)];
                 charm.targetConstraints = [
-                    TargetConstraintHelper.MaxCounterMoreThan(0)
+                    TargetConstraintHelper.MaxCounterMoreThan(0),
                 ];
             });
     }

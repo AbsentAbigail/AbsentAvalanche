@@ -18,7 +18,9 @@ internal class StatusOnHitEat : StatusEffectApplyX
     public override bool RunHitEvent(Hit hit)
     {
         if (hit.attacker != target)
+        {
             return false;
+        }
 
         var result = base.RunHitEvent(hit);
         var shouldKill = hit.target.hp.current <= hit.damage;

@@ -26,7 +26,7 @@ public class RescueUfo : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack("Consume"),
-                    Absent.TStack("Zoomlin")
+                    Absent.TStack("Zoomlin"),
                 ];
             });
     }

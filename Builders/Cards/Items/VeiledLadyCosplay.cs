@@ -27,11 +27,11 @@ public class VeiledLadyCosplay : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Shroom", 3)
+                    Absent.SStack("Shroom", 3),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(Equip.Name)
+                    Absent.SStack(Equip.Name),
                 ];
             });
     }

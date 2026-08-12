@@ -21,7 +21,7 @@ public class InstantGainIncreaseAttack : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Increase Attack");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

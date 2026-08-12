@@ -1,6 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
 using AbsentAvalanche.Builders.StatusEffects;
-using AbsentAvalanche.Builders.Traits;
 using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
@@ -32,7 +31,7 @@ public class SkeletonPatch : ILeaderBuilder
                 ];
                 card.greetMessages =
                 [
-                    "My friends helped me dig these bones up"
+                    "My friends helped me dig these bones up",
                 ];
             });
     }
@@ -47,6 +46,6 @@ public class SkeletonPatch : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-2, 2),
-        counterRange = new Vector2Int(-1, 1)
+        counterRange = new Vector2Int(-1, 1),
     };
 }

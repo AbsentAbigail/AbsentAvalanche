@@ -28,20 +28,20 @@ public class Sherba : ILeaderBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Snow")
+                    Absent.SStack("Snow"),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenAllyHitIncreaseEffects.Name)
+                    Absent.SStack(WhenAllyHitIncreaseEffects.Name),
                 ];
                 card.traits =
                 [
                     Absent.TStack("Barrage"),
-                    Absent.TStack(Warm.Name)
+                    Absent.TStack(Warm.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Wants cozy cuddles"
+                    "Wants cozy cuddles",
                 ];
             });
     }
@@ -56,6 +56,6 @@ public class Sherba : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-2, 3),
-        counterRange = new Vector2Int(-2, 1)
+        counterRange = new Vector2Int(-2, 1),
     };
 }

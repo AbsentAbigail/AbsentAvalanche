@@ -21,11 +21,11 @@ public class NovaShard : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Absent.SStack("Block", 2)
+                    Absent.SStack("Block", 2),
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack("Trigger Against Random Ally When Drawn")
+                    Absent.SStack("Trigger Against Random Ally When Drawn"),
                 ];
             });
     }

@@ -25,7 +25,7 @@ public class PrivateJet : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenDeployedSummonRandomAllyFromReserve.Name)
+                    Absent.SStack(WhenDeployedSummonRandomAllyFromReserve.Name),
                 ];
             });
     }

@@ -19,7 +19,7 @@ public class GoldRush : ITraitBuilder
             {
                 trait.effects =
                 [
-                    Absent.GetStatus(GoldRushEffect.Name)
+                    Absent.GetStatus(GoldRushEffect.Name),
                 ];
                 trait.keyword = Absent.GetKeyword(Keywords.GoldRush.Name);
             });

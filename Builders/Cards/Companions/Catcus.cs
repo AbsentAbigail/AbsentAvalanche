@@ -35,11 +35,11 @@ public class Catcus : ICardBuilder
                     Absent.SStack("Teeth"),
                     Absent.SStack(Cat.Name),
                     Absent.SStack("MultiHit"),
-                    Absent.SStack(OnKillGainCat.Name)
+                    Absent.SStack(OnKillGainCat.Name),
                 ];
                 card.createScripts =
                 [
-                    LeaderHelper.GiveUpgrade()
+                    LeaderHelper.GiveUpgrade(),
                 ];
             })
             .WithText(Absent.KeywordTag(Royal.Name))

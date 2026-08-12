@@ -71,13 +71,19 @@ public class StatusEffectDrawRandomCardWithPredicate : StatusEffectInstant
 
         List<Entity> cards = [];
         if (deck)
+        {
             cards = cards.Concat(player.drawContainer.entities).ToList();
+        }
         if (discard)
+        {
             cards = cards.Concat(player.discardContainer.entities).ToList();
+        }
 
-        var predicate1 = Absent.GetStatusOf<StatusEffectDrawRandomCardWithPredicate>(name).predicate;
+        var predicate1 = ((StatusEffectDrawRandomCardWithPredicate)original).predicate;
         if (predicate1 is null)
+        {
             throw new ArgumentException("No predicate found");
+        }
 
         var targets = cards.Count(card => predicate1.Invoke(card.data));
 

@@ -30,7 +30,7 @@ public class CardUpgradeValor : IUpgradeBuilder
                     TargetConstraintHelper.General<TargetConstraintDoesDamage>("Does damage"),
                     TargetConstraintHelper.HasTrait("Barrage", not: true),
                     TargetConstraintHelper.HasTrait("Aimless", not: true),
-                    TargetConstraintHelper.HasTrait("Longshot", not: true)
+                    TargetConstraintHelper.HasTrait("Longshot", not: true),
                 ];
                 charm.giveTraits = [Absent.TStack(Traits.Valor.Name)];
 
@@ -39,7 +39,7 @@ public class CardUpgradeValor : IUpgradeBuilder
                     new Script<CardScriptMultiplyDamage>(
                         "Double Damage",
                         script => script.multiply = 2
-                    )
+                    ),
                 ];
             });
     }

@@ -21,7 +21,7 @@ public class InstantGainFrostbiteShard : IStatusBuilder
                 status.effectToApply = Absent.GetStatus("Reduce Effects");
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintDoesAttack>()
+                    TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
                 ];
             });
     }

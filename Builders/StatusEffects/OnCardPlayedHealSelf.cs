@@ -1,4 +1,5 @@
 ﻿using AbsentAvalanche.Builders.Interfaces;
+using AbsentAvalanche.Helpers;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -21,6 +22,10 @@ public class OnCardPlayedHealSelf : IStatusBuilder
             {
                 status.effectToApply = Absent.GetStatus("Heal");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.targetConstraints =
+                [
+                    TargetConstraintHelper.HealthMoreThan(0),
+                ];
             });
     }
 }

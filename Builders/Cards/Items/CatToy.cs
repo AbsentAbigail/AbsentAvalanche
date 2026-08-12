@@ -24,7 +24,7 @@ public class CatToy : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(Cat.Name, 2)
+                    Absent.SStack(Cat.Name, 2),
                 ];
             });
     }

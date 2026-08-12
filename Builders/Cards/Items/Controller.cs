@@ -24,7 +24,7 @@ public class Controller : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack(Combo.Name, 2),
-                    Absent.TStack("Noomlin")
+                    Absent.TStack("Noomlin"),
                 ];
             });
     }

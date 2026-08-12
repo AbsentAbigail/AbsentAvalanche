@@ -33,11 +33,11 @@ public class Hearth : ILeaderBuilder
                 ];
                 card.traits =
                 [
-                    Absent.TStack(Warm.Name)
+                    Absent.TStack(Warm.Name),
                 ];
                 card.greetMessages =
                 [
-                    "Please put me in the microwave, I'm freezing"
+                    "Please put me in the microwave, I'm freezing",
                 ];
             });
     }

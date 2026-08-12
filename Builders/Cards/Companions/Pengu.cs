@@ -27,7 +27,7 @@ public class Pengu : ILeaderBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(WhenSnowedGainMultiHit.Name)
+                    Absent.SStack(WhenSnowedGainMultiHit.Name),
                 ];
                 card.createScripts =
                 [
@@ -35,12 +35,12 @@ public class Pengu : ILeaderBuilder
                     new Script<CardScriptGiveUpgrade>(
                         "Add Pengu Charm",
                         script => script.upgradeData = Absent.GetCardUpgrade("CardUpgradeSnowImmune")
-                    )
+                    ),
                 ];
                 card.charmSlots = 4;
                 card.greetMessages =
                 [
-                    "When you need a rest, I can be your pillow!"
+                    "When you need a rest, I can be your pillow!",
                 ];
             });
     }
@@ -55,6 +55,6 @@ public class Pengu : ILeaderBuilder
     public ILeaderBuilder.LeaderModifier LeaderModifiers => new()
     {
         healthRange = new Vector2Int(-1, 1),
-        damageRange = new Vector2Int(0, 1)
+        damageRange = new Vector2Int(0, 1),
     };
 }

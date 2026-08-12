@@ -31,12 +31,12 @@ public class Aftonsparv : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack("On Card Played Apply Frost To RandomEnemy"),
-                    Absent.SStack(OnTurnSummonUfoInHand.Name)
+                    Absent.SStack(OnTurnSummonUfoInHand.Name),
                 ];
                 card.greetMessages =
                 [
                     "A soft alien is the best buddy to bring on an imaginary flight in space. What will your child get up to this time with their superhero?",
-                    "Gnarp Gnarp from space"
+                    "Gnarp Gnarp from space",
                 ];
             });
     }

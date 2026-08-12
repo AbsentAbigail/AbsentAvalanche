@@ -25,7 +25,7 @@ public class LeafPip : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Absent.SStack(AfterAllyAttacksApplyCascadingAttack.Name)
+                    Absent.SStack(AfterAllyAttacksApplyCascadingAttack.Name),
                 ];
             });
     }

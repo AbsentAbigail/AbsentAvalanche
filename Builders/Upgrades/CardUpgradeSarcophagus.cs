@@ -30,7 +30,7 @@ public class CardUpgradeSarcophagus : IUpgradeBuilder
                     new Script<CardScriptSarcophagus>(
                         "Entomb",
                         script => script.vessel = Absent.GetCard(Cards.Items.Sarcophagus.Name)
-                    )
+                    ),
                 ];
                 charm.targetConstraints =
                 [
@@ -39,7 +39,7 @@ public class CardUpgradeSarcophagus : IUpgradeBuilder
                         modification: tc => tc.allowedTypes = [Absent.GetCardType("Leader")],
                         not: true
                     ),
-                    TargetConstraintHelper.General<TargetConstraintIsInDeck>("Is In Deck")
+                    TargetConstraintHelper.General<TargetConstraintIsInDeck>("Is In Deck"),
                 ];
                 charm.takeSlot = false;
             });

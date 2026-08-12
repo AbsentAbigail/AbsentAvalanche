@@ -26,7 +26,7 @@ public class WhenEnemyEntersBattleIncreaseItsCounter : IStatusBuilder
 
                 status.targetConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsUnit>()
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>(),
                 ];
             });
     }

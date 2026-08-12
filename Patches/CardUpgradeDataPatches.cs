@@ -10,7 +10,9 @@ public class CardUpgradeDataPatches
     private static void Prefix(CardUpgradeData __instance) //__instance is the instance calling the method
     {
         if (__instance.effectBonus == 0)
+        {
             return;
+        }
 
         __instance.effectsAffected ??= [];
         __instance.traitsAffected ??= [];

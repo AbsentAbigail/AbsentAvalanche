@@ -22,7 +22,7 @@ public class InstantGainApplyLeechSeed : IStatusBuilder
                 status.targetConstraints =
                 [
                     TargetConstraintHelper.General<TargetConstraintDoesAttack>(),
-                    TargetConstraintHelper.HealthMoreThan(0)
+                    TargetConstraintHelper.HealthMoreThan(0),
                 ];
             });
     }

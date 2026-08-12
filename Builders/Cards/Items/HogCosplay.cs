@@ -28,7 +28,7 @@ public class HogCosplay : ICardBuilder
                 card.traits =
                 [
                     Absent.TStack("Wild"),
-                    Absent.TStack("Noomlin")
+                    Absent.TStack("Noomlin"),
                 ];
             });
     }

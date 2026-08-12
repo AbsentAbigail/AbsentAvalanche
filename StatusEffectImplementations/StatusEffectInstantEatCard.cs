@@ -19,7 +19,7 @@ public class StatusInstantEatCard : StatusEffectInstantApplyEffect
         {
             Trigger trigger = new(applier, applier, "eat", [target])
             {
-                countsAsTrigger = false
+                countsAsTrigger = false,
             };
             Hit hit = new(applier, target, 0)
             {
@@ -27,7 +27,7 @@ public class StatusInstantEatCard : StatusEffectInstantApplyEffect
                 canRetaliate = false,
                 damageType = "eat",
                 trigger = trigger,
-                doAnimation = false
+                doAnimation = false,
             };
             trigger.hits = [hit];
             yield return trigger.Process();
@@ -41,12 +41,20 @@ public class StatusInstantEatCard : StatusEffectInstantApplyEffect
 
     private IEnumerator Eat()
     {
-        if (gainHealth) GainHealth();
+        if (gainHealth)
+        {
+            GainHealth();
+        }
 
-        if (gainAttack) GainAttack();
+        if (gainAttack)
+        {
+            GainAttack();
+        }
 
         if (!gainEffects)
+        {
             yield break;
+        }
 
         yield return GainEffects();
         applier.PromptUpdate();
@@ -75,15 +83,21 @@ public class StatusInstantEatCard : StatusEffectInstantApplyEffect
         foreach (var trait in target.traits.ToArray())
         {
             foreach (var passiveEffect in trait.passiveEffects)
+            {
                 list.Remove(passiveEffect);
+            }
 
             var num = trait.count - trait.tempCount;
             if (num > 0 && !illegalTraits.Select(t => t.name).Contains(trait.data.name))
+            {
                 applier.GainTrait(trait.data, num);
+            }
         }
 
         foreach (var item in list)
+        {
             yield return StatusEffectSystem.Apply(applier, target, item, item.count);
+        }
 
         yield return applier.UpdateTraits();
         applier.display.promptUpdateDescription = true;

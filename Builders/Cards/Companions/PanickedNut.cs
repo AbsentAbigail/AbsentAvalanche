@@ -29,11 +29,11 @@ public class PanickedNut : ICardBuilder
                 [
                     Absent.SStack(WhenDeployedGainShellForEachEnemy.Name, 3),
                     Absent.SStack(WhenDeployedGainSnowForEachEnemy.Name),
-                    Absent.SStack("Teeth")
+                    Absent.SStack("Teeth"),
                 ];
                 card.greetMessages =
                 [
-                    "Please don't make me fight..."
+                    "Please don't make me fight...",
                 ];
             });
     }

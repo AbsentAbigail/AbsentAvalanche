@@ -28,7 +28,7 @@ public class Chakram : ICardBuilder
                 ];
                 card.startWithEffects =
                 [
-                    Absent.SStack(OnKillGainFrenzy.Name)
+                    Absent.SStack(OnKillGainFrenzy.Name),
                 ];
             });
     }

@@ -25,7 +25,7 @@ public class Avarice : ICardBuilder
                 card.startWithEffects =
                 [
                     Absent.SStack(OnHitGainEqualBling.Name),
-                    Absent.SStack(HitsAllAlliesAndEnemies.Name)
+                    Absent.SStack(HitsAllAlliesAndEnemies.Name),
                 ];
             });
     }

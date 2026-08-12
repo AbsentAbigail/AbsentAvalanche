@@ -26,7 +26,7 @@ public class VengefulAxe : ICardBuilder
                 [
                     Absent.SStack(Equip.Name),
                     Absent.SStack("Demonize", 3),
-                    Absent.SStack(WhenEquipeeDiesGainHalfAttack.Name)
+                    Absent.SStack(WhenEquipeeDiesGainHalfAttack.Name),
                 ];
             });
     }
