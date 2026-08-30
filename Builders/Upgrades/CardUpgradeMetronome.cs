@@ -17,6 +17,7 @@ public class CardUpgradeMetronome : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeMetronome"))
             .WithTitle("Metronome Charm")
             .WithText($"Gain {Absent.KeywordTag(Metronome.Name)}")

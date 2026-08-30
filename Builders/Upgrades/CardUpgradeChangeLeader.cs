@@ -18,6 +18,7 @@ public class CardUpgradeChangeLeader : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeChangeLeader"))
             .WithTitle("Inheritance Charm")
             .WithText("Demote <Leader> into a Companion and promote the leftmost active Companion into a Leader")

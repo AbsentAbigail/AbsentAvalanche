@@ -18,6 +18,7 @@ public class CardUpgradeEquip : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeEquip"))
             .WithTitle("Boot Charm")
             .WithText($"Give an item {Absent.KeywordTag(Equip.Name)}")

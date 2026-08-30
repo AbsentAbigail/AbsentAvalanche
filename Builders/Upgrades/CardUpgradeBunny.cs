@@ -17,6 +17,7 @@ public class CardUpgradeBunny : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeBunny"))
             .WithTitle("Bunny Charm")
             .WithText("Swap <keyword=health> and <keyword=attack>")

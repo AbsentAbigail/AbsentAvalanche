@@ -18,6 +18,7 @@ public class CardUpgradeCat : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeCat"))
             .WithTitle("Kids Drawing")
             .WithText($"<-2><keyword=attack>\nTrigger: Gain <1>{Absent.KeywordTag(Cat.Name)}")

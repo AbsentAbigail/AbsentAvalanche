@@ -16,6 +16,7 @@ public class CardUpgradeEclipse : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeEclipse"))
             .WithTitle("Eclipse Charm")
             .WithText(

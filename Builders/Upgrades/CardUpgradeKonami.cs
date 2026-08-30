@@ -17,6 +17,7 @@ public class CardUpgradeKonami : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeKonami"))
             .WithTitle("Konami Code")
             .WithText(

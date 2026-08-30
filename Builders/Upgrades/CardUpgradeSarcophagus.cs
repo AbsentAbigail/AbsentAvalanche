@@ -18,6 +18,7 @@ public class CardUpgradeSarcophagus : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeSarcophagus"))
             .WithTitle("Sarcophagus Charm")
             .WithText(

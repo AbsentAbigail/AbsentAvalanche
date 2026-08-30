@@ -1,6 +1,6 @@
 ﻿namespace AbsentAvalanche.Builders.Upgrades;
 
-public class CharmPools
+public static class CharmPools
 {
     public const string GeneralCharms = "GeneralCharmPool";
     public const string SnowdwellerCharms = "BasicCharmPool";

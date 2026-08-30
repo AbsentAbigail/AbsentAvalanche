@@ -16,6 +16,7 @@ public class CardUpgradeMitosis : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeMitosis"))
             .WithTitle("Mitosis Charm")
             .WithText(

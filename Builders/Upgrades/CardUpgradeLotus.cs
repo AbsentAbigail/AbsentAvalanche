@@ -18,6 +18,7 @@ public class CardUpgradeLotus : IUpgradeBuilder
         return new CardUpgradeDataBuilder(Absent.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
+            .WithTier(1)
             .WithImage(Absent.GetSprite("CardUpgradeLotus"))
             .WithTitle("Lotus Charm")
             .WithText(
